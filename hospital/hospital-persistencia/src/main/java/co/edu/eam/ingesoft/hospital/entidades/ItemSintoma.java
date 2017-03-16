@@ -28,13 +28,14 @@ public class ItemSintoma implements Serializable {
 		super();
 	}
 
-	public ItemSintoma(Sintoma sintoma_codigo, Patologia patologia_codigo) {
-		super();
-		this.sintoma_codigo = sintoma_codigo;
-		this.patologia_codigo = patologia_codigo;
+	public ItemSintoma(itemSintomaPK itemSintomaPK){
+		this.itemSintomaPK = itemSintomaPK;
 	}
 	
-	
+	public ItemSintoma(String sintomaCodigo, String patologiaCodigo) {
+		super();
+		this.itemSintomaPK = new itemSintomaPK(sintomaCodigo, patologiaCodigo);
+	}
 
 	public Sintoma getSintoma_codigo() {
 		return sintoma_codigo;

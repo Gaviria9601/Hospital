@@ -29,18 +29,19 @@ public class OrdenMedicamento {
 	private Medicamento medicamentos_codigo;
 
 
-
 	public OrdenMedicamento(){
 		super();
 	}
 	
+	public OrdenMedicamento(OrdenMedicamentoPK ordenMedicamentoPK){
+		this.ordenMedicamentoPK = ordenMedicamentoPK;
+	}
 
-	public OrdenMedicamento(int cantidad, String formula, Cita cita_codigo, Medicamento medicamentos_codigo) {
+	public OrdenMedicamento(int cantidad, String formula,String citaCodigo, String medicamentoCodigo) {
 		super();
 		this.cantidad = cantidad;
 		this.formula = formula;
-		this.cita_codigo = cita_codigo;
-		this.medicamentos_codigo = medicamentos_codigo;
+		this.ordenMedicamentoPK = new OrdenMedicamentoPK(citaCodigo, medicamentoCodigo);
 	}
 	
 	

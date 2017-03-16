@@ -29,10 +29,13 @@ public class ItemTratamiento implements Serializable {
 		super();
 	}
 
-	public ItemTratamiento(Tratamiento tratamiento_codigo, Patologia patologia_codigo) {
+	public ItemTratamiento(itemTratamientoPK itemTratamientoPK){
+		this.itemTratamientoPK =  itemTratamientoPK;
+	}
+	
+	public ItemTratamiento(String tratamientoCodigo, String patologiaCodigo) {
 		super();
-		this.tratamiento_codigo = tratamiento_codigo;
-		this.patologia_codigo = patologia_codigo;
+		this.itemTratamientoPK = new itemTratamientoPK(patologiaCodigo, tratamientoCodigo);
 	}
 
 	

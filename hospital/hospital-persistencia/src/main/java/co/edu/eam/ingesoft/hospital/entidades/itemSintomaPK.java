@@ -15,7 +15,7 @@ public class itemSintomaPK implements Serializable{
 	private String PatologiaCodigo;
 
 	public itemSintomaPK() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	public itemSintomaPK(String sintomaCodigo, String patologiaCodigo) {

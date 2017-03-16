@@ -9,31 +9,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="DIAGNOSTICOCITA")
-public class DiagnosticoCita implements Serializable{
-	
+@Table(name = "DIAGNOSTICOCITA")
+public class DiagnosticoCita implements Serializable {
+
 	@EmbeddedId
 	protected DiagnosticoCitaPK diagnosticoCitaPK;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "cita_codigo", nullable=false)
+	@JoinColumn(name = "cita_codigo", nullable = false)
 	private Cita cita_codigo;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "patologia_codigo", nullable=false)
+	@JoinColumn(name = "patologia_codigo", nullable = false)
 	private Patologia patologia_codigo;
 
-
-	public DiagnosticoCita(){
-	super();
-	}
-	
-	public DiagnosticoCita(Cita cita_codigo, Patologia patologia_codigo) {
+	public DiagnosticoCita() {
 		super();
-		this.cita_codigo = cita_codigo;
-		this.patologia_codigo = patologia_codigo;
 	}
-	
+
+	public DiagnosticoCita(DiagnosticoCitaPK diagnosticoCitaPK) {
+		this.diagnosticoCitaPK = diagnosticoCitaPK;
+	}
+
+	public DiagnosticoCita(String citaCodigo, String patologiaCodigo) {
+		this.diagnosticoCitaPK = new DiagnosticoCitaPK(citaCodigo, patologiaCodigo);
+	}
+
 	public DiagnosticoCitaPK getDiagnosticoCitaPK() {
 		return diagnosticoCitaPK;
 	}
@@ -46,7 +47,6 @@ public class DiagnosticoCita implements Serializable{
 		return cita_codigo;
 	}
 
-	
 	public void setCita_codigo(Cita cita_codigo) {
 		this.cita_codigo = cita_codigo;
 	}
@@ -59,7 +59,7 @@ public class DiagnosticoCita implements Serializable{
 		this.patologia_codigo = patologia_codigo;
 	}
 
-		@Override
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -89,7 +89,5 @@ public class DiagnosticoCita implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
 
 }
