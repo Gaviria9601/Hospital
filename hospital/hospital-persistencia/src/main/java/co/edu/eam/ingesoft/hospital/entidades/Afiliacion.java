@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "AFILIACIÓN")
 public class Afiliacion implements Serializable {
-
+//holi
 	@Id
 	@Column(name = "codigo", length = 20)
 	private String codigo;
