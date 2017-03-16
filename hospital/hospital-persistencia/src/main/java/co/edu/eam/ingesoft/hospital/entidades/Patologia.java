@@ -21,7 +21,7 @@ public class Patologia implements Serializable{
     @Column(name = "codigo",length =20 )
 	private String codigo;
 	
-	@Column(name = "nombre", length =50)
+	@Column(name = "nombre", length =50, nullable=false)
 	private String nombre;
 	
     @Column(name = "descripcion")

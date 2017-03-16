@@ -21,7 +21,7 @@ public class Afiliacion implements Serializable {
 	@Column(name = "telefono", length = 30,nullable = false)
 	private String telefono;
 
-	@Column(name = "ServiciosIncluidos", length = 200,nullable=false)
+	@Column(name = "ServiciosIncluidos", length = 2000, nullable=false)
 	private String serviciosIncluidos;
 	
 	public Afiliacion() {
