@@ -22,24 +22,21 @@ public class Quirofano extends Instalacion implements Serializable {
 	private String caracteristicas;
 	
 	@Column(name="numero_aparatos", nullable=false)
-	private int numero_aparatos;
+	private int numeroAparatos;
 	
 	@Column(name="cantidad_medico", nullable=false)
-	private int cantidad_medico;
+	private int cantidadMedico;
 	
 	public Quirofano(){
-		super();
+		
 	}
-	
 
-	public Quirofano(String caracteristicas, int numero_aparatos, int cantidad_medico) {
+	public Quirofano(String caracteristicas, int numeroAparatos, int cantidadMedico) {
 		super();
 		this.caracteristicas = caracteristicas;
-		this.numero_aparatos = numero_aparatos;
-		this.cantidad_medico = cantidad_medico;
+		this.numeroAparatos = numeroAparatos;
+		this.cantidadMedico = cantidadMedico;
 	}
-
-
 
 	/**
 	 * @return the caracteristicas
@@ -56,35 +53,35 @@ public class Quirofano extends Instalacion implements Serializable {
 	}
 
 	/**
-	 * @return the numero_aparatos
+	 * @return the numeroAparatos
 	 */
-	public int getNumero_aparatos() {
-		return numero_aparatos;
+	public int getNumeroAparatos() {
+		return numeroAparatos;
 	}
 
 	/**
-	 * @param numero_aparatos the numero_aparatos to set
+	 * @param numeroAparatos the numeroAparatos to set
 	 */
-	public void setNumero_aparatos(int numero_aparatos) {
-		this.numero_aparatos = numero_aparatos;
+	public void setNumeroAparatos(int numeroAparatos) {
+		this.numeroAparatos = numeroAparatos;
 	}
 
 	/**
-	 * @return the cantidad_medico
+	 * @return the cantidadMedico
 	 */
-	public int getCantidad_medico() {
-		return cantidad_medico;
+	public int getCantidadMedico() {
+		return cantidadMedico;
 	}
 
 	/**
-	 * @param cantidad_medico the cantidad_medico to set
+	 * @param cantidadMedico the cantidadMedico to set
 	 */
-	public void setCantidad_medico(int cantidad_medico) {
-		this.cantidad_medico = cantidad_medico;
+	public void setCantidadMedico(int cantidadMedico) {
+		this.cantidadMedico = cantidadMedico;
 	}
 
 	
 	
 	
-
+	
 }

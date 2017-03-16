@@ -35,22 +35,20 @@ public class Cama implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="instalaciones_codigo")
-	private Instalacion instalaciones_codigo;
+	private Instalacion instalacionesCodigo;
 	
 	public Cama(){
-		super();
+		
 	}
 
-	public Cama(String codigo, int numero, boolean estado, String descripcion, Instalacion instalaciones_codigo) {
+	public Cama(String codigo, int numero, boolean estado, String descripcion, Instalacion instalacionesCodigo) {
 		super();
 		this.codigo = codigo;
 		this.numero = numero;
 		this.estado = estado;
 		this.descripcion = descripcion;
-		this.instalaciones_codigo = instalaciones_codigo;
+		this.instalacionesCodigo = instalacionesCodigo;
 	}
-
-
 
 	/**
 	 * @return the codigo
@@ -109,19 +107,22 @@ public class Cama implements Serializable{
 	}
 
 	/**
-	 * @return the instalaciones_codigo
+	 * @return the instalacionesCodigo
 	 */
-	public Instalacion getInstalaciones_codigo() {
-		return instalaciones_codigo;
+	public Instalacion getInstalacionesCodigo() {
+		return instalacionesCodigo;
 	}
 
 	/**
-	 * @param instalaciones_codigo the instalaciones_codigo to set
+	 * @param instalacionesCodigo the instalacionesCodigo to set
 	 */
-	public void setInstalaciones_codigo(Instalacion instalaciones_codigo) {
-		this.instalaciones_codigo = instalaciones_codigo;
+	public void setInstalacionesCodigo(Instalacion instalacionesCodigo) {
+		this.instalacionesCodigo = instalacionesCodigo;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -130,6 +131,9 @@ public class Cama implements Serializable{
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

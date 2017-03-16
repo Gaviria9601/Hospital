@@ -23,45 +23,47 @@ public class Horario implements Serializable{
 
 	@Id
 	@Column(name="codigo_turno", nullable=false, length=10)
-	private String codigo_turno;
+	private String codigoTurno;
 	
 	@Column(name="jornada", nullable=false, length=30)
 	private String jornada;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="hora_inicio", nullable=false)
-	private Date hora_inicio;
+	private Date horaInicio;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="hora_final", nullable=false)
-	private Date hora_final;
+	private Date horaFinal;
 	
 	public Horario(){
-		super();
+		
 	}
+	
+	
 
-	public Horario(String codigo_turno, String jornada, Date hora_inicio, Date hora_final) {
+	public Horario(String codigoTurno, String jornada, Date horaInicio, Date horaFinal) {
 		super();
-		this.codigo_turno = codigo_turno;
+		this.codigoTurno = codigoTurno;
 		this.jornada = jornada;
-		this.hora_inicio = hora_inicio;
-		this.hora_final = hora_final;
+		this.horaInicio = horaInicio;
+		this.horaFinal = horaFinal;
 	}
 
 
 
 	/**
-	 * @return the codigo_turno
+	 * @return the codigoTurno
 	 */
-	public String getCodigo_turno() {
-		return codigo_turno;
+	public String getCodigoTurno() {
+		return codigoTurno;
 	}
 
 	/**
-	 * @param codigo_turno the codigo_turno to set
+	 * @param codigoTurno the codigoTurno to set
 	 */
-	public void setCodigo_turno(String codigo_turno) {
-		this.codigo_turno = codigo_turno;
+	public void setCodigoTurno(String codigoTurno) {
+		this.codigoTurno = codigoTurno;
 	}
 
 	/**
@@ -79,41 +81,47 @@ public class Horario implements Serializable{
 	}
 
 	/**
-	 * @return the hora_inicio
+	 * @return the horaInicio
 	 */
-	public Date getHora_inicio() {
-		return hora_inicio;
+	public Date getHoraInicio() {
+		return horaInicio;
 	}
 
 	/**
-	 * @param hora_inicio the hora_inicio to set
+	 * @param horaInicio the horaInicio to set
 	 */
-	public void setHora_inicio(Date hora_inicio) {
-		this.hora_inicio = hora_inicio;
+	public void setHoraInicio(Date horaInicio) {
+		this.horaInicio = horaInicio;
 	}
 
 	/**
-	 * @return the hora_final
+	 * @return the horaFinal
 	 */
-	public Date getHora_final() {
-		return hora_final;
+	public Date getHoraFinal() {
+		return horaFinal;
 	}
 
 	/**
-	 * @param hora_final the hora_final to set
+	 * @param horaFinal the horaFinal to set
 	 */
-	public void setHora_final(Date hora_final) {
-		this.hora_final = hora_final;
+	public void setHoraFinal(Date horaFinal) {
+		this.horaFinal = horaFinal;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigo_turno == null) ? 0 : codigo_turno.hashCode());
+		result = prime * result + ((codigoTurno == null) ? 0 : codigoTurno.hashCode());
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -123,13 +131,16 @@ public class Horario implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Horario other = (Horario) obj;
-		if (codigo_turno == null) {
-			if (other.codigo_turno != null)
+		if (codigoTurno == null) {
+			if (other.codigoTurno != null)
 				return false;
-		} else if (!codigo_turno.equals(other.codigo_turno))
+		} else if (!codigoTurno.equals(other.codigoTurno))
 			return false;
 		return true;
 	}
 
+	
+
+	
 	
 }

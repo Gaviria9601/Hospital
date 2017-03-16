@@ -15,30 +15,58 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="TipoCirugia")
-public class TipoCirugia implements Serializable{
-
+@Table(name="Especializacion")
+public class Especializacion implements Serializable {
 
 	@Id
-	@Column(name="codigo", nullable=false, length=20)
+	@Column(name="codigo",  length=10)
 	private String codigo;
 	
-	@Column(name="nombre", nullable=false, length=50)
+	@Column(name="nombre",nullable=false, length=40)
 	private String nombre;
 	
-	public TipoCirugia(){
+	public Especializacion(){
 		
 	}
-	
-	
 
-	public TipoCirugia(String codigo, String nombre) {
+	public Especializacion(String codigo, String nombre) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+	
+	
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Especializacion other = (Especializacion) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
+	}
 
 	/**
 	 * @return the codigo
@@ -67,41 +95,7 @@ public class TipoCirugia implements Serializable{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		TipoCirugia other = (TipoCirugia) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
-				return false;
-		} else if (!codigo.equals(other.codigo))
-			return false;
-		return true;
-	}
-
-	
-
-	
 	
 	
 }
+
