@@ -38,8 +38,19 @@ public class Cama implements Serializable{
 	private Instalacion instalaciones_codigo;
 	
 	public Cama(){
-		
+		super();
 	}
+
+	public Cama(String codigo, int numero, boolean estado, String descripcion, Instalacion instalaciones_codigo) {
+		super();
+		this.codigo = codigo;
+		this.numero = numero;
+		this.estado = estado;
+		this.descripcion = descripcion;
+		this.instalaciones_codigo = instalaciones_codigo;
+	}
+
+
 
 	/**
 	 * @return the codigo
@@ -111,24 +122,14 @@ public class Cama implements Serializable{
 		this.instalaciones_codigo = instalaciones_codigo;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
-		result = prime * result + (estado ? 1231 : 1237);
-		result = prime * result + ((instalaciones_codigo == null) ? 0 : instalaciones_codigo.hashCode());
-		result = prime * result + numero;
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -143,22 +144,9 @@ public class Cama implements Serializable{
 				return false;
 		} else if (!codigo.equals(other.codigo))
 			return false;
-		if (descripcion == null) {
-			if (other.descripcion != null)
-				return false;
-		} else if (!descripcion.equals(other.descripcion))
-			return false;
-		if (estado != other.estado)
-			return false;
-		if (instalaciones_codigo == null) {
-			if (other.instalaciones_codigo != null)
-				return false;
-		} else if (!instalaciones_codigo.equals(other.instalaciones_codigo))
-			return false;
-		if (numero != other.numero)
-			return false;
 		return true;
 	}
+
 	
 	
 }

@@ -31,7 +31,20 @@ public class Farmaceutico  extends Usuario implements Serializable {
 	@JoinColumn(name = "farmacia_codigo", nullable=false)
 	private Farmacia farmacia_codigo;
 
+
+	public Farmaceutico(){
+		super();
+	}
 	
+	public Farmaceutico(String cedula, String nickname, String clave, String nombre, String apellido, int edad,
+			String correo, String tipoUsuario,  String tarjeta_profesional, Date fecha_ingreso,
+			Farmacia farmacia_codigo) {
+		super(cedula, nickname, clave, nombre, apellido, edad, correo, tipoUsuario);
+		
+		this.tarjeta_profesional = tarjeta_profesional;
+		this.fecha_ingreso = fecha_ingreso;
+		this.farmacia_codigo = farmacia_codigo;
+	}
 
 	public String getTarjeta_profesional() {
 		return tarjeta_profesional;
@@ -57,20 +70,7 @@ public class Farmaceutico  extends Usuario implements Serializable {
 		this.farmacia_codigo = farmacia_codigo;
 	}
 
-	public Farmaceutico(String cedula, String nickname, String clave, String nombre, String apellido, int edad,
-			String correo, String tipoUsuario,  String tarjeta_profesional, Date fecha_ingreso,
-			Farmacia farmacia_codigo) {
-		super(cedula, nickname, clave, nombre, apellido, edad, correo, tipoUsuario);
-		
-		this.tarjeta_profesional = tarjeta_profesional;
-		this.fecha_ingreso = fecha_ingreso;
-		this.farmacia_codigo = farmacia_codigo;
-	}
 	
-	public Farmaceutico(){
-		super();
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

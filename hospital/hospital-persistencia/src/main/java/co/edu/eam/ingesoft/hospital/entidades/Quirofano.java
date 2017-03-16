@@ -28,8 +28,18 @@ public class Quirofano extends Instalacion implements Serializable {
 	private int cantidad_medico;
 	
 	public Quirofano(){
-		
+		super();
 	}
+	
+
+	public Quirofano(String caracteristicas, int numero_aparatos, int cantidad_medico) {
+		super();
+		this.caracteristicas = caracteristicas;
+		this.numero_aparatos = numero_aparatos;
+		this.cantidad_medico = cantidad_medico;
+	}
+
+
 
 	/**
 	 * @return the caracteristicas
@@ -73,42 +83,7 @@ public class Quirofano extends Instalacion implements Serializable {
 		this.cantidad_medico = cantidad_medico;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + cantidad_medico;
-		result = prime * result + ((caracteristicas == null) ? 0 : caracteristicas.hashCode());
-		result = prime * result + numero_aparatos;
-		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Quirofano other = (Quirofano) obj;
-		if (cantidad_medico != other.cantidad_medico)
-			return false;
-		if (caracteristicas == null) {
-			if (other.caracteristicas != null)
-				return false;
-		} else if (!caracteristicas.equals(other.caracteristicas))
-			return false;
-		if (numero_aparatos != other.numero_aparatos)
-			return false;
-		return true;
-	}
+	
 	
 	
 

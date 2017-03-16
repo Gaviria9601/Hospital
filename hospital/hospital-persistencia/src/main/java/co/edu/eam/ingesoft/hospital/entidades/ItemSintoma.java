@@ -24,6 +24,9 @@ public class ItemSintoma implements Serializable {
 	@JoinColumn(name = "patologia_codigo", nullable=false)
 	private Patologia patologia_codigo;
 	
+	public ItemSintoma(){
+		super();
+	}
 
 	public ItemSintoma(Sintoma sintoma_codigo, Patologia patologia_codigo) {
 		super();
@@ -31,9 +34,7 @@ public class ItemSintoma implements Serializable {
 		this.patologia_codigo = patologia_codigo;
 	}
 	
-	public ItemSintoma(){
-		super();
-	}
+	
 
 	public Sintoma getSintoma_codigo() {
 		return sintoma_codigo;

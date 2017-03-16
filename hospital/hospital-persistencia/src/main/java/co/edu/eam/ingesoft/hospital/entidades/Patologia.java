@@ -27,6 +27,19 @@ public class Patologia implements Serializable{
     @Column(name = "descripcion")
 	private String descripcion;
 
+
+    public Patologia(){
+    	super();
+    }
+    
+    public Patologia(String codigo, String nombre, String descripcion) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+	}
+    
+    
 	public String getCodigo() {
 		return codigo;
 	}
@@ -51,16 +64,7 @@ public class Patologia implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public Patologia(String codigo, String nombre, String descripcion) {
-		super();
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-	}
-    
-    public Patologia(){
-    	super();
-    }
+	
 
 	@Override
 	public int hashCode() {

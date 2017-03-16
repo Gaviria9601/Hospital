@@ -8,6 +8,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class DiagnosticoCitaPK implements Serializable {
 	
+	
 	@Column(name = "Cita_Codigo")
 	private String citaCodigo;
 

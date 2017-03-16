@@ -44,6 +44,25 @@ public class Medicamento implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "farmacia_codigo")
 	private Farmacia farmacia_codigo;
+	
+	public Medicamento(){
+		super();
+	}
+	
+	public Medicamento(String codigo, String nombre, Date fecha_expedición, Date fecha_expiración, String laboratorio,
+			int cantidad, boolean estado, Farmacia farmacia_codigo) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.fecha_expedición = fecha_expedición;
+		this.fecha_expiración = fecha_expiración;
+		this.laboratorio = laboratorio;
+		this.cantidad = cantidad;
+		this.estado = estado;
+		this.farmacia_codigo = farmacia_codigo;
+	}
+	
+	
 
 	public String getCodigo() {
 		return codigo;
@@ -109,28 +128,11 @@ public class Medicamento implements Serializable{
 		this.farmacia_codigo = farmacia_codigo;
 	}
 
-	public Medicamento(String codigo, String nombre, Date fecha_expedición, Date fecha_expiración, String laboratorio,
-			int cantidad, boolean estado, Farmacia farmacia_codigo) {
-		super();
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.fecha_expedición = fecha_expedición;
-		this.fecha_expiración = fecha_expiración;
-		this.laboratorio = laboratorio;
-		this.cantidad = cantidad;
-		this.estado = estado;
-		this.farmacia_codigo = farmacia_codigo;
-	}
-	
-	public Medicamento(){
-		super();
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + cantidad;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 
@@ -143,10 +145,15 @@ public class Medicamento implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Medicamento other = (Medicamento) obj;
-		if (cantidad != other.cantidad)
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}
+
+
 	
 	
 

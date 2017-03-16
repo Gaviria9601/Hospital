@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @Table(name="USUARIO")
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Usuario implements Serializable {
+	
 	@Id
 	@Column(name="cedula",length=20)
 	protected String cedula;
@@ -40,6 +41,25 @@ public class Usuario implements Serializable {
 	
 	@Column(name = "tipoUsuario", length =30)
 	protected String tipoUsuario;
+	
+
+	public Usuario(){
+		super();
+	}
+	
+	public Usuario(String cedula, String nickname, String clave, String nombre, String apellido, int edad,
+			String correo, String tipoUsuario) {
+		super();
+		this.cedula = cedula;
+		this.nickname = nickname;
+		this.clave = clave;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.edad = edad;
+		this.correo = correo;
+		this.tipoUsuario = tipoUsuario;
+	}
+	
 
 	public String getCedula() {
 		return cedula;
@@ -103,23 +123,6 @@ public class Usuario implements Serializable {
 
 	public void setTipoUsuario(String tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
-	}
-
-	public Usuario(String cedula, String nickname, String clave, String nombre, String apellido, int edad,
-			String correo, String tipoUsuario) {
-		super();
-		this.cedula = cedula;
-		this.nickname = nickname;
-		this.clave = clave;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.edad = edad;
-		this.correo = correo;
-		this.tipoUsuario = tipoUsuario;
-	}
-	
-	public Usuario(){
-		super();
 	}
 
 	@Override

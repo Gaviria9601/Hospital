@@ -37,6 +37,18 @@ public class Instalacion implements Serializable{
 	public Instalacion(){
 		
 	}
+	
+	
+
+	public Instalacion(String codigo, boolean disponibilidad, String tipo, String observacionDisponible) {
+		super();
+		this.codigo = codigo;
+		this.disponibilidad = disponibilidad;
+		this.tipo = tipo;
+		this.observacionDisponible = observacionDisponible;
+	}
+
+
 
 	/**
 	 * @return the codigo
@@ -94,23 +106,18 @@ public class Instalacion implements Serializable{
 		this.observacionDisponible = observacionDisponible;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		result = prime * result + (disponibilidad ? 1231 : 1237);
-		result = prime * result + ((observacionDisponible == null) ? 0 : observacionDisponible.hashCode());
-		result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -125,20 +132,9 @@ public class Instalacion implements Serializable{
 				return false;
 		} else if (!codigo.equals(other.codigo))
 			return false;
-		if (disponibilidad != other.disponibilidad)
-			return false;
-		if (observacionDisponible == null) {
-			if (other.observacionDisponible != null)
-				return false;
-		} else if (!observacionDisponible.equals(other.observacionDisponible))
-			return false;
-		if (tipo == null) {
-			if (other.tipo != null)
-				return false;
-		} else if (!tipo.equals(other.tipo))
-			return false;
 		return true;
 	}
 
+	
 	
 }

@@ -29,6 +29,12 @@ public class OrdenMedicamento {
 	private Medicamento medicamentos_codigo;
 
 
+
+	public OrdenMedicamento(){
+		super();
+	}
+	
+
 	public OrdenMedicamento(int cantidad, String formula, Cita cita_codigo, Medicamento medicamentos_codigo) {
 		super();
 		this.cantidad = cantidad;
@@ -49,11 +55,6 @@ public class OrdenMedicamento {
 	}
 
 
-
-	public OrdenMedicamento(){
-		super();
-	}
-	
 	public int getCantidad() {
 		return cantidad;
 	}
@@ -91,9 +92,11 @@ public class OrdenMedicamento {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + cantidad;
+		result = prime * result + ((cita_codigo == null) ? 0 : cita_codigo.hashCode());
+		result = prime * result + ((medicamentos_codigo == null) ? 0 : medicamentos_codigo.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -104,10 +107,20 @@ public class OrdenMedicamento {
 		if (getClass() != obj.getClass())
 			return false;
 		OrdenMedicamento other = (OrdenMedicamento) obj;
-		if (cantidad != other.cantidad)
+		if (cita_codigo == null) {
+			if (other.cita_codigo != null)
+				return false;
+		} else if (!cita_codigo.equals(other.cita_codigo))
+			return false;
+		if (medicamentos_codigo == null) {
+			if (other.medicamentos_codigo != null)
+				return false;
+		} else if (!medicamentos_codigo.equals(other.medicamentos_codigo))
 			return false;
 		return true;
-	} 
+	}
+
+
 	
 
 }

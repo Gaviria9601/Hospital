@@ -22,6 +22,20 @@ public class Tratamiento {
     @Column(name = "problema", length =500)
 	private String problema;
 
+
+    public Tratamiento(){
+    	super();
+    }
+    
+    public Tratamiento(String codigo, String tipo, String farmacos_aplicar, String problema) {
+		super();
+		this.codigo = codigo;
+		this.tipo = tipo;
+		this.farmacos_aplicar = farmacos_aplicar;
+		this.problema = problema;
+	}
+    
+    
 	public String getCodigo() {
 		return codigo;
 	}
@@ -54,17 +68,7 @@ public class Tratamiento {
 		this.problema = problema;
 	}
 
-	public Tratamiento(String codigo, String tipo, String farmacos_aplicar, String problema) {
-		super();
-		this.codigo = codigo;
-		this.tipo = tipo;
-		this.farmacos_aplicar = farmacos_aplicar;
-		this.problema = problema;
-	}
-    
-    public Tratamiento(){
-    	super();
-    }
+	
 
 	@Override
 	public int hashCode() {

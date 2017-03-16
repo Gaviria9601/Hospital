@@ -23,17 +23,17 @@ public class DiagnosticoCita implements Serializable{
 	@JoinColumn(name = "patologia_codigo", nullable=false)
 	private Patologia patologia_codigo;
 
+
+	public DiagnosticoCita(){
+	super();
+	}
+	
 	public DiagnosticoCita(Cita cita_codigo, Patologia patologia_codigo) {
 		super();
 		this.cita_codigo = cita_codigo;
 		this.patologia_codigo = patologia_codigo;
 	}
 	
-	public DiagnosticoCita(){
-	super();
-	}
-
-
 	public DiagnosticoCitaPK getDiagnosticoCitaPK() {
 		return diagnosticoCitaPK;
 	}

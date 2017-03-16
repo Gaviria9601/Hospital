@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="FARMACIA")
 public class Farmacia implements Serializable{
+	
 	@Id
 	@Column(name="codigo",length=10)
 	private String codigo;
@@ -22,6 +23,20 @@ public class Farmacia implements Serializable{
 	
 	@Column(name = "direccion", length = 40)
 	private String direccion;
+	
+
+	public Farmacia(){
+		super();
+	}
+	
+	public Farmacia(String codigo, String nombre, String telefono, String direccion) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.telefono = telefono;
+		this.direccion = direccion;
+	}
+	
 
 	public String getCodigo() {
 		return codigo;
@@ -55,17 +70,7 @@ public class Farmacia implements Serializable{
 		this.direccion = direccion;
 	}
 
-	public Farmacia(String codigo, String nombre, String telefono, String direccion) {
-		super();
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.telefono = telefono;
-		this.direccion = direccion;
-	}
 	
-	public Farmacia(){
-		super();
-	}
 
 	@Override
 	public int hashCode() {

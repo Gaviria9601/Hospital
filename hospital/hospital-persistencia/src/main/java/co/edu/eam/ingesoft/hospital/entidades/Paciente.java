@@ -24,6 +24,19 @@ public class Paciente extends Usuario implements Serializable {
 	@JoinColumn(name = "afiliacion_codigo", nullable=false)
 	private Afiliacion afiliacion_codigo;
 
+	
+	public Paciente(){
+		super();
+	}
+
+	
+	public Paciente(int estrato, Afiliacion afiliacion_codigo) {
+		super();
+		
+		this.estrato = estrato;
+		this.afiliacion_codigo = afiliacion_codigo;
+	}
+
 
 	public int getEstrato() {
 		return estrato;
@@ -45,42 +58,5 @@ public class Paciente extends Usuario implements Serializable {
 	}
 
 
-	public Paciente(int estrato, Afiliacion afiliacion_codigo) {
-		super();
-		
-		this.estrato = estrato;
-		this.afiliacion_codigo = afiliacion_codigo;
-	}
-	
-	public Paciente(){
-		super();
-	}
-
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((afiliacion_codigo == null) ? 0 : afiliacion_codigo.hashCode());
-		return result;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Paciente other = (Paciente) obj;
-		if (afiliacion_codigo == null) {
-			if (other.afiliacion_codigo != null)
-				return false;
-		} else if (!afiliacion_codigo.equals(other.afiliacion_codigo))
-			return false;
-		return true;
-	}
 	
 }

@@ -37,8 +37,18 @@ public class Horario implements Serializable{
 	private Date hora_final;
 	
 	public Horario(){
-		
+		super();
 	}
+
+	public Horario(String codigo_turno, String jornada, Date hora_inicio, Date hora_final) {
+		super();
+		this.codigo_turno = codigo_turno;
+		this.jornada = jornada;
+		this.hora_inicio = hora_inicio;
+		this.hora_final = hora_final;
+	}
+
+
 
 	/**
 	 * @return the codigo_turno
@@ -96,23 +106,14 @@ public class Horario implements Serializable{
 		this.hora_final = hora_final;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((codigo_turno == null) ? 0 : codigo_turno.hashCode());
-		result = prime * result + ((hora_final == null) ? 0 : hora_final.hashCode());
-		result = prime * result + ((hora_inicio == null) ? 0 : hora_inicio.hashCode());
-		result = prime * result + ((jornada == null) ? 0 : jornada.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -127,23 +128,8 @@ public class Horario implements Serializable{
 				return false;
 		} else if (!codigo_turno.equals(other.codigo_turno))
 			return false;
-		if (hora_final == null) {
-			if (other.hora_final != null)
-				return false;
-		} else if (!hora_final.equals(other.hora_final))
-			return false;
-		if (hora_inicio == null) {
-			if (other.hora_inicio != null)
-				return false;
-		} else if (!hora_inicio.equals(other.hora_inicio))
-			return false;
-		if (jornada == null) {
-			if (other.jornada != null)
-				return false;
-		} else if (!jornada.equals(other.jornada))
-			return false;
 		return true;
 	}
-	
+
 	
 }

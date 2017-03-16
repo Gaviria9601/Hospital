@@ -35,6 +35,16 @@ public class ResultadoExamen implements Serializable{
 	public ResultadoExamen(){
 		
 	}
+	
+
+	public ResultadoExamen(String id, String descripcion, Date fecha) {
+		super();
+		this.id = id;
+		this.descripcion = descripcion;
+		this.fecha = fecha;
+	}
+
+
 
 	/**
 	 * @return the id
@@ -78,22 +88,16 @@ public class ResultadoExamen implements Serializable{
 		this.fecha = fecha;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
-		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -103,16 +107,6 @@ public class ResultadoExamen implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		ResultadoExamen other = (ResultadoExamen) obj;
-		if (descripcion == null) {
-			if (other.descripcion != null)
-				return false;
-		} else if (!descripcion.equals(other.descripcion))
-			return false;
-		if (fecha == null) {
-			if (other.fecha != null)
-				return false;
-		} else if (!fecha.equals(other.fecha))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -120,7 +114,7 @@ public class ResultadoExamen implements Serializable{
 			return false;
 		return true;
 	}
-	
+
 	
 	
 }

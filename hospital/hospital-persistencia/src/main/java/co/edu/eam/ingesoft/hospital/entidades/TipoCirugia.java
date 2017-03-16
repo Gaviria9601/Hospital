@@ -27,8 +27,16 @@ public class TipoCirugia implements Serializable{
 	private String nombre;
 	
 	public TipoCirugia(){
-		
+		super();
 	}
+
+	public TipoCirugia(String codigo, String nombre) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+	}
+
+
 
 	/**
 	 * @return the codigo

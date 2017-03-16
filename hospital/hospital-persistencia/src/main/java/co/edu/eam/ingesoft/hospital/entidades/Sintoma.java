@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="SINTOMA")
 public class Sintoma implements Serializable{
+	
 	@Id
     @Column(name = "codigo",length =20 )
 	private String codigo;
@@ -19,6 +20,19 @@ public class Sintoma implements Serializable{
 	
     @Column(name = "descripcion", length =2000)
 	private String descripcion;
+    
+
+	public Sintoma(){
+		super();
+	}
+    
+    public Sintoma(String codigo, String causa, String descripcion) {
+		super();
+		this.codigo = codigo;
+		this.causa = causa;
+		this.descripcion = descripcion;
+	}
+	
 
 	public String getCodigo() {
 		return codigo;
@@ -44,16 +58,7 @@ public class Sintoma implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public Sintoma(String codigo, String causa, String descripcion) {
-		super();
-		this.codigo = codigo;
-		this.causa = causa;
-		this.descripcion = descripcion;
-	}
 	
-	public Sintoma(){
-		super();
-	}
 
 	@Override
 	public int hashCode() {

@@ -26,6 +26,21 @@ public class PostOrdenMedicamento {
 	@OneToOne
 	@JoinColumn(name = "orden_medicamento_codigo",unique=true, nullable=false)
 	private OrdenMedicamento orden_medicamento_codigo;
+	
+
+	public PostOrdenMedicamento(String codigoEntrega, int cantidad, OrdenMedicamento orden_cita_codigo,
+			OrdenMedicamento orden_medicamento_codigo) {
+		super();
+		this.codigoEntrega = codigoEntrega;
+		this.cantidad = cantidad;
+		this.orden_cita_codigo = orden_cita_codigo;
+		this.orden_medicamento_codigo = orden_medicamento_codigo;
+	}
+	
+	public PostOrdenMedicamento(){
+		super();
+	}
+
 
 	public String getCodigoEntrega() {
 		return codigoEntrega;
@@ -82,19 +97,6 @@ public class PostOrdenMedicamento {
 		} else if (!codigoEntrega.equals(other.codigoEntrega))
 			return false;
 		return true;
-	}
-
-	public PostOrdenMedicamento(String codigoEntrega, int cantidad, OrdenMedicamento orden_cita_codigo,
-			OrdenMedicamento orden_medicamento_codigo) {
-		super();
-		this.codigoEntrega = codigoEntrega;
-		this.cantidad = cantidad;
-		this.orden_cita_codigo = orden_cita_codigo;
-		this.orden_medicamento_codigo = orden_medicamento_codigo;
-	}
-	
-	public PostOrdenMedicamento(){
-		super();
 	}
 
 }

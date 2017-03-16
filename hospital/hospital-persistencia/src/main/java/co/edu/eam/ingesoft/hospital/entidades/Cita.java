@@ -15,6 +15,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "CITA")
 public class Cita implements Serializable {
+	
     @Id
 	@Column(name = "codigo", length = 20)
 	private String codigo;
@@ -44,7 +45,7 @@ public class Cita implements Serializable {
 	private Cita citaCodigo;
 
     public Cita(){
-    	
+    	super();
     }
 
 	public Cita(String codigo, Date fecha, Date horaInicio, String observacion, Date horaFinal,
