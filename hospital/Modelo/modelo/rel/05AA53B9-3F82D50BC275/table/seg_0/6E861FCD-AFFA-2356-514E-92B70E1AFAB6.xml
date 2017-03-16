@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6E861FCD-AFFA-2356-514E-92B70E1AFAB6" name="Orden_medicamento">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:30:25 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_47</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Cantidad" id="6292F19F-0C5B-B887-2B0D-EB55E44B1D8A">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:31:11 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Formula" id="56388860-EEFD-1825-6EF2-E5374E6CD22F">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:31:11 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cita_Codigo" id="34B0045F-7DB9-5B33-55E2-8F5A45696E24">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:31:15 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="75046FE8-EC5A-6609-B6E8-22B715C233E0" referredColumn="406E6113-A91F-1089-6429-4BFCA0C80E94"/>
+</associations>
+</Column>
+<Column name="Medicamentos_Codigo" id="166A95C6-EF01-CAE9-8004-A329EA6D6F10">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:31:21 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F8C97FC6-5045-D75C-A122-3A53B778C510" referredColumn="E9B08E9C-2F61-E347-956A-61594713B980"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E16873DA-C10E-BA2A-A660-180A0B5F0E82" name="Item_medicamento_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 19:13:42 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34B0045F-7DB9-5B33-55E2-8F5A45696E24"/>
+<colUsage columnID="166A95C6-EF01-CAE9-8004-A329EA6D6F10"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C4195160-E681-7233-E32A-F70D86F22716" name="Item_medicamento_Cita_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:31:15 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34B0045F-7DB9-5B33-55E2-8F5A45696E24"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5C98314E-07B9-F44A-335A-2DCDB5A602E1" name="Item_medicamento_Medicamentos_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:31:21 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="166A95C6-EF01-CAE9-8004-A329EA6D6F10"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

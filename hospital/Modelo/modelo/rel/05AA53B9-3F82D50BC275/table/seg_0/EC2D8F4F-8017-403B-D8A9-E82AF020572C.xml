@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EC2D8F4F-8017-403B-D8A9-E82AF020572C" name="Cama">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:24:26 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_46</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo" id="F640E09B-C43C-927F-455B-343DC4DE09FD">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:25:56 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero" id="1561727A-AD64-D86E-4032-A1A8FDE39203">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:25:56 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Estado" id="C0A089B7-DBB9-B0CE-E136-559ABE3A85CB">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:25:56 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Descripción" id="261C9835-825E-8BEA-04C9-3ADE38543687">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:25:56 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Instalaciones_Codigo" id="FB1F7621-00D5-0FB9-8EE0-34C2D96F342F">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 21:23:02 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B44F5F75-ED01-2B02-C048-C60B870FCB3F" referredColumn="579DB37D-6DDF-61F5-F610-FD444AF07E57"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5ACB0C92-6EAE-B578-84DF-30106D7953DA" name="Cama_PK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:26:07 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F640E09B-C43C-927F-455B-343DC4DE09FD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="68799657-2CB0-B630-DCBE-61F8EED821EC" name="Cama_Habitacion_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 21:23:02 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FB1F7621-00D5-0FB9-8EE0-34C2D96F342F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

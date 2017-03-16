@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B9D46613-3ED9-5C66-FA63-1DC05C1A525B" name="Afiliación">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:26:19 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_28</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo" id="D7372B67-4DB2-7F01-6991-6D297FC0844D">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:10:00 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="3A54A5FF-1504-7A24-0844-5A0ACB4F580B">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:10:00 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono" id="5F1EA21E-577E-1048-D4F3-C4CE999BC6B6">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:10:00 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ServiciosIncluidos" id="AA81E16B-17B8-4996-A8EA-BF40F4FD7CBA">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:27:00 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0A829788-1098-8775-7782-942A65C1912C" name="Tipo_afiliación_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:10:00 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D7372B67-4DB2-7F01-6991-6D297FC0844D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

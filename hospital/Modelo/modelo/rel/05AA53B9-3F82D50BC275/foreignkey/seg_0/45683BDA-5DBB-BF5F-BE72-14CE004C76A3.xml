@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="45683BDA-5DBB-BF5F-BE72-14CE004C76A3" containerWithKeyObject="A72FB0F1-9D2B-2638-3F2B-E4F26B463E15" localFKIndex="606B877A-3567-CBF1-26C9-84D6418614A7" name="Examen_Cita_avanzada_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:24:04 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>42E13D64-620B-2F69-7C94-BFAF317D4356</referredTableID>
+<keyObject>1635C526-1B5F-8E95-8EEF-1867D90370CA</keyObject>
+<referredKeyID>1635C526-1B5F-8E95-8EEF-1867D90370CA</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7B84664F-E4FF-9B08-6E20-65FA4503D67B" name="DiagnosticoCita">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:48:22 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_32</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Cita_Codigo" id="1307B6C0-BDAF-8666-1507-FF8CFE6FC4DA">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:50:14 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="136A54A0-9643-794E-3DAD-5D34E4D531D1" referredColumn="406E6113-A91F-1089-6429-4BFCA0C80E94"/>
+</associations>
+</Column>
+<Column name="Patologia_Codigo" id="C592DD25-CD3B-52AD-7F58-84BC1704721E">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:50:36 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F85AA128-ADD3-D2E0-C16F-C95496BC6B2F" referredColumn="5C1E2F2C-4741-EFBD-65EB-AFBD48876629"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F149AEB7-5216-0E44-092B-5F43E3AB9322" name="Item_patologia_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 19:11:57 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1307B6C0-BDAF-8666-1507-FF8CFE6FC4DA"/>
+<colUsage columnID="C592DD25-CD3B-52AD-7F58-84BC1704721E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ED5FBC7F-595D-1928-7041-B086CA0FE66D" name="Item_patologia_Patologia_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:50:36 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C592DD25-CD3B-52AD-7F58-84BC1704721E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D5E3EB89-52F9-0A6E-23AB-3C624E5ADFB6" name="Item_patologia_Cita_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:09:53 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1307B6C0-BDAF-8666-1507-FF8CFE6FC4DA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

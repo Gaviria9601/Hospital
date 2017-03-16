@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="72463717-42BD-2BB0-2918-019F85B59BCC" name="TipoExamen">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:46:58 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_36</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Id" id="369B7F21-0EA0-D7A9-2FC4-BC85A7D0B7E0">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:47:28 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="537CDF29-6A20-5269-4EDD-676AB3D484B7">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:48:26 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2E788D5B-8D22-0AB3-986A-B3F717D659BD" name="TipoExamen_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:49:02 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="369B7F21-0EA0-D7A9-2FC4-BC85A7D0B7E0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

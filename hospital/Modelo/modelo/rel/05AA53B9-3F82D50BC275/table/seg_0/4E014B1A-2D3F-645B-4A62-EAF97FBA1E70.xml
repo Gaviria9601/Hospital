@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4E014B1A-2D3F-645B-4A62-EAF97FBA1E70" name="TipoCirugia">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:57:40 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_37</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo" id="D994D7B3-65DF-76C7-5204-9D678E1976A8">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:58:02 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="9CA9A3A2-CBAD-6A8B-7832-D2F6CC076B90">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:58:18 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2531C65A-7CBF-59A7-4559-20F0EC69D551" name="TipoCirugia_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:58:02 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D994D7B3-65DF-76C7-5204-9D678E1976A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

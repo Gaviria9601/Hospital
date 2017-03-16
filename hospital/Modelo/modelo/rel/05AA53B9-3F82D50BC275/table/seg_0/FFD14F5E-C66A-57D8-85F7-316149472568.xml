@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FFD14F5E-C66A-57D8-85F7-316149472568" name="Post_OrdenMedicamento">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 20:56:09 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_34</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigoEntrega" id="354F8FC1-0374-40E6-CF94-8094702E81DC">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 20:56:50 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cantidad" id="85DFE918-EC5F-86D9-0632-2A69A2E8BC6F">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 20:57:05 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Orden_medicamento_Cita_Codigo" id="600F3F29-F332-9C50-280F-B8DE44A66E28">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 20:58:03 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="80E36F21-B06E-3A3C-BDEC-03C03D8C1014" referredColumn="34B0045F-7DB9-5B33-55E2-8F5A45696E24"/>
+</associations>
+</Column>
+<Column name="Orden_medicamento_Medicamentos_Codigo" id="2CEB4EF8-4E0B-E882-43A6-683CD5EA9DF7">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 20:58:03 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="80E36F21-B06E-3A3C-BDEC-03C03D8C1014" referredColumn="166A95C6-EF01-CAE9-8004-A329EA6D6F10"/>
+</associations>
+</Column>
+<Column name="Fecha" id="7DB6C49C-B244-5224-DCD0-2C90D7F43152">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:01:10 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="649E4F6A-1BC0-7B25-E1B1-95424D4BA58A" name="Post_OrdenMedicamento_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 20:57:54 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="354F8FC1-0374-40E6-CF94-8094702E81DC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="516CD768-8067-8721-F1AC-F8FFFF1C7A9D" name="Post_OrdenMedicamento__UN">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 20:58:55 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="600F3F29-F332-9C50-280F-B8DE44A66E28"/>
+<colUsage columnID="2CEB4EF8-4E0B-E882-43A6-683CD5EA9DF7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="00DF8FFC-DE26-FEED-8469-759CAB81F144" name="Post_OrdenMedicamento_Orden_medicamento_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 20:58:03 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="600F3F29-F332-9C50-280F-B8DE44A66E28"/>
+<colUsage columnID="2CEB4EF8-4E0B-E882-43A6-683CD5EA9DF7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

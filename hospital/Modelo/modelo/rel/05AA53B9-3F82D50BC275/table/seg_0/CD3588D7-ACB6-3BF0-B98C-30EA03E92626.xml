@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CD3588D7-ACB6-3BF0-B98C-30EA03E92626" name="Item_horario">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:10:28 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Medico_Usuario_Cedula" id="3EC87C0B-8292-0A9B-7A5A-E4922C0398BC">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:52:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="98846A9D-4FB7-99FA-4A6D-36D0EB91BBC9" referredColumn="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
+</associations>
+</Column>
+<Column name="Horario_Codigo_turno" id="7C906617-C1E5-2B8A-C110-EB88BE20459B">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:58:36 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0BD7513C-B6A5-2C87-B3C9-712407C42C94" referredColumn="327225AF-FF22-9A5B-44A3-313CC247C830"/>
+</associations>
+</Column>
+<Column name="Fecha" id="C30E0314-7A35-2D1F-C9A1-1AB076179E20">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:24:05 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="34DC6B30-AEF6-C29B-7171-A71896A386CB" name="Item_horario_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 14:43:37 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3EC87C0B-8292-0A9B-7A5A-E4922C0398BC"/>
+<colUsage columnID="7C906617-C1E5-2B8A-C110-EB88BE20459B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="74DDCD1E-F77B-2A8A-E1B9-87827F010C65" name="Item_horario_Medico_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:52:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3EC87C0B-8292-0A9B-7A5A-E4922C0398BC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="75CEF593-82C8-1AFD-2FC3-00970D91A932" name="Item_horario_Horario_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:58:36 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C906617-C1E5-2B8A-C110-EB88BE20459B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

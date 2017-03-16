@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="POST_ORDENMEDICAMENTO")
-public class Post_ordenMedicamento {
+public class PostOrdenMedicamento {
 	
 	@Id
 	@Column(name = "codigoEntrega", length =30)
@@ -21,11 +21,11 @@ public class Post_ordenMedicamento {
 	
 	@OneToOne
 	@JoinColumn(name = "orden_cita_codigo",unique=true, nullable=false)
-	private Orden_medicamento orden_cita_codigo;
+	private OrdenMedicamento orden_cita_codigo;
 	
 	@OneToOne
 	@JoinColumn(name = "orden_medicamento_codigo",unique=true, nullable=false)
-	private Orden_medicamento orden_medicamento_codigo;
+	private OrdenMedicamento orden_medicamento_codigo;
 
 	public String getCodigoEntrega() {
 		return codigoEntrega;
@@ -43,19 +43,19 @@ public class Post_ordenMedicamento {
 		this.cantidad = cantidad;
 	}
 
-	public Orden_medicamento getOrden_cita_codigo() {
+	public OrdenMedicamento getOrden_cita_codigo() {
 		return orden_cita_codigo;
 	}
 
-	public void setOrden_cita_codigo(Orden_medicamento orden_cita_codigo) {
+	public void setOrden_cita_codigo(OrdenMedicamento orden_cita_codigo) {
 		this.orden_cita_codigo = orden_cita_codigo;
 	}
 
-	public Orden_medicamento getOrden_medicamento_codigo() {
+	public OrdenMedicamento getOrden_medicamento_codigo() {
 		return orden_medicamento_codigo;
 	}
 
-	public void setOrden_medicamento_codigo(Orden_medicamento orden_medicamento_codigo) {
+	public void setOrden_medicamento_codigo(OrdenMedicamento orden_medicamento_codigo) {
 		this.orden_medicamento_codigo = orden_medicamento_codigo;
 	}
 
@@ -75,7 +75,7 @@ public class Post_ordenMedicamento {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Post_ordenMedicamento other = (Post_ordenMedicamento) obj;
+		PostOrdenMedicamento other = (PostOrdenMedicamento) obj;
 		if (codigoEntrega == null) {
 			if (other.codigoEntrega != null)
 				return false;
@@ -84,8 +84,8 @@ public class Post_ordenMedicamento {
 		return true;
 	}
 
-	public Post_ordenMedicamento(String codigoEntrega, int cantidad, Orden_medicamento orden_cita_codigo,
-			Orden_medicamento orden_medicamento_codigo) {
+	public PostOrdenMedicamento(String codigoEntrega, int cantidad, OrdenMedicamento orden_cita_codigo,
+			OrdenMedicamento orden_medicamento_codigo) {
 		super();
 		this.codigoEntrega = codigoEntrega;
 		this.cantidad = cantidad;
@@ -93,7 +93,7 @@ public class Post_ordenMedicamento {
 		this.orden_medicamento_codigo = orden_medicamento_codigo;
 	}
 	
-	public Post_ordenMedicamento(){
+	public PostOrdenMedicamento(){
 		super();
 	}
 

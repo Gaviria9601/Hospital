@@ -39,6 +39,18 @@ public class CitaAvanzada implements Serializable {
 		
 	}
 
+	
+		
+	public CitaAvanzada(String codigo, String nombre, String observaciones, String tiempoEstimado) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.observaciones = observaciones;
+		this.tiempoEstimado = tiempoEstimado;
+	}
+
+
+
 	/**
 	 * @return the codigo
 	 */

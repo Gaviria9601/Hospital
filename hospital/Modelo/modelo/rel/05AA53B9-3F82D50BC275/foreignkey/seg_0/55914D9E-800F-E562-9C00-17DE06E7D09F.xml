@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="55914D9E-800F-E562-9C00-17DE06E7D09F" containerWithKeyObject="422449D4-6A47-DFA9-0D73-9CF1498E4103" localFKIndex="F3627727-9CE2-FEA5-5B36-2088748E04A2" name="Hospitalización_Cita_avanzada_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:32:05 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>42E13D64-620B-2F69-7C94-BFAF317D4356</referredTableID>
+<keyObject>1635C526-1B5F-8E95-8EEF-1867D90370CA</keyObject>
+<referredKeyID>1635C526-1B5F-8E95-8EEF-1867D90370CA</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

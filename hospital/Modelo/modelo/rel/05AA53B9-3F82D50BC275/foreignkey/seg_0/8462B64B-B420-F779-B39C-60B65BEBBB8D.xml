@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="8462B64B-B420-F779-B39C-60B65BEBBB8D" containerWithKeyObject="37B6F897-D831-0BE2-CBED-3AF9017525B3" localFKIndex="A3779D30-17EA-B53A-0DA3-524E1F91F527" name="Cirugia_Cita_avanzada_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:31:00 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>42E13D64-620B-2F69-7C94-BFAF317D4356</referredTableID>
+<keyObject>1635C526-1B5F-8E95-8EEF-1867D90370CA</keyObject>
+<referredKeyID>1635C526-1B5F-8E95-8EEF-1867D90370CA</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

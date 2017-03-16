@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1B936A01-B93F-7EA0-B218-62889717BD36" name="Medicamentos">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:08:05 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo" id="E9B08E9C-2F61-E347-956A-61594713B980">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:33:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="C71EDCF8-DEDB-85CB-C83E-586088127DC5">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:33:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_expedición" id="7C73435D-A078-0146-E847-B7A3638260FD">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:33:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_expiración" id="3F82D7BE-8759-7269-A52B-B2BD2D5A22B8">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:33:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Laboratorio" id="E50038E2-CDDB-6FA6-8E09-8DF35E4F0EFE">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:33:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cantidad" id="1A98E98A-1868-4ACA-6EEA-DC0707B65F8F">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:33:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Estado" id="DE6418CD-3660-AB37-0885-54E531FA18D6">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:33:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Farmacia_Codigo" id="9DB35983-B58C-7221-6107-3F8E8F72CC4E">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:34:17 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2C1355EC-02CA-FE7F-F085-C266F9F6B208" referredColumn="C67B69AF-5A19-B51A-2BD4-92B9C936DCC6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F32F9046-3D2D-9575-1E23-EC37B10CEBBB" name="Medicamentos_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:33:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E9B08E9C-2F61-E347-956A-61594713B980"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="15F1680D-D81D-4B30-8ECA-AF074B26DEC9" name="Medicamentos_Farmacia_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:34:17 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9DB35983-B58C-7221-6107-3F8E8F72CC4E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

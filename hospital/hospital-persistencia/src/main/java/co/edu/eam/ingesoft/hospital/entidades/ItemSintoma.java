@@ -2,24 +2,38 @@ package co.edu.eam.ingesoft.hospital.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="ITEM_SINTOMA")
-public class Item_sintoma implements Serializable {
-	@Id
+public class ItemSintoma implements Serializable {
+	
+	@EmbeddedId
+	protected itemSintomaPK itemSintomaPK;
+	
 	@ManyToOne
 	@JoinColumn(name = "sintoma_codigo", nullable=false)
 	private Sintoma sintoma_codigo;
 	
-	@Id
+	
 	@ManyToOne
 	@JoinColumn(name = "patologia_codigo", nullable=false)
 	private Patologia patologia_codigo;
+	
+
+	public ItemSintoma(Sintoma sintoma_codigo, Patologia patologia_codigo) {
+		super();
+		this.sintoma_codigo = sintoma_codigo;
+		this.patologia_codigo = patologia_codigo;
+	}
+	
+	public ItemSintoma(){
+		super();
+	}
 
 	public Sintoma getSintoma_codigo() {
 		return sintoma_codigo;
@@ -37,15 +51,6 @@ public class Item_sintoma implements Serializable {
 		this.patologia_codigo = patologia_codigo;
 	}
 
-	public Item_sintoma(Sintoma sintoma_codigo, Patologia patologia_codigo) {
-		super();
-		this.sintoma_codigo = sintoma_codigo;
-		this.patologia_codigo = patologia_codigo;
-	}
-	
-	public Item_sintoma(){
-		super();
-	}
 
 	@Override
 	public int hashCode() {
@@ -64,7 +69,7 @@ public class Item_sintoma implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Item_sintoma other = (Item_sintoma) obj;
+		ItemSintoma other = (ItemSintoma) obj;
 		if (patologia_codigo == null) {
 			if (other.patologia_codigo != null)
 				return false;

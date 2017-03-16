@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7F7AF7C2-6529-22DC-8F1D-46C5FBC8081A" name="Horario">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:10:58 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo_turno" id="327225AF-FF22-9A5B-44A3-313CC247C830">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:56:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Jornada" id="38F28104-7746-E14D-7C99-0D7BD07211AA">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:56:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Hora_Inicio" id="F4F9DD66-FFB7-AD17-8B90-AE9EF8E89309">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:56:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Hora_final" id="DE1F3975-431E-E3DC-C264-E97054ECAFD8">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:56:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CA4BF1AB-07E8-991B-420D-9BC578F470BB" name="Horario_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:57:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="327225AF-FF22-9A5B-44A3-313CC247C830"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,6 +1,7 @@
 package co.edu.eam.ingesoft.hospital.entidades;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -8,7 +9,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ORDEN_MEDICAMENTO")
-public class Orden_medicamento {
+public class OrdenMedicamento {
+	
+	@EmbeddedId
+	private OrdenMedicamentoPK ordenMedicamentoPK;
 	
 	@Column(name = "cantidad")
 	private int cantidad;
@@ -22,8 +26,34 @@ public class Orden_medicamento {
 	
 	@ManyToOne
 	@JoinColumn(name = "medicamentos_codigo", nullable=true)
-	private Medicamentos medicamentos_codigo;
+	private Medicamento medicamentos_codigo;
 
+
+	public OrdenMedicamento(int cantidad, String formula, Cita cita_codigo, Medicamento medicamentos_codigo) {
+		super();
+		this.cantidad = cantidad;
+		this.formula = formula;
+		this.cita_codigo = cita_codigo;
+		this.medicamentos_codigo = medicamentos_codigo;
+	}
+	
+	
+	public OrdenMedicamentoPK getOrdenMedicamentoPK() {
+		return ordenMedicamentoPK;
+	}
+
+
+
+	public void setOrdenMedicamentoPK(OrdenMedicamentoPK ordenMedicamentoPK) {
+		this.ordenMedicamentoPK = ordenMedicamentoPK;
+	}
+
+
+
+	public OrdenMedicamento(){
+		super();
+	}
+	
 	public int getCantidad() {
 		return cantidad;
 	}
@@ -48,25 +78,14 @@ public class Orden_medicamento {
 		this.cita_codigo = cita_codigo;
 	}
 
-	public Medicamentos getMedicamentos_codigo() {
+	public Medicamento getMedicamentos_codigo() {
 		return medicamentos_codigo;
 	}
 
-	public void setMedicamentos_codigo(Medicamentos medicamentos_codigo) {
+	public void setMedicamentos_codigo(Medicamento medicamentos_codigo) {
 		this.medicamentos_codigo = medicamentos_codigo;
 	}
 
-	public Orden_medicamento(int cantidad, String formula, Cita cita_codigo, Medicamentos medicamentos_codigo) {
-		super();
-		this.cantidad = cantidad;
-		this.formula = formula;
-		this.cita_codigo = cita_codigo;
-		this.medicamentos_codigo = medicamentos_codigo;
-	}
-	  
-	public Orden_medicamento(){
-		super();
-	}
 
 	@Override
 	public int hashCode() {
@@ -84,7 +103,7 @@ public class Orden_medicamento {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Orden_medicamento other = (Orden_medicamento) obj;
+		OrdenMedicamento other = (OrdenMedicamento) obj;
 		if (cantidad != other.cantidad)
 			return false;
 		return true;

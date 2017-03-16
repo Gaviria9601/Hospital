@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="MEDICAMENTOS")
-public class Medicamentos implements Serializable{
+public class Medicamento implements Serializable{
 	
 	@Id
 	@Column(name="codigo",length=10)
@@ -41,7 +41,7 @@ public class Medicamentos implements Serializable{
 	@Column(name = "estado")
 	private boolean estado;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "farmacia_codigo")
 	private Farmacia farmacia_codigo;
 
@@ -109,7 +109,7 @@ public class Medicamentos implements Serializable{
 		this.farmacia_codigo = farmacia_codigo;
 	}
 
-	public Medicamentos(String codigo, String nombre, Date fecha_expedición, Date fecha_expiración, String laboratorio,
+	public Medicamento(String codigo, String nombre, Date fecha_expedición, Date fecha_expiración, String laboratorio,
 			int cantidad, boolean estado, Farmacia farmacia_codigo) {
 		super();
 		this.codigo = codigo;
@@ -122,7 +122,7 @@ public class Medicamentos implements Serializable{
 		this.farmacia_codigo = farmacia_codigo;
 	}
 	
-	public Medicamentos(){
+	public Medicamento(){
 		super();
 	}
 
@@ -142,7 +142,7 @@ public class Medicamentos implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Medicamentos other = (Medicamentos) obj;
+		Medicamento other = (Medicamento) obj;
 		if (cantidad != other.cantidad)
 			return false;
 		return true;

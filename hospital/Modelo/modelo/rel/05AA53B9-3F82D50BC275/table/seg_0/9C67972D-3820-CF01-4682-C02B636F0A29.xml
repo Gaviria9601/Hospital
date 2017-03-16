@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9C67972D-3820-CF01-4682-C02B636F0A29" name="Especialización">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:43:53 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_31</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo" id="769C013B-C6C1-9C48-750D-A3E434D4CCB5">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:44:38 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="E3D40010-DA15-AE64-22B7-6930254A932D">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:44:38 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4134F9ED-3651-2A3D-8B45-72E22F1BECF1" name="Especialización_PK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:44:38 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="769C013B-C6C1-9C48-750D-A3E434D4CCB5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

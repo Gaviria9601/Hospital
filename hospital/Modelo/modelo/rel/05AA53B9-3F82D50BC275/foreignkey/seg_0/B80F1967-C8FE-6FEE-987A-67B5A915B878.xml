@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B80F1967-C8FE-6FEE-987A-67B5A915B878" containerWithKeyObject="A08E5E7A-3A42-DAD5-EC63-033B89D8C2BE" localFKIndex="EDC8B089-4BFC-2F53-D690-C59B7EEF27A1" name="Item_tratamiento_Patologia_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:59:21 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2B2994F3-93C7-953F-AFB4-DC102D2B90AE</referredTableID>
+<keyObject>4DA49D4F-2A71-3482-41BE-281417BC9D2C</keyObject>
+<referredKeyID>4DA49D4F-2A71-3482-41BE-281417BC9D2C</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

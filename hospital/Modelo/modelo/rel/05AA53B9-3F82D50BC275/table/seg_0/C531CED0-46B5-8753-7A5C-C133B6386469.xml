@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C531CED0-46B5-8753-7A5C-C133B6386469" name="Medico">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 20:29:25 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Usuario_Cedula" id="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:44:32 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C4749250-DE47-127B-62AE-0227B99377F0" referredColumn="5336E72A-84FD-D669-B6F4-09105E3B9BE0"/>
+</associations>
+</Column>
+<Column name="Carnet" id="A8A51CB2-A668-D0E0-0296-3827A5F85F10">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 21:20:27 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FacultadMedicina" id="EB057793-B239-9B75-87D6-61BF6CE75FE6">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-16 05:17:08 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E9E4CC21-0C68-2113-7F96-254BF8968E16" name="Medico__UN">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:45:03 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="99F41E95-00C8-AC65-6903-ECD278692A10" name="Medico_Usuario_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:44:32 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

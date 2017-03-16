@@ -2,6 +2,7 @@ package co.edu.eam.ingesoft.hospital.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -10,16 +11,38 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="ITEM_TRATAMIENTO")
-public class Item_tratamiento implements Serializable {
-	@Id
+public class ItemTratamiento implements Serializable {
+
+	@EmbeddedId
+	protected itemTratamientoPK itemTratamientoPK;
+	
 	@ManyToOne
 	@JoinColumn(name = "tratamiento_codigo", nullable=false)
 	private Tratamiento tratamiento_codigo;
 	
-	@Id
 	@ManyToOne
 	@JoinColumn(name = "patologia_codigo", nullable=false)
 	private Patologia patologia_codigo;
+	
+
+	public ItemTratamiento(){
+		super();
+	}
+
+	public ItemTratamiento(Tratamiento tratamiento_codigo, Patologia patologia_codigo) {
+		super();
+		this.tratamiento_codigo = tratamiento_codigo;
+		this.patologia_codigo = patologia_codigo;
+	}
+
+	
+	public itemTratamientoPK getItemTratamientoPK() {
+		return itemTratamientoPK;
+	}
+
+	public void setItemTratamientoPK(itemTratamientoPK itemTratamientoPK) {
+		this.itemTratamientoPK = itemTratamientoPK;
+	}
 
 	public Tratamiento getTratamiento_codigo() {
 		return tratamiento_codigo;
@@ -37,15 +60,6 @@ public class Item_tratamiento implements Serializable {
 		this.patologia_codigo = patologia_codigo;
 	}
 
-	public Item_tratamiento(Tratamiento tratamiento_codigo, Patologia patologia_codigo) {
-		super();
-		this.tratamiento_codigo = tratamiento_codigo;
-		this.patologia_codigo = patologia_codigo;
-	}
-	
-	public Item_tratamiento(){
-		super();
-	}
 
 	@Override
 	public int hashCode() {
@@ -64,7 +78,7 @@ public class Item_tratamiento implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Item_tratamiento other = (Item_tratamiento) obj;
+		ItemTratamiento other = (ItemTratamiento) obj;
 		if (patologia_codigo == null) {
 			if (other.patologia_codigo != null)
 				return false;

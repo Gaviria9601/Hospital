@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9A4A325F-B473-662F-2C6D-985BC579C0EC" name="Farmaceutico">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 20:32:37 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Usuario_Cedula" id="1B848960-9F07-2E45-B23A-F0D4C25D18E5">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:49:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="13121594-987F-C401-7987-8222EE644885" referredColumn="5336E72A-84FD-D669-B6F4-09105E3B9BE0"/>
+</associations>
+</Column>
+<Column name="Tarjeta_profesional" id="2F813B67-985F-2681-D24B-75C6352FC334">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:26:41 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha_ingreso" id="EBEE300A-ECF7-6D83-5C56-5B26E62868FB">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:26:41 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Farmacia_Codigo" id="4051DBA2-3AA1-C152-F2F3-3D5582FA7497">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:36:15 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8F332DFA-D382-43C1-A494-7801CF33C3FF" referredColumn="C67B69AF-5A19-B51A-2BD4-92B9C936DCC6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="407BFC0D-83B8-63D9-ABB6-CD631218FFCF" name="Farmaceutico__UN">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:50:11 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1B848960-9F07-2E45-B23A-F0D4C25D18E5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5F03479C-2C31-00C7-75E5-01217AAED2F7" name="Farmaceutico_Usuario_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:49:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1B848960-9F07-2E45-B23A-F0D4C25D18E5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C4CC2F84-A999-8306-5188-D547A776E758" name="Farmaceutico_Farmacia_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:36:15 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4051DBA2-3AA1-C152-F2F3-3D5582FA7497"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

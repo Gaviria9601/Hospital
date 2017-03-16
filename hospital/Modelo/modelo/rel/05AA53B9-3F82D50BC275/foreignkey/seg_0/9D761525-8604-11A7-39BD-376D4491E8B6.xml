@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="9D761525-8604-11A7-39BD-376D4491E8B6" containerWithKeyObject="37B6F897-D831-0BE2-CBED-3AF9017525B3" localFKIndex="50BA952A-09FF-26D4-0656-54C3B34202CD" name="Cirugia_Especialización_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:22:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>9C67972D-3820-CF01-4682-C02B636F0A29</referredTableID>
+<keyObject>4134F9ED-3651-2A3D-8B45-72E22F1BECF1</keyObject>
+<referredKeyID>4134F9ED-3651-2A3D-8B45-72E22F1BECF1</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

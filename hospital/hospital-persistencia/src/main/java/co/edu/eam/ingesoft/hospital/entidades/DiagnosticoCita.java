@@ -2,31 +2,51 @@ package co.edu.eam.ingesoft.hospital.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="DIAGNOSTICOCITA")
 public class DiagnosticoCita implements Serializable{
 	
-	@Id
+	@EmbeddedId
+	protected DiagnosticoCitaPK diagnosticoCitaPK;
+	
 	@ManyToOne
 	@JoinColumn(name = "cita_codigo", nullable=false)
 	private Cita cita_codigo;
 	
-	@Id
 	@ManyToOne
 	@JoinColumn(name = "patologia_codigo", nullable=false)
 	private Patologia patologia_codigo;
+
+	public DiagnosticoCita(Cita cita_codigo, Patologia patologia_codigo) {
+		super();
+		this.cita_codigo = cita_codigo;
+		this.patologia_codigo = patologia_codigo;
+	}
+	
+	public DiagnosticoCita(){
+	super();
+	}
+
+
+	public DiagnosticoCitaPK getDiagnosticoCitaPK() {
+		return diagnosticoCitaPK;
+	}
+
+	public void setDiagnosticoCitaPK(DiagnosticoCitaPK diagnosticoCitaPK) {
+		this.diagnosticoCitaPK = diagnosticoCitaPK;
+	}
 
 	public Cita getCita_codigo() {
 		return cita_codigo;
 	}
 
+	
 	public void setCita_codigo(Cita cita_codigo) {
 		this.cita_codigo = cita_codigo;
 	}
@@ -39,17 +59,7 @@ public class DiagnosticoCita implements Serializable{
 		this.patologia_codigo = patologia_codigo;
 	}
 
-	public DiagnosticoCita(Cita cita_codigo, Patologia patologia_codigo) {
-		super();
-		this.cita_codigo = cita_codigo;
-		this.patologia_codigo = patologia_codigo;
-	}
-	
-	public DiagnosticoCita(){
-	super();
-	}
-
-	@Override
+		@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

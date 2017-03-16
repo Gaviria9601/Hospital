@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5EA1A9F0-FDB1-7298-2DF1-F050B8E65422" name="Quirofano">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:14:55 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_44</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Instalación_Codigo" id="1C990A1F-2855-C590-8F9F-B34346F02E45">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 21:12:56 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E4A17BF1-700E-20C0-18F6-7934E8F423EE" referredColumn="0E0D4FFA-3C5E-3CDC-E186-F567CAE153FE"/>
+</associations>
+</Column>
+<Column name="Caracteristicas" id="8D958788-0E5F-C5BC-9831-A3447A7E5315">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:15:38 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero_aparatos" id="BA8C156A-6F31-D91B-A5FD-5028F5EC72AE">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:15:38 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cantidad_medico" id="5FE1F111-6BFD-E26D-43C3-9587CE8C8E05">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:15:38 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6B372BBA-D39E-2635-B0B5-59CC16FDB79F" name="Quirofano__UNv1">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 21:17:08 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1C990A1F-2855-C590-8F9F-B34346F02E45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C8CF2585-760B-6436-CCA0-FD54D336F70F" name="Quirofano_Instalación_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 21:12:56 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1C990A1F-2855-C590-8F9F-B34346F02E45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

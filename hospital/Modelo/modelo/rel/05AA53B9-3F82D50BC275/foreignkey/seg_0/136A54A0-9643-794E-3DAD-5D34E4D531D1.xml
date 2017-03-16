@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="136A54A0-9643-794E-3DAD-5D34E4D531D1" containerWithKeyObject="7B84664F-E4FF-9B08-6E20-65FA4503D67B" localFKIndex="D5E3EB89-52F9-0A6E-23AB-3C624E5ADFB6" name="Item_patologia_Cita_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:09:53 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>0F20BF2A-AC4D-A4BB-D4B8-ECAFF93E874C</referredTableID>
+<keyObject>AC7E3845-B510-C4C6-873D-A8E4C724C971</keyObject>
+<referredKeyID>AC7E3845-B510-C4C6-873D-A8E4C724C971</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -8,22 +8,34 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AFILIACIÓN")
-public class Afiliacion implements Serializable{
+@Table(name = "AFILIACIÓN")
+public class Afiliacion implements Serializable {
 
 	@Id
-	@Column(name="codigo",length=20)
+	@Column(name = "codigo", length = 20)
 	private String codigo;
-	
-	@Column(name = "nombre", length =30)
-	private String nombre;
-	
-	@Column(name = "telefono", length =30)
-	private String telefono;
-	
-	@Column(name = "serviciosIncluidos", length = 200)
-	private String serviciosicluidos;
 
+	@Column(name = "nombre", length = 30)
+	private String nombre;
+
+	@Column(name = "telefono", length = 30)
+	private String telefono;
+
+	@Column(name = "serviciosIncluidos", length = 200)
+	private String serviciosIncluidos;
+	
+	public Afiliacion() {
+		super();
+	}
+	
+	public Afiliacion(String codigo, String nombre, String telefono, String serviciosIncluidos) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.telefono = telefono;
+		this.serviciosIncluidos = serviciosIncluidos;
+	}
+	
 	public String getCodigo() {
 		return codigo;
 	}
@@ -48,25 +60,14 @@ public class Afiliacion implements Serializable{
 		this.telefono = telefono;
 	}
 
-	public String getServiciosicluidos() {
-		return serviciosicluidos;
-	}
-
-	public void setServiciosicluidos(String serviciosicluidos) {
-		this.serviciosicluidos = serviciosicluidos;
-	}
-
-	public Afiliacion(String codigo, String nombre, String telefono, String serviciosicluidos) {
-		super();
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.telefono = telefono;
-		this.serviciosicluidos = serviciosicluidos;
-	}
 	
-	public Afiliacion(){
-		super();
-		}
+	public String getServiciosIncluidos() {
+		return serviciosIncluidos;
+	}
+
+	public void setServiciosIncluidos(String serviciosIncluidos) {
+		this.serviciosIncluidos = serviciosIncluidos;
+	}
 
 	@Override
 	public int hashCode() {
@@ -92,6 +93,5 @@ public class Afiliacion implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
+
 }

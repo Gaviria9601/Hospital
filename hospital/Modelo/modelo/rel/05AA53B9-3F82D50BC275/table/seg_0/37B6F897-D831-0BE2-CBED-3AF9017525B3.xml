@@ -1,0 +1,123 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="37B6F897-D831-0BE2-CBED-3AF9017525B3" name="Cirugia">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:22:40 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_25</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Cita_avanzada_Codigo" id="2A7CFB1B-9BCC-9DA6-8EF4-49276834E70B">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:31:00 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8462B64B-B420-F779-B39C-60B65BEBBB8D" referredColumn="00FB1231-767C-F450-785D-4FEDD5963BEE"/>
+</associations>
+</Column>
+<Column name="Recuperación" id="1B8AA356-A841-159A-EC49-04DF030C54EA">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:22:11 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Anestesia" id="91C094FA-7082-9E17-8F51-97D781E28C0A">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:22:11 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Especialización_Codigo" id="CE470917-3307-7F23-0B74-8834D80D06A7">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:22:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9D761525-8604-11A7-39BD-376D4491E8B6" referredColumn="769C013B-C6C1-9C48-750D-A3E434D4CCB5"/>
+</associations>
+</Column>
+<Column name="TipoCirugia_Codigo" id="8BCE921A-071E-D666-E9FC-5BD2D9F691DB">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:58:36 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3C0EB6B4-E68D-2BAA-4115-8CF4DEF012DC" referredColumn="D994D7B3-65DF-76C7-5204-9D678E1976A8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="51B0F683-7E46-FC24-5075-39D4F3803CB3" name="Cirugia__UN">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:31:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2A7CFB1B-9BCC-9DA6-8EF4-49276834E70B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A3779D30-17EA-B53A-0DA3-524E1F91F527" name="Cirugia_Cita_avanzada_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:31:00 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2A7CFB1B-9BCC-9DA6-8EF4-49276834E70B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="50BA952A-09FF-26D4-0656-54C3B34202CD" name="Cirugia_Especialización_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:22:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE470917-3307-7F23-0B74-8834D80D06A7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BDBE462C-A0A2-0E93-37AA-E2F194A6586C" name="Cirugia_TipoCirugia_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:58:36 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8BCE921A-071E-D666-E9FC-5BD2D9F691DB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

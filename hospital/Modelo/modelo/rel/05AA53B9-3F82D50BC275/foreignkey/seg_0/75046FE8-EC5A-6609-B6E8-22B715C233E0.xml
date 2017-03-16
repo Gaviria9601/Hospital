@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="75046FE8-EC5A-6609-B6E8-22B715C233E0" containerWithKeyObject="6E861FCD-AFFA-2356-514E-92B70E1AFAB6" localFKIndex="C4195160-E681-7233-E32A-F70D86F22716" name="Item_medicamento_Cita_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:31:15 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>0F20BF2A-AC4D-A4BB-D4B8-ECAFF93E874C</referredTableID>
+<keyObject>AC7E3845-B510-C4C6-873D-A8E4C724C971</keyObject>
+<referredKeyID>AC7E3845-B510-C4C6-873D-A8E4C724C971</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

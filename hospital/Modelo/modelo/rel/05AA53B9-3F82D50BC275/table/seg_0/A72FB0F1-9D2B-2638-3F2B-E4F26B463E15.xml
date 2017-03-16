@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A72FB0F1-9D2B-2638-3F2B-E4F26B463E15" name="Examen">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:22:24 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_24</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Cita_avanzada_Codigo" id="5AC09A85-FC8F-A98D-9C35-34CA44A5CBCF">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:24:04 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="45683BDA-5DBB-BF5F-BE72-14CE004C76A3" referredColumn="00FB1231-767C-F450-785D-4FEDD5963BEE"/>
+</associations>
+</Column>
+<Column name="TipoExamen_Id" id="146FDCB8-F6F4-D9C0-63BA-318E7960AE08">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:49:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C90471C6-EC38-F9F1-41AE-B59AEC4896CA" referredColumn="369B7F21-0EA0-D7A9-2FC4-BC85A7D0B7E0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8BC63E0D-EBCA-1975-BC49-4F9AF7113725" name="Examen__UN">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:24:27 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5AC09A85-FC8F-A98D-9C35-34CA44A5CBCF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="606B877A-3567-CBF1-26C9-84D6418614A7" name="Examen_Cita_avanzada_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 22:24:04 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5AC09A85-FC8F-A98D-9C35-34CA44A5CBCF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FFF02714-494C-91B8-A2E6-A83A7569EFC7" name="Examen_TipoExamen_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:49:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="146FDCB8-F6F4-D9C0-63BA-318E7960AE08"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

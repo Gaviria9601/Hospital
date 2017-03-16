@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="DA421C08-67B8-EDDD-2C71-B69E32AB2D07" name="Farmacia">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:07:14 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo" id="C67B69AF-5A19-B51A-2BD4-92B9C936DCC6">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:30:32 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="A272B4A2-BFC9-28E3-2C62-5270F1608620">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:30:32 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefono" id="24B032D4-1C83-F4CE-0120-3302BEE23EB4">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:30:32 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Dirección" id="370975BA-1C22-A4CD-A85A-D6C6A5D7F23D">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:30:32 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="349FC42A-C454-8159-FD69-A6C0465FD40A" name="Farmacia_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:30:32 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C67B69AF-5A19-B51A-2BD4-92B9C936DCC6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

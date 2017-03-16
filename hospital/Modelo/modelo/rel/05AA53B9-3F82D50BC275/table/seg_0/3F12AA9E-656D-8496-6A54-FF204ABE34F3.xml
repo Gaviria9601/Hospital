@@ -1,0 +1,214 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3F12AA9E-656D-8496-6A54-FF204ABE34F3" name="OrdenCitaAvanzada">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:04:50 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_40</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Codigo" id="31DC82E6-0166-87A5-9FB8-55F410780C65">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:07:16 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Observaciones" id="C5D86E39-1C5F-215B-7C33-A751E4AE834D">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:07:16 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Fecha" id="239DAB3E-1728-0BF7-CB34-C98E7EEE596D">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:07:16 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Hora_inicio" id="B733B015-4E6D-E451-84E2-9FA2847F6C83">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:07:16 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Hora_final" id="732CC4F7-01F9-3FD5-E5EB-4DCA70F27657">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:07:16 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Medico_Usuario_Cedula" id="D2F37B08-81F0-030C-2D9C-CB842C952833">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:10:09 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E0A5BB8C-CD73-28C7-C57A-E9922BA00BEC" referredColumn="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
+</associations>
+</Column>
+<Column name="Instalación_Codigo" id="A9F2CBDD-3CE5-2E03-FA29-0056CEDD5257">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 20:53:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="71CFAB12-B20C-C656-5457-77EC3E3BD7A9" referredColumn="0E0D4FFA-3C5E-3CDC-E186-F567CAE153FE"/>
+</associations>
+</Column>
+<Column name="Cita_Codigo" id="0ACFDE62-6C75-FBC1-BB2F-4EB372EC5899">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 21:23:19 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="072B32E5-0BFD-6D8B-540F-0E70CDFC577B" referredColumn="406E6113-A91F-1089-6429-4BFCA0C80E94"/>
+</associations>
+</Column>
+<Column name="Cita_avanzada_Codigo" id="463C592C-C740-426F-4D8D-6CB7E8916BAB">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 21:24:01 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CC4E0140-B5DC-F123-E7F6-BFDEBEEC2CFF" referredColumn="00FB1231-767C-F450-785D-4FEDD5963BEE"/>
+</associations>
+</Column>
+<Column name="ResultadoExamen_Id" id="E43B127B-E584-AFCB-424C-6D06149F2F7A">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-16 05:41:59 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="80E1C7E6-E10A-9241-B5DD-60587F902063" referredColumn="DAD491BB-EB14-B508-80AD-7C589CDBA4BD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E35A6B32-7E2F-6462-F341-CF4B36A31D07" name="CitaAvanzada_PK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:07:47 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="31DC82E6-0166-87A5-9FB8-55F410780C65"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2E18E564-D59D-18FE-C810-F4F5867DF906" name="OrdenCitaAvanzada__UNv1">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-16 05:42:38 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E43B127B-E584-AFCB-424C-6D06149F2F7A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C2202E44-6AC0-C4C4-1956-403ED76EB2CC" name="Post_ordencita_Medico_FK">
+<createdBy>Lenovo</createdBy>
+<createdTime>2017-02-23 23:10:09 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D2F37B08-81F0-030C-2D9C-CB842C952833"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D99378E2-0FAF-317C-E80B-77E872E60A2B" name="Post_ordencita_Instalación_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-24 20:53:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A9F2CBDD-3CE5-2E03-FA29-0056CEDD5257"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1AB96449-9980-DDEE-60BA-3119FB9403C2" name="Post_ordencita_Cita_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 21:23:19 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0ACFDE62-6C75-FBC1-BB2F-4EB372EC5899"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="163F1887-6BBF-1A93-B78C-D2C38757C027" name="OrdenCita_Cita_avanzada_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 21:24:01 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="463C592C-C740-426F-4D8D-6CB7E8916BAB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="21BDA1AD-499A-7237-73B2-7EBEF452D53D" name="OrdenCitaAvanzada_ResultadoExamen_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-16 05:41:59 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E43B127B-E584-AFCB-424C-6D06149F2F7A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

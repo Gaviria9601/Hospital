@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AFFF7E6F-D89C-160C-7459-32B08FEDC29D" name="Paciente">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 20:29:32 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Usuario_Cedula" id="CB1BB199-EC5D-3EEF-4E5E-6B33E1ADA0F6">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:48:26 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8729D672-511D-3E54-DA19-C68B07986539" referredColumn="5336E72A-84FD-D669-B6F4-09105E3B9BE0"/>
+</associations>
+</Column>
+<Column name="Estrato" id="EFEF344D-0EDE-0D76-3294-D47909740E55">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 22:03:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Afiliación_Codigo" id="9999DBF8-BC51-894E-70AA-0C3C5F09DC12">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:08:40 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0332C41F-9388-E8BB-35E0-1DB1382C7379" referredColumn="D7372B67-4DB2-7F01-6991-6D297FC0844D"/>
+</associations>
+</Column>
+<Column name="Trabajo" id="465A6FF4-AA1B-4DE0-5CEC-7EEE6355D568">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-16 05:23:29 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6E082457-D4F1-226F-F791-92112F663545" name="Paciente__UN">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:49:01 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB1BB199-EC5D-3EEF-4E5E-6B33E1ADA0F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="87586D75-E963-EECC-91C2-9FB37E633966" name="Paciente_Usuario_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:48:26 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB1BB199-EC5D-3EEF-4E5E-6B33E1ADA0F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3E1ECDE2-0FDD-E423-E536-8C0B4B286907" name="Paciente_Afiliación_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-11 22:08:40 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9999DBF8-BC51-894E-70AA-0C3C5F09DC12"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
