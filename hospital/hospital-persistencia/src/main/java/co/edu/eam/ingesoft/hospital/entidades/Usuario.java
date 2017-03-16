@@ -18,16 +18,16 @@ import javax.persistence.Table;
 public class Usuario implements Serializable {
 	
 	@Id
-	@Column(name="cedula",length=20)
+	@Column(name="cedula",length=20, nullable= false)
 	protected String cedula;
 	
-	@Column(name = "nicknme", length =30)
+	@Column(name = "nicknme", length =30, nullable= false)
 	protected String nickname;
 	
-	@Column(name = "clave", length =20)
+	@Column(name = "clave", length =20,nullable= false)
 	protected String clave;
 	
-	@Column(name = "nombre", length = 30)
+	@Column(name = "nombre", length = 30, nullable= false)
 	protected String nombre;
 	
 	@Column(name = "apellido", length = 50)
@@ -36,8 +36,11 @@ public class Usuario implements Serializable {
 	@Column(name = "edad")
 	protected int edad;
 	
-	@Column(name = "correo", length =100)
+	@Column(name = "correo", length =100, nullable= false)
 	protected String correo;
+	
+	@Column(name = "telefono", length =20, nullable= false)
+	protected String telefono;
 	
 	@Column(name = "tipoUsuario", length =30)
 	protected String tipoUsuario;
@@ -48,7 +51,7 @@ public class Usuario implements Serializable {
 	}
 	
 	public Usuario(String cedula, String nickname, String clave, String nombre, String apellido, int edad,
-			String correo, String tipoUsuario) {
+			String correo, String tipoUsuario, String telefono) {
 		super();
 		this.cedula = cedula;
 		this.nickname = nickname;
@@ -58,6 +61,7 @@ public class Usuario implements Serializable {
 		this.edad = edad;
 		this.correo = correo;
 		this.tipoUsuario = tipoUsuario;
+		this.telefono = telefono;
 	}
 	
 
@@ -124,6 +128,8 @@ public class Usuario implements Serializable {
 	public void setTipoUsuario(String tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
@@ -148,6 +154,20 @@ public class Usuario implements Serializable {
 		} else if (!cedula.equals(other.cedula))
 			return false;
 		return true;
+	}
+
+	/**
+	 * @return the telefono
+	 */
+	public String getTelefono() {
+		return telefono;
+	}
+
+	/**
+	 * @param telefono the telefono to set
+	 */
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 }
