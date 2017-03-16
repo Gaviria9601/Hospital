@@ -15,13 +15,13 @@ public class Afiliacion implements Serializable {
 	@Column(name = "codigo", length = 20)
 	private String codigo;
 
-	@Column(name = "nombre", length = 30)
+	@Column(name = "nombre", length = 30,nullable = false)
 	private String nombre;
 
-	@Column(name = "telefono", length = 30)
+	@Column(name = "telefono", length = 30,nullable = false)
 	private String telefono;
 
-	@Column(name = "serviciosIncluidos", length = 200)
+	@Column(name = "ServiciosIncluidos", length = 200)
 	private String serviciosIncluidos;
 	
 	public Afiliacion() {
