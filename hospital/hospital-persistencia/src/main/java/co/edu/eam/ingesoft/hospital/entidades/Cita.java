@@ -21,27 +21,27 @@ public class Cita implements Serializable {
 	private String codigo;
     
     @Temporal(TemporalType.DATE)
-	@Column(name = "fecha")
+	@Column(name = "fecha", nullable=false)
 	private Date fecha;
     
     @Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "hora_inicio")
+	@Column(name = "hora_inicio", nullable=false)
 	private Date horaInicio;
     
     @Column(name = "observacion", length = 2000)
 	private String observacion;
     
     @Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "hora_final")
+	@Column(name = "hora_final", nullable=false)
 	private Date horaFinal;
     
     @ManyToOne
-	@JoinColumn(name = "paciente_usuario_cedula")
+	@JoinColumn(name = "paciente_usuario_cedula", nullable=false)
 	private Paciente pacienteUsuarioCedula;
     
     
     @ManyToOne
-	@JoinColumn(name = "cita_codigo")
+	@JoinColumn(name = "cita_codigo", nullable=false)
 	private Cita citaCodigo;
 
     public Cita(){

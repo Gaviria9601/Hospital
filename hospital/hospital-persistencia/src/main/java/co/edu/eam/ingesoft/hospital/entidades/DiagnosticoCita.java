@@ -21,18 +21,17 @@ public class DiagnosticoCita implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "patologia_codigo", nullable = false)
-	private Patologia patologia_codigo;
+	private Patologia patologiaCodigo;
 
 	public DiagnosticoCita() {
 		super();
 	}
 
-	public DiagnosticoCita(DiagnosticoCitaPK diagnosticoCitaPK) {
+	public DiagnosticoCita(DiagnosticoCitaPK diagnosticoCitaPK, Cita cita_codigo, Patologia patologiaCodigo) {
+		super();
 		this.diagnosticoCitaPK = diagnosticoCitaPK;
-	}
-
-	public DiagnosticoCita(String citaCodigo, String patologiaCodigo) {
-		this.diagnosticoCitaPK = new DiagnosticoCitaPK(citaCodigo, patologiaCodigo);
+		this.cita_codigo = cita_codigo;
+		this.patologiaCodigo = patologiaCodigo;
 	}
 
 	public DiagnosticoCitaPK getDiagnosticoCitaPK() {
@@ -51,20 +50,20 @@ public class DiagnosticoCita implements Serializable {
 		this.cita_codigo = cita_codigo;
 	}
 
-	public Patologia getPatologia_codigo() {
-		return patologia_codigo;
+	public Patologia getPatologiaCodigo() {
+		return patologiaCodigo;
 	}
 
-	public void setPatologia_codigo(Patologia patologia_codigo) {
-		this.patologia_codigo = patologia_codigo;
+	public void setPatologiaCodigo(Patologia patologiaCodigo) {
+		this.patologiaCodigo = patologiaCodigo;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((cita_codigo == null) ? 0 : cita_codigo.hashCode());
-		result = prime * result + ((patologia_codigo == null) ? 0 : patologia_codigo.hashCode());
+		result = prime * result + ((diagnosticoCitaPK == null) ? 0 : diagnosticoCitaPK.hashCode());
+		result = prime * result + ((patologiaCodigo == null) ? 0 : patologiaCodigo.hashCode());
 		return result;
 	}
 
@@ -77,17 +76,18 @@ public class DiagnosticoCita implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		DiagnosticoCita other = (DiagnosticoCita) obj;
-		if (cita_codigo == null) {
-			if (other.cita_codigo != null)
+		if (diagnosticoCitaPK == null) {
+			if (other.diagnosticoCitaPK != null)
 				return false;
-		} else if (!cita_codigo.equals(other.cita_codigo))
+		} else if (!diagnosticoCitaPK.equals(other.diagnosticoCitaPK))
 			return false;
-		if (patologia_codigo == null) {
-			if (other.patologia_codigo != null)
+		if (patologiaCodigo == null) {
+			if (other.patologiaCodigo != null)
 				return false;
-		} else if (!patologia_codigo.equals(other.patologia_codigo))
+		} else if (!patologiaCodigo.equals(other.patologiaCodigo))
 			return false;
 		return true;
 	}
 
+	
 }

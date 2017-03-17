@@ -18,51 +18,49 @@ import javax.persistence.TemporalType;
 public class Medicamento implements Serializable{
 	
 	@Id
-	@Column(name="codigo",length=10)
+	@Column(name="Codigo",length=10)
 	private String codigo;
 	
-	@Column(name = "nombre", length =40)
+	@Column(name = "Nombre", length =40, nullable=false)
 	private String nombre;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_expedición")
-	private Date fecha_expedición;
+	@Column(name = "Fecha_expedición", nullable=false)
+	private Date fechaExpedición;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_expiración")
-	private Date fecha_expiración;
+	@Column(name = "Fecha_expiración", nullable=false)
+	private Date fechaExpiración;
 	
-	@Column(name = "laboratorio", length =40)
+	@Column(name = "Laboratorio", length =40, nullable=false)
 	private String laboratorio;
 	
-	@Column(name = "cantidad", length = 40)
+	@Column(name = "Cantidad", length = 40, nullable=false)
 	private int cantidad;
 	
-	@Column(name = "estado")
+	@Column(name = "Estado", nullable=false)
 	private boolean estado;
 	
 	@ManyToOne
-	@JoinColumn(name = "farmacia_codigo")
-	private Farmacia farmacia_codigo;
+	@JoinColumn(name = "Farmacia_codigo", nullable=false)
+	private Farmacia farmaciaCodigo;
 	
 	public Medicamento(){
 		super();
 	}
-	
-	public Medicamento(String codigo, String nombre, Date fecha_expedición, Date fecha_expiración, String laboratorio,
-			int cantidad, boolean estado, Farmacia farmacia_codigo) {
+
+	public Medicamento(String codigo, String nombre, Date fechaExpedición, Date fechaExpiración, String laboratorio,
+			int cantidad, boolean estado, Farmacia farmaciaCodigo) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
-		this.fecha_expedición = fecha_expedición;
-		this.fecha_expiración = fecha_expiración;
+		this.fechaExpedición = fechaExpedición;
+		this.fechaExpiración = fechaExpiración;
 		this.laboratorio = laboratorio;
 		this.cantidad = cantidad;
 		this.estado = estado;
-		this.farmacia_codigo = farmacia_codigo;
+		this.farmaciaCodigo = farmaciaCodigo;
 	}
-	
-	
 
 	public String getCodigo() {
 		return codigo;
@@ -80,20 +78,20 @@ public class Medicamento implements Serializable{
 		this.nombre = nombre;
 	}
 
-	public Date getFecha_expedición() {
-		return fecha_expedición;
+	public Date getFechaExpedición() {
+		return fechaExpedición;
 	}
 
-	public void setFecha_expedición(Date fecha_expedición) {
-		this.fecha_expedición = fecha_expedición;
+	public void setFechaExpedición(Date fechaExpedición) {
+		this.fechaExpedición = fechaExpedición;
 	}
 
-	public Date getFecha_expiración() {
-		return fecha_expiración;
+	public Date getFechaExpiración() {
+		return fechaExpiración;
 	}
 
-	public void setFecha_expiración(Date fecha_expiración) {
-		this.fecha_expiración = fecha_expiración;
+	public void setFechaExpiración(Date fechaExpiración) {
+		this.fechaExpiración = fechaExpiración;
 	}
 
 	public String getLaboratorio() {
@@ -120,12 +118,12 @@ public class Medicamento implements Serializable{
 		this.estado = estado;
 	}
 
-	public Farmacia getFarmacia_codigo() {
-		return farmacia_codigo;
+	public Farmacia getFarmaciaCodigo() {
+		return farmaciaCodigo;
 	}
 
-	public void setFarmacia_codigo(Farmacia farmacia_codigo) {
-		this.farmacia_codigo = farmacia_codigo;
+	public void setFarmaciaCodigo(Farmacia farmaciaCodigo) {
+		this.farmaciaCodigo = farmaciaCodigo;
 	}
 
 	@Override
@@ -152,9 +150,5 @@ public class Medicamento implements Serializable{
 			return false;
 		return true;
 	}
-
-
-	
-	
 
 }

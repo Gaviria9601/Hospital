@@ -16,31 +16,29 @@ public class PostOrdenMedicamento {
 	@Column(name = "codigoEntrega", length =30)
 	private String codigoEntrega;
 	
-	@Column(name = "cantidad")
+	@Column(name = "cantidad", nullable=false)
 	private int cantidad;
 	
 	@OneToOne
-	@JoinColumn(name = "orden_cita_codigo",unique=true, nullable=false)
-	private OrdenMedicamento orden_cita_codigo;
+	@JoinColumn(name = "orden_cita_codigo", unique=true, nullable=false)
+	private OrdenMedicamento ordenCitaCodigo;
 	
 	@OneToOne
 	@JoinColumn(name = "orden_medicamento_codigo",unique=true, nullable=false)
-	private OrdenMedicamento orden_medicamento_codigo;
+	private OrdenMedicamento ordenMedicamentoCodigo;
 	
+    public PostOrdenMedicamento(){
+    	super();
+}
 
-	public PostOrdenMedicamento(String codigoEntrega, int cantidad, OrdenMedicamento orden_cita_codigo,
-			OrdenMedicamento orden_medicamento_codigo) {
+	public PostOrdenMedicamento(String codigoEntrega, int cantidad, OrdenMedicamento ordenCitaCodigo,
+			OrdenMedicamento ordenMedicamentoCodigo) {
 		super();
 		this.codigoEntrega = codigoEntrega;
 		this.cantidad = cantidad;
-		this.orden_cita_codigo = orden_cita_codigo;
-		this.orden_medicamento_codigo = orden_medicamento_codigo;
+		this.ordenCitaCodigo = ordenCitaCodigo;
+		this.ordenMedicamentoCodigo = ordenMedicamentoCodigo;
 	}
-	
-	public PostOrdenMedicamento(){
-		super();
-	}
-
 
 	public String getCodigoEntrega() {
 		return codigoEntrega;
@@ -58,27 +56,28 @@ public class PostOrdenMedicamento {
 		this.cantidad = cantidad;
 	}
 
-	public OrdenMedicamento getOrden_cita_codigo() {
-		return orden_cita_codigo;
+	public OrdenMedicamento getOrdenCitaCodigo() {
+		return ordenCitaCodigo;
 	}
 
-	public void setOrden_cita_codigo(OrdenMedicamento orden_cita_codigo) {
-		this.orden_cita_codigo = orden_cita_codigo;
+	public void setOrdenCitaCodigo(OrdenMedicamento ordenCitaCodigo) {
+		this.ordenCitaCodigo = ordenCitaCodigo;
 	}
 
-	public OrdenMedicamento getOrden_medicamento_codigo() {
-		return orden_medicamento_codigo;
+	public OrdenMedicamento getOrdenMedicamentoCodigo() {
+		return ordenMedicamentoCodigo;
 	}
 
-	public void setOrden_medicamento_codigo(OrdenMedicamento orden_medicamento_codigo) {
-		this.orden_medicamento_codigo = orden_medicamento_codigo;
+	public void setOrdenMedicamentoCodigo(OrdenMedicamento ordenMedicamentoCodigo) {
+		this.ordenMedicamentoCodigo = ordenMedicamentoCodigo;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigoEntrega == null) ? 0 : codigoEntrega.hashCode());
+		result = prime * result + ((ordenCitaCodigo == null) ? 0 : ordenCitaCodigo.hashCode());
+		result = prime * result + ((ordenMedicamentoCodigo == null) ? 0 : ordenMedicamentoCodigo.hashCode());
 		return result;
 	}
 
@@ -91,12 +90,18 @@ public class PostOrdenMedicamento {
 		if (getClass() != obj.getClass())
 			return false;
 		PostOrdenMedicamento other = (PostOrdenMedicamento) obj;
-		if (codigoEntrega == null) {
-			if (other.codigoEntrega != null)
+		if (ordenCitaCodigo == null) {
+			if (other.ordenCitaCodigo != null)
 				return false;
-		} else if (!codigoEntrega.equals(other.codigoEntrega))
+		} else if (!ordenCitaCodigo.equals(other.ordenCitaCodigo))
+			return false;
+		if (ordenMedicamentoCodigo == null) {
+			if (other.ordenMedicamentoCodigo != null)
+				return false;
+		} else if (!ordenMedicamentoCodigo.equals(other.ordenMedicamentoCodigo))
 			return false;
 		return true;
 	}
-
+    
+	
 }

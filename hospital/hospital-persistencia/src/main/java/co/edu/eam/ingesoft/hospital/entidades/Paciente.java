@@ -14,27 +14,27 @@ import javax.persistence.Table;
 @Table(name="PACIENTE")
 public class Paciente extends Usuario implements Serializable {
 	
-	
-	
-	@Column(name = "estrato")
+	@Column(name = "estrato", nullable=false)
 	private int estrato;
-
 
 	@ManyToOne
 	@JoinColumn(name = "afiliacion_codigo", nullable=false)
-	private Afiliacion afiliacion_codigo;
+	private Afiliacion afiliacionCodigo;
+	
+	@Column(name = "Trabajo",length =50)
+	private int trabajo;
 
 	
 	public Paciente(){
 		super();
 	}
 
-	
-	public Paciente(int estrato, Afiliacion afiliacion_codigo) {
+
+	public Paciente(int estrato, Afiliacion afiliacionCodigo, int trabajo) {
 		super();
-		
 		this.estrato = estrato;
-		this.afiliacion_codigo = afiliacion_codigo;
+		this.afiliacionCodigo = afiliacionCodigo;
+		this.trabajo = trabajo;
 	}
 
 
@@ -48,15 +48,26 @@ public class Paciente extends Usuario implements Serializable {
 	}
 
 
-	public Afiliacion getAfiliacion_codigo() {
-		return afiliacion_codigo;
+	public Afiliacion getAfiliacionCodigo() {
+		return afiliacionCodigo;
 	}
 
 
-	public void setAfiliacion_codigo(Afiliacion afiliacion_codigo) {
-		this.afiliacion_codigo = afiliacion_codigo;
+	public void setAfiliacionCodigo(Afiliacion afiliacionCodigo) {
+		this.afiliacionCodigo = afiliacionCodigo;
 	}
 
 
+	public int getTrabajo() {
+		return trabajo;
+	}
+
+
+	public void setTrabajo(int trabajo) {
+		this.trabajo = trabajo;
+	}
+
+	
+	
 	
 }

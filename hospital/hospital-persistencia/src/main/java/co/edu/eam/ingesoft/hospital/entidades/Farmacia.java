@@ -12,16 +12,16 @@ import javax.persistence.Table;
 public class Farmacia implements Serializable{
 	
 	@Id
-	@Column(name="codigo",length=10)
+	@Column(name="Codigo",length=10)
 	private String codigo;
 	
-	@Column(name = "nombre", length =40)
+	@Column(name = "Nombre", length =40, nullable=false)
 	private String nombre;
 	
-	@Column(name = "telefono", length =10)
+	@Column(name = "Telefono", length =10, nullable=false)
 	private String telefono;
 	
-	@Column(name = "direccion", length = 40)
+	@Column(name = "Direccion", length = 40)
 	private String direccion;
 	
 

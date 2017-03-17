@@ -18,83 +18,54 @@ import javax.persistence.TemporalType;
 @Table(name="FRAMACEUTICO")
 public class Farmaceutico  extends Usuario implements Serializable {
 	
-
-	
-	@Column(name = "tarjeta_profesional", length =20)
-	private String tarjeta_profesional;
+    @Column(name = "Tarjeta_profesional", length =20)
+	private String tarjetaProfesional;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_ingreso")
-	private Date fecha_ingreso;
+	@Column(name = "Fecha_ingreso")
+	private Date fechaIngreso;
 	
 	@ManyToOne
-	@JoinColumn(name = "farmacia_codigo", nullable=false)
-	private Farmacia farmacia_codigo;
+	@JoinColumn(name = "Farmacia_codigo", nullable=false)
+	private Farmacia farmaciaCodigo;
 
+    public Farmaceutico(){
+    	super();
+    	
+    }
 
-	public Farmaceutico(){
+	public Farmaceutico(String tarjetaProfesional, Date fechaIngreso, Farmacia farmaciaCodigo) {
 		super();
+		this.tarjetaProfesional = tarjetaProfesional;
+		this.fechaIngreso = fechaIngreso;
+		this.farmaciaCodigo = farmaciaCodigo;
 	}
 	
+
+	public String getTarjetaProfesional() {
+		return tarjetaProfesional;
+	}
+
+	public void setTarjetaProfesional(String tarjetaProfesional) {
+		this.tarjetaProfesional = tarjetaProfesional;
+	}
+
+	public Date getFechaIngreso() {
+		return fechaIngreso;
+	}
+
+	public void setFechaIngreso(Date fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
+	}
+
+	public Farmacia getFarmaciaCodigo() {
+		return farmaciaCodigo;
+	}
+
+	public void setFarmaciaCodigo(Farmacia farmaciaCodigo) {
+		this.farmaciaCodigo = farmaciaCodigo;
+	}
+    
+    
 	
-	public Farmaceutico(String tarjeta_profesional, Date fecha_ingreso, Farmacia farmacia_codigo) {
-		super();
-		this.tarjeta_profesional = tarjeta_profesional;
-		this.fecha_ingreso = fecha_ingreso;
-		this.farmacia_codigo = farmacia_codigo;
-	}
-
-
-	public String getTarjeta_profesional() {
-		return tarjeta_profesional;
-	}
-
-	public void setTarjeta_profesional(String tarjeta_profesional) {
-		this.tarjeta_profesional = tarjeta_profesional;
-	}
-
-	public Date getFecha_ingreso() {
-		return fecha_ingreso;
-	}
-
-	public void setFecha_ingreso(Date fecha_ingreso) {
-		this.fecha_ingreso = fecha_ingreso;
-	}
-
-	public Farmacia getFarmacia_codigo() {
-		return farmacia_codigo;
-	}
-
-	public void setFarmacia_codigo(Farmacia farmacia_codigo) {
-		this.farmacia_codigo = farmacia_codigo;
-	}
-
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((farmacia_codigo == null) ? 0 : farmacia_codigo.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Farmaceutico other = (Farmaceutico) obj;
-		if (farmacia_codigo == null) {
-			if (other.farmacia_codigo != null)
-				return false;
-		} else if (!farmacia_codigo.equals(other.farmacia_codigo))
-			return false;
-		return true;
-	}
-	
-	
-
 }

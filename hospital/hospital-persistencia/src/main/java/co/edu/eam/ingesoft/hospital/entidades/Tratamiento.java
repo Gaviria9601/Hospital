@@ -17,7 +17,7 @@ public class Tratamiento {
 	private String tipo;
 	
     @Column(name = "farmacos_aplicar", length =50)
-	private String farmacos_aplicar;
+	private String farmacosAplicar;
 
     @Column(name = "problema", length =500)
 	private String problema;
@@ -26,49 +26,56 @@ public class Tratamiento {
     public Tratamiento(){
     	super();
     }
-    
-    public Tratamiento(String codigo, String tipo, String farmacos_aplicar, String problema) {
+
+
+	public Tratamiento(String codigo, String tipo, String farmacosAplicar, String problema) {
 		super();
 		this.codigo = codigo;
 		this.tipo = tipo;
-		this.farmacos_aplicar = farmacos_aplicar;
+		this.farmacosAplicar = farmacosAplicar;
 		this.problema = problema;
 	}
-    
-    
+
+
 	public String getCodigo() {
 		return codigo;
 	}
+
 
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
+
 	public String getTipo() {
 		return tipo;
 	}
+
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
-	public String getFarmacos_aplicar() {
-		return farmacos_aplicar;
+
+	public String getFarmacosAplicar() {
+		return farmacosAplicar;
 	}
 
-	public void setFarmacos_aplicar(String farmacos_aplicar) {
-		this.farmacos_aplicar = farmacos_aplicar;
+
+	public void setFarmacosAplicar(String farmacosAplicar) {
+		this.farmacosAplicar = farmacosAplicar;
 	}
+
 
 	public String getProblema() {
 		return problema;
 	}
 
+
 	public void setProblema(String problema) {
 		this.problema = problema;
 	}
 
-	
 
 	@Override
 	public int hashCode() {
@@ -77,6 +84,7 @@ public class Tratamiento {
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -93,7 +101,7 @@ public class Tratamiento {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
-	} 
+	}
     
     
 }
