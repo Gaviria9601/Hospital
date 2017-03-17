@@ -19,9 +19,8 @@ import javax.persistence.Table;
 @Table(name="Examen")
 public class Examen extends CitaAvanzada implements Serializable{
 
-	
-	@JoinColumn(name = "tipoExamen_id")
 	@ManyToOne
+	@JoinColumn(name = "tipoExamen_id")
 	private TipoExamen tipoExamen;
 	
 	public Examen(){

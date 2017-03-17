@@ -89,9 +89,7 @@ public class OrdenMedicamento {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + cantidad;
 		result = prime * result + ((citaCodigo == null) ? 0 : citaCodigo.hashCode());
-		result = prime * result + ((formula == null) ? 0 : formula.hashCode());
 		result = prime * result + ((medicamentosCodigo == null) ? 0 : medicamentosCodigo.hashCode());
 		return result;
 	}
@@ -106,17 +104,10 @@ public class OrdenMedicamento {
 		if (getClass() != obj.getClass())
 			return false;
 		OrdenMedicamento other = (OrdenMedicamento) obj;
-		if (cantidad != other.cantidad)
-			return false;
 		if (citaCodigo == null) {
 			if (other.citaCodigo != null)
 				return false;
 		} else if (!citaCodigo.equals(other.citaCodigo))
-			return false;
-		if (formula == null) {
-			if (other.formula != null)
-				return false;
-		} else if (!formula.equals(other.formula))
 			return false;
 		if (medicamentosCodigo == null) {
 			if (other.medicamentosCodigo != null)
@@ -125,7 +116,7 @@ public class OrdenMedicamento {
 			return false;
 		return true;
 	}
-	
+
 	
 
 }

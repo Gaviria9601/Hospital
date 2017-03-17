@@ -25,12 +25,12 @@ public class Cirugia extends CitaAvanzada implements Serializable{
 		@Column(name="anestesia")
 		private boolean anestesia;
 		
-		@JoinColumn(name = "tipoCirugia_codigo")
 		@ManyToOne
+		@JoinColumn(name = "tipoCirugia_codigo")
 		private TipoCirugia tipoCirugia;
 		
-		@JoinColumn(name = "especializacion_codigo")
 		@ManyToOne
+		@JoinColumn(name = "especializacion_codigo")
 		private TipoCirugia especializacionCodigo;
 		
 		

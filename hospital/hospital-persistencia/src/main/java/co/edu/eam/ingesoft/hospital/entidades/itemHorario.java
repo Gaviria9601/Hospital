@@ -85,22 +85,15 @@ public class itemHorario implements Serializable{
 		this.fecha = fecha;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((fecha == null) ? 0 : fecha.hashCode());
 		result = prime * result + ((horarioCodigoTurno == null) ? 0 : horarioCodigoTurno.hashCode());
 		result = prime * result + ((medicoUsuarioCedula == null) ? 0 : medicoUsuarioCedula.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -110,11 +103,6 @@ public class itemHorario implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		itemHorario other = (itemHorario) obj;
-		if (fecha == null) {
-			if (other.fecha != null)
-				return false;
-		} else if (!fecha.equals(other.fecha))
-			return false;
 		if (horarioCodigoTurno == null) {
 			if (other.horarioCodigoTurno != null)
 				return false;
@@ -127,10 +115,7 @@ public class itemHorario implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
-	
+
 	
 
 }

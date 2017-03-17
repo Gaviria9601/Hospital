@@ -19,31 +19,31 @@ public class Usuario implements Serializable {
 	
 	@Id
 	@Column(name="cedula",length=20, nullable= false)
-	protected String cedula;
+	private String cedula;
 	
 	@Column(name = "nicknme", length =30, nullable= false)
-	protected String nickname;
+	private String nickname;
 	
 	@Column(name = "clave", length =20,nullable= false)
-	protected String clave;
+	private String clave;
 	
 	@Column(name = "nombre", length = 30, nullable= false)
-	protected String nombre;
+	private String nombre;
 	
 	@Column(name = "apellido", length = 50)
-	protected String apellido;
+	private String apellido;
 	
 	@Column(name = "edad")
-	protected int edad;
+	private int edad;
 	
 	@Column(name = "correo", length =100, nullable= false)
-	protected String correo;
+	private String correo;
 	
 	@Column(name = "telefono", length =20, nullable= false)
-	protected String telefono;
+	private String telefono;
 	
 	@Column(name = "tipoUsuario", length =30)
-	protected String tipoUsuario;
+	private String tipoUsuario;
 	
 
 	public Usuario(){
@@ -129,6 +129,21 @@ public class Usuario implements Serializable {
 		this.tipoUsuario = tipoUsuario;
 	}
 	
+	/**
+	 * @return the telefono
+	 */
+	public String getTelefono() {
+		return telefono;
+	}
+
+	/**
+	 * @param telefono the telefono to set
+	 */
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	
 	
 
 	@Override
@@ -156,18 +171,5 @@ public class Usuario implements Serializable {
 		return true;
 	}
 
-	/**
-	 * @return the telefono
-	 */
-	public String getTelefono() {
-		return telefono;
-	}
-
-	/**
-	 * @param telefono the telefono to set
-	 */
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
+	
 }
