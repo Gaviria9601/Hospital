@@ -18,7 +18,7 @@ public class Sintoma implements Serializable{
 	@Column(name = "causa", length =2000)
 	private String causa;
 	
-    @Column(name = "descripcion", length =2000)
+    @Column(name = "descripcion", length =2000, nullable=false)
 	private String descripcion;
     
 

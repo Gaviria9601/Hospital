@@ -18,9 +18,7 @@ import javax.persistence.TemporalType;
 @Table(name="FRAMACEUTICO")
 public class Farmaceutico  extends Usuario implements Serializable {
 	
-
-	
-	@Column(name = "Tarjeta_profesional", length =20)
+    @Column(name = "Tarjeta_profesional", length =20)
 	private String tarjetaProfesional;
 
 	@Temporal(TemporalType.DATE)
