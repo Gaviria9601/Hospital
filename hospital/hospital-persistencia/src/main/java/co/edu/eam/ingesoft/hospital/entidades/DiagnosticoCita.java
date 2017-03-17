@@ -4,21 +4,23 @@ import java.io.Serializable;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "DIAGNOSTICOCITA")
+@IdClass(DiagnosticoCitaPK.class)
 public class DiagnosticoCita implements Serializable {
 
-	@EmbeddedId
-	protected DiagnosticoCitaPK diagnosticoCitaPK;
-
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "cita_codigo", nullable = false)
-	private Cita cita_codigo;
+	private Cita citaCodigo;
 
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "patologia_codigo", nullable = false)
 	private Patologia patologiaCodigo;
@@ -27,27 +29,18 @@ public class DiagnosticoCita implements Serializable {
 		super();
 	}
 
-	public DiagnosticoCita(DiagnosticoCitaPK diagnosticoCitaPK, Cita cita_codigo, Patologia patologiaCodigo) {
+	public DiagnosticoCita(Cita cita_codigo, Patologia patologiaCodigo) {
 		super();
-		this.diagnosticoCitaPK = diagnosticoCitaPK;
-		this.cita_codigo = cita_codigo;
+		this.citaCodigo = cita_codigo;
 		this.patologiaCodigo = patologiaCodigo;
 	}
 
-	public DiagnosticoCitaPK getDiagnosticoCitaPK() {
-		return diagnosticoCitaPK;
+	public Cita getCitaCodigo() {
+		return citaCodigo;
 	}
 
-	public void setDiagnosticoCitaPK(DiagnosticoCitaPK diagnosticoCitaPK) {
-		this.diagnosticoCitaPK = diagnosticoCitaPK;
-	}
-
-	public Cita getCita_codigo() {
-		return cita_codigo;
-	}
-
-	public void setCita_codigo(Cita cita_codigo) {
-		this.cita_codigo = cita_codigo;
+	public void setCitaCodigo(Cita cita_codigo) {
+		this.citaCodigo = cita_codigo;
 	}
 
 	public Patologia getPatologiaCodigo() {
@@ -62,7 +55,7 @@ public class DiagnosticoCita implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((diagnosticoCitaPK == null) ? 0 : diagnosticoCitaPK.hashCode());
+		result = prime * result + ((citaCodigo == null) ? 0 : citaCodigo.hashCode());
 		result = prime * result + ((patologiaCodigo == null) ? 0 : patologiaCodigo.hashCode());
 		return result;
 	}
@@ -76,10 +69,10 @@ public class DiagnosticoCita implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		DiagnosticoCita other = (DiagnosticoCita) obj;
-		if (diagnosticoCitaPK == null) {
-			if (other.diagnosticoCitaPK != null)
+		if (citaCodigo == null) {
+			if (other.citaCodigo != null)
 				return false;
-		} else if (!diagnosticoCitaPK.equals(other.diagnosticoCitaPK))
+		} else if (!citaCodigo.equals(other.citaCodigo))
 			return false;
 		if (patologiaCodigo == null) {
 			if (other.patologiaCodigo != null)
@@ -89,5 +82,6 @@ public class DiagnosticoCita implements Serializable {
 		return true;
 	}
 
+	
 	
 }

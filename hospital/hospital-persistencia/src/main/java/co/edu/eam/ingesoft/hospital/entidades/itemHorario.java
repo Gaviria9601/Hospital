@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,10 +26,12 @@ import javax.persistence.TemporalType;
 public class itemHorario implements Serializable{
 	
 	@Id
+	@ManyToOne
 	@JoinColumn(name="medico_usuario_cedula", nullable= false)
 	private Medico medicoUsuarioCedula;
 	
 	@Id
+	@ManyToOne
 	@JoinColumn(name="horario_codigo_turno", nullable= false)
 	private Horario horarioCodigoTurno;
 	

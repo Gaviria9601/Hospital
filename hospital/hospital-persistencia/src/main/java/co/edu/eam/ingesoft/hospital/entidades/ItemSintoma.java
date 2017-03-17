@@ -4,64 +4,67 @@ import java.io.Serializable;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="ITEM_SINTOMA")
+@IdClass(itemSintomaPK.class)
 public class ItemSintoma implements Serializable {
 	
-	@EmbeddedId
-	protected itemSintomaPK itemSintomaPK;
-	
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "sintoma_codigo", nullable=false)
-	private Sintoma sintoma_codigo;
+	private Sintoma sintomaCodigo;
 	
-	
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "patologia_codigo", nullable=false)
-	private Patologia patologia_codigo;
+	private Patologia patologiaCodigo;
 	
 	public ItemSintoma(){
 		super();
 	}
 
-	public ItemSintoma(itemSintomaPK itemSintomaPK){
-		this.itemSintomaPK = itemSintomaPK;
-	}
 	
-	public ItemSintoma(String sintomaCodigo, String patologiaCodigo) {
-		super();
-		this.itemSintomaPK = new itemSintomaPK(sintomaCodigo, patologiaCodigo);
+
+	public Sintoma getSintomaCodigo() {
+		return sintomaCodigo;
 	}
 
-	public Sintoma getSintoma_codigo() {
-		return sintoma_codigo;
+
+
+	public void setSintomaCodigo(Sintoma sintomaCodigo) {
+		this.sintomaCodigo = sintomaCodigo;
 	}
 
-	public void setSintoma_codigo(Sintoma sintoma_codigo) {
-		this.sintoma_codigo = sintoma_codigo;
+
+
+	public Patologia getPatologiaCodigo() {
+		return patologiaCodigo;
 	}
 
-	public Patologia getPatologia_codigo() {
-		return patologia_codigo;
+
+
+	public void setPatologiaCodigo(Patologia patologiaCodigo) {
+		this.patologiaCodigo = patologiaCodigo;
 	}
 
-	public void setPatologia_codigo(Patologia patologia_codigo) {
-		this.patologia_codigo = patologia_codigo;
-	}
 
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((patologia_codigo == null) ? 0 : patologia_codigo.hashCode());
-		result = prime * result + ((sintoma_codigo == null) ? 0 : sintoma_codigo.hashCode());
+		result = prime * result + ((patologiaCodigo == null) ? 0 : patologiaCodigo.hashCode());
+		result = prime * result + ((sintomaCodigo == null) ? 0 : sintomaCodigo.hashCode());
 		return result;
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -72,19 +75,20 @@ public class ItemSintoma implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ItemSintoma other = (ItemSintoma) obj;
-		if (patologia_codigo == null) {
-			if (other.patologia_codigo != null)
+		if (patologiaCodigo == null) {
+			if (other.patologiaCodigo != null)
 				return false;
-		} else if (!patologia_codigo.equals(other.patologia_codigo))
+		} else if (!patologiaCodigo.equals(other.patologiaCodigo))
 			return false;
-		if (sintoma_codigo == null) {
-			if (other.sintoma_codigo != null)
+		if (sintomaCodigo == null) {
+			if (other.sintomaCodigo != null)
 				return false;
-		} else if (!sintoma_codigo.equals(other.sintoma_codigo))
+		} else if (!sintomaCodigo.equals(other.sintomaCodigo))
 			return false;
 		return true;
 	}
-	
 
+
+	
 
 }

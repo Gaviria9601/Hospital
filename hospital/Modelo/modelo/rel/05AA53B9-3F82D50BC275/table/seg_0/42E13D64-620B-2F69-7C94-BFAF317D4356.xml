@@ -34,7 +34,6 @@
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:14:42 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>

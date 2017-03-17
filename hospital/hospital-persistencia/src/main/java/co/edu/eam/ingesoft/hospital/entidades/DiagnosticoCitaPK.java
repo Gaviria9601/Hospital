@@ -5,14 +5,11 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Embeddable
 public class DiagnosticoCitaPK implements Serializable {
 	
 	
-	@Column(name = "Cita_Codigo")
 	private String citaCodigo;
 
-	@Column(name = "Patologia_Codigo")
 	private String patologiaCodigo;
 	
 	public DiagnosticoCitaPK(){

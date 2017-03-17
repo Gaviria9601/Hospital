@@ -5,14 +5,11 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Embeddable
 public class itemSintomaPK implements Serializable{
 	
-	@Column(name = "Sintoma_Codigo")
-	private String SintomaCodigo;
+	private String sintomaCodigo;
 	
-	@Column(name = "Patologia_Codigo")
-	private String PatologiaCodigo;
+	private String patologiaCodigo;
 
 	public itemSintomaPK() {
 		super();
@@ -20,32 +17,32 @@ public class itemSintomaPK implements Serializable{
 
 	public itemSintomaPK(String sintomaCodigo, String patologiaCodigo) {
 		super();
-		SintomaCodigo = sintomaCodigo;
-		PatologiaCodigo = patologiaCodigo;
+		this.sintomaCodigo = sintomaCodigo;
+		this.patologiaCodigo = patologiaCodigo;
 	}
 
 	public String getSintomaCodigo() {
-		return SintomaCodigo;
+		return sintomaCodigo;
 	}
 
 	public void setSintomaCodigo(String sintomaCodigo) {
-		SintomaCodigo = sintomaCodigo;
+		this.sintomaCodigo = sintomaCodigo;
 	}
 
 	public String getPatologiaCodigo() {
-		return PatologiaCodigo;
+		return patologiaCodigo;
 	}
 
 	public void setPatologiaCodigo(String patologiaCodigo) {
-		PatologiaCodigo = patologiaCodigo;
+		this.patologiaCodigo = patologiaCodigo;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((PatologiaCodigo == null) ? 0 : PatologiaCodigo.hashCode());
-		result = prime * result + ((SintomaCodigo == null) ? 0 : SintomaCodigo.hashCode());
+		result = prime * result + ((patologiaCodigo == null) ? 0 : patologiaCodigo.hashCode());
+		result = prime * result + ((sintomaCodigo == null) ? 0 : sintomaCodigo.hashCode());
 		return result;
 	}
 
@@ -58,19 +55,19 @@ public class itemSintomaPK implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		itemSintomaPK other = (itemSintomaPK) obj;
-		if (PatologiaCodigo == null) {
-			if (other.PatologiaCodigo != null)
+		if (patologiaCodigo == null) {
+			if (other.patologiaCodigo != null)
 				return false;
-		} else if (!PatologiaCodigo.equals(other.PatologiaCodigo))
+		} else if (!patologiaCodigo.equals(other.patologiaCodigo))
 			return false;
-		if (SintomaCodigo == null) {
-			if (other.SintomaCodigo != null)
+		if (sintomaCodigo == null) {
+			if (other.sintomaCodigo != null)
 				return false;
-		} else if (!SintomaCodigo.equals(other.SintomaCodigo))
+		} else if (!sintomaCodigo.equals(other.sintomaCodigo))
 			return false;
 		return true;
 	}
-	
+
 	
 	
 	

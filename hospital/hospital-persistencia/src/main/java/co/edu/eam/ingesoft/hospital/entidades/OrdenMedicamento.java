@@ -3,16 +3,16 @@ package co.edu.eam.ingesoft.hospital.entidades;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="ORDEN_MEDICAMENTO")
+@IdClass(OrdenMedicamentoPK.class)
 public class OrdenMedicamento {
-	
-	@EmbeddedId
-	private OrdenMedicamentoPK ordenMedicamentoPK;
 	
 	@Column(name = "cantidad")
 	private int cantidad;
@@ -20,39 +20,28 @@ public class OrdenMedicamento {
 	@Column(name = "formula", length =2000)
 	private String formula;
 	
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "cita_codigo", nullable=true)
-	private Cita cita_codigo;
+	private Cita citaCodigo;
 	
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "medicamentos_codigo", nullable=true)
-	private Medicamento medicamentos_codigo;
+	private Medicamento medicamentosCodigo;
 
 
 	public OrdenMedicamento(){
 		super();
 	}
-	
-	public OrdenMedicamento(OrdenMedicamentoPK ordenMedicamentoPK){
-		this.ordenMedicamentoPK = ordenMedicamentoPK;
-	}
 
-	public OrdenMedicamento(int cantidad, String formula,String citaCodigo, String medicamentoCodigo) {
+
+	public OrdenMedicamento(int cantidad, String formula, Cita citaCodigo, Medicamento medicamentosCodigo) {
 		super();
 		this.cantidad = cantidad;
 		this.formula = formula;
-		this.ordenMedicamentoPK = new OrdenMedicamentoPK(citaCodigo, medicamentoCodigo);
-	}
-	
-	
-	public OrdenMedicamentoPK getOrdenMedicamentoPK() {
-		return ordenMedicamentoPK;
-	}
-
-
-
-	public void setOrdenMedicamentoPK(OrdenMedicamentoPK ordenMedicamentoPK) {
-		this.ordenMedicamentoPK = ordenMedicamentoPK;
+		this.citaCodigo = citaCodigo;
+		this.medicamentosCodigo = medicamentosCodigo;
 	}
 
 
@@ -60,32 +49,39 @@ public class OrdenMedicamento {
 		return cantidad;
 	}
 
+
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
+
 
 	public String getFormula() {
 		return formula;
 	}
 
+
 	public void setFormula(String formula) {
 		this.formula = formula;
 	}
 
-	public Cita getCita_codigo() {
-		return cita_codigo;
+
+	public Cita getCitaCodigo() {
+		return citaCodigo;
 	}
 
-	public void setCita_codigo(Cita cita_codigo) {
-		this.cita_codigo = cita_codigo;
+
+	public void setCitaCodigo(Cita citaCodigo) {
+		this.citaCodigo = citaCodigo;
 	}
 
-	public Medicamento getMedicamentos_codigo() {
-		return medicamentos_codigo;
+
+	public Medicamento getMedicamentosCodigo() {
+		return medicamentosCodigo;
 	}
 
-	public void setMedicamentos_codigo(Medicamento medicamentos_codigo) {
-		this.medicamentos_codigo = medicamentos_codigo;
+
+	public void setMedicamentosCodigo(Medicamento medicamentosCodigo) {
+		this.medicamentosCodigo = medicamentosCodigo;
 	}
 
 
@@ -93,8 +89,10 @@ public class OrdenMedicamento {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((cita_codigo == null) ? 0 : cita_codigo.hashCode());
-		result = prime * result + ((medicamentos_codigo == null) ? 0 : medicamentos_codigo.hashCode());
+		result = prime * result + cantidad;
+		result = prime * result + ((citaCodigo == null) ? 0 : citaCodigo.hashCode());
+		result = prime * result + ((formula == null) ? 0 : formula.hashCode());
+		result = prime * result + ((medicamentosCodigo == null) ? 0 : medicamentosCodigo.hashCode());
 		return result;
 	}
 
@@ -108,20 +106,26 @@ public class OrdenMedicamento {
 		if (getClass() != obj.getClass())
 			return false;
 		OrdenMedicamento other = (OrdenMedicamento) obj;
-		if (cita_codigo == null) {
-			if (other.cita_codigo != null)
-				return false;
-		} else if (!cita_codigo.equals(other.cita_codigo))
+		if (cantidad != other.cantidad)
 			return false;
-		if (medicamentos_codigo == null) {
-			if (other.medicamentos_codigo != null)
+		if (citaCodigo == null) {
+			if (other.citaCodigo != null)
 				return false;
-		} else if (!medicamentos_codigo.equals(other.medicamentos_codigo))
+		} else if (!citaCodigo.equals(other.citaCodigo))
+			return false;
+		if (formula == null) {
+			if (other.formula != null)
+				return false;
+		} else if (!formula.equals(other.formula))
+			return false;
+		if (medicamentosCodigo == null) {
+			if (other.medicamentosCodigo != null)
+				return false;
+		} else if (!medicamentosCodigo.equals(other.medicamentosCodigo))
 			return false;
 		return true;
 	}
-
-
+	
 	
 
 }

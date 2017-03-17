@@ -5,62 +5,56 @@ import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="ITEM_TRATAMIENTO")
+@IdClass(itemTratamientoPK.class)
 public class ItemTratamiento implements Serializable {
-
-	@EmbeddedId
-	protected itemTratamientoPK itemTratamientoPK;
 	
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "tratamiento_codigo", nullable=false)
-	private Tratamiento tratamiento_codigo;
+	private Tratamiento tratamientoCodigo;
 	
+	@Id
 	@ManyToOne
 	@JoinColumn(name = "patologia_codigo", nullable=false)
-	private Patologia patologia_codigo;
+	private Patologia patologiaCodigo;
 	
 
 	public ItemTratamiento(){
 		super();
 	}
 
-	public ItemTratamiento(itemTratamientoPK itemTratamientoPK){
-		this.itemTratamientoPK =  itemTratamientoPK;
-	}
-	
-	public ItemTratamiento(String tratamientoCodigo, String patologiaCodigo) {
+
+	public ItemTratamiento(Tratamiento tratamientoCodigo, Patologia patologiaCodigo) {
 		super();
-		this.itemTratamientoPK = new itemTratamientoPK(patologiaCodigo, tratamientoCodigo);
+		this.tratamientoCodigo = tratamientoCodigo;
+		this.patologiaCodigo = patologiaCodigo;
 	}
 
-	
-	public itemTratamientoPK getItemTratamientoPK() {
-		return itemTratamientoPK;
+
+	public Tratamiento getTratamientoCodigo() {
+		return tratamientoCodigo;
 	}
 
-	public void setItemTratamientoPK(itemTratamientoPK itemTratamientoPK) {
-		this.itemTratamientoPK = itemTratamientoPK;
+
+	public void setTratamientoCodigo(Tratamiento tratamientoCodigo) {
+		this.tratamientoCodigo = tratamientoCodigo;
 	}
 
-	public Tratamiento getTratamiento_codigo() {
-		return tratamiento_codigo;
+
+	public Patologia getPatologiaCodigo() {
+		return patologiaCodigo;
 	}
 
-	public void setTratamiento_codigo(Tratamiento tratamiento_codigo) {
-		this.tratamiento_codigo = tratamiento_codigo;
-	}
 
-	public Patologia getPatologia_codigo() {
-		return patologia_codigo;
-	}
-
-	public void setPatologia_codigo(Patologia patologia_codigo) {
-		this.patologia_codigo = patologia_codigo;
+	public void setPatologiaCodigo(Patologia patologiaCodigo) {
+		this.patologiaCodigo = patologiaCodigo;
 	}
 
 
@@ -68,10 +62,11 @@ public class ItemTratamiento implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((patologia_codigo == null) ? 0 : patologia_codigo.hashCode());
-		result = prime * result + ((tratamiento_codigo == null) ? 0 : tratamiento_codigo.hashCode());
+		result = prime * result + ((patologiaCodigo == null) ? 0 : patologiaCodigo.hashCode());
+		result = prime * result + ((tratamientoCodigo == null) ? 0 : tratamientoCodigo.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -82,18 +77,19 @@ public class ItemTratamiento implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ItemTratamiento other = (ItemTratamiento) obj;
-		if (patologia_codigo == null) {
-			if (other.patologia_codigo != null)
+		if (patologiaCodigo == null) {
+			if (other.patologiaCodigo != null)
 				return false;
-		} else if (!patologia_codigo.equals(other.patologia_codigo))
+		} else if (!patologiaCodigo.equals(other.patologiaCodigo))
 			return false;
-		if (tratamiento_codigo == null) {
-			if (other.tratamiento_codigo != null)
+		if (tratamientoCodigo == null) {
+			if (other.tratamientoCodigo != null)
 				return false;
-		} else if (!tratamiento_codigo.equals(other.tratamiento_codigo))
+		} else if (!tratamientoCodigo.equals(other.tratamientoCodigo))
 			return false;
 		return true;
 	}
+	
 	
 
 }

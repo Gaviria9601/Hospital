@@ -5,13 +5,10 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Embeddable
 public class itemTratamientoPK implements Serializable {
 	
-	@Column(name = "Patologia_Codigo")
 	private String patologiaCodigo;
 	
-	@Column(name = "Tratamiento_Codigo")
 	private String tratamientoCodigo;
 	
 	public itemTratamientoPK() {

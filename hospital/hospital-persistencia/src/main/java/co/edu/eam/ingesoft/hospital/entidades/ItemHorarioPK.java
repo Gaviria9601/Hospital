@@ -4,44 +4,35 @@ import java.io.Serializable;
 
 public class ItemHorarioPK implements Serializable {
 	
-	private Medico medicoUsuarioCedula;
-	private Horario horarioCodigoTurno;
+	private String medicoUsuarioCedula;
+	private String horarioCodigoTurno;
 	
 	public ItemHorarioPK(){
 		
 	}
 
-	/**
-	 * @return the medicoUsuarioCedula
-	 */
-	public Medico getMedicoUsuarioCedula() {
-		return medicoUsuarioCedula;
-	}
-
-	/**
-	 * @param medicoUsuarioCedula the medicoUsuarioCedula to set
-	 */
-	public void setMedicoUsuarioCedula(Medico medicoUsuarioCedula) {
+	public ItemHorarioPK(String medicoUsuarioCedula, String horarioCodigoTurno) {
+		super();
 		this.medicoUsuarioCedula = medicoUsuarioCedula;
-	}
-
-	/**
-	 * @return the horarioCodigoTurno
-	 */
-	public Horario getHorarioCodigoTurno() {
-		return horarioCodigoTurno;
-	}
-
-	/**
-	 * @param horarioCodigoTurno the horarioCodigoTurno to set
-	 */
-	public void setHorarioCodigoTurno(Horario horarioCodigoTurno) {
 		this.horarioCodigoTurno = horarioCodigoTurno;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+	public String getMedicoUsuarioCedula() {
+		return medicoUsuarioCedula;
+	}
+
+	public void setMedicoUsuarioCedula(String medicoUsuarioCedula) {
+		this.medicoUsuarioCedula = medicoUsuarioCedula;
+	}
+
+	public String getHorarioCodigoTurno() {
+		return horarioCodigoTurno;
+	}
+
+	public void setHorarioCodigoTurno(String horarioCodigoTurno) {
+		this.horarioCodigoTurno = horarioCodigoTurno;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -51,9 +42,6 @@ public class ItemHorarioPK implements Serializable {
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -75,7 +63,6 @@ public class ItemHorarioPK implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 
+	
 }

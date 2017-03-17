@@ -23,7 +23,7 @@
 <colAssociation fkAssociation="55914D9E-800F-E562-9C00-17DE06E7D09F" referredColumn="00FB1231-767C-F450-785D-4FEDD5963BEE"/>
 </associations>
 </Column>
-<Column name="Antecedentes" id="DEAEC1F6-629E-5138-E3AC-C7BE3B59D047">
+<Column name="Causas" id="DEAEC1F6-629E-5138-E3AC-C7BE3B59D047">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-03-16 05:12:03 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -31,8 +31,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>2000</dataTypeSize>
-<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

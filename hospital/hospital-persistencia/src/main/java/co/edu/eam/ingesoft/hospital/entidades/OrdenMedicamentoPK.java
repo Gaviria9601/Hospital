@@ -5,23 +5,20 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-@Embeddable
 public class OrdenMedicamentoPK implements Serializable {
 	
-	@Column(name = "Cita_Codigo")
 	private String citaCodigo;
 
-	@Column(name = "Medicamentos_Codigo")
-	private String medicamentoCodigo;
+	private String medicamentosCodigo;
 	
 	public OrdenMedicamentoPK() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrdenMedicamentoPK(String citaCodigo, String medicamentoCodigo) {
+	public OrdenMedicamentoPK(String citaCodigo, String medicamentosCodigo) {
 		super();
 		this.citaCodigo = citaCodigo;
-		this.medicamentoCodigo = medicamentoCodigo;
+		this.medicamentosCodigo = medicamentosCodigo;
 	}
 
 	public String getCitaCodigo() {
@@ -32,12 +29,12 @@ public class OrdenMedicamentoPK implements Serializable {
 		this.citaCodigo = citaCodigo;
 	}
 
-	public String getMedicamentoCodigo() {
-		return medicamentoCodigo;
+	public String getMedicamentosCodigo() {
+		return medicamentosCodigo;
 	}
 
-	public void setMedicamentoCodigo(String medicamentoCodigo) {
-		this.medicamentoCodigo = medicamentoCodigo;
+	public void setMedicamentosCodigo(String medicamentosCodigo) {
+		this.medicamentosCodigo = medicamentosCodigo;
 	}
 
 	@Override
@@ -45,7 +42,7 @@ public class OrdenMedicamentoPK implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((citaCodigo == null) ? 0 : citaCodigo.hashCode());
-		result = prime * result + ((medicamentoCodigo == null) ? 0 : medicamentoCodigo.hashCode());
+		result = prime * result + ((medicamentosCodigo == null) ? 0 : medicamentosCodigo.hashCode());
 		return result;
 	}
 
@@ -63,14 +60,14 @@ public class OrdenMedicamentoPK implements Serializable {
 				return false;
 		} else if (!citaCodigo.equals(other.citaCodigo))
 			return false;
-		if (medicamentoCodigo == null) {
-			if (other.medicamentoCodigo != null)
+		if (medicamentosCodigo == null) {
+			if (other.medicamentosCodigo != null)
 				return false;
-		} else if (!medicamentoCodigo.equals(other.medicamentoCodigo))
+		} else if (!medicamentosCodigo.equals(other.medicamentosCodigo))
 			return false;
 		return true;
 	}
-	
+
 	
 	
 }
