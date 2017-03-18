@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="Horario" directorySegmentName="seg_0" id="7F7AF7C2-6529-22DC-8F1D-46C5FBC8081A">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="Codigo_turno" id="327225AF-FF22-9A5B-44A3-313CC247C830">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Jornada" id="38F28104-7746-E14D-7C99-0D7BD07211AA">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Hora_final" id="DE1F3975-431E-E3DC-C264-E97054ECAFD8">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Hora_Inicio" id="F4F9DD66-FFB7-AD17-8B90-AE9EF8E89309">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Horario_PK" id="CA4BF1AB-07E8-991B-420D-9BC578F470BB">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

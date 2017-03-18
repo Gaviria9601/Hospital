@@ -12,13 +12,13 @@ import javax.persistence.Table;
 public class Sintoma implements Serializable{
 	
 	@Id
-    @Column(name = "codigo",length =20 )
+    @Column(name = "codigo",length = 10 )
 	private String codigo;
 	
-	@Column(name = "causa", length =2000)
+	@Column(name = "causa", length = 1000,nullable = false)
 	private String causa;
 	
-    @Column(name = "descripcion", length =2000, nullable=false)
+    @Column(name = "descripción", length = 1000)
 	private String descripcion;
     
 

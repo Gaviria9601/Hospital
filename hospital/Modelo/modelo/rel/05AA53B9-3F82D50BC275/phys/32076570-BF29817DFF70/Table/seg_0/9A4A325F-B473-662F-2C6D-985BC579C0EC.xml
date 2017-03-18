@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="Farmaceutico" directorySegmentName="seg_0" id="9A4A325F-B473-662F-2C6D-985BC579C0EC">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="Usuario_Cedula" id="1B848960-9F07-2E45-B23A-F0D4C25D18E5">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Tarjeta_profesional" id="2F813B67-985F-2681-D24B-75C6352FC334">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Farmacia_Codigo" id="4051DBA2-3AA1-C152-F2F3-3D5582FA7497">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Fecha_ingreso" id="EBEE300A-ECF7-6D83-5C56-5B26E62868FB">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Farmaceutico_Usuario_FK" id="5F03479C-2C31-00C7-75E5-01217AAED2F7">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Farmaceutico_Farmacia_FK" id="C4CC2F84-A999-8306-5188-D547A776E758">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="Farmaceutico__UN" id="407BFC0D-83B8-63D9-ABB6-CD631218FFCF">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev11g>

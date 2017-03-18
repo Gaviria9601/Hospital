@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="TipoCirugia" directorySegmentName="seg_0" id="4E014B1A-2D3F-645B-4A62-EAF97FBA1E70">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="Nombre" id="9CA9A3A2-CBAD-6A8B-7832-D2F6CC076B90">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Codigo" id="D994D7B3-65DF-76C7-5204-9D678E1976A8">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="TipoCirugia_PK" id="2531C65A-7CBF-59A7-4559-20F0EC69D551">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -47,7 +47,7 @@ public class OrdenCitaAvanzada implements Serializable {
 	private Medico medicoUsuarioCedula;
 
 	@ManyToOne
-	@JoinColumn(name = "instalacion_codigo", nullable = true)
+	@JoinColumn(name = "instalación_codigo", nullable = true)
 	private Instalacion instalacionCodigo;
 
 	@ManyToOne

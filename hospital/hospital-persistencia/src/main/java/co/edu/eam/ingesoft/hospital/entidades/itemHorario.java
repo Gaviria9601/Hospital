@@ -27,12 +27,12 @@ public class itemHorario implements Serializable{
 	
 	@Id
 	@ManyToOne
-	@JoinColumn(name="medico_usuario_cedula", nullable= false)
+	@JoinColumn(name="medico_usuario_cedula")
 	private Medico medicoUsuarioCedula;
 	
 	@Id
 	@ManyToOne
-	@JoinColumn(name="horario_codigo_turno", nullable= false)
+	@JoinColumn(name="horario_codigo_turno")
 	private Horario horarioCodigoTurno;
 	
 	@Temporal(TemporalType.TIME)

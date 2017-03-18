@@ -24,7 +24,7 @@ public class Quirofano extends Instalacion implements Serializable {
 	@Column(name="numero_aparatos", nullable=false)
 	private int numeroAparatos;
 	
-	@Column(name="cantidad_medico", nullable=false)
+	@Column(name="cantidad_medico")
 	private int cantidadMedico;
 	
 	public Quirofano(){

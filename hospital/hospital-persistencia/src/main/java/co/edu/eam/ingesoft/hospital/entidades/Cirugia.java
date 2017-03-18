@@ -19,19 +19,19 @@ import javax.persistence.Table;
  @Table(name="Cirugia")
 public class Cirugia extends CitaAvanzada implements Serializable{
 
-		@Column(name="recuperacion",  length=60)
+		@Column(name="recuperación",  length=50, nullable = false)
 		private String recuperacion;
 	 
 		@Column(name="anestesia")
 		private boolean anestesia;
 		
 		@ManyToOne
-		@JoinColumn(name = "tipoCirugia_codigo")
+		@JoinColumn(name = "tipoCirugia_codigo",nullable = false)
 		private TipoCirugia tipoCirugia;
 		
 		@ManyToOne
-		@JoinColumn(name = "especializacion_codigo")
-		private TipoCirugia especializacionCodigo;
+		@JoinColumn(name = "especializacion_codigo", nullable = false)
+		private Especializacion especializacionCodigo;
 		
 		
 		public Cirugia(){
@@ -40,7 +40,7 @@ public class Cirugia extends CitaAvanzada implements Serializable{
 
 
 		public Cirugia(String recuperacion, boolean anestesia, TipoCirugia tipoCirugia,
-				TipoCirugia especializacionCodigo) {
+				Especializacion especializacionCodigo) {
 			super();
 			this.recuperacion = recuperacion;
 			this.anestesia = anestesia;
@@ -49,71 +49,45 @@ public class Cirugia extends CitaAvanzada implements Serializable{
 		}
 
 
-		/**
-		 * @return the recuperacion
-		 */
 		public String getRecuperacion() {
 			return recuperacion;
 		}
 
 
-		/**
-		 * @param recuperacion the recuperacion to set
-		 */
 		public void setRecuperacion(String recuperacion) {
 			this.recuperacion = recuperacion;
 		}
 
 
-		/**
-		 * @return the anestesia
-		 */
 		public boolean isAnestesia() {
 			return anestesia;
 		}
 
 
-		/**
-		 * @param anestesia the anestesia to set
-		 */
 		public void setAnestesia(boolean anestesia) {
 			this.anestesia = anestesia;
 		}
 
 
-		/**
-		 * @return the tipoCirugia
-		 */
 		public TipoCirugia getTipoCirugia() {
 			return tipoCirugia;
 		}
 
 
-		/**
-		 * @param tipoCirugia the tipoCirugia to set
-		 */
 		public void setTipoCirugia(TipoCirugia tipoCirugia) {
 			this.tipoCirugia = tipoCirugia;
 		}
 
 
-		/**
-		 * @return the especializacionCodigo
-		 */
-		public TipoCirugia getEspecializacionCodigo() {
+		public Especializacion getEspecializacionCodigo() {
 			return especializacionCodigo;
 		}
 
 
-		/**
-		 * @param especializacionCodigo the especializacionCodigo to set
-		 */
-		public void setEspecializacionCodigo(TipoCirugia especializacionCodigo) {
+		public void setEspecializacionCodigo(Especializacion especializacionCodigo) {
 			this.especializacionCodigo = especializacionCodigo;
 		}
-		
-		
-		
+
 		
 	 
 }

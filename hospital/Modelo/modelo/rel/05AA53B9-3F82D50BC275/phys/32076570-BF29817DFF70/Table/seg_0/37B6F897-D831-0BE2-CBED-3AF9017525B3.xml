@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="Cirugia" directorySegmentName="seg_0" id="37B6F897-D831-0BE2-CBED-3AF9017525B3">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="Recuperación" id="1B8AA356-A841-159A-EC49-04DF030C54EA">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Cita_avanzada_Codigo" id="2A7CFB1B-9BCC-9DA6-8EF4-49276834E70B">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="TipoCirugia_Codigo" id="8BCE921A-071E-D666-E9FC-5BD2D9F691DB">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Anestesia" id="91C094FA-7082-9E17-8F51-97D781E28C0A">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Especialización_Codigo" id="CE470917-3307-7F23-0B74-8834D80D06A7">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Cirugia_Especialización_FK" id="50BA952A-09FF-26D4-0656-54C3B34202CD">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Cirugia_Cita_avanzada_FK" id="A3779D30-17EA-B53A-0DA3-524E1F91F527">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Cirugia_TipoCirugia_FK" id="BDBE462C-A0A2-0E93-37AA-E2F194A6586C">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="Cirugia__UN" id="51B0F683-7E46-FC24-5075-39D4F3803CB3">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev11g>

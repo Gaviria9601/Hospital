@@ -10,90 +10,89 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ORDEN_MEDICAMENTO")
-@IdClass(OrdenMedicamentoPK.class)
+@Table(name = "ORDEN_MEDICAMENTO")
 public class OrdenMedicamento {
-	
-	@Column(name = "cantidad")
+
+	@Id
+	@Column(name = "id", nullable = false,length=20)
+	private String id;
+
+	@Column(name = "cantidad", nullable = false)
 	private int cantidad;
-	
-	@Column(name = "formula", length =2000)
+
+	@Column(name = "formula", length = 2000)
 	private String formula;
-	
-	@Id
+
 	@ManyToOne
-	@JoinColumn(name = "cita_codigo", nullable=true)
+	@JoinColumn(name = "cita_codigo", nullable = true)
 	private Cita citaCodigo;
-	
-	@Id
+
 	@ManyToOne
-	@JoinColumn(name = "medicamentos_codigo", nullable=true)
+	@JoinColumn(name = "medicamentos_codigo",nullable=false)
 	private Medicamento medicamentosCodigo;
 
-
-	public OrdenMedicamento(){
+	public OrdenMedicamento() {
 		super();
 	}
 
-
-	public OrdenMedicamento(int cantidad, String formula, Cita citaCodigo, Medicamento medicamentosCodigo) {
+	public OrdenMedicamento(String id, int cantidad, String formula, Cita citaCodigo, Medicamento medicamentosCodigo) {
 		super();
+		this.id = id;
 		this.cantidad = cantidad;
 		this.formula = formula;
 		this.citaCodigo = citaCodigo;
 		this.medicamentosCodigo = medicamentosCodigo;
 	}
 
+	
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public int getCantidad() {
 		return cantidad;
 	}
 
-
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-
 
 	public String getFormula() {
 		return formula;
 	}
 
-
 	public void setFormula(String formula) {
 		this.formula = formula;
 	}
-
 
 	public Cita getCitaCodigo() {
 		return citaCodigo;
 	}
 
-
 	public void setCitaCodigo(Cita citaCodigo) {
 		this.citaCodigo = citaCodigo;
 	}
-
 
 	public Medicamento getMedicamentosCodigo() {
 		return medicamentosCodigo;
 	}
 
-
 	public void setMedicamentosCodigo(Medicamento medicamentosCodigo) {
 		this.medicamentosCodigo = medicamentosCodigo;
 	}
-
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((citaCodigo == null) ? 0 : citaCodigo.hashCode());
-		result = prime * result + ((medicamentosCodigo == null) ? 0 : medicamentosCodigo.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -104,19 +103,15 @@ public class OrdenMedicamento {
 		if (getClass() != obj.getClass())
 			return false;
 		OrdenMedicamento other = (OrdenMedicamento) obj;
-		if (citaCodigo == null) {
-			if (other.citaCodigo != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!citaCodigo.equals(other.citaCodigo))
-			return false;
-		if (medicamentosCodigo == null) {
-			if (other.medicamentosCodigo != null)
-				return false;
-		} else if (!medicamentosCodigo.equals(other.medicamentosCodigo))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
 
 	
-
+	
+	
 }

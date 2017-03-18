@@ -18,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name="Instalacion")
+@Table(name="Instalación")
 public class Instalacion implements Serializable{
 
 	@Id
@@ -28,8 +28,6 @@ public class Instalacion implements Serializable{
 	@Column(name = "disponibilidad", nullable = false)
 	protected boolean disponibilidad;
 	
-	@Column(name = "tipo", nullable = false, length=50)
-	protected String tipo;
 	
 	@Column(name = "observacionDisponible", nullable = false, length=1000)
 	protected String observacionDisponible;
@@ -37,14 +35,11 @@ public class Instalacion implements Serializable{
 	public Instalacion(){
 		
 	}
-	
-	
 
-	public Instalacion(String codigo, boolean disponibilidad, String tipo, String observacionDisponible) {
+	public Instalacion(String codigo, boolean disponibilidad,String observacionDisponible) {
 		super();
 		this.codigo = codigo;
 		this.disponibilidad = disponibilidad;
-		this.tipo = tipo;
 		this.observacionDisponible = observacionDisponible;
 	}
 
@@ -76,20 +71,6 @@ public class Instalacion implements Serializable{
 	 */
 	public void setDisponibilidad(boolean disponibilidad) {
 		this.disponibilidad = disponibilidad;
-	}
-
-	/**
-	 * @return the tipo
-	 */
-	public String getTipo() {
-		return tipo;
-	}
-
-	/**
-	 * @param tipo the tipo to set
-	 */
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
 	}
 
 	/**

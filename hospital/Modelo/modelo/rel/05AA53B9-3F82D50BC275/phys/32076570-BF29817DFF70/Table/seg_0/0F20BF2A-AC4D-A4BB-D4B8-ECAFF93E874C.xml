@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="Cita" directorySegmentName="seg_0" id="0F20BF2A-AC4D-A4BB-D4B8-ECAFF93E874C">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="Paciente_Usuario_Cedula" id="07828745-97FB-F0F6-6E9B-5EE2174B6856">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Hora_inicio" id="1BECDFC8-CA81-0843-3424-0F7144D3E58E">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Observación" id="2952397D-448A-7224-1085-2DFE4C6BEBEE">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Cita_Codigo" id="38C66F1D-8B94-013D-2933-45F3234B8347">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Codigo" id="406E6113-A91F-1089-6429-4BFCA0C80E94">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Fecha" id="4E1806A1-5E7F-C8CE-D4E4-FE956C32C325">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Medico_Usuario_Cedula" id="5A354ADE-68A4-448D-6B8D-C7AF51E5DAD3">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="hora_final" id="B86887C9-D6B7-CB3A-9D29-59181715C80D">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Cita_Medico_FK" id="19C58833-DD25-75EA-2124-4A8776420859">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Cita_Cita_FK" id="975AF014-F318-316E-45BE-6D52C842520E">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Cita_Paciente_FK" id="B87B6ADF-F692-77A4-C680-C1E87411D3E6">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Cita_PK" id="AC7E3845-B510-C4C6-873D-A8E4C724C971">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:17:06 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

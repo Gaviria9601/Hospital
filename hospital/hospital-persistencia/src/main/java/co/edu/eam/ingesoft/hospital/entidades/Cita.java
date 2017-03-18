@@ -1,4 +1,4 @@
-package co.edu.eam.ingesoft.hospital.entidades;
+	package co.edu.eam.ingesoft.hospital.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -28,7 +28,7 @@ public class Cita implements Serializable {
 	@Column(name = "hora_inicio", nullable=false)
 	private Date horaInicio;
     
-    @Column(name = "observacion", length = 2000)
+    @Column(name = "observación", length = 2000)
 	private String observacion;
     
     @Temporal(TemporalType.TIMESTAMP)
@@ -39,17 +39,22 @@ public class Cita implements Serializable {
 	@JoinColumn(name = "paciente_usuario_cedula", nullable=false)
 	private Paciente pacienteUsuarioCedula;
     
+    @ManyToOne
+    @JoinColumn(name = "medico_usuario_cedula", nullable=false)
+    private Medico medicoUsuarioCedula;
     
     @ManyToOne
-	@JoinColumn(name = "cita_codigo", nullable=false)
+	@JoinColumn(name = "cita_codigo", nullable=true)
 	private Cita citaCodigo;
 
     public Cita(){
     	super();
     }
 
+	
+
 	public Cita(String codigo, Date fecha, Date horaInicio, String observacion, Date horaFinal,
-			Paciente pacienteUsuarioCedula, Cita citaCodigo) {
+			Paciente pacienteUsuarioCedula, Medico medicoUsuarioCedula, Cita citaCodigo) {
 		super();
 		this.codigo = codigo;
 		this.fecha = fecha;
@@ -57,8 +62,11 @@ public class Cita implements Serializable {
 		this.observacion = observacion;
 		this.horaFinal = horaFinal;
 		this.pacienteUsuarioCedula = pacienteUsuarioCedula;
+		this.medicoUsuarioCedula = medicoUsuarioCedula;
 		this.citaCodigo = citaCodigo;
 	}
+
+
 
 	public String getCodigo() {
 		return codigo;
@@ -115,6 +123,18 @@ public class Cita implements Serializable {
 	public void setCitaCodigo(Cita citaCodigo) {
 		this.citaCodigo = citaCodigo;
 	}
+
+	public Medico getMedicoUsuarioCedula() {
+		return medicoUsuarioCedula;
+	}
+
+
+
+	public void setMedicoUsuarioCedula(Medico medicoUsuarioCedula) {
+		this.medicoUsuarioCedula = medicoUsuarioCedula;
+	}
+
+
 
 	@Override
 	public int hashCode() {

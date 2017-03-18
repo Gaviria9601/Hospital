@@ -23,7 +23,7 @@ public class Habitacion extends Instalacion implements Serializable {
 	@Column(name="piso", nullable=false)
 	private int piso;
 	
-	@Column(name="descripcion", nullable=false, length=2000)
+	@Column(name="descripcion", nullable=false, length=1000)
 	String descripcion;
 	
 	public Habitacion(){

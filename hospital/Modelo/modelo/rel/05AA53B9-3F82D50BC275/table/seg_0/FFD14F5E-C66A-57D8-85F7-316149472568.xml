@@ -15,7 +15,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="cantidad" id="85DFE918-EC5F-86D9-0632-2A69A2E8BC6F">
@@ -28,36 +29,6 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Orden_medicamento_Cita_Codigo" id="600F3F29-F332-9C50-280F-B8DE44A66E28">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-24 20:58:03 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="80E36F21-B06E-3A3C-BDEC-03C03D8C1014" referredColumn="34B0045F-7DB9-5B33-55E2-8F5A45696E24"/>
-</associations>
-</Column>
-<Column name="Orden_medicamento_Medicamentos_Codigo" id="2CEB4EF8-4E0B-E882-43A6-683CD5EA9DF7">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-24 20:58:03 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="80E36F21-B06E-3A3C-BDEC-03C03D8C1014" referredColumn="166A95C6-EF01-CAE9-8004-A329EA6D6F10"/>
-</associations>
-</Column>
 <Column name="Fecha" id="7DB6C49C-B244-5224-DCD0-2C90D7F43152">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-03-11 22:01:10 UTC</createdTime>
@@ -68,11 +39,26 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="Orden_medicamento_id" id="1A0E8693-8EDF-3726-4736-DA89498C46D4">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-17 21:20:40 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3854AF4D-F7C5-AC51-9AE3-CFC6FA04CA8F" referredColumn="30ACC545-9D87-D783-787A-292C851583F6"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="649E4F6A-1BC0-7B25-E1B1-95424D4BA58A" name="Post_OrdenMedicamento_PK">
+<ind_PK_UK id="DC0BE8D3-0921-F453-5ABA-43D8D0FB4443" name="Post_OrdenMedicamento_PK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-24 20:57:54 UTC</createdTime>
+<createdTime>2017-03-17 21:18:25 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
@@ -88,19 +74,17 @@
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="600F3F29-F332-9C50-280F-B8DE44A66E28"/>
-<colUsage columnID="2CEB4EF8-4E0B-E882-43A6-683CD5EA9DF7"/>
+<colUsage columnID="1A0E8693-8EDF-3726-4736-DA89498C46D4"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="00DF8FFC-DE26-FEED-8469-759CAB81F144" name="Post_OrdenMedicamento_Orden_medicamento_FK">
+<ind_PK_UK id="F0DCACA0-7CF0-5412-7CA7-77210E74D901" name="Post_OrdenMedicamento_Orden_medicamento_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-24 20:58:03 UTC</createdTime>
+<createdTime>2017-03-17 21:20:40 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="600F3F29-F332-9C50-280F-B8DE44A66E28"/>
-<colUsage columnID="2CEB4EF8-4E0B-E882-43A6-683CD5EA9DF7"/>
+<colUsage columnID="1A0E8693-8EDF-3726-4736-DA89498C46D4"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

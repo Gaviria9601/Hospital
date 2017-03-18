@@ -8,7 +8,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Cita_avanzada_Codigo" id="5AC09A85-FC8F-A98D-9C35-34CA44A5CBCF">
+<Column name="Codigo" id="5AC09A85-FC8F-A98D-9C35-34CA44A5CBCF">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:24:04 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -40,6 +40,17 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="22C64C72-69F4-2EB1-2235-06D486C1D15D" name="Examen_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-18 04:13:53 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5AC09A85-FC8F-A98D-9C35-34CA44A5CBCF"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="8BC63E0D-EBCA-1975-BC49-4F9AF7113725" name="Examen__UN">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:24:27 UTC</createdTime>

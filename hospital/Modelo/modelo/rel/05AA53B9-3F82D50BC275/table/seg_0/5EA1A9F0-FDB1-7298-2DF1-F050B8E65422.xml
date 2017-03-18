@@ -8,7 +8,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Instalación_Codigo" id="1C990A1F-2855-C590-8F9F-B34346F02E45">
+<Column name="codigo" id="1C990A1F-2855-C590-8F9F-B34346F02E45">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-24 21:12:56 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>

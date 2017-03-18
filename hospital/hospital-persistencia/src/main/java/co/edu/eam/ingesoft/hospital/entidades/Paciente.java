@@ -14,15 +14,15 @@ import javax.persistence.Table;
 @Table(name="PACIENTE")
 public class Paciente extends Usuario implements Serializable {
 	
-	@Column(name = "estrato", nullable=false)
-	private int estrato;
+	@Column(name = "estrato", nullable=false,length=20)
+	private String estrato;
 
 	@ManyToOne
-	@JoinColumn(name = "afiliacion_codigo", nullable=false)
+	@JoinColumn(name = "afiliación_codigo", nullable=false)
 	private Afiliacion afiliacionCodigo;
 	
 	@Column(name = "Trabajo",length =50)
-	private int trabajo;
+	private String trabajo;
 
 	
 	public Paciente(){
@@ -30,7 +30,7 @@ public class Paciente extends Usuario implements Serializable {
 	}
 
 
-	public Paciente(int estrato, Afiliacion afiliacionCodigo, int trabajo) {
+	public Paciente(String estrato, Afiliacion afiliacionCodigo, String trabajo) {
 		super();
 		this.estrato = estrato;
 		this.afiliacionCodigo = afiliacionCodigo;
@@ -38,14 +38,19 @@ public class Paciente extends Usuario implements Serializable {
 	}
 
 
-	public int getEstrato() {
+
+
+
+	public String getEstrato() {
 		return estrato;
 	}
 
 
-	public void setEstrato(int estrato) {
+
+	public void setEstrato(String estrato) {
 		this.estrato = estrato;
 	}
+
 
 
 	public Afiliacion getAfiliacionCodigo() {
@@ -58,14 +63,17 @@ public class Paciente extends Usuario implements Serializable {
 	}
 
 
-	public int getTrabajo() {
+
+	public String getTrabajo() {
 		return trabajo;
 	}
 
 
-	public void setTrabajo(int trabajo) {
+
+	public void setTrabajo(String trabajo) {
 		this.trabajo = trabajo;
 	}
+
 
 	
 	

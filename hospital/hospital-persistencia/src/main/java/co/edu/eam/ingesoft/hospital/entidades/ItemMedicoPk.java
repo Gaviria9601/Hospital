@@ -4,44 +4,35 @@ import java.io.Serializable;
 
 public class ItemMedicoPk implements Serializable {
 	
-	private Especializacion especializacionCodigo;
-	private Medico medicoUsuarioCedula;
+	private String especializacionCodigo;
+	private String medicoUsuarioCedula;
 	
 	public ItemMedicoPk(){
 		
 	}
 
-	/**
-	 * @return the especializacionCodigo
-	 */
-	public Especializacion getEspecializacionCodigo() {
-		return especializacionCodigo;
-	}
-
-	/**
-	 * @param especializacionCodigo the especializacionCodigo to set
-	 */
-	public void setEspecializacionCodigo(Especializacion especializacionCodigo) {
+	public ItemMedicoPk(String especializacionCodigo, String medicoUsuarioCedula) {
+		super();
 		this.especializacionCodigo = especializacionCodigo;
-	}
-
-	/**
-	 * @return the medicoUsuarioCedula
-	 */
-	public Medico getMedicoUsuarioCedula() {
-		return medicoUsuarioCedula;
-	}
-
-	/**
-	 * @param medicoUsuarioCedula the medicoUsuarioCedula to set
-	 */
-	public void setMedicoUsuarioCedula(Medico medicoUsuarioCedula) {
 		this.medicoUsuarioCedula = medicoUsuarioCedula;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
+	public String getEspecializacionCodigo() {
+		return especializacionCodigo;
+	}
+
+	public void setEspecializacionCodigo(String especializacionCodigo) {
+		this.especializacionCodigo = especializacionCodigo;
+	}
+
+	public String getMedicoUsuarioCedula() {
+		return medicoUsuarioCedula;
+	}
+
+	public void setMedicoUsuarioCedula(String medicoUsuarioCedula) {
+		this.medicoUsuarioCedula = medicoUsuarioCedula;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -51,9 +42,6 @@ public class ItemMedicoPk implements Serializable {
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -76,9 +64,6 @@ public class ItemMedicoPk implements Serializable {
 		return true;
 	}
 
-	
-	
-	
 	
 
 }

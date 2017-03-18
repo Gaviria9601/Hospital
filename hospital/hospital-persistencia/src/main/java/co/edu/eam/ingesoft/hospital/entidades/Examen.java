@@ -20,7 +20,7 @@ import javax.persistence.Table;
 public class Examen extends CitaAvanzada implements Serializable{
 
 	@ManyToOne
-	@JoinColumn(name = "tipoExamen_id")
+	@JoinColumn(name = "tipoExamen_id",nullable = false)
 	private TipoExamen tipoExamen;
 	
 	public Examen(){
@@ -32,8 +32,6 @@ public class Examen extends CitaAvanzada implements Serializable{
 		super();
 		this.tipoExamen = tipoExamen;
 	}
-
-
 
 	/**
 	 * @return the tipoExamen

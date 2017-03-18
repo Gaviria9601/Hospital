@@ -1,5 +1,7 @@
 package co.edu.eam.ingesoft.hospital.entidades;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,36 +11,39 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="POST_ORDENMEDICAMENTO")
+@Table(name = "POST_ORDENMEDICAMENTO")
 public class PostOrdenMedicamento {
-	
+
 	@Id
-	@Column(name = "codigoEntrega", length =30)
+	@Column(name = "codigoEntrega", length = 10)
 	private String codigoEntrega;
-	
-	@Column(name = "cantidad", nullable=false)
+
+	@Column(name = "cantidad", nullable = false)
 	private int cantidad;
 	
-	@OneToOne
-	@JoinColumn(name = "orden_cita_codigo", unique=true, nullable=false)
-	private OrdenMedicamento ordenCitaCodigo;
-	
-	@OneToOne
-	@JoinColumn(name = "orden_medicamento_codigo",unique=true, nullable=false)
-	private OrdenMedicamento ordenMedicamentoCodigo;
-	
-    public PostOrdenMedicamento(){
-    	super();
-}
+	@Column(name = "fecha", nullable=false)
+	private Date fecha;
 
-	public PostOrdenMedicamento(String codigoEntrega, int cantidad, OrdenMedicamento ordenCitaCodigo,
+	@OneToOne
+	@JoinColumn(name = "orden_medicamento_id", unique = true, nullable = false)
+	private OrdenMedicamento ordenMedicamentoCodigo;
+
+	public PostOrdenMedicamento() {
+		super();
+	}
+
+	
+
+	public PostOrdenMedicamento(String codigoEntrega, int cantidad, Date fecha,
 			OrdenMedicamento ordenMedicamentoCodigo) {
 		super();
 		this.codigoEntrega = codigoEntrega;
 		this.cantidad = cantidad;
-		this.ordenCitaCodigo = ordenCitaCodigo;
+		this.fecha = fecha;
 		this.ordenMedicamentoCodigo = ordenMedicamentoCodigo;
 	}
+
+
 
 	public String getCodigoEntrega() {
 		return codigoEntrega;
@@ -56,14 +61,6 @@ public class PostOrdenMedicamento {
 		this.cantidad = cantidad;
 	}
 
-	public OrdenMedicamento getOrdenCitaCodigo() {
-		return ordenCitaCodigo;
-	}
-
-	public void setOrdenCitaCodigo(OrdenMedicamento ordenCitaCodigo) {
-		this.ordenCitaCodigo = ordenCitaCodigo;
-	}
-
 	public OrdenMedicamento getOrdenMedicamentoCodigo() {
 		return ordenMedicamentoCodigo;
 	}
@@ -72,12 +69,24 @@ public class PostOrdenMedicamento {
 		this.ordenMedicamentoCodigo = ordenMedicamentoCodigo;
 	}
 
+	
+	public Date getFecha() {
+		return fecha;
+	}
+
+
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((ordenCitaCodigo == null) ? 0 : ordenCitaCodigo.hashCode());
-		result = prime * result + ((ordenMedicamentoCodigo == null) ? 0 : ordenMedicamentoCodigo.hashCode());
+		result = prime * result + ((codigoEntrega == null) ? 0 : codigoEntrega.hashCode());
 		return result;
 	}
 
@@ -90,18 +99,14 @@ public class PostOrdenMedicamento {
 		if (getClass() != obj.getClass())
 			return false;
 		PostOrdenMedicamento other = (PostOrdenMedicamento) obj;
-		if (ordenCitaCodigo == null) {
-			if (other.ordenCitaCodigo != null)
+		if (codigoEntrega == null) {
+			if (other.codigoEntrega != null)
 				return false;
-		} else if (!ordenCitaCodigo.equals(other.ordenCitaCodigo))
-			return false;
-		if (ordenMedicamentoCodigo == null) {
-			if (other.ordenMedicamentoCodigo != null)
-				return false;
-		} else if (!ordenMedicamentoCodigo.equals(other.ordenMedicamentoCodigo))
+		} else if (!codigoEntrega.equals(other.codigoEntrega))
 			return false;
 		return true;
 	}
-    
+
+	
 	
 }

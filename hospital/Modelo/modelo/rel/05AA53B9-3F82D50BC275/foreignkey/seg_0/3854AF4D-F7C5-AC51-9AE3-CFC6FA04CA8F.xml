@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="80E36F21-B06E-3A3C-BDEC-03C03D8C1014" containerWithKeyObject="FFD14F5E-C66A-57D8-85F7-316149472568" localFKIndex="00DF8FFC-DE26-FEED-8469-759CAB81F144" name="Post_OrdenMedicamento_Orden_medicamento_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3854AF4D-F7C5-AC51-9AE3-CFC6FA04CA8F" containerWithKeyObject="FFD14F5E-C66A-57D8-85F7-316149472568" localFKIndex="F0DCACA0-7CF0-5412-7CA7-77210E74D901" name="Post_OrdenMedicamento_Orden_medicamento_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-24 20:58:03 UTC</createdTime>
+<createdTime>2017-03-17 21:20:40 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>6E861FCD-AFFA-2356-514E-92B70E1AFAB6</referredTableID>

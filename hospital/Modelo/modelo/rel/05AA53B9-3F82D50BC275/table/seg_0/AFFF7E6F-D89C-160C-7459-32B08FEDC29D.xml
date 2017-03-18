@@ -8,7 +8,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Usuario_Cedula" id="CB1BB199-EC5D-3EEF-4E5E-6B33E1ADA0F6">
+<Column name="cedula" id="CB1BB199-EC5D-3EEF-4E5E-6B33E1ADA0F6">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 21:48:26 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -29,9 +29,9 @@
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT006</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Afiliación_Codigo" id="9999DBF8-BC51-894E-70AA-0C3C5F09DC12">
@@ -63,6 +63,17 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="9653CA9F-F303-FF13-198D-E8B288EECD71" name="Paciente_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-18 04:38:37 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB1BB199-EC5D-3EEF-4E5E-6B33E1ADA0F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="6E082457-D4F1-226F-F791-92112F663545" name="Paciente__UN">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 21:49:01 UTC</createdTime>

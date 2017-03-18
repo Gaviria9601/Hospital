@@ -19,15 +19,16 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Nickname" id="FFA55F45-5BCB-3442-21DC-FE32D8668F84">
+<Column name="Apellido" id="5B7C2E39-F37C-0992-F523-D1EC0A07BA70">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-25 02:48:28 UTC</createdTime>
+<createdTime>2017-02-21 21:41:42 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Clave" id="D0DE99A5-DDB4-E66F-74AE-45016C28EFD8">
@@ -41,41 +42,6 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Nombre" id="EE824D01-7CF1-A6AF-3936-1F509BF672FC">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 21:41:42 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Apellido" id="5B7C2E39-F37C-0992-F523-D1EC0A07BA70">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 21:41:42 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Edad" id="B7E642F4-D9DD-2DC5-67DC-15A02E685373">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 21:41:42 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>130</dataTypeSize>
-<ownDataTypeParameters>130,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="Correo" id="A96C0475-9C22-396C-B5BF-CA7E4871DE1E">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 21:41:42 UTC</createdTime>
@@ -85,6 +51,39 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>100</dataTypeSize>
 <ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Edad" id="B7E642F4-D9DD-2DC5-67DC-15A02E685373">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:41:42 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nickname" id="FFA55F45-5BCB-3442-21DC-FE32D8668F84">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-25 02:48:28 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="EE824D01-7CF1-A6AF-3936-1F509BF672FC">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:41:42 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Telefono" id="C493657C-CC56-E6FD-11FC-51937397D7CE">

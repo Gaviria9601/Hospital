@@ -18,13 +18,13 @@ import javax.persistence.TemporalType;
 public class Patologia implements Serializable{
 	
 	@Id
-    @Column(name = "codigo",length =20 )
+    @Column(name = "codigo",length = 10 )
 	private String codigo;
 	
 	@Column(name = "nombre", length =50, nullable=false)
 	private String nombre;
 	
-    @Column(name = "descripcion")
+    @Column(name = "descripcion", length= 1000)
 	private String descripcion;
 
 

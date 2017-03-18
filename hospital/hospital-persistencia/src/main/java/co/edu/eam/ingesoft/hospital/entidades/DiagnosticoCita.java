@@ -17,12 +17,12 @@ public class DiagnosticoCita implements Serializable {
 
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "cita_codigo", nullable = false)
+	@JoinColumn(name = "cita_codigo")
 	private Cita citaCodigo;
 
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "patologia_codigo", nullable = false)
+	@JoinColumn(name = "patologia_codigo")
 	private Patologia patologiaCodigo;
 
 	public DiagnosticoCita() {

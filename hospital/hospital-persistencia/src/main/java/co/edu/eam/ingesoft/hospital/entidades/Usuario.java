@@ -13,15 +13,15 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="USUARIO")
 @Inheritance(strategy=InheritanceType.JOINED)
+@Table(name="USUARIO")
 public class Usuario implements Serializable {
 	
 	@Id
 	@Column(name="cedula",length=20, nullable= false)
 	private String cedula;
 	
-	@Column(name = "nicknme", length =30, nullable= false)
+	@Column(name = "nickname", length =30, nullable= false)
 	private String nickname;
 	
 	@Column(name = "clave", length =20,nullable= false)

@@ -8,21 +8,6 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Usuario_Cedula" id="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 21:44:32 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="C4749250-DE47-127B-62AE-0227B99377F0" referredColumn="5336E72A-84FD-D669-B6F4-09105E3B9BE0"/>
-</associations>
-</Column>
 <Column name="Carnet" id="A8A51CB2-A668-D0E0-0296-3827A5F85F10">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-24 21:20:27 UTC</createdTime>
@@ -42,12 +27,38 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>50</dataTypeSize>
-<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<dataTypeSize>60</dataTypeSize>
+<ownDataTypeParameters>60,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cedula" id="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-02-21 21:44:32 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C4749250-DE47-127B-62AE-0227B99377F0" referredColumn="5336E72A-84FD-D669-B6F4-09105E3B9BE0"/>
+</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F68CD23D-37EF-D664-274C-0BBD73284496" name="Medico_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-18 00:07:17 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="E9E4CC21-0C68-2113-7F96-254BF8968E16" name="Medico__UN">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 21:45:03 UTC</createdTime>

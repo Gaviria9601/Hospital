@@ -17,12 +17,12 @@ public class ItemSintoma implements Serializable {
 	
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "sintoma_codigo", nullable=false)
+	@JoinColumn(name = "sintoma_codigo")
 	private Sintoma sintomaCodigo;
 	
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "patologia_codigo", nullable=false)
+	@JoinColumn(name = "patologia_codigo")
 	private Patologia patologiaCodigo;
 	
 	public ItemSintoma(){

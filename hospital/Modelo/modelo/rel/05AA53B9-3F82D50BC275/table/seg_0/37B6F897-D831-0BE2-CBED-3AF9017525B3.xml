@@ -8,7 +8,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Cita_avanzada_Codigo" id="2A7CFB1B-9BCC-9DA6-8EF4-49276834E70B">
+<Column name="Codigo" id="2A7CFB1B-9BCC-9DA6-8EF4-49276834E70B">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:31:00 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -27,7 +27,6 @@
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:22:11 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -79,6 +78,17 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A06C6D44-7637-282A-8DDB-433648F4F186" name="Cirugia_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-18 04:13:27 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2A7CFB1B-9BCC-9DA6-8EF4-49276834E70B"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="51B0F683-7E46-FC24-5075-39D4F3803CB3" name="Cirugia__UN">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:31:29 UTC</createdTime>

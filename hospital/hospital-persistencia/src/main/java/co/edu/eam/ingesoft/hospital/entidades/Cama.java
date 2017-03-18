@@ -30,18 +30,18 @@ public class Cama implements Serializable{
 	@Column(name="estado", nullable=false)
 	private boolean estado;
 	
-	@Column(name="descripcion", nullable=false, length=2000)
+	@Column(name="descripción", length=2000)
 	private String descripcion;
 	
 	@ManyToOne
 	@JoinColumn(name="instalaciones_codigo")
-	private Instalacion instalacionesCodigo;
+	private Habitacion instalacionesCodigo;
 	
 	public Cama(){
 		
 	}
 
-	public Cama(String codigo, int numero, boolean estado, String descripcion, Instalacion instalacionesCodigo) {
+	public Cama(String codigo, int numero, boolean estado, String descripcion, Habitacion instalacionesCodigo) {
 		super();
 		this.codigo = codigo;
 		this.numero = numero;
@@ -116,7 +116,7 @@ public class Cama implements Serializable{
 	/**
 	 * @param instalacionesCodigo the instalacionesCodigo to set
 	 */
-	public void setInstalacionesCodigo(Instalacion instalacionesCodigo) {
+	public void setInstalacionesCodigo(Habitacion instalacionesCodigo) {
 		this.instalacionesCodigo = instalacionesCodigo;
 	}
 

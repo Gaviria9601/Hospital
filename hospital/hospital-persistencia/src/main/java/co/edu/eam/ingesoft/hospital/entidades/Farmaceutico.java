@@ -18,11 +18,11 @@ import javax.persistence.TemporalType;
 @Table(name="FRAMACEUTICO")
 public class Farmaceutico  extends Usuario implements Serializable {
 	
-    @Column(name = "Tarjeta_profesional", length =20)
+    @Column(name = "Tarjeta_profesional", length = 30)
 	private String tarjetaProfesional;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Fecha_ingreso")
+	@Column(name = "Fecha_ingreso",nullable = false)
 	private Date fechaIngreso;
 	
 	@ManyToOne

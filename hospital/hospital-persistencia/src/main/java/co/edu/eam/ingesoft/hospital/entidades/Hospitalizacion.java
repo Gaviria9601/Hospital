@@ -14,7 +14,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="Hospitalizacion")
+@Table(name="Hospitalización")
 public class Hospitalizacion extends CitaAvanzada implements Serializable{
 	
 	@Column(name="causas", nullable=false, length=500)

@@ -8,7 +8,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Usuario_Cedula" id="1B848960-9F07-2E45-B23A-F0D4C25D18E5">
+<Column name="cedula" id="1B848960-9F07-2E45-B23A-F0D4C25D18E5">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 21:49:34 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -39,7 +39,6 @@
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 22:26:41 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
@@ -53,8 +52,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -63,6 +62,17 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FDBFA1D8-21B1-40B4-CDBF-6E9334F73D79" name="Farmaceutico_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-18 04:45:31 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1B848960-9F07-2E45-B23A-F0D4C25D18E5"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="407BFC0D-83B8-63D9-ABB6-CD631218FFCF" name="Farmaceutico__UN">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 21:50:11 UTC</createdTime>

@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,16 +23,28 @@ import javax.persistence.Table;
 public class itemMedico implements Serializable{
 	
 	@Id
-	@JoinColumn(name="especializacion_codigo", nullable= false)
+	@ManyToOne 
+	@JoinColumn(name="especializacion_codigo")
 	private Especializacion especializacionCodigo;
 	
 	@Id
-	@JoinColumn(name="medico_Usuario_Cedula", nullable= false)
+	@ManyToOne
+	@JoinColumn(name="medico_Usuario_Cedula")
 	private Medico medicoUsuarioCedula;
 	
 	public itemMedico(){
 		
 	}
+
+	
+	
+	public itemMedico(Especializacion especializacionCodigo, Medico medicoUsuarioCedula) {
+		super();
+		this.especializacionCodigo = especializacionCodigo;
+		this.medicoUsuarioCedula = medicoUsuarioCedula;
+	}
+
+
 
 	/**
 	 * @return the especializacionCodigo

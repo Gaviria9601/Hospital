@@ -10,16 +10,16 @@ import javax.persistence.Table;
 public class Tratamiento {
 	
 	@Id
-    @Column(name = "codigo",length =20 )
+    @Column(name = "codigo",length = 10 )
 	private String codigo;
 	
 	@Column(name = "tipo", length =50)
 	private String tipo;
 	
-    @Column(name = "farmacos_aplicar", length =50)
+    @Column(name = "farmacos_aplicar", length =500,nullable = false)
 	private String farmacosAplicar;
 
-    @Column(name = "problema", length =500)
+    @Column(name = "problema", length =500, nullable = false)
 	private String problema;
 
 
