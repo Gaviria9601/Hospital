@@ -19,18 +19,6 @@
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Observaciones" id="C5D86E39-1C5F-215B-7C33-A751E4AE834D">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:07:16 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>1000</dataTypeSize>
-<ownDataTypeParameters>1000,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="Fecha" id="239DAB3E-1728-0BF7-CB34-C98E7EEE596D">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 23:07:16 UTC</createdTime>
@@ -122,42 +110,17 @@
 <colAssociation fkAssociation="CC4E0140-B5DC-F123-E7F6-BFDEBEEC2CFF" referredColumn="00FB1231-767C-F450-785D-4FEDD5963BEE"/>
 </associations>
 </Column>
-<Column name="ResultadoExamen_Id" id="E43B127B-E584-AFCB-424C-6D06149F2F7A">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-16 05:41:59 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="80E1C7E6-E10A-9241-B5DD-60587F902063" referredColumn="DAD491BB-EB14-B508-80AD-7C589CDBA4BD"/>
-</associations>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="E35A6B32-7E2F-6462-F341-CF4B36A31D07" name="CitaAvanzada_PK">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:07:47 UTC</createdTime>
+<ind_PK_UK id="BD419C6A-3845-FC81-4972-64FAA7E4805F" name="OrdenCitaAvanzada_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-21 22:00:49 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="31DC82E6-0166-87A5-9FB8-55F410780C65"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="2E18E564-D59D-18FE-C810-F4F5867DF906" name="OrdenCitaAvanzada__UNv1">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-16 05:42:38 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Unique Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="E43B127B-E584-AFCB-424C-6D06149F2F7A"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="C2202E44-6AC0-C4C4-1956-403ED76EB2CC" name="Post_ordencita_Medico_FK">
@@ -198,16 +161,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="463C592C-C740-426F-4D8D-6CB7E8916BAB"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="21BDA1AD-499A-7237-73B2-7EBEF452D53D" name="OrdenCitaAvanzada_ResultadoExamen_FK">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-16 05:41:59 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="E43B127B-E584-AFCB-424C-6D06149F2F7A"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

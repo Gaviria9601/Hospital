@@ -19,7 +19,7 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Descripcion" id="AA7086E3-AA6F-908A-7213-C70A8E7A34D7">
+<Column name="Observaciones" id="AA7086E3-AA6F-908A-7213-C70A8E7A34D7">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-03-11 21:32:10 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -40,6 +40,21 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="OrdenCitaAvanzada_Codigo" id="786EC30D-23D5-3E4C-D8C5-F7392E9F5299">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-21 22:00:58 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E153819F-ABE2-15BD-E409-08C234EEC279" referredColumn="31DC82E6-0166-87A5-9FB8-55F410780C65"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="52C43594-57DB-58D8-686B-617506819B7B" name="ResultadoExamen_PK">
@@ -53,14 +68,24 @@
 <colUsage columnID="DAD491BB-EB14-B508-80AD-7C589CDBA4BD"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="D21AB027-EF42-6AA4-DD2F-E5519C0568AA" name="ResultadoExamen__UN">
+<ind_PK_UK id="F24E9A3D-D460-EC88-A853-138DBBFD43F3" name="ResultadoExamen__UN">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:33:26 UTC</createdTime>
+<createdTime>2017-03-21 22:01:24 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="DAD491BB-EB14-B508-80AD-7C589CDBA4BD"/>
+<colUsage columnID="786EC30D-23D5-3E4C-D8C5-F7392E9F5299"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A1A0818E-F7F2-EE7A-9667-340080D9C75C" name="ResultadoExamen_OrdenCitaAvanzada_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-21 22:00:58 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="786EC30D-23D5-3E4C-D8C5-F7392E9F5299"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

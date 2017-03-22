@@ -27,9 +27,6 @@ public class OrdenCitaAvanzada implements Serializable {
 	@Column(name = "codigo", length = 10)
 	private String codigo;
 
-	@Column(name = "observaciones", length = 1000)
-	private String observaciones;
-
 	@Temporal(TemporalType.DATE)
 	@Column(name = "fecha", nullable = false)
 	private Date fecha;
@@ -58,20 +55,15 @@ public class OrdenCitaAvanzada implements Serializable {
 	@JoinColumn(name = "cita_avanzada_codigo", nullable = false)
 	private CitaAvanzada citaAvanzadaCodigo;
 
-	@ManyToOne
-	@JoinColumn(name = "resultadoExamen_id", nullable = false, unique = true)
-	private ResultadoExamen resultadoExamenId;
 
 	public OrdenCitaAvanzada() {
 
 	}
 
-	public OrdenCitaAvanzada(String codigo, String observaciones, Date fecha, Date horaInicio, Date horaFinal,
-			Medico medicoUsuarioCedula, Instalacion instalacionCodigo, Cita citaCodigo, CitaAvanzada citaAvanzadaCodigo,
-			ResultadoExamen resultadoExamenId) {
+	public OrdenCitaAvanzada(String codigo,Date fecha, Date horaInicio, Date horaFinal,
+			Medico medicoUsuarioCedula, Instalacion instalacionCodigo, Cita citaCodigo, CitaAvanzada citaAvanzadaCodigo) {
 		super();
 		this.codigo = codigo;
-		this.observaciones = observaciones;
 		this.fecha = fecha;
 		this.horaInicio = horaInicio;
 		this.horaFinal = horaFinal;
@@ -79,7 +71,6 @@ public class OrdenCitaAvanzada implements Serializable {
 		this.instalacionCodigo = instalacionCodigo;
 		this.citaCodigo = citaCodigo;
 		this.citaAvanzadaCodigo = citaAvanzadaCodigo;
-		this.resultadoExamenId = resultadoExamenId;
 	}
 
 	/**
@@ -97,20 +88,6 @@ public class OrdenCitaAvanzada implements Serializable {
 		this.codigo = codigo;
 	}
 
-	/**
-	 * @return the observaciones
-	 */
-	public String getObservaciones() {
-		return observaciones;
-	}
-
-	/**
-	 * @param observaciones
-	 *            the observaciones to set
-	 */
-	public void setObservaciones(String observaciones) {
-		this.observaciones = observaciones;
-	}
 
 	/**
 	 * @return the fecha
@@ -217,20 +194,7 @@ public class OrdenCitaAvanzada implements Serializable {
 		this.citaAvanzadaCodigo = citaAvanzadaCodigo;
 	}
 
-	/**
-	 * @return the resultadoExamenId
-	 */
-	public ResultadoExamen getResultadoExamenId() {
-		return resultadoExamenId;
-	}
-
-	/**
-	 * @param resultadoExamenId
-	 *            the resultadoExamenId to set
-	 */
-	public void setResultadoExamenId(ResultadoExamen resultadoExamenId) {
-		this.resultadoExamenId = resultadoExamenId;
-	}
+	
 
 	/*
 	 * (non-Javadoc)

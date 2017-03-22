@@ -9,6 +9,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,25 +27,31 @@ public class ResultadoExamen implements Serializable{
 	@Column(name="id", nullable=false, length=20)
 	private String id;
 	
-	@Column(name="descripcion", nullable=false, length=2000)
-	String descripcion;
+	@Column(name="observaciones", nullable=false, length=2000)
+	String observaciones;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha", nullable=false)
 	Date fecha;
 	
+	@OneToOne
+	@JoinColumn(name = "OrdenCitaAvanzada_Codigo", unique = true)
+	private OrdenCitaAvanzada ordenCitaAvanzada;
+	
 	public ResultadoExamen(){
 		
 	}
 	
-	
 
-	public ResultadoExamen(String id, String descripcion, Date fecha) {
+	public ResultadoExamen(String id, String observaciones, Date fecha, OrdenCitaAvanzada ordenCitaAvanzada) {
 		super();
 		this.id = id;
-		this.descripcion = descripcion;
+		this.observaciones = observaciones;
 		this.fecha = fecha;
+		this.ordenCitaAvanzada = ordenCitaAvanzada;
 	}
+
+
 
 
 
@@ -61,19 +69,27 @@ public class ResultadoExamen implements Serializable{
 		this.id = id;
 	}
 
-	/**
-	 * @return the descripcion
-	 */
-	public String getDescripcion() {
-		return descripcion;
+	
+
+	public String getObservaciones() {
+		return observaciones;
 	}
 
-	/**
-	 * @param descripcion the descripcion to set
-	 */
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
 	}
+
+
+	public OrdenCitaAvanzada getOrdenCitaAvanzada() {
+		return ordenCitaAvanzada;
+	}
+
+
+	public void setOrdenCitaAvanzada(OrdenCitaAvanzada ordenCitaAvanzada) {
+		this.ordenCitaAvanzada = ordenCitaAvanzada;
+	}
+
 
 	/**
 	 * @return the fecha
