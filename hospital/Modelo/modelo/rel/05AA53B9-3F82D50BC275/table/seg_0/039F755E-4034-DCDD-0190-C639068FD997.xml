@@ -78,7 +78,7 @@
 <colUsage columnID="786EC30D-23D5-3E4C-D8C5-F7392E9F5299"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="A1A0818E-F7F2-EE7A-9667-340080D9C75C" name="ResultadoExamen_OrdenCitaAvanzada_FK">
+<ind_PK_UK id="A1A0818E-F7F2-EE7A-9667-340080D9C75C" name="ResultadoExamOrdenCitaAvan_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-03-21 22:00:58 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>

@@ -95,7 +95,7 @@
 <colUsage columnID="34B0045F-7DB9-5B33-55E2-8F5A45696E24"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="5C98314E-07B9-F44A-335A-2DCDB5A602E1" name="Item_medicamento_Medicamentos_FK">
+<ind_PK_UK id="5C98314E-07B9-F44A-335A-2DCDB5A602E1" name="Item_Medicamentos_FK">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 23:31:21 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>

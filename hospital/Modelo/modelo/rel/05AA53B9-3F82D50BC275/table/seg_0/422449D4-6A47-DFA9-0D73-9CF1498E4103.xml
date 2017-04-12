@@ -57,7 +57,7 @@
 <colUsage columnID="2C648485-9CF9-C196-D5DF-2F7C2A92090E"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="F3627727-9CE2-FEA5-5B36-2088748E04A2" name="Hospitalización_Cita_avanzada_FK">
+<ind_PK_UK id="F3627727-9CE2-FEA5-5B36-2088748E04A2" name="HospitalizaciónCitaAvan_FK">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:32:05 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>

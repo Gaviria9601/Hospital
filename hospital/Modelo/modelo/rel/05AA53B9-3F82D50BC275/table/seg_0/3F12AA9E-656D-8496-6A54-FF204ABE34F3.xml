@@ -19,6 +19,18 @@
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="observaciones" id="F90428F6-77C7-40E0-07BB-6CC639F21D0B">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-03-24 19:34:54 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="Fecha" id="239DAB3E-1728-0BF7-CB34-C98E7EEE596D">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 23:07:16 UTC</createdTime>
@@ -35,7 +47,7 @@
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
+<logicalDatatype>LOGDT015</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
@@ -45,7 +57,7 @@
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
+<logicalDatatype>LOGDT015</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>

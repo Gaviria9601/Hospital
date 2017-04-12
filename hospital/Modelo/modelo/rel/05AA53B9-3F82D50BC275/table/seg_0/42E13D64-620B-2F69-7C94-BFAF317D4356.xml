@@ -52,6 +52,18 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="tipo" id="AC6EE524-8F06-D475-8D64-0FCEC53C2F6C">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-11 18:07:01 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="1635C526-1B5F-8E95-8EEF-1867D90370CA" name="Cita_avanzada_PK">

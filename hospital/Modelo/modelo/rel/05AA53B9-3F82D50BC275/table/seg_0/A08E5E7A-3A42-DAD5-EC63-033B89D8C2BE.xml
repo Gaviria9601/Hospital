@@ -62,7 +62,7 @@
 <colUsage columnID="B78EB55C-D9C0-D053-2125-3BD09FF45200"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="DAEF4A2D-32FF-BC42-B852-392E2B2CDC4D" name="Item_tratamiento_Tratamiento_FK">
+<ind_PK_UK id="DAEF4A2D-32FF-BC42-B852-392E2B2CDC4D" name="Item_Tratamiento_FK">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:59:27 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>

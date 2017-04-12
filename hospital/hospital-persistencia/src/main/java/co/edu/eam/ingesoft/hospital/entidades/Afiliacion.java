@@ -21,6 +21,7 @@ public class Afiliacion implements Serializable {
 	@Column(name = "telefono", length = 30,nullable = false)
 	private String telefono;
 
+	//tabla intermedia
 	@Column(name = "ServiciosIncluidos", length = 2000, nullable=false)
 	private String serviciosIncluidos;
 	

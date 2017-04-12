@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E153819F-ABE2-15BD-E409-08C234EEC279" containerWithKeyObject="039F755E-4034-DCDD-0190-C639068FD997" localFKIndex="A1A0818E-F7F2-EE7A-9667-340080D9C75C" name="ResultadoExamen_OrdenCitaAvanzada_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E153819F-ABE2-15BD-E409-08C234EEC279" containerWithKeyObject="039F755E-4034-DCDD-0190-C639068FD997" localFKIndex="A1A0818E-F7F2-EE7A-9667-340080D9C75C" name="ResultadoExamOrdenCitaAvan_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-03-21 22:00:58 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>

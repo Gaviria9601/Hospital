@@ -14,6 +14,7 @@ import javax.persistence.Table;
 @Table(name="PACIENTE")
 public class Paciente extends Usuario implements Serializable {
 	
+	//enumeracion
 	@Column(name = "estrato", nullable=false,length=20)
 	private String estrato;
 

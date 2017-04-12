@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F8C97FC6-5045-D75C-A122-3A53B778C510" containerWithKeyObject="6E861FCD-AFFA-2356-514E-92B70E1AFAB6" localFKIndex="5C98314E-07B9-F44A-335A-2DCDB5A602E1" name="Item_medicamento_Medicamentos_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="F8C97FC6-5045-D75C-A122-3A53B778C510" containerWithKeyObject="6E861FCD-AFFA-2356-514E-92B70E1AFAB6" localFKIndex="5C98314E-07B9-F44A-335A-2DCDB5A602E1" name="Item_Medicamentos_FK">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 23:31:21 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>

@@ -77,7 +77,7 @@
 <colUsage columnID="1A0E8693-8EDF-3726-4736-DA89498C46D4"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="F0DCACA0-7CF0-5412-7CA7-77210E74D901" name="Post_OrdenMedicamento_Orden_medicamento_FK">
+<ind_PK_UK id="F0DCACA0-7CF0-5412-7CA7-77210E74D901" name="Post_OrdenMedicamento_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-03-17 21:20:40 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
