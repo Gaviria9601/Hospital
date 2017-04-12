@@ -19,17 +19,6 @@
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Jornada" id="38F28104-7746-E14D-7C99-0D7BD07211AA">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 21:56:34 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="Hora_Inicio" id="F4F9DD66-FFB7-AD17-8B90-AE9EF8E89309">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 21:56:34 UTC</createdTime>
