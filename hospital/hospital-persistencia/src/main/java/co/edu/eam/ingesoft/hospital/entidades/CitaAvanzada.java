@@ -35,8 +35,29 @@ public class CitaAvanzada implements Serializable {
 	@Column(name="tiempoEstimado", nullable=false, length=50)
 	protected String tiempoEstimado;
 	
+	@Column(name = "tipo")
+	protected String tipo;
+	
 	public CitaAvanzada(){
 		
+	}
+
+	public CitaAvanzada(String codigo, String nombre, String observaciones, String tiempoEstimado, String tipo) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.observaciones = observaciones;
+		this.tiempoEstimado = tiempoEstimado;
+		this.tipo = tipo;
+	}
+
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	/**

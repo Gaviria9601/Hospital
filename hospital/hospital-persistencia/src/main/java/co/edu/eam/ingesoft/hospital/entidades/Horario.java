@@ -25,8 +25,6 @@ public class Horario implements Serializable{
 	@Column(name="codigo_turno", nullable=false, length=10)
 	private String codigoTurno;
 	
-	@Column(name="jornada", nullable=false, length=30)
-	private String jornada;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="hora_inicio", nullable=false)
@@ -39,13 +37,10 @@ public class Horario implements Serializable{
 	public Horario(){
 		
 	}
-	
-	
 
-	public Horario(String codigoTurno, String jornada, Date horaInicio, Date horaFinal) {
+	public Horario(String codigoTurno,Date horaInicio, Date horaFinal) {
 		super();
 		this.codigoTurno = codigoTurno;
-		this.jornada = jornada;
 		this.horaInicio = horaInicio;
 		this.horaFinal = horaFinal;
 	}
@@ -66,19 +61,6 @@ public class Horario implements Serializable{
 		this.codigoTurno = codigoTurno;
 	}
 
-	/**
-	 * @return the jornada
-	 */
-	public String getJornada() {
-		return jornada;
-	}
-
-	/**
-	 * @param jornada the jornada to set
-	 */
-	public void setJornada(String jornada) {
-		this.jornada = jornada;
-	}
 
 	/**
 	 * @return the horaInicio

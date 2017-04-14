@@ -32,18 +32,29 @@ public class Instalacion implements Serializable{
 	@Column(name = "observacionDisponible", nullable = false, length=1000)
 	protected String observacionDisponible;
 	
+	@Column(name = "tipo")
+	protected String tipo;
+	
 	public Instalacion(){
 		
 	}
 
-	public Instalacion(String codigo, boolean disponibilidad,String observacionDisponible) {
+	public Instalacion(String codigo, boolean disponibilidad, String observacionDisponible, String tipo) {
 		super();
 		this.codigo = codigo;
 		this.disponibilidad = disponibilidad;
 		this.observacionDisponible = observacionDisponible;
+		this.tipo = tipo;
 	}
 
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	/**
 	 * @return the codigo

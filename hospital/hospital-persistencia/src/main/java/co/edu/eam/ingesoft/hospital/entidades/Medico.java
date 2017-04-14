@@ -23,15 +23,30 @@ public class Medico extends Usuario implements Serializable {
 	@Column(name="facultadMedicina", length=60)
 	private String facultadMedicina;
 
+	@Column(name = "estado")
+	private boolean estado;
+	
 	public Medico(){
 		
 	}
+
 	
-	public Medico(String carnet, String facultadMedicina) {
+	public Medico(String carnet, String facultadMedicina, boolean estado) {
 		super();
 		this.carnet = carnet;
 		this.facultadMedicina = facultadMedicina;
+		this.estado = estado;
 	}
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+
 
 	/**
 	 * @return the carnet

@@ -39,8 +39,31 @@ public class itemHorario implements Serializable{
 	@Column(name="fecha", nullable=false)
 	private Date fecha;
 	
+	@Column(name = "estado")
+	private boolean estado;
+	
 	public itemHorario(){
 		
+	}
+	
+	public itemHorario(Medico medicoUsuarioCedula, Horario horarioCodigoTurno, Date fecha, boolean estado) {
+		super();
+		this.medicoUsuarioCedula = medicoUsuarioCedula;
+		this.horarioCodigoTurno = horarioCodigoTurno;
+		this.fecha = fecha;
+		this.estado = estado;
+	}
+
+
+
+
+
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
 	}
 
 	/**
