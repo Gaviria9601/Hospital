@@ -12,10 +12,17 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 
+
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @Table(name="USUARIO")
+@NamedQueries({
+	@NamedQuery(name = Usuario.LISTA_BUSQUEDA_USUARIO, query = "select usu from Usuario usu where usu.nickname = ?1")
+
+})
 public class Usuario implements Serializable {
+	
+	public static final String LISTA_BUSQUEDA_USUARIO = "Usuario.ListaBusquedaUsuario";
 	
 	@Id
 	@Column(name="cedula",length=20, nullable= false)
