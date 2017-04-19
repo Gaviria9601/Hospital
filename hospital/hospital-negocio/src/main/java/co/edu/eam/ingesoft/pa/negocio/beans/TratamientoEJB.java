@@ -27,7 +27,7 @@ public class TratamientoEJB {
 	}
 	
 	/**
-	 * Busca el puto tratamiento
+	 * Busca el puto tratamiento , perra
 	 * @param itemTrata
 	 */
 	public void crearItemTratamiento(ItemTratamiento itemTrata){
