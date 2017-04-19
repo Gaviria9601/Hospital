@@ -19,7 +19,7 @@ public class TratamientoEJB {
 	private EntityManager em;
 	
 	/**
-	 * 
+	 * Crear el puto tratamiento
 	 * @param trata
 	 */
 	public void crearTratamiento(Tratamiento trata){
