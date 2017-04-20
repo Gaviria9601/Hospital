@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html class="no-js" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 	<meta charset="utf-8" />
 	<title>Hospital San Rafael</title>
@@ -108,7 +111,7 @@
 
 						<a class="navbar-brand"
 							href="#{request.contextPath}/templates/template.xhtml"><img
-							src="#{request.contextPath}/assets/images/sadaka-logo.png" alt="" /></a>
+							src="#{request.contextPath}/assets/images/hospital-logo.png" alt="" /></a>
 
 					</div>
 
@@ -117,18 +120,18 @@
 						<ul class="nav navbar-nav">
 
 							<li><a class="is-active"
-								href="#{request.contextPath}/templates/template.xhtml">HOME</a></li>
-							<li><a href="#">ABOUT</a></li>
-							<li class="has-child"><a href="#">CAUSES</a>
+								href="#{request.contextPath}/templates/template.xhtml">Inicio</a></li>
+							<li><a href="#">Medicamentos</a></li>
+							<li class="has-child"><a href="#">Gestiones</a>
 
 								<ul class="submenu">
-									<li class="submenu-item"><a href="#">Causes list </a></li>
-									<li class="submenu-item"><a href="#">Single cause </a></li>
-									<li class="submenu-item"><a href="#">Single cause </a></li>
-									<li class="submenu-item"><a href="#">Single cause </a></li>
+									<li class="submenu-item"><a href="#">Paciente </a></li>
+									<li class="submenu-item"><a href="#">Farmaceutico </a></li>
+									<li class="submenu-item"><a href="#">Medico </a></li>
+									<li class="submenu-item"><a href="#">Instalación </a></li>
 								</ul></li>
-							<li><a href="#">GALLERY</a></li>
-							<li><a href="#">CONTACT</a></li>
+							<li><a href="#">Citas Avanzadas</a></li>
+							<li><a href="#">Reserva Cita</a></li>
 
 						</ul>
 
@@ -255,7 +258,8 @@
 
 	</div>
 	<!-- /.carousel -->
-
+	
+	<ui:insert name="cuerpo" />
 
 	<!-- /.our-sponsors -->
 
@@ -418,7 +422,7 @@
 				</div>
 				<div class="modal-body">
 
-					<form class="form-donation">
+					<h:form prependId="false">
 
 						<h3 class="title-style-1 text-center">
 							Bienvenido al Hospital San Rafael<span class="title-under"></span>
@@ -426,26 +430,29 @@
 
 						<div class="row">
 							<div class="form-group col-md-6">
-								<input type="text" class="form-control" name="Usuario"
-									placeholder="Usuario" />
+								<h:inputText value="#{sessionControl.user}" class="form-control"
+									a:placeholder="Usuario" id="tfuser" />
 							</div>
 
 							<div class="form-group col-md-6">
-								<input type="text" class="form-control" name="Contrasena"
-									placeholder="Contraseña" />
+								<h:inputSecret value="#{sessionControl.pass}"
+									class="form-control" a:placeholder="Contraseña" id="tfpass" />
 							</div>
 						</div>
 
 						<div class="row">
 
 							<div class="form-group col-md-12">
-								<button type="submit" class="btn btn-primary pull-right"
-									name="iniciarSesion">Iniciar Sesion</button>
+								<p:commandButton value="Iniciar Sesion" ajax="false"
+									class="btn btn-primary pull-right"
+									action="#{sessionControl.login}" />
+
 							</div>
 
 						</div>
-
-					</form>
+						<p:messages id="facesMessage" autoUpdate="true" globalOnly="true"
+							closable="true" />
+					</h:form>
 				</div>
 			</div>
 		</div>
