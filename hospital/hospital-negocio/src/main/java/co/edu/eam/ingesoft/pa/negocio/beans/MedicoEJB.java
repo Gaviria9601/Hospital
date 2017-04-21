@@ -1,5 +1,7 @@
 package co.edu.eam.ingesoft.pa.negocio.beans;
 
+import java.util.Date;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -9,7 +11,6 @@ import javax.persistence.PersistenceContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.Medico;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
-
 @LocalBean
 @Stateless
 public class MedicoEJB {
@@ -49,6 +50,16 @@ public class MedicoEJB {
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void eliminarMedico(Medico medico){
 		em.remove(medico);
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public String generarCarnet() {
+		String total = "";
+		for (int i = 0; i < 8; i++) {
+			int valorx = (int) ((Math.random() * 9) + 1);
+			total = total + valorx;
+		}
+		 return total;
 	}
 
 }

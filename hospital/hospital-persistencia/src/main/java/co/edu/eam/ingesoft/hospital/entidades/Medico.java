@@ -31,6 +31,17 @@ public class Medico extends Usuario implements Serializable {
 	}
 
 	
+	
+	public Medico(String cedula, String nickname, String clave, String nombre, String apellido, int edad, String correo,
+			String tipoUsuario, String telefono,String carnet, String facultadMedicina, boolean estado) {
+		super(cedula, nickname, clave, nombre, apellido, edad, correo, tipoUsuario, telefono);
+		this.carnet = carnet;
+		this.facultadMedicina = facultadMedicina;
+		this.estado = estado;
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Medico(String carnet, String facultadMedicina, boolean estado) {
 		super();
 		this.carnet = carnet;

@@ -1,0 +1,119 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h1 align="center">Gestión del medico</h1>
+
+			<p:panel id="basic" header="Datos" style="margin-bottom:20px">
+				<h:panelGrid id="paneldatos" columns="4" >
+
+					<h:outputLabel for="tfcarnet" id="lblcarnet" value="Carnet:" />
+					<h:inputText id="tfcarnet" value="#{ControladorMedico.carnet}"
+						disabled="true" />
+					<p:message for="tfcarnet" />
+					<br></br>
+					<br></br>
+
+
+					<h:outputLabel for="tfcedula" id="lblCedula" value="Cedula:" />
+					<h:inputText id="tfcedula" value="#{ControladorMedico.cedula}" />
+					<p:message for="tfcedula" />
+					<br></br>
+					<br></br>
+					<h:outputLabel for="tfnombre" id="lblnombre" value="Nombre:" />
+					<h:inputText id="tfnombre" value="#{ControladorMedico.nombre}" />
+					<p:message for="tfnombre" />
+					<br></br>
+					<br></br>
+
+					<h:outputLabel for="tfapellido" id="lblapellido" value="Apellido:" />
+					<h:inputText id="tfapellido" value="#{ControladorMedico.apellido}" />
+					<p:message for="tfapellido" />
+					<br></br>
+					<br></br>
+
+					<h:outputLabel for="tfcorreo" id="lblcorreo" value="Correo:" />
+					<h:inputText id="tfcorreo" value="#{ControladorMedico.correo}" />
+					<p:message for="tfcorreo" />
+					<br></br>
+					<br></br>
+
+					<h:outputLabel for="tftel" id="lbltel" value="Telefono:" />
+					<h:inputText id="tftel" value="#{ControladorMedico.telefono}" />
+					<p:message for="tftel" />
+					<br></br>
+					<br></br>
+
+					<h:outputLabel for="tfedad" id="lbledad" value="Edad:" />
+					<h:inputText id="tfedad" value="#{ControladorMedico.edad}" />
+					<p:message for="tfedad" />
+					<br></br>
+					<br></br>
+
+					<h:outputLabel for="tfuniv" id="lbluniv" value="Universidad:" />
+					<h:inputText id="tfuniv" value="#{ControladorMedico.facultad}" />
+					<p:message for="tfuniv" />
+					<br></br>
+					<br></br>
+
+					<h:outputLabel for="tfnickname" id="lblnick" value="Nickname:" />
+					<h:inputText id="tfnickname" value="#{ControladorMedico.nickname}" />
+					<p:message for="tfnickname" />
+					<br></br>
+					<br></br>
+
+					<h:outputLabel for="tfcontra" id="lblcontra" value="Contraseña:" />
+					<h:inputText id="tfcontra" value="#{ControladorMedico.contrasenia}" />
+					<p:message for="tfcontra" />
+					<br></br>
+					<br></br>
+
+
+					<h:outputLabel for="cbtestado" id="lblestado" value="Estado:" />
+					<h:selectOneMenu id="cbtestado" value="#{ControladorMedico.estado}">
+						<f:selectItem itemValue="true" itemLabel="Activo" />
+						<f:selectItem itemValue="false" itemLabel="Inactivo" />
+					</h:selectOneMenu>
+
+
+
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel id="botones" header="Acciones" style="margin-bottom:20px">
+				<h:panelGrid id="panelbotones" columns="3">
+
+					<p:commandButton id="btncrear" value="Ingresar Medico"
+						process="@this,paneldatos" update="paneldatos"
+						action="#{ControladorMedico.crear}" />
+
+					<p:commandButton id="btnBuscar" value="Buscar Medico"
+						process="@this,tfcedula" update="paneldatos"
+						action="#{ControladorMedico.buscar}" />
+
+					<p:commandButton id="btnmodificar" value="Modificar Medico"
+						process="@this,paneldatos" update="paneldatos" />
+
+					<p:commandButton id="btneliminar" value="Eliminar Medico"
+						process="@this,paneldatos" update="paneldatos" />
+
+					<p:commandButton id="btnlimpiar" value="Limpiar Campos"
+						process="@this" update="paneldatos"
+						action="#{ControladorMedico.limpiar}" />
+
+
+
+				</h:panelGrid>
+
+			</p:panel>
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
