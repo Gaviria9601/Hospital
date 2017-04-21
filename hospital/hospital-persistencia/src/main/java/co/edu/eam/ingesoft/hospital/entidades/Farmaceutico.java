@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name="FRAMACEUTICO")
+@Table(name="FARMACEUTICO")
 public class Farmaceutico  extends Usuario implements Serializable {
 	
     @Column(name = "Tarjeta_profesional", length = 30)

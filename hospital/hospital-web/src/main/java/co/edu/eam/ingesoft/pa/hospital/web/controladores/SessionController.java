@@ -16,15 +16,16 @@ import co.edu.eam.ingesoft.pa.negocio.beans.SeguridadEJB;
 @Named("sessionControl")
 @SessionScoped
 public class SessionController implements Serializable {
-	
+
 	private String user;
 	private String pass;
-	
+
 	private Usuario usuario;
-	
+	private String tipoUsuario="";
+
 	@EJB
 	private SeguridadEJB segEJB;
-	
+
 	/**
 	 * Logea un usuario al sistema
 	 */
@@ -33,16 +34,17 @@ public class SessionController implements Serializable {
 			Messages.addFlashGlobalWarn("Digite los datos para ingresar");
 		} else {
 			Usuario userTemp = segEJB.buscarUsuario(user);
+			tipoUsuario = userTemp.getTipoUsuario();
 			if (userTemp != null) {
 				if (userTemp.getClave().equals(pass)) {
 					usuario = userTemp;
+					setTipoUsuario(usuario.getTipoUsuario());
 					Faces.setSessionAttribute("user", usuario);
 					return "/paginas/seguro/inicio.xhtml?faces-redirect=true";
 
 				} else {
 					Messages.addFlashGlobalError("Usuario o  Pass Incorrecto");
 				}
-
 			} else {
 				Messages.addFlashGlobalError("Usuario o  Pass Incorrecto");
 			}
@@ -60,15 +62,39 @@ public class SessionController implements Serializable {
 		HttpSession sesion;
 		sesion = (HttpSession) Faces.getSession();
 		sesion.invalidate();
-		return "/paginas/publico/login.xhtml?faces-redirect=true";
+		return "/templates/template.xhtml?faces-redirect=true";
 	}
 
 	public boolean isSesion() {
 		return usuario != null;
 	}
 
+	public boolean isSesionFarmaceutico() {
+		return tipoUsuario.equals("farmaceutico") && usuario != null;
+	}
+
+	public boolean isSesionAdmin() {
+		return tipoUsuario.equals("administrador") && usuario != null;
+	}
+
+	public boolean isSesionMedico() {
+		return tipoUsuario.equals("medico") && usuario != null;
+	}
+
+	public boolean isSesionPaciente() {
+		return tipoUsuario.equals("paciente") && usuario != null;
+	}
+
 	public String getUser() {
 		return user;
+	}
+
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 
 	public void setUser(String user) {
@@ -90,8 +116,5 @@ public class SessionController implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-
-	
-	
 
 }

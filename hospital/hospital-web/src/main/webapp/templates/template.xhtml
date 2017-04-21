@@ -111,7 +111,8 @@
 
 						<a class="navbar-brand"
 							href="#{request.contextPath}/templates/template.xhtml"><img
-							src="#{request.contextPath}/assets/images/hospital-logo.png" alt="" /></a>
+							src="#{request.contextPath}/assets/images/hospital-logo.png"
+							alt="" /></a>
 
 					</div>
 
@@ -121,18 +122,26 @@
 
 							<li><a class="is-active"
 								href="#{request.contextPath}/templates/template.xhtml">Inicio</a></li>
-							<li><a href="#">Medicamentos</a></li>
-							<li class="has-child"><a href="#">Gestiones</a>
+							<li><a href="#footer" class="button stroke smoothscroll">Conocenos</a></li>
+							<h:panelGroup rendered="#{sessionControl.sesionFarmaceutico}">
+								<li><a href="#">Medicamentos</a></li>
+							</h:panelGroup>
+							<h:panelGroup rendered="#{sessionControl.sesionAdmin}">
+								<li class="has-child"><a href="#">Gestiones</a>
 
-								<ul class="submenu">
-									<li class="submenu-item"><a href="#">Paciente </a></li>
-									<li class="submenu-item"><a href="#">Farmaceutico </a></li>
-									<li class="submenu-item"><a href="#">Medico </a></li>
-									<li class="submenu-item"><a href="#">Instalación </a></li>
-								</ul></li>
-							<li><a href="#">Citas Avanzadas</a></li>
-							<li><a href="#">Reserva Cita</a></li>
-
+									<ul class="submenu">
+										<li class="submenu-item"><a href="#">Paciente </a></li>
+										<li class="submenu-item"><a href="#">Farmaceutico </a></li>
+										<li class="submenu-item"><a href="#">Medico </a></li>
+										<li class="submenu-item"><a href="#">Instalación </a></li>
+									</ul></li>
+							</h:panelGroup>
+							<h:panelGroup rendered="#{sessionControl.sesionMedico}">
+								<li><a href="#">Citas Avanzadas</a></li>
+							</h:panelGroup>
+							<h:panelGroup rendered="#{sessionControl.sesionPaciente}">
+								<li><a href="#">Reserva Cita</a></li>
+							</h:panelGroup>
 						</ul>
 
 					</div>
@@ -180,10 +189,18 @@
 							they need your help</h2>
 						<h4 class="carousel-subtitle bounceInUp animated slow ">Do
 							not let them down</h4>
-						<a href="#"
-							class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
-							data-toggle="modal" data-target="#donateModal">Inicia Sesion</a>
-
+						<h:panelGroup rendered="#{!sessionControl.sesion}">
+							<a href="#"
+								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
+								data-toggle="modal" data-target="#donateModal">Inicia Sesion</a>
+						</h:panelGroup>
+						<h:form>
+							<h:commandLink
+								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
+								data-toggle="modal" value="Cerrar Sesion" ajax="false"
+								action="#{sessionControl.cerrarSesion}"
+								rendered="#{sessionControl.sesion}" />
+						</h:form>
 					</div>
 					<!-- /.carousel-caption -->
 
@@ -206,9 +223,18 @@
 							we can improve their lives</h2>
 						<h4 class="carousel-subtitle bounceInUp animated slow">So
 							let's do it !</h4>
-						<a href="#"
-							class="btn btn-lg btn-secondary hidden-xs bounceInUp animated"
-							data-toggle="modal" data-target="#donateModal">Inicia Sesion</a>
+						<h:panelGroup rendered="#{!sessionControl.sesion}">
+							<a href="#"
+								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated"
+								data-toggle="modal" data-target="#donateModal">Inicia Sesion</a>
+						</h:panelGroup>
+						<h:form>
+							<h:commandLink
+								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
+								data-toggle="modal" value="Cerrar Sesion" ajax="false"
+								action="#{sessionControl.cerrarSesion}"
+								rendered="#{sessionControl.sesion}" />
+						</h:form>
 
 					</div>
 					<!-- /.carousel-caption -->
@@ -217,8 +243,6 @@
 
 			</div>
 			<!-- /.item -->
-
-
 
 
 			<div class="item ">
@@ -234,9 +258,18 @@
 							is a lot of money, if you have not got a penny.</h2>
 						<h4 class="carousel-subtitle bounceInUp animated slow">You
 							can make the diffrence !</h4>
-						<a href="#"
-							class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
-							data-toggle="modal" data-target="#donateModal">Inicia Sesion</a>
+						<h:panelGroup rendered="#{!sessionControl.sesion}">
+							<a href="#"
+								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated"
+								data-toggle="modal" data-target="#donateModal">Inicia Sesion</a>
+						</h:panelGroup>
+						<h:form>
+							<h:commandLink
+								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
+								data-toggle="modal" value="Cerrar Sesion" ajax="false"
+								action="#{sessionControl.cerrarSesion}"
+								rendered="#{sessionControl.sesion}" />
+						</h:form>
 
 					</div>
 					<!-- /.carousel-caption -->
@@ -257,13 +290,17 @@
 		</a>
 
 	</div>
-	<!-- /.carousel -->
-	
-	<ui:insert name="cuerpo" />
 
-	<!-- /.our-sponsors -->
+	<!-- /.Cuerpos -->
+	<div class="container">
 
-	<footer class="main-footer">
+		<ui:insert name="cuerpo" />
+
+	</div>
+
+	<!-- /.Main Footer -->
+
+	<footer class="main-footer" id="footer">
 
 		<div class="footer-top"></div>
 
@@ -382,15 +419,8 @@
 
 					</div>
 					<div class="clearfix"></div>
-
-
-
 				</div>
-
-
 			</div>
-
-
 		</div>
 
 		<div class="footer-bottom">
@@ -407,7 +437,7 @@
 
 
 
-	<!-- Donate Modal -->
+	<!--Cuadro Inicio Sesion-->
 	<div class="modal fade" id="donateModal" tabindex="-1" role="dialog"
 		aria-labelledby="donateModalLabel" aria-hidden="true">
 
@@ -445,8 +475,8 @@
 							<div class="form-group col-md-12">
 								<p:commandButton value="Iniciar Sesion" ajax="false"
 									class="btn btn-primary pull-right"
-									action="#{sessionControl.login}" />
-
+									action="#{sessionControl.login}"
+									rendered="#{!sessionControl.sesion}" />
 							</div>
 
 						</div>
@@ -457,12 +487,6 @@
 			</div>
 		</div>
 	</div>
-
-
-	<!-- /.modal -->
-
-
-
 
 
 	<!--  Scripts

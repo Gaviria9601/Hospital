@@ -21,7 +21,7 @@ public class Farmacia implements Serializable{
 	@Column(name = "Telefono", length =10, nullable=false)
 	private String telefono;
 	
-	@Column(name = "Direccion", length = 40)
+	@Column(name = "Dirección", length = 40)
 	private String direccion;
 	
 
