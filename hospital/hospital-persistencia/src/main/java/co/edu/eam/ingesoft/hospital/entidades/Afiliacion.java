@@ -5,11 +5,20 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "AFILIACIÓN")
+@NamedQueries({
+	@NamedQuery(name=Afiliacion.LISTAR,query= "Select c from Afiliacion c")
+})
 public class Afiliacion implements Serializable {
+	
+	public static final String LISTAR = "Afiliacion.listaAfi";
 
 	@Id
 	@Column(name = "codigo", length = 20)
