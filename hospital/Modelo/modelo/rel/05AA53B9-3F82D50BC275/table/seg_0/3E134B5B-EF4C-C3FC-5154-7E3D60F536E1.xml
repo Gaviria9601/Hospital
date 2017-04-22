@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3E134B5B-EF4C-C3FC-5154-7E3D60F536E1" name="OrdenProcedimiento">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:46:37 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_35</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="45D5F8E2-93C7-5AF7-3E61-1B3C8FBEC90D">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:47:04 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="observaciones" id="5BDA06C9-BD46-EFB8-7231-6A8FB02AF5FB">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:47:24 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha" id="DB013725-4B68-2925-3BF5-371DC4726929">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:47:38 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="estado" id="4F8DD9EC-2706-EA48-9A3F-7116041889D7">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:06:41 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cita_Codigo" id="0369B71E-CEEA-61C0-6CD9-3ECE107DF789">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:47:58 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C1D3957A-8795-97CE-E07D-506B43AAE490" referredColumn="406E6113-A91F-1089-6429-4BFCA0C80E94"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A881AF02-E7C9-4613-7EAE-E29D93941A5E" name="OrdenProce_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:58:27 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45D5F8E2-93C7-5AF7-3E61-1B3C8FBEC90D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CB4FAB68-D171-DB5E-037E-FC538474A08F" name="OrdenProcedimiento_Cita_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:47:58 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0369B71E-CEEA-61C0-6CD9-3ECE107DF789"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -30,22 +30,33 @@ public class OrdenMedicamento {
 	@ManyToOne
 	@JoinColumn(name = "medicamentos_codigo",nullable=false)
 	private Medicamento medicamentosCodigo;
+	
+	@Column(name = "estado")
+	private boolean estado;
 
 	public OrdenMedicamento() {
 		super();
 	}
 
-	public OrdenMedicamento(String id, int cantidad, String formula, Cita citaCodigo, Medicamento medicamentosCodigo) {
+	public OrdenMedicamento(String id, int cantidad, String formula, Cita citaCodigo, Medicamento medicamentosCodigo
+			,boolean estado) {
 		super();
 		this.id = id;
 		this.cantidad = cantidad;
 		this.formula = formula;
 		this.citaCodigo = citaCodigo;
 		this.medicamentosCodigo = medicamentosCodigo;
+		this.estado = estado;
 	}
 
-	
-	
+	public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+
 	public String getId() {
 		return id;
 	}

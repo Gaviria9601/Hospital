@@ -1,32 +1,32 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5EA1A9F0-FDB1-7298-2DF1-F050B8E65422" name="Quirofano">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:14:55 UTC</createdTime>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D49B97C9-1193-642E-4FA6-E985BE0596AB" name="Quirofanoo">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:36:46 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
-<ordsAlias>table_44</ordsAlias>
+<ordsAlias>table_37</ordsAlias>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="codigo" id="1C990A1F-2855-C590-8F9F-B34346F02E45">
+<Column name="Instalacion_Codigo" id="E92B5C29-E466-13E9-804E-E6F4ACE6B54A">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-24 21:12:56 UTC</createdTime>
+<createdTime>2017-04-22 21:39:16 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="E4A17BF1-700E-20C0-18F6-7934E8F423EE" referredColumn="0E0D4FFA-3C5E-3CDC-E186-F567CAE153FE"/>
+<colAssociation fkAssociation="D3C716A8-E050-A01A-DC8D-48E1393EDD53" referredColumn="0E0D4FFA-3C5E-3CDC-E186-F567CAE153FE"/>
 </associations>
 </Column>
-<Column name="Caracteristicas" id="8D958788-0E5F-C5BC-9831-A3447A7E5315">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:15:38 UTC</createdTime>
+<Column name="Caracteristicas" id="BF72B23D-2FD1-2B83-60E4-E993EC1ACED3">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:37:19 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -34,19 +34,20 @@
 <ownDataTypeParameters>2000,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Numero_aparatos" id="BA8C156A-6F31-D91B-A5FD-5028F5EC72AE">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:15:38 UTC</createdTime>
+<Column name="NumeroAparatos" id="8BBBD1A0-75B1-1367-103D-1A20940E93C3">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:37:51 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Cantidad_medico" id="5FE1F111-6BFD-E26D-43C3-9587CE8C8E05">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:15:38 UTC</createdTime>
+<Column name="CantidadMedicosAcompa" id="C677F9DC-CC09-87D1-B1A2-53DC6B39FB36">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:38:10 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -57,24 +58,25 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="6B372BBA-D39E-2635-B0B5-59CC16FDB79F" name="Quirofano__UNv1">
+<ind_PK_UK id="95B7EF53-FF88-A1F9-BBD9-4598824DB4CA" name="Quirofanoo_PK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-24 21:17:08 UTC</createdTime>
+<createdTime>2017-04-22 21:39:27 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
-<indexState>Unique Constraint</indexState>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="1C990A1F-2855-C590-8F9F-B34346F02E45"/>
+<colUsage columnID="E92B5C29-E466-13E9-804E-E6F4ACE6B54A"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C8CF2585-760B-6436-CCA0-FD54D336F70F" name="Quirofano_Instalación_FK">
+<ind_PK_UK id="A24ABEC5-D550-7FB9-1DF4-5B53F608824E" name="Quirofanoo_Instalacion_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-24 21:12:56 UTC</createdTime>
+<createdTime>2017-04-22 21:39:16 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="1C990A1F-2855-C590-8F9F-B34346F02E45"/>
+<colUsage columnID="E92B5C29-E466-13E9-804E-E6F4ACE6B54A"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

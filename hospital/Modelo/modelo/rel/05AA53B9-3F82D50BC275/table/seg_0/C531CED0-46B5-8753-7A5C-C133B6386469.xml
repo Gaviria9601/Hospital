@@ -71,16 +71,6 @@
 <colUsage columnID="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="E9E4CC21-0C68-2113-7F96-254BF8968E16" name="Medico__UN">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 21:45:03 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Unique Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
-</indexColumnUsage>
-</ind_PK_UK>
 <ind_PK_UK id="99F41E95-00C8-AC65-6903-ECD278692A10" name="Medico_Usuario_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 21:44:32 UTC</createdTime>

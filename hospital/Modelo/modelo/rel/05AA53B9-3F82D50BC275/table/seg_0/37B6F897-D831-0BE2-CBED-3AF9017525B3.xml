@@ -14,8 +14,7 @@
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -23,7 +22,7 @@
 <colAssociation fkAssociation="8462B64B-B420-F779-B39C-60B65BEBBB8D" referredColumn="00FB1231-767C-F450-785D-4FEDD5963BEE"/>
 </associations>
 </Column>
-<Column name="Recuperación" id="1B8AA356-A841-159A-EC49-04DF030C54EA">
+<Column name="Recuperacion" id="1B8AA356-A841-159A-EC49-04DF030C54EA">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:22:11 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -46,14 +45,13 @@
 <ownDataTypeParameters>1,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Especialización_Codigo" id="CE470917-3307-7F23-0B74-8834D80D06A7">
+<Column name="Especializacion_Codigo" id="CE470917-3307-7F23-0B74-8834D80D06A7">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-03-11 22:22:06 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -67,9 +65,9 @@
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -84,16 +82,6 @@
 <ownerDesignName>modelo</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="2A7CFB1B-9BCC-9DA6-8EF4-49276834E70B"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="51B0F683-7E46-FC24-5075-39D4F3803CB3" name="Cirugia__UN">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 22:31:29 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="2A7CFB1B-9BCC-9DA6-8EF4-49276834E70B"/>

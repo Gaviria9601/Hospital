@@ -51,9 +51,9 @@
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -68,16 +68,6 @@
 <ownerDesignName>modelo</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="1B848960-9F07-2E45-B23A-F0D4C25D18E5"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="407BFC0D-83B8-63D9-ABB6-CD631218FFCF" name="Farmaceutico__UN">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 21:50:11 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="1B848960-9F07-2E45-B23A-F0D4C25D18E5"/>

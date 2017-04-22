@@ -1,28 +1,28 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="039F755E-4034-DCDD-0190-C639068FD997" name="ResultadoExamen">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7C6575C1-51E0-A0F6-41F4-83453823EC35" name="ResultadoExamen">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:31:19 UTC</createdTime>
+<createdTime>2017-04-22 21:27:17 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
-<ordsAlias>table_34</ordsAlias>
+<ordsAlias>table_36</ordsAlias>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Id" id="DAD491BB-EB14-B508-80AD-7C589CDBA4BD">
+<Column name="codigo" id="FF777E2A-9517-9E78-5259-94C71DD78EA2">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:31:47 UTC</createdTime>
+<createdTime>2017-04-22 21:27:36 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Observaciones" id="AA7086E3-AA6F-908A-7213-C70A8E7A34D7">
+<Column name="Observaciones" id="159BE34A-BA20-5417-D07F-56867964E4F3">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:32:10 UTC</createdTime>
+<createdTime>2017-04-22 21:27:53 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -30,62 +30,52 @@
 <ownDataTypeParameters>2000,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Fecha" id="5DB26A67-CAF8-E6F3-9E46-5C2030253A4E">
+<Column name="fecha" id="64B34AEC-8C3C-7772-C593-B199969E9DE0">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:32:23 UTC</createdTime>
+<createdTime>2017-04-22 21:28:05 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT008</logicalDatatype>
+<logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="OrdenCitaAvanzada_Codigo" id="786EC30D-23D5-3E4C-D8C5-F7392E9F5299">
+<Column name="OrdenProce_codigo" id="018998FD-D39F-120A-69CF-11BBFF27C093">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-21 22:00:58 UTC</createdTime>
+<createdTime>2017-04-22 21:28:09 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="E153819F-ABE2-15BD-E409-08C234EEC279" referredColumn="31DC82E6-0166-87A5-9FB8-55F410780C65"/>
+<colAssociation fkAssociation="4835E156-8D46-CB9D-2AE2-2417DB51BEBA" referredColumn="12AEB2A1-4F8A-5296-EAA2-A02EE2628EE0"/>
 </associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="52C43594-57DB-58D8-686B-617506819B7B" name="ResultadoExamen_PK">
+<ind_PK_UK id="8A0955A9-0211-1FD5-0CE8-AA46F7B2B67C" name="ResultadoExamen_PK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:31:47 UTC</createdTime>
+<createdTime>2017-04-22 21:27:36 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="DAD491BB-EB14-B508-80AD-7C589CDBA4BD"/>
+<colUsage columnID="FF777E2A-9517-9E78-5259-94C71DD78EA2"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="F24E9A3D-D460-EC88-A853-138DBBFD43F3" name="ResultadoExamen__UN">
+<ind_PK_UK id="D5277B32-43B2-BEC5-A630-D94697B0E513" name="OrdenExamen_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-21 22:01:24 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Unique Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="786EC30D-23D5-3E4C-D8C5-F7392E9F5299"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="A1A0818E-F7F2-EE7A-9667-340080D9C75C" name="ResultadoExamOrdenCitaAvan_FK">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-21 22:00:58 UTC</createdTime>
+<createdTime>2017-04-22 21:28:09 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="786EC30D-23D5-3E4C-D8C5-F7392E9F5299"/>
+<colUsage columnID="018998FD-D39F-120A-69CF-11BBFF27C093"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

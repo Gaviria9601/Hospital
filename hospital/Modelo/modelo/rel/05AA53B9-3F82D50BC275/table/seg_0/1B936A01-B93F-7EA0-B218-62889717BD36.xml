@@ -14,9 +14,8 @@
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Nombre" id="C71EDCF8-DEDB-85CB-C83E-586088127DC5">
@@ -30,7 +29,7 @@
 <ownDataTypeParameters>40,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Fecha_expedición" id="7C73435D-A078-0146-E847-B7A3638260FD">
+<Column name="Fecha_expedicion" id="7C73435D-A078-0146-E847-B7A3638260FD">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 22:33:29 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -40,7 +39,7 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Fecha_expiración" id="3F82D7BE-8759-7269-A52B-B2BD2D5A22B8">
+<Column name="Fecha_expiracion" id="3F82D7BE-8759-7269-A52B-B2BD2D5A22B8">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 22:33:29 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -88,7 +87,7 @@
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>

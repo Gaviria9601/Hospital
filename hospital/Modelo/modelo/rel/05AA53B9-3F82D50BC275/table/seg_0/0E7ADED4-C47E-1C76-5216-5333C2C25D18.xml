@@ -1,0 +1,145 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0E7ADED4-C47E-1C76-5216-5333C2C25D18" name="OrdenCirugia">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:36:08 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_33</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="OrdenProce" id="7E05AE87-796A-ECAF-1D1D-E0D0735227D3">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:30:51 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FBBF7F0B-4850-BE27-FF16-0490B0BFC35E" referredColumn="45D5F8E2-93C7-5AF7-3E61-1B3C8FBEC90D"/>
+</associations>
+</Column>
+<Column name="Cirugia_Codigo" id="989FEED2-D6A4-D64C-0E16-7DCDE0135C6B">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:56:30 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C26E89C7-1EEA-8CF6-7CC4-A6E68C39A31A" referredColumn="2A7CFB1B-9BCC-9DA6-8EF4-49276834E70B"/>
+</associations>
+</Column>
+<Column name="Medico_Cedula" id="37AB73CF-0E10-A900-7D37-CFD4DDFC2F18">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:55:58 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="10A1B0D2-BBEF-F0CC-539A-B1E20559A424" referredColumn="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
+</associations>
+</Column>
+<Column name="horafinal" id="8BB51351-94D8-7339-F794-C630A37836CB">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:55:36 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="horaInicio" id="9DBA2818-0D20-3A0C-5E34-85335553F4F4">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:55:25 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Quirofanoo_Instalacion_Codigo" id="B018B9B1-3491-3589-E3B5-E67C69EC3C53">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:39:40 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E2612CF6-FB0E-766B-C323-C3C6929D7432" referredColumn="E92B5C29-E466-13E9-804E-E6F4ACE6B54A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="72CFE54C-8859-4B8F-C44F-C22C33EE6441" name="OrdenCirugia_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:58:15 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7E05AE87-796A-ECAF-1D1D-E0D0735227D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D9839DAF-9674-BB86-7179-B6B13F068EA4" name="OrdenCirugia_Medico_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:55:58 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="37AB73CF-0E10-A900-7D37-CFD4DDFC2F18"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3F123164-33EB-0664-B144-8C903348A5EB" name="OrdenCirugia_Cirugia_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:56:30 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="989FEED2-D6A4-D64C-0E16-7DCDE0135C6B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="28B31307-5189-ABC4-6123-D2CD165E48CC" name="OrdenProcedimiento_FKv3">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:30:51 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7E05AE87-796A-ECAF-1D1D-E0D0735227D3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="10D2962A-6CF1-8F5E-62B5-B700E21A8E94" name="OrdenCirugia_Quirofanoo_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:39:40 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B018B9B1-3491-3589-E3B5-E67C69EC3C53"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

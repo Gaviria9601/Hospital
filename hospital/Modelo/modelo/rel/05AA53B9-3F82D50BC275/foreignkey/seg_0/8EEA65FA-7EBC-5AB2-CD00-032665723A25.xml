@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="8EEA65FA-7EBC-5AB2-CD00-032665723A25" containerWithKeyObject="24AC4208-B956-5929-AAA5-7A3F222A90C5" localFKIndex="6BFF00AD-45FC-1FCD-90B5-603FE64A4520" name="OrdenExamen_Examen_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:43:45 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>A72FB0F1-9D2B-2638-3F2B-E4F26B463E15</referredTableID>
+<keyObject>22C64C72-69F4-2EB1-2235-06D486C1D15D</keyObject>
+<referredKeyID>22C64C72-69F4-2EB1-2235-06D486C1D15D</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

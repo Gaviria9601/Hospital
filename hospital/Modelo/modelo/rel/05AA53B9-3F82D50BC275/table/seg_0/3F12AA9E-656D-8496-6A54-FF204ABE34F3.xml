@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3F12AA9E-656D-8496-6A54-FF204ABE34F3" name="OrdenCitaAvanzada">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3F12AA9E-656D-8496-6A54-FF204ABE34F3" name="OrdenHospitalizacion">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 23:04:50 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -8,38 +8,19 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Codigo" id="31DC82E6-0166-87A5-9FB8-55F410780C65">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:07:16 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>10,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="observaciones" id="F90428F6-77C7-40E0-07BB-6CC639F21D0B">
+<Column name="OrdenProcedimiento_codigo" id="DF9815D4-27D1-BB98-B3D3-FFB588093AE9">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-24 19:34:54 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>1000</dataTypeSize>
-<ownDataTypeParameters>1000,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Fecha" id="239DAB3E-1728-0BF7-CB34-C98E7EEE596D">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:07:16 UTC</createdTime>
+<createdTime>2017-04-22 21:00:40 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3802A7AB-019C-D30C-D6AF-118D46996F78" referredColumn="45D5F8E2-93C7-5AF7-3E61-1B3C8FBEC90D"/>
+</associations>
 </Column>
 <Column name="Hora_inicio" id="B733B015-4E6D-E451-84E2-9FA2847F6C83">
 <createdBy>Lenovo</createdBy>
@@ -51,75 +32,32 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Hora_final" id="732CC4F7-01F9-3FD5-E5EB-4DCA70F27657">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:07:16 UTC</createdTime>
+<Column name="Hospitalizacion_Codigo" id="6322D517-88D2-FF53-0637-0ABBC838BCC9">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:45:52 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT015</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Medico_Usuario_Cedula" id="D2F37B08-81F0-030C-2D9C-CB842C952833">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:10:09 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="E0A5BB8C-CD73-28C7-C57A-E9922BA00BEC" referredColumn="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
+<colAssociation fkAssociation="650141DE-CBD5-5EE9-E07A-245EA99497D5" referredColumn="2C648485-9CF9-C196-D5DF-2F7C2A92090E"/>
 </associations>
 </Column>
-<Column name="Instalación_Codigo" id="A9F2CBDD-3CE5-2E03-FA29-0056CEDD5257">
+<Column name="Cama_Instalacion_Codigo" id="ED6AF785-E6E3-461A-C201-CDCE06E98F99">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-24 20:53:29 UTC</createdTime>
+<createdTime>2017-04-22 21:41:12 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="71CFAB12-B20C-C656-5457-77EC3E3BD7A9" referredColumn="0E0D4FFA-3C5E-3CDC-E186-F567CAE153FE"/>
-</associations>
-</Column>
-<Column name="Cita_Codigo" id="0ACFDE62-6C75-FBC1-BB2F-4EB372EC5899">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:23:19 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="072B32E5-0BFD-6D8B-540F-0E70CDFC577B" referredColumn="406E6113-A91F-1089-6429-4BFCA0C80E94"/>
-</associations>
-</Column>
-<Column name="Cita_avanzada_Codigo" id="463C592C-C740-426F-4D8D-6CB7E8916BAB">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:24:01 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="CC4E0140-B5DC-F123-E7F6-BFDEBEEC2CFF" referredColumn="00FB1231-767C-F450-785D-4FEDD5963BEE"/>
+<colAssociation fkAssociation="3FDAC559-9B17-4EC3-2634-5329B695310D" referredColumn="43934D3E-7C7E-472D-F573-A243511AA30C"/>
 </associations>
 </Column>
 </columns>
@@ -132,47 +70,37 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="31DC82E6-0166-87A5-9FB8-55F410780C65"/>
+<colUsage columnID="DF9815D4-27D1-BB98-B3D3-FFB588093AE9"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C2202E44-6AC0-C4C4-1956-403ED76EB2CC" name="Post_ordencita_Medico_FK">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:10:09 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="D2F37B08-81F0-030C-2D9C-CB842C952833"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="D99378E2-0FAF-317C-E80B-77E872E60A2B" name="Post_ordencita_Instalación_FK">
+<ind_PK_UK id="E82B7E72-6BF6-907E-E28E-BD788388C576" name="Orden_Hospitalización_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-24 20:53:29 UTC</createdTime>
+<createdTime>2017-04-22 20:45:52 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="A9F2CBDD-3CE5-2E03-FA29-0056CEDD5257"/>
+<colUsage columnID="6322D517-88D2-FF53-0637-0ABBC838BCC9"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="1AB96449-9980-DDEE-60BA-3119FB9403C2" name="Post_ordencita_Cita_FK">
+<ind_PK_UK id="FDAE1254-61CA-6663-889F-A63677B6C483" name="OrdenProcedimiento_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:23:19 UTC</createdTime>
+<createdTime>2017-04-22 21:00:40 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="0ACFDE62-6C75-FBC1-BB2F-4EB372EC5899"/>
+<colUsage columnID="DF9815D4-27D1-BB98-B3D3-FFB588093AE9"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="163F1887-6BBF-1A93-B78C-D2C38757C027" name="OrdenCita_Cita_avanzada_FK">
+<ind_PK_UK id="500EA565-342F-A8EC-E134-1DEA6A8E3BD8" name="OrdenHospitalizacion_Cama_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:24:01 UTC</createdTime>
+<createdTime>2017-04-22 21:08:25 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="463C592C-C740-426F-4D8D-6CB7E8916BAB"/>
+<colUsage columnID="ED6AF785-E6E3-461A-C201-CDCE06E98F99"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

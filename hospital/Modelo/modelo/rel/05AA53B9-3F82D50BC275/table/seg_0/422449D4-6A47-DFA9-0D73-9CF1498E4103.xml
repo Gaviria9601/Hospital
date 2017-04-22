@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="422449D4-6A47-DFA9-0D73-9CF1498E4103" name="Hospitalización">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="422449D4-6A47-DFA9-0D73-9CF1498E4103" name="Hospitalizacion">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 21:22:55 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -14,8 +14,7 @@
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -42,16 +41,6 @@
 <ownerDesignName>modelo</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="2C648485-9CF9-C196-D5DF-2F7C2A92090E"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="2AA027C9-A09A-D65E-66B3-054AA20D10B2" name="Hospitalización__UN">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 22:32:20 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="2C648485-9CF9-C196-D5DF-2F7C2A92090E"/>

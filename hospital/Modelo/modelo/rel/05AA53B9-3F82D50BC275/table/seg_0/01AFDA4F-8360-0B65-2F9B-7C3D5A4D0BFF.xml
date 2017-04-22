@@ -8,14 +8,13 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Especialización_Codigo" id="9E8EB248-84A1-2CC8-EB63-4307B414AF2E">
+<Column name="Especializacion_Codigo" id="9E8EB248-84A1-2CC8-EB63-4307B414AF2E">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:44:54 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -23,9 +22,9 @@
 <colAssociation fkAssociation="6B216BFA-1789-30AC-5447-C48B296A5F06" referredColumn="769C013B-C6C1-9C48-750D-A3E434D4CCB5"/>
 </associations>
 </Column>
-<Column name="Medico_Usuario_Cedula" id="B36E8A74-B9A2-29BD-8293-34FCC5D1EC29">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 22:45:00 UTC</createdTime>
+<Column name="Medico_Cedula" id="E11B2626-FD48-FAD6-ACC0-D0D22022E06B">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 22:06:26 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -35,7 +34,7 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="A724218C-F3AA-1857-5549-532104286AB6" referredColumn="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
+<colAssociation fkAssociation="528DBC42-3761-DA4C-60EF-44FE93B8DBA3" referredColumn="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
 </associations>
 </Column>
 </columns>
@@ -49,10 +48,10 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="9E8EB248-84A1-2CC8-EB63-4307B414AF2E"/>
-<colUsage columnID="B36E8A74-B9A2-29BD-8293-34FCC5D1EC29"/>
+<colUsage columnID="E11B2626-FD48-FAD6-ACC0-D0D22022E06B"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="7105F402-4866-7A8C-85CB-9992A2ACF95F" name="Item_medico_Especialización_FK">
+<ind_PK_UK id="7105F402-4866-7A8C-85CB-9992A2ACF95F" name="Item_medico_FK">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:44:54 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -62,14 +61,14 @@
 <colUsage columnID="9E8EB248-84A1-2CC8-EB63-4307B414AF2E"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="3CFFCC3F-797A-2626-F8F0-7BA391753ADF" name="Item_medico_Medico_FK">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 22:45:00 UTC</createdTime>
+<ind_PK_UK id="26FC15A7-A470-5EC5-C990-D18868AE1C3B" name="Item_medico_Medico_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 22:06:26 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="B36E8A74-B9A2-29BD-8293-34FCC5D1EC29"/>
+<colUsage columnID="E11B2626-FD48-FAD6-ACC0-D0D22022E06B"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

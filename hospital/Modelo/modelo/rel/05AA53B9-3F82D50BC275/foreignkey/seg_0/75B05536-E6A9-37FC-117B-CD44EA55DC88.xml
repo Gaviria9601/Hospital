@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="75B05536-E6A9-37FC-117B-CD44EA55DC88" containerWithKeyObject="EC2D8F4F-8017-403B-D8A9-E82AF020572C" localFKIndex="2A20CB83-B90F-F4C4-7442-3801D08E0503" name="Cama_Habitacion_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:03:09 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>6CE14DD4-2BB2-062F-EE00-1C49EC041B79</referredTableID>
+<keyObject>5F283455-88FB-9A6D-8089-6339E63EE423</keyObject>
+<referredKeyID>5F283455-88FB-9A6D-8089-6339E63EE423</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

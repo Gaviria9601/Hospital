@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="650141DE-CBD5-5EE9-E07A-245EA99497D5" containerWithKeyObject="3F12AA9E-656D-8496-6A54-FF204ABE34F3" localFKIndex="E82B7E72-6BF6-907E-E28E-BD788388C576" name="Orden_Hospitalización_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:45:52 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>422449D4-6A47-DFA9-0D73-9CF1498E4103</referredTableID>
+<keyObject>4616343D-388A-90B8-EF2A-2F2EEED6225A</keyObject>
+<referredKeyID>4616343D-388A-90B8-EF2A-2F2EEED6225A</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

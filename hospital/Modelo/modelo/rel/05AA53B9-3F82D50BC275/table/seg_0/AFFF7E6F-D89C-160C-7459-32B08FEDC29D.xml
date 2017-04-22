@@ -34,14 +34,13 @@
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Afiliación_Codigo" id="9999DBF8-BC51-894E-70AA-0C3C5F09DC12">
+<Column name="Afiliacion_Codigo" id="9999DBF8-BC51-894E-70AA-0C3C5F09DC12">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-03-11 22:08:40 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
@@ -69,16 +68,6 @@
 <ownerDesignName>modelo</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="CB1BB199-EC5D-3EEF-4E5E-6B33E1ADA0F6"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="6E082457-D4F1-226F-F791-92112F663545" name="Paciente__UN">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 21:49:01 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="CB1BB199-EC5D-3EEF-4E5E-6B33E1ADA0F6"/>

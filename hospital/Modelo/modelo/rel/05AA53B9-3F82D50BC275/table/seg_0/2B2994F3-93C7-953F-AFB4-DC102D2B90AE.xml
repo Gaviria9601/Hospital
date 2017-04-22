@@ -14,9 +14,8 @@
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Nombre" id="902E8AA5-33B2-335A-E04C-D12E64FE5A4C">
@@ -30,7 +29,7 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Descripción" id="1A939B17-B4EC-CAD1-1B96-EEF5B7D0CD2B">
+<Column name="Descripcion" id="1A939B17-B4EC-CAD1-1B96-EEF5B7D0CD2B">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:49:54 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>

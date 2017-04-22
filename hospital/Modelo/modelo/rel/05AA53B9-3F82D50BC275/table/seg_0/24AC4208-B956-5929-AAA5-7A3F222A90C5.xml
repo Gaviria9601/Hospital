@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="24AC4208-B956-5929-AAA5-7A3F222A90C5" name="OrdenExamen">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:37:20 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_34</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="OrdenProcedimiento_codigo" id="12AEB2A1-4F8A-5296-EAA2-A02EE2628EE0">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:00:08 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0AC432BE-1332-DECC-0B76-FD9BFCEF3A22" referredColumn="45D5F8E2-93C7-5AF7-3E61-1B3C8FBEC90D"/>
+</associations>
+</Column>
+<Column name="Examen_Codigo" id="F7E8F388-981E-A24B-FBF9-5E769ED0676B">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:43:45 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8EEA65FA-7EBC-5AB2-CD00-032665723A25" referredColumn="5AC09A85-FC8F-A98D-9C35-34CA44A5CBCF"/>
+</associations>
+</Column>
+<Column name="hora" id="BCEE91E5-A83E-1257-4563-2449F4CCDF78">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:07:13 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CF2F98B3-D8EB-945A-EB7E-3CB96421BB1E" name="OrdenExamen_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:39:36 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="12AEB2A1-4F8A-5296-EAA2-A02EE2628EE0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6BFF00AD-45FC-1FCD-90B5-603FE64A4520" name="OrdenExamen_Examen_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 20:43:45 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F7E8F388-981E-A24B-FBF9-5E769ED0676B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CC258D65-3458-B818-F337-755A21F55ED3" name="OrdenProcedimiento_FKv2">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:00:08 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="12AEB2A1-4F8A-5296-EAA2-A02EE2628EE0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

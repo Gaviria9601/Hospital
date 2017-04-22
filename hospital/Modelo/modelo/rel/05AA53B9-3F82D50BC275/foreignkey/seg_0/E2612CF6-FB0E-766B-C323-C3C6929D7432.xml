@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E2612CF6-FB0E-766B-C323-C3C6929D7432" containerWithKeyObject="0E7ADED4-C47E-1C76-5216-5333C2C25D18" localFKIndex="10D2962A-6CF1-8F5E-62B5-B700E21A8E94" name="OrdenCirugia_Quirofanoo_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:39:40 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D49B97C9-1193-642E-4FA6-E985BE0596AB</referredTableID>
+<keyObject>95B7EF53-FF88-A1F9-BBD9-4598824DB4CA</keyObject>
+<referredKeyID>95B7EF53-FF88-A1F9-BBD9-4598824DB4CA</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

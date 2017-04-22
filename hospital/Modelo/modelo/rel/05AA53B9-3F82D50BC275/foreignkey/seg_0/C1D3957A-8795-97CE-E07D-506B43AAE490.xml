@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="072B32E5-0BFD-6D8B-540F-0E70CDFC577B" containerWithKeyObject="3F12AA9E-656D-8496-6A54-FF204ABE34F3" localFKIndex="1AB96449-9980-DDEE-60BA-3119FB9403C2" name="Post_ordencita_Cita_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C1D3957A-8795-97CE-E07D-506B43AAE490" containerWithKeyObject="3E134B5B-EF4C-C3FC-5154-7E3D60F536E1" localFKIndex="CB4FAB68-D171-DB5E-037E-FC538474A08F" name="OrdenProcedimiento_Cita_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-11 21:23:19 UTC</createdTime>
+<createdTime>2017-04-22 20:47:58 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>0F20BF2A-AC4D-A4BB-D4B8-ECAFF93E874C</referredTableID>

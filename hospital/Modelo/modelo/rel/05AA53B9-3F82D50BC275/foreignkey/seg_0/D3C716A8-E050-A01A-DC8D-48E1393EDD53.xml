@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CA4DDE75-C62C-D955-8A73-71FBF60F812A" containerWithKeyObject="6CE14DD4-2BB2-062F-EE00-1C49EC041B79" localFKIndex="331ADA62-C9B8-F952-452A-E7C245B32774" name="Habitaciones_Instalaciones_FK">
-<createdBy>Lenovo</createdBy>
-<createdTime>2017-02-23 23:23:28 UTC</createdTime>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D3C716A8-E050-A01A-DC8D-48E1393EDD53" containerWithKeyObject="D49B97C9-1193-642E-4FA6-E985BE0596AB" localFKIndex="A24ABEC5-D550-7FB9-1DF4-5B53F608824E" name="Quirofanoo_Instalacion_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-22 21:39:16 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>168D6768-8842-4B1B-13D6-D586288247C4</referredTableID>
