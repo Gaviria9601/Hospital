@@ -22,7 +22,7 @@ public class SessionController implements Serializable {
 	private String pass;
 
 	private Usuario usuario;
-	private TipoUsuarioEnum tipoUsuario=null;
+	private TipoUsuarioEnum tipoUsuario=TipoUsuarioEnum.Administrador;
 
 	@EJB
 	private SeguridadEJB segEJB;

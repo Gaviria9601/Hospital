@@ -17,6 +17,7 @@ import co.edu.eam.ingesoft.hospital.entidades.Afiliacion;
 import co.edu.eam.ingesoft.hospital.entidades.Paciente;
 import co.edu.eam.ingesoft.hospital.entidades.Usuario;
 import co.edu.eam.ingesoft.hospital.enumeraciones.EstratoEnumeracion;
+import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
 import co.edu.eam.ingesoft.pa.negocio.beans.PacienteEJB;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
 
@@ -260,7 +261,7 @@ public class PacienteController implements Serializable{
 	try{
 		a = paciEJB.buscarAfiliacion(afiliacionCodigo);
 		Paciente pa = new Paciente (cedula, nickname, contrasenia, nombre, apellido, edad, 
-				correo, "Paciente", telefono,estrato, a, trabajo);
+				correo, TipoUsuarioEnum.Paciente, telefono,estrato, a, trabajo);
 		System.out.println(cedula);
 		System.out.println(nickname);
 		System.out.println(nombre);

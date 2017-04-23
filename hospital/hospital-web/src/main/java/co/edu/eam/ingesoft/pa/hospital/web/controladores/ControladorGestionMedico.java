@@ -16,6 +16,7 @@ import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
 
 import co.edu.eam.ingesoft.hospital.entidades.Medico;
+import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
 import co.edu.eam.ingesoft.pa.negocio.beans.MedicoEJB;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
 
@@ -92,7 +93,7 @@ public class ControladorGestionMedico implements Serializable{
 	public void crear(){
 		try{
 		Medico cli = new Medico(cedula, nickname, contrasenia, nombre, apellido, edad, 
-				correo, "medico", telefono,carnet,facultad,estado);
+				correo, TipoUsuarioEnum.Medico, telefono,carnet,facultad,estado);
 				medicoejb.crearMedico(cli);
 				
 				// limpiar campos

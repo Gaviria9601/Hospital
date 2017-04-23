@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import co.edu.eam.ingesoft.hospital.enumeraciones.EstratoEnumeracion;
+import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
 
 @Entity
 @Table(name="PACIENTE")
@@ -43,7 +44,7 @@ public class Paciente extends Usuario implements Serializable {
 	
 	
 	public Paciente(String cedula, String nickname, String clave, String nombre, String apellido, int edad,
-			String correo, String tipoUsuario, String telefono, EstratoEnumeracion estrato, Afiliacion afiliacionCodigo,
+			String correo, TipoUsuarioEnum tipoUsuario, String telefono, EstratoEnumeracion estrato, Afiliacion afiliacionCodigo,
 			String trabajo) {
 		super(cedula, nickname, clave, nombre, apellido, edad, correo, tipoUsuario, telefono);
 		this.estrato = estrato;

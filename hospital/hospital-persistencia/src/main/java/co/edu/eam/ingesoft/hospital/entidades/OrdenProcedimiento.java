@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
  *
  */
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.JOINED)
 @Table(name = "OrdenProcedimiento")
 public class OrdenProcedimiento implements Serializable {
 

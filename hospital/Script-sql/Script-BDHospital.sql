@@ -1,84 +1,81 @@
-
-CREATE TABLE Afiliación
+CREATE TABLE Afiliacion
   (
-    Codigo             VARCHAR2 (20) NOT NULL ,
+    Codigo             INTEGER NOT NULL ,
     Nombre             VARCHAR2 (30) NOT NULL ,
     Telefono           VARCHAR2 (30) NOT NULL ,
     ServiciosIncluidos VARCHAR2 (2000) NOT NULL
   ) ;
-ALTER TABLE Afiliación ADD CONSTRAINT Tipo_afiliación_PK PRIMARY KEY ( Codigo ) ;
+ALTER TABLE Afiliacion ADD CONSTRAINT Tipo_afiliación_PK PRIMARY KEY ( Codigo ) ;
 
 
 CREATE TABLE Cama
   (
-    Codigo               VARCHAR2 (10) NOT NULL ,
-    Numero               INTEGER NOT NULL ,
-    Estado               CHAR (1) NOT NULL ,
-    Descripción          VARCHAR2 (2000) ,
-    Instalaciones_Codigo VARCHAR2 (10) NOT NULL
+    Instalacion_Codigo INTEGER NOT NULL ,
+    Numero             INTEGER NOT NULL ,
+    Descripcion        VARCHAR2 (2000) ,
+    Habitacion_codigo  INTEGER NOT NULL
   ) ;
-ALTER TABLE Cama ADD CONSTRAINT Cama_PK PRIMARY KEY ( Codigo ) ;
+ALTER TABLE Cama ADD CONSTRAINT Cama_PK PRIMARY KEY ( Instalacion_Codigo ) ;
 
 
 CREATE TABLE Cirugia
   (
-    Codigo                 VARCHAR2 (10) NOT NULL ,
-    Recuperación           VARCHAR2 (50) NOT NULL ,
+    Codigo                 INTEGER NOT NULL ,
+    Recuperacion           VARCHAR2 (50) NOT NULL ,
     Anestesia              CHAR (1) ,
-    Especialización_Codigo VARCHAR2 (10) NOT NULL ,
-    TipoCirugia_Codigo     VARCHAR2 (20) NOT NULL
+    Especializacion_Codigo INTEGER NOT NULL ,
+    TipoCirugia_Codigo     INTEGER NOT NULL
   ) ;
 ALTER TABLE Cirugia ADD CONSTRAINT Cirugia_PK PRIMARY KEY ( Codigo ) ;
-ALTER TABLE Cirugia ADD CONSTRAINT Cirugia__UN UNIQUE ( Codigo ) ;
 
 
 CREATE TABLE Cita
   (
-    Codigo                  VARCHAR2 (20) NOT NULL ,
-    Fecha                   DATE NOT NULL ,
-    Hora_inicio             DATE NOT NULL ,
-    Observación             VARCHAR2 (2000) ,
-    hora_final              DATE NOT NULL ,
-    Paciente_Usuario_Cedula VARCHAR2 (20) NOT NULL ,
-    Medico_Usuario_Cedula   VARCHAR2 (20) NOT NULL ,
-    Cita_Codigo             VARCHAR2 (20)
+    Codigo          INTEGER NOT NULL ,
+    Fecha           DATE NOT NULL ,
+    Hora_inicio     TIMESTAMP NOT NULL ,
+    Observacion     VARCHAR2 (2000) ,
+    hora_final      TIMESTAMP NOT NULL ,
+    Cita_Codigo     INTEGER ,
+    Medico_Cedula   VARCHAR2 (20) NOT NULL ,
+    Paciente_cedula VARCHAR2 (20) NOT NULL
   ) ;
 ALTER TABLE Cita ADD CONSTRAINT Cita_PK PRIMARY KEY ( Codigo ) ;
 
 
 CREATE TABLE Cita_avanzada
   (
-    Codigo         VARCHAR2 (10) NOT NULL ,
+    Codigo         INTEGER NOT NULL ,
     Nombre         VARCHAR2 (20) NOT NULL ,
     Observaciones  VARCHAR2 (1000) NOT NULL ,
-    TiempoEstimado VARCHAR2 (50) NOT NULL
+    TiempoEstimado VARCHAR2 (50) NOT NULL ,
+    tipo           VARCHAR2 (20)
   ) ;
 ALTER TABLE Cita_avanzada ADD CONSTRAINT Cita_avanzada_PK PRIMARY KEY ( Codigo ) ;
 
 
 CREATE TABLE DiagnosticoCita
   (
-    Cita_Codigo      VARCHAR2 (20) NOT NULL ,
-    Patologia_Codigo VARCHAR2 (10) NOT NULL
+    Cita_Codigo      INTEGER NOT NULL ,
+    Patologia_Codigo INTEGER NOT NULL
   ) ;
 ALTER TABLE DiagnosticoCita ADD CONSTRAINT Item_patologia_PK PRIMARY KEY ( Cita_Codigo, Patologia_Codigo ) ;
 
 
-CREATE TABLE Especialización
+CREATE TABLE Especializacion
   (
-    Codigo VARCHAR2 (10) NOT NULL ,
+    Codigo INTEGER NOT NULL ,
     Nombre VARCHAR2 (40) NOT NULL
   ) ;
-ALTER TABLE Especialización ADD CONSTRAINT Especialización_PK PRIMARY KEY ( Codigo ) ;
+ALTER TABLE Especializacion ADD CONSTRAINT Especialización_PK PRIMARY KEY ( Codigo ) ;
 
 
 CREATE TABLE Examen
   (
-    Codigo        VARCHAR2 (10) NOT NULL ,
-    TipoExamen_Id VARCHAR2 (20) NOT NULL
+    Codigo        INTEGER NOT NULL ,
+    TipoExamen_Id INTEGER NOT NULL
   ) ;
 ALTER TABLE Examen ADD CONSTRAINT Examen_PK PRIMARY KEY ( Codigo ) ;
-ALTER TABLE Examen ADD CONSTRAINT Examen__UN UNIQUE ( Codigo ) ;
 
 
 CREATE TABLE Farmaceutico
@@ -86,199 +83,213 @@ CREATE TABLE Farmaceutico
     cedula              VARCHAR2 (20) NOT NULL ,
     Tarjeta_profesional VARCHAR2 (30) ,
     Fecha_ingreso       DATE NOT NULL ,
-    Farmacia_Codigo     VARCHAR2 (10) NOT NULL
+    Farmacia_Codigo     INTEGER NOT NULL
   ) ;
 ALTER TABLE Farmaceutico ADD CONSTRAINT Farmaceutico_PK PRIMARY KEY ( cedula ) ;
-ALTER TABLE Farmaceutico ADD CONSTRAINT Farmaceutico__UN UNIQUE ( cedula ) ;
 
 
 CREATE TABLE Farmacia
   (
-    Codigo    VARCHAR2 (10) NOT NULL ,
+    Codigo    INTEGER NOT NULL ,
     Nombre    VARCHAR2 (40) NOT NULL ,
     Telefono  VARCHAR2 (10) NOT NULL ,
-    Dirección VARCHAR2 (40)
+    Direccion VARCHAR2 (40)
   ) ;
 ALTER TABLE Farmacia ADD CONSTRAINT Farmacia_PK PRIMARY KEY ( Codigo ) ;
 
 
 CREATE TABLE Habitacion
   (
-    codigo      VARCHAR2 (10) NOT NULL ,
+    codigo      INTEGER NOT NULL ,
     Numero      INTEGER NOT NULL ,
     Piso        INTEGER NOT NULL ,
-    Descripción VARCHAR2 (1000)
+    Descripcion VARCHAR2 (1000)
   ) ;
-ALTER TABLE Habitacion ADD CONSTRAINT Habitaciones__UN UNIQUE ( codigo ) ;
+ALTER TABLE Habitacion ADD CONSTRAINT Habitacion_PK PRIMARY KEY ( codigo ) ;
 
 
 CREATE TABLE Horario
   (
-    Codigo_turno VARCHAR2 (10) NOT NULL ,
-    Jornada      VARCHAR2 (30) NOT NULL ,
-    Hora_Inicio  DATE NOT NULL ,
-    Hora_final   DATE NOT NULL
+    Codigo_turno INTEGER NOT NULL ,
+    Hora_Inicio  TIMESTAMP NOT NULL ,
+    Hora_final   TIMESTAMP NOT NULL
   ) ;
 ALTER TABLE Horario ADD CONSTRAINT Horario_PK PRIMARY KEY ( Codigo_turno ) ;
 
 
-CREATE TABLE Hospitalización
+CREATE TABLE Hospitalizacion
   (
-    Codigo VARCHAR2 (10) NOT NULL ,
+    Codigo INTEGER NOT NULL ,
     Causas VARCHAR2 (500) NOT NULL
   ) ;
-ALTER TABLE Hospitalización ADD CONSTRAINT Hospitalización_PK PRIMARY KEY ( Codigo ) ;
-ALTER TABLE Hospitalización ADD CONSTRAINT Hospitalización__UN UNIQUE ( Codigo ) ;
+ALTER TABLE Hospitalizacion ADD CONSTRAINT Hospitalización_PK PRIMARY KEY ( Codigo ) ;
 
 
-CREATE TABLE Instalación
+CREATE TABLE Instalacion
   (
-    Codigo                VARCHAR2 (10) NOT NULL ,
+    Codigo                INTEGER NOT NULL ,
     Disponibilidad        CHAR (1) NOT NULL ,
-    ObservacionDisponible VARCHAR2 (1000) NOT NULL
+    ObservacionDisponible VARCHAR2 (1000) NOT NULL ,
+    tipo                  VARCHAR2 (20)
   ) ;
-ALTER TABLE Instalación ADD CONSTRAINT Instalaciones_PK PRIMARY KEY ( Codigo ) ;
+ALTER TABLE Instalacion ADD CONSTRAINT Instalaciones_PK PRIMARY KEY ( Codigo ) ;
 
 
 CREATE TABLE Item_horario
   (
-    Medico_Usuario_Cedula VARCHAR2 (20) NOT NULL ,
-    Horario_Codigo_turno  VARCHAR2 (10) NOT NULL ,
-    Fecha                 DATE NOT NULL
+    Horario_Codigo_turno INTEGER NOT NULL ,
+    Medico_Cedula        VARCHAR2 (20) NOT NULL ,
+    Fecha                DATE NOT NULL ,
+    estado               CHAR (1)
   ) ;
-ALTER TABLE Item_horario ADD CONSTRAINT Item_horario_PK PRIMARY KEY ( Medico_Usuario_Cedula, Horario_Codigo_turno ) ;
+ALTER TABLE Item_horario ADD CONSTRAINT Item_horario_PK PRIMARY KEY ( Horario_Codigo_turno, Medico_Cedula ) ;
 
 
 CREATE TABLE Item_medico
   (
-    Especialización_Codigo VARCHAR2 (10) NOT NULL ,
-    Medico_Usuario_Cedula  VARCHAR2 (20) NOT NULL
+    Especializacion_Codigo INTEGER NOT NULL ,
+    Medico_Cedula          VARCHAR2 (20) NOT NULL
   ) ;
-ALTER TABLE Item_medico ADD CONSTRAINT Item_medico_PK PRIMARY KEY ( Especialización_Codigo, Medico_Usuario_Cedula ) ;
+ALTER TABLE Item_medico ADD CONSTRAINT Item_medico_PK PRIMARY KEY ( Especializacion_Codigo, Medico_Cedula ) ;
 
 
 CREATE TABLE Item_sintoma
   (
-    Sintoma_Codigo   VARCHAR2 (10) NOT NULL ,
-    Patologia_Codigo VARCHAR2 (10) NOT NULL
+    Sintoma_Codigo   INTEGER NOT NULL ,
+    Patologia_Codigo INTEGER NOT NULL
   ) ;
 ALTER TABLE Item_sintoma ADD CONSTRAINT Item_sintoma_PK PRIMARY KEY ( Sintoma_Codigo, Patologia_Codigo ) ;
 
 
 CREATE TABLE Item_tratamiento
   (
-    Patologia_Codigo   VARCHAR2 (10) NOT NULL ,
-    Tratamiento_Codigo VARCHAR2 (10) NOT NULL
+    Patologia_Codigo   INTEGER NOT NULL ,
+    Tratamiento_Codigo INTEGER NOT NULL
   ) ;
 ALTER TABLE Item_tratamiento ADD CONSTRAINT Item_tratamiento_PK PRIMARY KEY ( Patologia_Codigo, Tratamiento_Codigo ) ;
 
 
-CREATE TABLE Medicamentos
+CREATE TABLE Medicamento
   (
-    Codigo           VARCHAR2 (10) NOT NULL ,
+    Codigo           INTEGER NOT NULL ,
     Nombre           VARCHAR2 (40) NOT NULL ,
-    Fecha_expedición DATE NOT NULL ,
-    Fecha_expiración DATE NOT NULL ,
+    Fecha_expedicion DATE NOT NULL ,
+    Fecha_expiracion DATE NOT NULL ,
     Laboratorio      VARCHAR2 (40) NOT NULL ,
     Cantidad         INTEGER NOT NULL ,
     Estado           CHAR (1) NOT NULL ,
-    Farmacia_Codigo  VARCHAR2 (20) NOT NULL
+    Farmacia_Codigo  INTEGER NOT NULL
   ) ;
-ALTER TABLE Medicamentos ADD CONSTRAINT Medicamentos_PK PRIMARY KEY ( Codigo ) ;
+ALTER TABLE Medicamento ADD CONSTRAINT Medicamentos_PK PRIMARY KEY ( Codigo ) ;
 
 
 CREATE TABLE Medico
   (
+    Cedula           VARCHAR2 (20) NOT NULL ,
     Carnet           VARCHAR2 (30) NOT NULL ,
     FacultadMedicina VARCHAR2 (60) ,
-    Cedula           VARCHAR2 (20) NOT NULL
+    estado           CHAR (1)
   ) ;
 ALTER TABLE Medico ADD CONSTRAINT Medico_PK PRIMARY KEY ( Cedula ) ;
-ALTER TABLE Medico ADD CONSTRAINT Medico__UN UNIQUE ( Cedula ) ;
 
 
-CREATE TABLE OrdenCitaAvanzada
+CREATE TABLE OrdenCirugia
   (
-    Codigo                VARCHAR2 (10) NOT NULL ,
-    observaciones         VARCHAR2 (1000) ,
-    Fecha                 DATE NOT NULL ,
-    Hora_inicio           DATE NOT NULL ,
-    Hora_final            DATE NOT NULL ,
-    Medico_Usuario_Cedula VARCHAR2 (20) NOT NULL ,
-    Instalación_Codigo    VARCHAR2 (10) ,
-    Cita_Codigo           VARCHAR2 (20) NOT NULL ,
-    Cita_avanzada_Codigo  VARCHAR2 (10) NOT NULL
+    OrdenProce                    INTEGER NOT NULL ,
+    Cirugia_Codigo                INTEGER NOT NULL ,
+    Medico_Cedula                 VARCHAR2 (20) NOT NULL ,
+    horafinal                     TIMESTAMP ,
+    horaInicio                    TIMESTAMP ,
+    Quirofanoo_Instalacion_Codigo INTEGER NOT NULL
   ) ;
-ALTER TABLE OrdenCitaAvanzada ADD CONSTRAINT OrdenCitaAvanzada_PK PRIMARY KEY ( Codigo ) ;
+ALTER TABLE OrdenCirugia ADD CONSTRAINT OrdenCirugia_PK PRIMARY KEY ( OrdenProce ) ;
+
+
+CREATE TABLE OrdenExamen
+  (
+    OrdenProcedimiento_codigo INTEGER NOT NULL ,
+    Examen_Codigo             INTEGER NOT NULL ,
+    hora                      TIMESTAMP
+  ) ;
+ALTER TABLE OrdenExamen ADD CONSTRAINT OrdenExamen_PK PRIMARY KEY ( OrdenProcedimiento_codigo ) ;
+
+
+CREATE TABLE OrdenHospitalizacion
+  (
+    OrdenProcedimiento_codigo INTEGER NOT NULL ,
+    Hora_inicio               TIMESTAMP NOT NULL ,
+    Hospitalizacion_Codigo    INTEGER NOT NULL ,
+    Cama_Instalacion_Codigo   INTEGER NOT NULL
+  ) ;
+ALTER TABLE OrdenHospitalizacion ADD CONSTRAINT OrdenCitaAvanzada_PK PRIMARY KEY ( OrdenProcedimiento_codigo ) ;
+
+
+CREATE TABLE OrdenProcedimiento
+  (
+    codigo        INTEGER NOT NULL ,
+    observaciones VARCHAR2 (2000) ,
+    fecha         DATE ,
+    estado        CHAR (1) ,
+    Cita_Codigo   INTEGER NOT NULL
+  ) ;
+ALTER TABLE OrdenProcedimiento ADD CONSTRAINT OrdenProce_PK PRIMARY KEY ( codigo ) ;
 
 
 CREATE TABLE Orden_medicamento
   (
-    id                  VARCHAR2 (20) NOT NULL ,
+    Medicamentos_Codigo INTEGER NOT NULL ,
+    Cita_Codigo         INTEGER NOT NULL ,
     Cantidad            INTEGER NOT NULL ,
     Formula             VARCHAR2 (2000) ,
-    Cita_Codigo         VARCHAR2 (20) ,
-    Medicamentos_Codigo VARCHAR2 (10) NOT NULL
+    estado              CHAR (1)
   ) ;
-ALTER TABLE Orden_medicamento ADD CONSTRAINT Item_medicamento_PK PRIMARY KEY ( id ) ;
+ALTER TABLE Orden_medicamento ADD CONSTRAINT Item_medicamento_PK PRIMARY KEY ( Medicamentos_Codigo, Cita_Codigo ) ;
 
 
 CREATE TABLE Paciente
   (
     cedula            VARCHAR2 (20) NOT NULL ,
     Estrato           VARCHAR2 (10) NOT NULL ,
-    Afiliación_Codigo VARCHAR2 (20) NOT NULL ,
+    Afiliacion_Codigo INTEGER NOT NULL ,
     Trabajo           VARCHAR2 (50)
   ) ;
 ALTER TABLE Paciente ADD CONSTRAINT Paciente_PK PRIMARY KEY ( cedula ) ;
-ALTER TABLE Paciente ADD CONSTRAINT Paciente__UN UNIQUE ( cedula ) ;
 
 
 CREATE TABLE Patologia
   (
-    Codigo      VARCHAR2 (10) NOT NULL ,
+    Codigo      INTEGER NOT NULL ,
     Nombre      VARCHAR2 (50) NOT NULL ,
-    Descripción VARCHAR2 (1000)
+    Descripcion VARCHAR2 (1000)
   ) ;
 ALTER TABLE Patologia ADD CONSTRAINT Patologia_PK PRIMARY KEY ( Codigo ) ;
 
 
-CREATE TABLE Post_OrdenMedicamento
-  (
-    codigoEntrega        VARCHAR2 (10) NOT NULL ,
-    cantidad             INTEGER NOT NULL ,
-    Fecha                DATE NOT NULL ,
-    Orden_medicamento_id VARCHAR2 (20) NOT NULL
-  ) ;
-ALTER TABLE Post_OrdenMedicamento ADD CONSTRAINT Post_OrdenMedicamento_PK PRIMARY KEY ( codigoEntrega ) ;
-ALTER TABLE Post_OrdenMedicamento ADD CONSTRAINT Post_OrdenMedicamento__UN UNIQUE ( Orden_medicamento_id ) ;
-
-
 CREATE TABLE Quirofano
   (
-    codigo          VARCHAR2 (10) NOT NULL ,
-    Caracteristicas VARCHAR2 (2000) NOT NULL ,
-    Numero_aparatos INTEGER NOT NULL ,
-    Cantidad_medico INTEGER
+    Instalacion_Codigo    INTEGER NOT NULL ,
+    Caracteristicas       VARCHAR2 (2000) ,
+    NumeroAparatos        INTEGER NOT NULL ,
+    CantidadMedicosAcompa INTEGER
   ) ;
-ALTER TABLE Quirofano ADD CONSTRAINT Quirofano__UNv1 UNIQUE ( codigo ) ;
+ALTER TABLE Quirofano ADD CONSTRAINT Quirofanoo_PK PRIMARY KEY ( Instalacion_Codigo ) ;
 
 
 CREATE TABLE ResultadoExamen
   (
-    Id                       VARCHAR2 (20) NOT NULL ,
-    Observaciones            VARCHAR2 (2000) NOT NULL ,
-    Fecha                    DATE NOT NULL ,
-    OrdenCitaAvanzada_Codigo VARCHAR2 (10) NOT NULL
+    codigo            INTEGER NOT NULL ,
+    Observaciones     VARCHAR2 (2000) ,
+    fecha             DATE ,
+    OrdenProce_codigo INTEGER NOT NULL
   ) ;
-ALTER TABLE ResultadoExamen ADD CONSTRAINT ResultadoExamen_PK PRIMARY KEY ( Id ) ;
-ALTER TABLE ResultadoExamen ADD CONSTRAINT ResultadoExamen__UN UNIQUE ( OrdenCitaAvanzada_Codigo ) ;
+ALTER TABLE ResultadoExamen ADD CONSTRAINT ResultadoExamen_PK PRIMARY KEY ( codigo ) ;
+ALTER TABLE ResultadoExamen ADD CONSTRAINT ResultadoExamen__UN UNIQUE ( OrdenProce_codigo ) ;
 
 
 CREATE TABLE Sintoma
   (
-    Codigo      VARCHAR2 (10) NOT NULL ,
-    Descripción VARCHAR2 (1000) ,
+    Codigo      INTEGER NOT NULL ,
+    Descripcion VARCHAR2 (1000) ,
     Causa       VARCHAR2 (1000) NOT NULL
   ) ;
 ALTER TABLE Sintoma ADD CONSTRAINT Sintoma_PK PRIMARY KEY ( Codigo ) ;
@@ -286,7 +297,7 @@ ALTER TABLE Sintoma ADD CONSTRAINT Sintoma_PK PRIMARY KEY ( Codigo ) ;
 
 CREATE TABLE TipoCirugia
   (
-    Codigo VARCHAR2 (20) NOT NULL ,
+    Codigo INTEGER NOT NULL ,
     Nombre VARCHAR2 (50) NOT NULL
   ) ;
 ALTER TABLE TipoCirugia ADD CONSTRAINT TipoCirugia_PK PRIMARY KEY ( Codigo ) ;
@@ -294,15 +305,15 @@ ALTER TABLE TipoCirugia ADD CONSTRAINT TipoCirugia_PK PRIMARY KEY ( Codigo ) ;
 
 CREATE TABLE TipoExamen
   (
-    Id     VARCHAR2 (20) NOT NULL ,
+    codigo INTEGER NOT NULL ,
     Nombre VARCHAR2 (30) NOT NULL
   ) ;
-ALTER TABLE TipoExamen ADD CONSTRAINT TipoExamen_PK PRIMARY KEY ( Id ) ;
+ALTER TABLE TipoExamen ADD CONSTRAINT TipoExamen_PK PRIMARY KEY ( codigo ) ;
 
 
 CREATE TABLE Tratamiento
   (
-    Codigo           VARCHAR2 (10) NOT NULL ,
+    Codigo           INTEGER NOT NULL ,
     Tipo             VARCHAR2 (50) ,
     Farmacos_aplicar VARCHAR2 (500) NOT NULL ,
     Problema         VARCHAR2 (500) NOT NULL
@@ -324,45 +335,46 @@ CREATE TABLE Usuario
   ) ;
 ALTER TABLE Usuario ADD CONSTRAINT Usuario_PK PRIMARY KEY ( Cedula ) ;
 
-ALTER TABLE Cama ADD CONSTRAINT Cama_Habitacion_FK FOREIGN KEY ( Instalaciones_Codigo ) REFERENCES Habitacion ( codigo ) ;
+
+ALTER TABLE Cama ADD CONSTRAINT Cama_Habitacion_FK FOREIGN KEY ( Habitacion_codigo ) REFERENCES Habitacion ( codigo ) ;
+
+ALTER TABLE Cama ADD CONSTRAINT Cama_Instalacion_FK FOREIGN KEY ( Instalacion_Codigo ) REFERENCES Instalacion ( Codigo ) ;
 
 ALTER TABLE Cirugia ADD CONSTRAINT Cirugia_Cita_avanzada_FK FOREIGN KEY ( Codigo ) REFERENCES Cita_avanzada ( Codigo ) ;
 
-ALTER TABLE Cirugia ADD CONSTRAINT Cirugia_Especialización_FK FOREIGN KEY ( Especialización_Codigo ) REFERENCES Especialización ( Codigo ) ;
+ALTER TABLE Cirugia ADD CONSTRAINT Cirugia_Especialización_FK FOREIGN KEY ( Especializacion_Codigo ) REFERENCES Especializacion ( Codigo ) ;
 
 ALTER TABLE Cirugia ADD CONSTRAINT Cirugia_TipoCirugia_FK FOREIGN KEY ( TipoCirugia_Codigo ) REFERENCES TipoCirugia ( Codigo ) ;
 
 ALTER TABLE Cita ADD CONSTRAINT Cita_Cita_FK FOREIGN KEY ( Cita_Codigo ) REFERENCES Cita ( Codigo ) ;
 
-ALTER TABLE Cita ADD CONSTRAINT Cita_Medico_FK FOREIGN KEY ( Medico_Usuario_Cedula ) REFERENCES Medico ( Cedula ) ;
+ALTER TABLE Cita ADD CONSTRAINT Cita_Medico_FK FOREIGN KEY ( Medico_Cedula ) REFERENCES Medico ( Cedula ) ;
 
-ALTER TABLE Cita ADD CONSTRAINT Cita_Paciente_FK FOREIGN KEY ( Paciente_Usuario_Cedula ) REFERENCES Paciente ( cedula ) ;
+ALTER TABLE Cita ADD CONSTRAINT Cita_Paciente_FK FOREIGN KEY ( Paciente_cedula ) REFERENCES Paciente ( cedula ) ;
 
 ALTER TABLE Examen ADD CONSTRAINT Examen_Cita_avanzada_FK FOREIGN KEY ( Codigo ) REFERENCES Cita_avanzada ( Codigo ) ;
 
-ALTER TABLE Examen ADD CONSTRAINT Examen_TipoExamen_FK FOREIGN KEY ( TipoExamen_Id ) REFERENCES TipoExamen ( Id ) ;
+ALTER TABLE Examen ADD CONSTRAINT Examen_TipoExamen_FK FOREIGN KEY ( TipoExamen_Id ) REFERENCES TipoExamen ( codigo ) ;
 
 ALTER TABLE Farmaceutico ADD CONSTRAINT Farmaceutico_Farmacia_FK FOREIGN KEY ( Farmacia_Codigo ) REFERENCES Farmacia ( Codigo ) ;
 
 ALTER TABLE Farmaceutico ADD CONSTRAINT Farmaceutico_Usuario_FK FOREIGN KEY ( cedula ) REFERENCES Usuario ( Cedula ) ;
 
-ALTER TABLE Habitacion ADD CONSTRAINT Habitaciones_Instalaciones_FK FOREIGN KEY ( codigo ) REFERENCES Instalación ( Codigo ) ;
+ALTER TABLE Hospitalizacion ADD CONSTRAINT HospitalizaciónCitaAvan_FK FOREIGN KEY ( Codigo ) REFERENCES Cita_avanzada ( Codigo ) ;
 
-ALTER TABLE Hospitalización ADD CONSTRAINT HospitalizaciónCitaAvan_FK FOREIGN KEY ( Codigo ) REFERENCES Cita_avanzada ( Codigo ) ;
-
-ALTER TABLE Orden_medicamento ADD CONSTRAINT Item_Medicamentos_FK FOREIGN KEY ( Medicamentos_Codigo ) REFERENCES Medicamentos ( Codigo ) ;
+ALTER TABLE Orden_medicamento ADD CONSTRAINT Item_Medicamentos_FK FOREIGN KEY ( Medicamentos_Codigo ) REFERENCES Medicamento ( Codigo ) ;
 
 ALTER TABLE Item_tratamiento ADD CONSTRAINT Item_Tratamiento_FK FOREIGN KEY ( Tratamiento_Codigo ) REFERENCES Tratamiento ( Codigo ) ;
 
 ALTER TABLE Item_horario ADD CONSTRAINT Item_horario_Horario_FK FOREIGN KEY ( Horario_Codigo_turno ) REFERENCES Horario ( Codigo_turno ) ;
 
-ALTER TABLE Item_horario ADD CONSTRAINT Item_horario_Medico_FK FOREIGN KEY ( Medico_Usuario_Cedula ) REFERENCES Medico ( Cedula ) ;
+ALTER TABLE Item_horario ADD CONSTRAINT Item_horario_Medico_FK FOREIGN KEY ( Medico_Cedula ) REFERENCES Medico ( Cedula ) ;
 
 ALTER TABLE Orden_medicamento ADD CONSTRAINT Item_medicamento_Cita_FK FOREIGN KEY ( Cita_Codigo ) REFERENCES Cita ( Codigo ) ;
 
-ALTER TABLE Item_medico ADD CONSTRAINT Item_medico_Especialización_FK FOREIGN KEY ( Especialización_Codigo ) REFERENCES Especialización ( Codigo ) ;
+ALTER TABLE Item_medico ADD CONSTRAINT Item_medico_FK FOREIGN KEY ( Especializacion_Codigo ) REFERENCES Especializacion ( Codigo ) ;
 
-ALTER TABLE Item_medico ADD CONSTRAINT Item_medico_Medico_FK FOREIGN KEY ( Medico_Usuario_Cedula ) REFERENCES Medico ( Cedula ) ;
+ALTER TABLE Item_medico ADD CONSTRAINT Item_medico_Medico_FK FOREIGN KEY ( Medico_Cedula ) REFERENCES Medico ( Cedula ) ;
 
 ALTER TABLE DiagnosticoCita ADD CONSTRAINT Item_patologia_Cita_FK FOREIGN KEY ( Cita_Codigo ) REFERENCES Cita ( Codigo ) ;
 
@@ -374,24 +386,34 @@ ALTER TABLE Item_sintoma ADD CONSTRAINT Item_sintoma_Sintoma_FK FOREIGN KEY ( Si
 
 ALTER TABLE Item_tratamiento ADD CONSTRAINT Item_tratamiento_Patologia_FK FOREIGN KEY ( Patologia_Codigo ) REFERENCES Patologia ( Codigo ) ;
 
-ALTER TABLE Medicamentos ADD CONSTRAINT Medicamentos_Farmacia_FK FOREIGN KEY ( Farmacia_Codigo ) REFERENCES Farmacia ( Codigo ) ;
+ALTER TABLE Medicamento ADD CONSTRAINT Medicamentos_Farmacia_FK FOREIGN KEY ( Farmacia_Codigo ) REFERENCES Farmacia ( Codigo ) ;
 
 ALTER TABLE Medico ADD CONSTRAINT Medico_Usuario_FK FOREIGN KEY ( Cedula ) REFERENCES Usuario ( Cedula ) ;
 
-ALTER TABLE OrdenCitaAvanzada ADD CONSTRAINT OrdenCita_Cita_avanzada_FK FOREIGN KEY ( Cita_avanzada_Codigo ) REFERENCES Cita_avanzada ( Codigo ) ;
+ALTER TABLE OrdenCirugia ADD CONSTRAINT OrdenCirugia_Cirugia_FK FOREIGN KEY ( Cirugia_Codigo ) REFERENCES Cirugia ( Codigo ) ;
 
-ALTER TABLE Paciente ADD CONSTRAINT Paciente_Afiliación_FK FOREIGN KEY ( Afiliación_Codigo ) REFERENCES Afiliación ( Codigo ) ;
+ALTER TABLE OrdenCirugia ADD CONSTRAINT OrdenCirugia_Medico_FK FOREIGN KEY ( Medico_Cedula ) REFERENCES Medico ( Cedula ) ;
+
+ALTER TABLE OrdenCirugia ADD CONSTRAINT OrdenCirugia_Quirofanoo_FK FOREIGN KEY ( Quirofanoo_Instalacion_Codigo ) REFERENCES Quirofano ( Instalacion_Codigo ) ;
+
+ALTER TABLE OrdenExamen ADD CONSTRAINT OrdenExamen_Examen_FK FOREIGN KEY ( Examen_Codigo ) REFERENCES Examen ( Codigo ) ;
+
+ALTER TABLE ResultadoExamen ADD CONSTRAINT OrdenExamen_FK FOREIGN KEY ( OrdenProce_codigo ) REFERENCES OrdenExamen ( OrdenProcedimiento_codigo ) ;
+
+ALTER TABLE OrdenHospitalizacion ADD CONSTRAINT OrdenHospitalizacion_Cama_FK FOREIGN KEY ( Cama_Instalacion_Codigo ) REFERENCES Cama ( Instalacion_Codigo ) ;
+
+ALTER TABLE OrdenProcedimiento ADD CONSTRAINT OrdenProcedimiento_Cita_FK FOREIGN KEY ( Cita_Codigo ) REFERENCES Cita ( Codigo ) ;
+
+ALTER TABLE OrdenHospitalizacion ADD CONSTRAINT OrdenProcedimiento_FK FOREIGN KEY ( OrdenProcedimiento_codigo ) REFERENCES OrdenProcedimiento ( codigo ) ;
+
+ALTER TABLE OrdenExamen ADD CONSTRAINT OrdenProcedimiento_FKv2 FOREIGN KEY ( OrdenProcedimiento_codigo ) REFERENCES OrdenProcedimiento ( codigo ) ;
+
+ALTER TABLE OrdenCirugia ADD CONSTRAINT OrdenProcedimiento_FKv3 FOREIGN KEY ( OrdenProce ) REFERENCES OrdenProcedimiento ( codigo ) ;
+
+ALTER TABLE OrdenHospitalizacion ADD CONSTRAINT Orden_Hospitalización_FK FOREIGN KEY ( Hospitalizacion_Codigo ) REFERENCES Hospitalizacion ( Codigo ) ;
+
+ALTER TABLE Paciente ADD CONSTRAINT Paciente_Afiliación_FK FOREIGN KEY ( Afiliacion_Codigo ) REFERENCES Afiliacion ( Codigo ) ;
 
 ALTER TABLE Paciente ADD CONSTRAINT Paciente_Usuario_FK FOREIGN KEY ( cedula ) REFERENCES Usuario ( Cedula ) ;
 
-ALTER TABLE Post_OrdenMedicamento ADD CONSTRAINT Post_OrdenMedicamento_FK FOREIGN KEY ( Orden_medicamento_id ) REFERENCES Orden_medicamento ( id ) ;
-
-ALTER TABLE OrdenCitaAvanzada ADD CONSTRAINT Post_ordencita_Cita_FK FOREIGN KEY ( Cita_Codigo ) REFERENCES Cita ( Codigo ) ;
-
-ALTER TABLE OrdenCitaAvanzada ADD CONSTRAINT Post_ordencita_Instalación_FK FOREIGN KEY ( Instalación_Codigo ) REFERENCES Instalación ( Codigo ) ;
-
-ALTER TABLE OrdenCitaAvanzada ADD CONSTRAINT Post_ordencita_Medico_FK FOREIGN KEY ( Medico_Usuario_Cedula ) REFERENCES Medico ( Cedula ) ;
-
-ALTER TABLE Quirofano ADD CONSTRAINT Quirofano_Instalación_FK FOREIGN KEY ( codigo ) REFERENCES Instalación ( Codigo ) ;
-
-ALTER TABLE ResultadoExamen ADD CONSTRAINT ResultadoExamOrdenCitaAvan_FK FOREIGN KEY ( OrdenCitaAvanzada_Codigo ) REFERENCES OrdenCitaAvanzada ( Codigo ) ;
+ALTER TABLE Quirofano ADD CONSTRAINT Quirofanoo_Instalacion_FK FOREIGN KEY ( Instalacion_Codigo ) REFERENCES Instalacion ( Codigo ) ;

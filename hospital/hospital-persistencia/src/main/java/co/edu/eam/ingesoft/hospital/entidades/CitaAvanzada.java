@@ -17,7 +17,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name="CitaAvanzada")
 public class CitaAvanzada implements Serializable {
 
