@@ -7,7 +7,7 @@
 	<ui:define name="cuerpo">
 		<h:form prependId="false">
 
-			<h1 align="center">Gestión del medico</h1>
+			<h1 align="center">Ingresar medico al sistema</h1>
 
 			<p:panel id="basic" header="Datos" style="margin-bottom:20px">
 				<h:panelGrid id="paneldatos" columns="4" >
@@ -88,20 +88,10 @@
 			<p:panel id="botones" header="Acciones" style="margin-bottom:20px">
 				<h:panelGrid id="panelbotones" columns="3">
 
-					<p:commandButton id="btncrear" value="Ingresar Medico"
+					<p:commandButton id="btncrear" value="Ingresar Medico al sistema"
 						process="@this,paneldatos" update="paneldatos"
 						action="#{ControladorMedico.crear}" />
-
-					<p:commandButton id="btnBuscar" value="Buscar Medico"
-						process="@this,tfcedula" update="paneldatos"
-						action="#{ControladorMedico.buscar}" />
-
-					<p:commandButton id="btnmodificar" value="Modificar Medico"
-						process="@this,paneldatos" update="paneldatos" />
-
-					<p:commandButton id="btneliminar" value="Eliminar Medico"
-						process="@this,paneldatos" update="paneldatos" />
-
+				
 					<p:commandButton id="btnlimpiar" value="Limpiar Campos"
 						process="@this" update="paneldatos"
 						action="#{ControladorMedico.limpiar}" />

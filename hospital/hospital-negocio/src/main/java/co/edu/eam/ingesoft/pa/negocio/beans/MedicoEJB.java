@@ -39,10 +39,10 @@ public class MedicoEJB {
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void modificarMedico(Medico medico){
 		Medico Medicodef =buscarMedico(medico.getCedula());
-		if(Medicodef==null){
-				em.merge(medico);
+		if(Medicodef!=null){
+				em.merge(Medicodef);
 		}else {
-			throw new ExcepcionNegocio("Ya esta esta cedula de usuario registrado");
+			throw new ExcepcionNegocio("ERROR");
 		}
 		
 	}

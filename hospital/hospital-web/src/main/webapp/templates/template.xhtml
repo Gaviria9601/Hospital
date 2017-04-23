@@ -94,6 +94,7 @@
 
 			</div>
 
+<h:form>
 			<div class="navbar-main">
 
 				<div class="container">
@@ -129,9 +130,11 @@
 							<h:panelGroup rendered="#{sessionControl.sesionAdmin}">
 								<li class="has-child"><a href="#">Gestión Medico</a>
 									<ul class="submenu">
-										<li class="submenu-item"><a href="#">Medico </a></li>
-										<li class="submenu-item"><a href="#">Especialización
-										</a></li>
+										<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/gestion-medico.xhtml">
+										Crear medico </a></li>
+										<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/buscar-medico.xhtml">Buscar medico </a></li>|
+										<li class="submenu-item"><a href="#">Asignar
+												especialización </a></li>
 									</ul></li>
 								<li class="has-child"><a href="#">Gestión Instalación</a>
 									<ul class="submenu">
@@ -162,8 +165,22 @@
 							<h:panelGroup rendered="#{sessionControl.sesionPaciente}">
 								<li><a href="#">Reserva Cita</a></li>
 							</h:panelGroup>
-							<li><a href="#footer" class="button stroke smoothscroll">Conocenos</a></li>
+							
+							<h:panelGroup rendered="#{sessionControl.sesion}">
+							<li class="has-child"><a href="#">Bienvenido(a) #{sessionControl.usuario.tipoUsuario}(a) 
+				#{sessionControl.usuario.nombre}</a>
+							<ul class="submenu">
+							<li><h:commandLink 
+										value="Cerrar Sesión" ajax="false"
+										action="#{sessionControl.cerrarSesion}"
+										rendered="#{sessionControl.sesion}" /></li>
+							</ul></li>
+							</h:panelGroup>
+								
+							
+
 						</ul>
+						
 
 					</div>
 					<!-- /#navbar -->
@@ -173,7 +190,7 @@
 
 			</div>
 			<!-- /.navbar-main -->
-
+</h:form>
 
 		</nav>
 
@@ -185,132 +202,128 @@
 
 	<!-- Carousel
     ================================================== -->
-	<div id="homeCarousel" class="carousel slide carousel-home"
-		data-ride="carousel">
+	<h:panelGroup rendered="#{!sessionControl.sesion}">
+		<div id="homeCarousel" class="carousel slide carousel-home"
+			data-ride="carousel">
 
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#homeCarousel" data-slide-to="1"></li>
-			<li data-target="#homeCarousel" data-slide-to="2"></li>
-		</ol>
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#homeCarousel" data-slide-to="1"></li>
+				<li data-target="#homeCarousel" data-slide-to="2"></li>
+			</ol>
 
-		<div class="carousel-inner" role="listbox">
+			<div class="carousel-inner" role="listbox">
 
-			<div class="item active">
+				<div class="item active">
 
-				<img
-					src="#{request.contextPath}/assets/images/slider/hospi1.jpg"
-					alt="" />
-				<div class="container">
+					<img src="#{request.contextPath}/assets/images/slider/hospi1.jpg"
+						alt="" />
+					<div class="container">
 
-					<div class="carousel-caption">
+						<div class="carousel-caption">
 
-						<h2 class="carousel-title bounceInDown animated slow">
-							La salud no se valora </h2>
-						<h4 class="carousel-subtitle bounceInUp animated slow ">
-							hasta que llega la enfermedad</h4>
-						<h:panelGroup rendered="#{!sessionControl.sesion}">
-							<a href="#"
-								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
-								data-toggle="modal" data-target="#donateModal">Inicia Sesion</a>
-						</h:panelGroup>
-						<h:form>
-							<h:commandLink
-								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
-								data-toggle="modal" value="Cerrar Sesion" ajax="false"
-								action="#{sessionControl.cerrarSesion}"
-								rendered="#{sessionControl.sesion}" />
-						</h:form>
-					</div>
-					<!-- /.carousel-caption -->
-
-				</div>
-
-			</div>
-			<!-- /.item -->
-
-
-			<div class="item ">
-
-				<img
-					src="#{request.contextPath}/assets/images/slider/hospi3.jpg"
-					alt="" />
-				<div class="container">
-
-					<div class="carousel-caption">
-
-						<h2 class="carousel-title bounceInDown animated slow">La salud no
-						tiene precio, y el que la arriesga</h2>
-						<h4 class="carousel-subtitle bounceInUp animated slow">
-							 es un necio</h4>
-						<h:panelGroup rendered="#{!sessionControl.sesion}">
-							<a href="#"
-								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated"
-								data-toggle="modal" data-target="#donateModal">Inicia Sesion</a>
-						</h:panelGroup>
-						<h:form>
-							<h:commandLink
-								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
-								data-toggle="modal" value="Cerrar Sesion" ajax="false"
-								action="#{sessionControl.cerrarSesion}"
-								rendered="#{sessionControl.sesion}" />
-						</h:form>
+							<h2 class="carousel-title bounceInDown animated slow">La
+								salud no se valora</h2>
+							<h4 class="carousel-subtitle bounceInUp animated slow ">
+								hasta que llega la enfermedad</h4>
+							<h:panelGroup rendered="#{!sessionControl.sesion}">
+								<a href="#"
+									class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
+									data-toggle="modal" data-target="#donateModal">Inicia
+									Sesion</a>
+							</h:panelGroup>
+							<h:form>
+								<h:commandLink
+									class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
+									data-toggle="modal" value="Cerrar Sesion" ajax="false"
+									action="#{sessionControl.cerrarSesion}"
+									rendered="#{sessionControl.sesion}" />
+							</h:form>
+						</div>
+						<!-- /.carousel-caption -->
 
 					</div>
-					<!-- /.carousel-caption -->
 
 				</div>
-
-			</div>
-			<!-- /.item -->
+				<!-- /.item -->
 
 
-			<div class="item ">
+				<div class="item ">
 
-				<img
-					src="#{request.contextPath}/assets/images/slider/hospi4.jpg"
-					alt="" />
-				<div class="container">
+					<img src="#{request.contextPath}/assets/images/slider/hospi3.jpg"
+						alt="" />
+					<div class="container">
 
-					<div class="carousel-caption">
+						<div class="carousel-caption">
 
-						<h2 class="carousel-title bounceInDown animated slow">
-							La salud no lo es todo; pero sin ella,</h2>
-						<h4 class="carousel-subtitle bounceInUp animated slow">
-							todo lo demás es nada</h4>
-						<h:panelGroup rendered="#{!sessionControl.sesion}">
-							<a href="#"
-								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated"
-								data-toggle="modal" data-target="#donateModal">Inicia Sesion</a>
-						</h:panelGroup>
-						<h:form>
-							<h:commandLink
-								class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
-								data-toggle="modal" value="Cerrar Sesion" ajax="false"
-								action="#{sessionControl.cerrarSesion}"
-								rendered="#{sessionControl.sesion}" />
-						</h:form>
+							<h2 class="carousel-title bounceInDown animated slow">La
+								salud no tiene precio, y el que la arriesga</h2>
+							<h4 class="carousel-subtitle bounceInUp animated slow">es un
+								necio</h4>
+							<h:panelGroup rendered="#{!sessionControl.sesion}">
+								<a href="#"
+									class="btn btn-lg btn-secondary hidden-xs bounceInUp animated"
+									data-toggle="modal" data-target="#donateModal">Inicia
+									Sesion</a>
+							</h:panelGroup>
+
+						</div>
+						<!-- /.carousel-caption -->
 
 					</div>
-					<!-- /.carousel-caption -->
 
 				</div>
+				<!-- /.item -->
+
+
+				<div class="item ">
+
+					<img src="#{request.contextPath}/assets/images/slider/hospi4.jpg"
+						alt="" />
+					<div class="container">
+
+						<div class="carousel-caption">
+
+							<h2 class="carousel-title bounceInDown animated slow">La
+								salud no lo es todo; pero sin ella,</h2>
+							<h4 class="carousel-subtitle bounceInUp animated slow">todo
+								lo demás es nada</h4>
+							<h:panelGroup rendered="#{!sessionControl.sesion}">
+								<a href="#"
+									class="btn btn-lg btn-secondary hidden-xs bounceInUp animated"
+									data-toggle="modal" data-target="#donateModal">Inicia
+									Sesion</a>
+							</h:panelGroup>
+							<h:form>
+								<h:commandLink
+									class="btn btn-lg btn-secondary hidden-xs bounceInUp animated slow"
+									data-toggle="modal" value="Cerrar Sesion" ajax="false"
+									action="#{sessionControl.cerrarSesion}"
+									rendered="#{sessionControl.sesion}" />
+							</h:form>
+
+						</div>
+
+						<!-- /.carousel-caption -->
+
+					</div>
+
+				</div>
+				<!-- /.item -->
 
 			</div>
-			<!-- /.item -->
+
+			<a class="left carousel-control" href="#homeCarousel" role="button"
+				data-slide="prev"> <span class="fa fa-angle-left"
+				aria-hidden="true"></span> <span class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#homeCarousel" role="button"
+				data-slide="next"> <span class="fa fa-angle-right"
+				aria-hidden="true"></span> <span class="sr-only">Next</span>
+			</a>
 
 		</div>
-
-		<a class="left carousel-control" href="#homeCarousel" role="button"
-			data-slide="prev"> <span class="fa fa-angle-left"
-			aria-hidden="true"></span> <span class="sr-only">Previous</span>
-		</a> <a class="right carousel-control" href="#homeCarousel" role="button"
-			data-slide="next"> <span class="fa fa-angle-right"
-			aria-hidden="true"></span> <span class="sr-only">Next</span>
-		</a>
-
-	</div>
+	</h:panelGroup>
 
 	<!-- /.Cuerpos -->
 	<div class="container">
@@ -353,8 +366,7 @@
 									exámenes, medicamentos recetados, reservación de citas médicas,
 									registro de medicamentos y procedimientos, registro de
 									patologías de los pacientes, registro de personal médico y
-									registro de instalaciones como lo son quirófanos y
-									habitaciones
+									registro de instalaciones como lo son quirófanos y habitaciones
 								</p>
 
 							</div>
@@ -373,14 +385,16 @@
 
 							<div class="footer-content">
 								<ul class="tweets list-unstyled">
-									<li class="tweet">El hospital San Rafael cuenta con la mejor appliación
-									para la asignación de citas en todo el departamento del Quindio.</li>
+									<li class="tweet">El hospital San Rafael cuenta con la
+										mejor appliación para la asignación de citas en todo el
+										departamento del Quindio.</li>
 
-									<li class="tweet">Nuestro hospital esta comprometido el 100% con
-									todas las tragedias en el Quindio y colombia.</li>
+									<li class="tweet">Nuestro hospital esta comprometido el
+										100% con todas las tragedias en el Quindio y colombia.</li>
 
-									<li class="tweet">El hospital San Rafael cuenta con los mejores medicos,
-									enfermedas, infraestructura e instrumentos de todo el Quindio. </li>
+									<li class="tweet">El hospital San Rafael cuenta con los
+										mejores medicos, enfermedas, infraestructura e instrumentos de
+										todo el Quindio.</li>
 
 								</ul>
 							</div>
@@ -390,60 +404,6 @@
 					</div>
 
 
-					<div class="col-md-4">
-
-						<div class="footer-col">
-
-							<h4 class="footer-title">
-								Contactenos <span class="title-under"></span>
-							</h4>
-
-							<div class="footer-content">
-
-								<div class="footer-form">
-
-									<div class="footer-form">
-
-										<form action="php/mail.php" class="ajax-form">
-
-											<div class="form-group">
-												<input type="text" name="name" class="form-control"
-													placeholder="Nombre" />
-											</div>
-
-											<div class="form-group">
-												<input type="email" name="email" class="form-control"
-													placeholder="Correo" />
-											</div>
-
-											<div class="form-group">
-												<textarea name="message" class="form-control"
-													placeholder="Mensaje"></textarea>
-											</div>
-
-											<div class="form-group alerts">
-
-												<div class="alert alert-success" role="alert"></div>
-
-												<div class="alert alert-danger" role="alert"></div>
-
-											</div>
-
-											<div class="form-group">
-												<button type="submit" class="btn btn-submit pull-right">Enviar
-													Mensaje</button>
-											</div>
-
-										</form>
-
-									</div>
-
-								</div>
-							</div>
-
-						</div>
-
-					</div>
 					<div class="clearfix"></div>
 				</div>
 			</div>

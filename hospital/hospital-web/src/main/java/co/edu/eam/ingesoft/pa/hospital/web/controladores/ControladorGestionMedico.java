@@ -61,6 +61,8 @@ public class ControladorGestionMedico implements Serializable{
 	private String facultad;
 	
 	private boolean estado;
+	
+	private boolean busco = false;
 	 
 	
 	@PostConstruct
@@ -83,6 +85,7 @@ public class ControladorGestionMedico implements Serializable{
 		telefono = "";
 		facultad = "";
 		carnet = medicoejb.generarCarnet();
+		busco = false;
 		
 	}
 	
@@ -101,6 +104,31 @@ public class ControladorGestionMedico implements Serializable{
 		}
 	}
 	
+	public void modificar(){
+		try{
+		Medico cli = new Medico(cedula, nickname, contrasenia, nombre, apellido, edad, 
+				correo, "Medico", telefono,carnet,facultad,estado);
+		medicoejb.modificarMedico(cli);
+		limpiar();
+		Messages.addFlashGlobalInfo("MEDICO MODIFICADO CORRECTAMENTE");
+		}catch (ExcepcionNegocio e) {
+			Messages.addGlobalError(e.getMessage());
+		}
+	}
+	
+	public void eliminar(){
+		try {
+			Medico med = medicoejb.buscarMedico(cedula);
+			if(med!=null){
+				medicoejb.eliminarMedico(med);
+				Messages.addFlashGlobalInfo("MEDICO ELIMINADO EXITOSAMENTE");
+			}else{
+				Messages.addGlobalError("ERROR AL ELIMINAR");
+			}
+		} catch (ExcepcionNegocio e) {
+			Messages.addGlobalError(e.getMessage());
+		}
+	}
 	
 	public void buscar(){
 		Medico med = medicoejb.buscarMedico(cedula);
@@ -116,7 +144,7 @@ public class ControladorGestionMedico implements Serializable{
 			facultad = med.getFacultadMedicina();
 			carnet = med.getCarnet();
 			estado = med.isEstado();
-			
+			busco = true;			
 			Messages.addFlashGlobalInfo("MEDICO ENCONTRADO");
 			
 		}else{
@@ -276,6 +304,20 @@ public class ControladorGestionMedico implements Serializable{
 	 */
 	public void setEstado(boolean estado) {
 		this.estado = estado;
+	}
+
+	/**
+	 * @return the busco
+	 */
+	public boolean isBusco() {
+		return busco;
+	}
+
+	/**
+	 * @param busco the busco to set
+	 */
+	public void setBusco(boolean busco) {
+		this.busco = busco;
 	}
 
 
