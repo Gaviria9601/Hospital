@@ -92,7 +92,7 @@ public class ControladorGestionMedico implements Serializable{
 	public void crear(){
 		try{
 		Medico cli = new Medico(cedula, nickname, contrasenia, nombre, apellido, edad, 
-				correo, "Medico", telefono,carnet,facultad,estado);
+				correo, "medico", telefono,carnet,facultad,estado);
 				medicoejb.crearMedico(cli);
 				
 				// limpiar campos
@@ -106,8 +106,16 @@ public class ControladorGestionMedico implements Serializable{
 	
 	public void modificar(){
 		try{
-		Medico cli = new Medico(cedula, nickname, contrasenia, nombre, apellido, edad, 
-				correo, "Medico", telefono,carnet,facultad,estado);
+		Medico cli = medicoejb.buscarMedico(cedula);
+		cli.setNickname(nickname);
+		cli.setClave(contrasenia);
+		cli.setNombre(nombre);
+		cli.setApellido(apellido);
+		cli.setEdad(edad);
+		cli.setCorreo(correo);
+		cli.setTelefono(telefono);
+		cli.setFacultadMedicina(facultad);
+		cli.setEstado(estado);
 		medicoejb.modificarMedico(cli);
 		limpiar();
 		Messages.addFlashGlobalInfo("MEDICO MODIFICADO CORRECTAMENTE");

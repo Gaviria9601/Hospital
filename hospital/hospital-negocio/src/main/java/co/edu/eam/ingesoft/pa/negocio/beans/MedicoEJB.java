@@ -40,7 +40,7 @@ public class MedicoEJB {
 	public void modificarMedico(Medico medico){
 		Medico Medicodef =buscarMedico(medico.getCedula());
 		if(Medicodef!=null){
-				em.merge(Medicodef);
+				em.merge(medico);
 		}else {
 			throw new ExcepcionNegocio("ERROR");
 		}
