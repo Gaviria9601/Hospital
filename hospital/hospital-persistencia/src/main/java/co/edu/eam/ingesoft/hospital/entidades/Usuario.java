@@ -4,12 +4,16 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
 
 
 
@@ -49,8 +53,9 @@ public class Usuario implements Serializable {
 	@Column(name = "telefono", length =20, nullable= false)
 	private String telefono;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipoUsuario", length =30)
-	private String tipoUsuario;
+	private TipoUsuarioEnum tipoUsuario;
 	
 
 	public Usuario(){
@@ -58,7 +63,7 @@ public class Usuario implements Serializable {
 	}
 	
 	public Usuario(String cedula, String nickname, String clave, String nombre, String apellido, int edad,
-			String correo, String tipoUsuario, String telefono) {
+			String correo, TipoUsuarioEnum tipoUsuario, String telefono) {
 		super();
 		this.cedula = cedula;
 		this.nickname = nickname;
@@ -128,11 +133,11 @@ public class Usuario implements Serializable {
 		this.correo = correo;
 	}
 
-	public String getTipoUsuario() {
+	public TipoUsuarioEnum getTipoUsuario() {
 		return tipoUsuario;
 	}
 
-	public void setTipoUsuario(String tipoUsuario) {
+	public void setTipoUsuario(TipoUsuarioEnum tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 	

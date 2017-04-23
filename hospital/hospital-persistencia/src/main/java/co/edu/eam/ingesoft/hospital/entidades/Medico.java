@@ -9,6 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
+
 /**
  * @author Alejandro Ortega
  *
@@ -31,7 +33,7 @@ public class Medico extends Usuario implements Serializable {
 	}
 
 	public Medico(String cedula, String nickname, String clave, String nombre, String apellido, int edad, String correo,
-			String tipoUsuario, String telefono,String carnet, String facultadMedicina, boolean estado) {
+			TipoUsuarioEnum tipoUsuario, String telefono,String carnet, String facultadMedicina, boolean estado) {
 		super(cedula, nickname, clave, nombre, apellido, edad, correo, tipoUsuario, telefono);
 		this.carnet = carnet;
 		this.facultadMedicina = facultadMedicina;

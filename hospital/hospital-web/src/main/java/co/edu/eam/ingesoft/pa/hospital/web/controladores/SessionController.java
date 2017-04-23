@@ -11,6 +11,7 @@ import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 
 import co.edu.eam.ingesoft.hospital.entidades.Usuario;
+import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
 import co.edu.eam.ingesoft.pa.negocio.beans.SeguridadEJB;
 
 @Named("sessionControl")
@@ -21,7 +22,7 @@ public class SessionController implements Serializable {
 	private String pass;
 
 	private Usuario usuario;
-	private String tipoUsuario="";
+	private TipoUsuarioEnum tipoUsuario=null;
 
 	@EJB
 	private SeguridadEJB segEJB;
@@ -70,30 +71,30 @@ public class SessionController implements Serializable {
 	}
 
 	public boolean isSesionFarmaceutico() {
-		return tipoUsuario.equals("farmaceutico") && usuario != null;
+		return tipoUsuario.equals(TipoUsuarioEnum.Farmaceutico) && usuario != null;
 	}
 
 	public boolean isSesionAdmin() {
-		return tipoUsuario.equals("administrador") && usuario != null;
+		return tipoUsuario.equals(TipoUsuarioEnum.Administrador) && usuario != null;
 	}
 
 	public boolean isSesionMedico() {
-		return tipoUsuario.equals("medico") && usuario != null;
+		return tipoUsuario.equals(TipoUsuarioEnum.Medico) && usuario != null;
 	}
 
 	public boolean isSesionPaciente() {
-		return tipoUsuario.equals("paciente") && usuario != null;
+		return tipoUsuario.equals(TipoUsuarioEnum.Paciente) && usuario != null;
 	}
 
 	public String getUser() {
 		return user;
 	}
 
-	public String getTipoUsuario() {
+	public TipoUsuarioEnum getTipoUsuario() {
 		return tipoUsuario;
 	}
 
-	public void setTipoUsuario(String tipoUsuario) {
+	public void setTipoUsuario(TipoUsuarioEnum tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 
