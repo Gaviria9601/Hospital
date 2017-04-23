@@ -10,8 +10,8 @@ import javax.persistence.Table;
 public class Tratamiento {
 	
 	@Id
-    @Column(name = "codigo",length = 10 )
-	private String codigo;
+    @Column(name = "codigo")
+	private Integer codigo;
 	
 	@Column(name = "tipo", length =50)
 	private String tipo;
@@ -28,7 +28,7 @@ public class Tratamiento {
     }
 
 
-	public Tratamiento(String codigo, String tipo, String farmacosAplicar, String problema) {
+	public Tratamiento(Integer codigo, String tipo, String farmacosAplicar, String problema) {
 		super();
 		this.codigo = codigo;
 		this.tipo = tipo;
@@ -37,12 +37,12 @@ public class Tratamiento {
 	}
 
 
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 

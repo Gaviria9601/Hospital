@@ -27,7 +27,7 @@ public class itemHorario implements Serializable{
 	
 	@Id
 	@ManyToOne
-	@JoinColumn(name="medico_usuario_cedula")
+	@JoinColumn(name="medico_cedula")
 	private Medico medicoUsuarioCedula;
 	
 	@Id
@@ -35,7 +35,7 @@ public class itemHorario implements Serializable{
 	@JoinColumn(name="horario_codigo_turno")
 	private Horario horarioCodigoTurno;
 	
-	@Temporal(TemporalType.TIME)
+	@Temporal(TemporalType.DATE)
 	@Column(name="fecha", nullable=false)
 	private Date fecha;
 	

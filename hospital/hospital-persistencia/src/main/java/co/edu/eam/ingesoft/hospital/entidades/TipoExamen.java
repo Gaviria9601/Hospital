@@ -19,8 +19,8 @@ import javax.persistence.Table;
 public class TipoExamen implements Serializable{
 
 	@Id
-	@Column(name="id", nullable=false, length=20)
-	private String id;
+	@Column(name="Codigo")
+	private Integer id;
 	
 	@Column(name="nombre", nullable=false, length=30)
 	private String nombre;
@@ -31,7 +31,7 @@ public class TipoExamen implements Serializable{
 	
 	
 
-	public TipoExamen(String id, String nombre) {
+	public TipoExamen(Integer id, String nombre) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -42,14 +42,14 @@ public class TipoExamen implements Serializable{
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

@@ -52,7 +52,7 @@ public class SintomaEJB {
 	 * @return
 	 */
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public ItemSintoma buscarItemSintoma(String codigoSintoma,String codigoPatologia){
+	public ItemSintoma buscarItemSintoma(Integer codigoSintoma,Integer codigoPatologia){
 		itemSintomaPK itemPK = new itemSintomaPK(codigoSintoma, codigoPatologia);
 		return em.find(ItemSintoma.class, itemPK);
 	}
@@ -87,7 +87,7 @@ public class SintomaEJB {
 	 * @param codigoSintoma
 	 * @param codigoPatologia
 	 */
-	public void eliminarItemSintoma(String codigoSintoma,String codigoPatologia){
+	public void eliminarItemSintoma(Integer codigoSintoma,Integer codigoPatologia){
 		itemSintomaPK itemPK = new itemSintomaPK(codigoSintoma, codigoPatologia);
 		em.remove(em.find(ItemSintoma.class, itemPK));
 	}

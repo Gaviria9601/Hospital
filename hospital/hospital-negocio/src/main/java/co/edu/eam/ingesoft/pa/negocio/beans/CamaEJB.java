@@ -18,7 +18,7 @@ public class CamaEJB {
 	private EntityManager em;
 	
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public Cama buscarCama(String cod) {
+	public Cama buscarCama(Integer cod) {
 		Cama cama = em.find(Cama.class, cod);
 		return cama;
 	}
@@ -26,7 +26,7 @@ public class CamaEJB {
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void crearCama(Cama cama) {
-	Cama Camadef =buscarCama(cama.getCodigo());
+	Cama Camadef = buscarCama(cama.getCodigo());
 	if(Camadef==null){
 			em.persist(cama);
 	}else {

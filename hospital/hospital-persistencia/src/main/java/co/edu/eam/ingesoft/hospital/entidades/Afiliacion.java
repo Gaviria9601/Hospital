@@ -10,9 +10,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 
-
 @Entity
-@Table(name = "AFILIACIÓN")
+@Table(name = "AFILIACION")
 @NamedQueries({
 	@NamedQuery(name=Afiliacion.LISTAR,query= "Select c from Afiliacion c")
 })
@@ -21,8 +20,8 @@ public class Afiliacion implements Serializable {
 	public static final String LISTAR = "Afiliacion.listaAfi";
 
 	@Id
-	@Column(name = "codigo", length = 20)
-	private String codigo;
+	@Column(name = "codigo")
+	private Integer codigo;
 
 	@Column(name = "nombre", length = 30,nullable = false)
 	private String nombre;
@@ -38,7 +37,7 @@ public class Afiliacion implements Serializable {
 		super();
 	}
 	
-	public Afiliacion(String codigo, String nombre, String telefono, String serviciosIncluidos) {
+	public Afiliacion(Integer codigo, String nombre, String telefono, String serviciosIncluidos) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -46,11 +45,11 @@ public class Afiliacion implements Serializable {
 		this.serviciosIncluidos = serviciosIncluidos;
 	}
 	
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 
@@ -104,4 +103,6 @@ public class Afiliacion implements Serializable {
 		return true;
 	}
 
+	
+	
 }

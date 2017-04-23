@@ -18,7 +18,7 @@ public class HorarioEJB {
 	private EntityManager em;
 	
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public Horario buscarHorario(String cod) {
+	public Horario buscarHorario(Integer cod) {
 		Horario horario = em.find(Horario.class, cod);
 		return horario;
 	}

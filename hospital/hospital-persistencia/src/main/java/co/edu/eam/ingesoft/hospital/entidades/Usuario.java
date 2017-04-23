@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @Table(name="USUARIO")
 @NamedQueries({
 	@NamedQuery(name = Usuario.LISTA_BUSQUEDA_USUARIO, query = "select usu from Usuario usu where usu.nickname = ?1")

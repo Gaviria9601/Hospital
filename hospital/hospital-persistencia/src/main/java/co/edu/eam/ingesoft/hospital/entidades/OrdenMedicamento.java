@@ -1,5 +1,7 @@
 package co.edu.eam.ingesoft.hospital.entidades;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -11,11 +13,19 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ORDEN_MEDICAMENTO")
-public class OrdenMedicamento {
+@IdClass(OrdenMedicamentoPK.class)
+public class OrdenMedicamento implements Serializable {
 
 	@Id
-	@Column(name = "id", nullable = false,length=20)
-	private String id;
+	@ManyToOne
+	@JoinColumn(name = "cita_codigo", nullable = true)
+	private Cita citaCodigo;
+
+	@Id
+	@ManyToOne
+	@JoinColumn(name = "medicamentos_codigo",nullable=false)
+	private Medicamento medicamentosCodigo;
+
 
 	@Column(name = "cantidad", nullable = false)
 	private int cantidad;
@@ -23,14 +33,7 @@ public class OrdenMedicamento {
 	@Column(name = "formula", length = 2000)
 	private String formula;
 
-	@ManyToOne
-	@JoinColumn(name = "cita_codigo", nullable = true)
-	private Cita citaCodigo;
-
-	@ManyToOne
-	@JoinColumn(name = "medicamentos_codigo",nullable=false)
-	private Medicamento medicamentosCodigo;
-	
+		
 	@Column(name = "estado")
 	private boolean estado;
 
@@ -38,10 +41,9 @@ public class OrdenMedicamento {
 		super();
 	}
 
-	public OrdenMedicamento(String id, int cantidad, String formula, Cita citaCodigo, Medicamento medicamentosCodigo
+	public OrdenMedicamento(int cantidad, String formula, Cita citaCodigo, Medicamento medicamentosCodigo
 			,boolean estado) {
 		super();
-		this.id = id;
 		this.cantidad = cantidad;
 		this.formula = formula;
 		this.citaCodigo = citaCodigo;
@@ -57,13 +59,6 @@ public class OrdenMedicamento {
 		this.estado = estado;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public int getCantidad() {
 		return cantidad;
@@ -101,7 +96,8 @@ public class OrdenMedicamento {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((citaCodigo == null) ? 0 : citaCodigo.hashCode());
+		result = prime * result + ((medicamentosCodigo == null) ? 0 : medicamentosCodigo.hashCode());
 		return result;
 	}
 
@@ -114,10 +110,15 @@ public class OrdenMedicamento {
 		if (getClass() != obj.getClass())
 			return false;
 		OrdenMedicamento other = (OrdenMedicamento) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (citaCodigo == null) {
+			if (other.citaCodigo != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!citaCodigo.equals(other.citaCodigo))
+			return false;
+		if (medicamentosCodigo == null) {
+			if (other.medicamentosCodigo != null)
+				return false;
+		} else if (!medicamentosCodigo.equals(other.medicamentosCodigo))
 			return false;
 		return true;
 	}

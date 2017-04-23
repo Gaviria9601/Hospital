@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class ItemHorarioPK implements Serializable {
 	
 	private String medicoUsuarioCedula;
-	private String horarioCodigoTurno;
+	private Integer horarioCodigoTurno;
 	
 	public ItemHorarioPK(){
 		
 	}
 
-	public ItemHorarioPK(String medicoUsuarioCedula, String horarioCodigoTurno) {
+	public ItemHorarioPK(String medicoUsuarioCedula, Integer horarioCodigoTurno) {
 		super();
 		this.medicoUsuarioCedula = medicoUsuarioCedula;
 		this.horarioCodigoTurno = horarioCodigoTurno;
@@ -25,11 +25,11 @@ public class ItemHorarioPK implements Serializable {
 		this.medicoUsuarioCedula = medicoUsuarioCedula;
 	}
 
-	public String getHorarioCodigoTurno() {
+	public Integer getHorarioCodigoTurno() {
 		return horarioCodigoTurno;
 	}
 
-	public void setHorarioCodigoTurno(String horarioCodigoTurno) {
+	public void setHorarioCodigoTurno(Integer horarioCodigoTurno) {
 		this.horarioCodigoTurno = horarioCodigoTurno;
 	}
 

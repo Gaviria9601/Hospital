@@ -12,8 +12,8 @@ import javax.persistence.Table;
 public class Sintoma implements Serializable{
 	
 	@Id
-    @Column(name = "codigo",length = 10 )
-	private String codigo;
+    @Column(name = "codigo")
+	private Integer codigo;
 	
 	@Column(name = "causa", length = 1000,nullable = false)
 	private String causa;
@@ -26,7 +26,7 @@ public class Sintoma implements Serializable{
 		super();
 	}
     
-    public Sintoma(String codigo, String causa, String descripcion) {
+    public Sintoma(Integer codigo, String causa, String descripcion) {
 		super();
 		this.codigo = codigo;
 		this.causa = causa;
@@ -34,11 +34,11 @@ public class Sintoma implements Serializable{
 	}
 	
 
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 

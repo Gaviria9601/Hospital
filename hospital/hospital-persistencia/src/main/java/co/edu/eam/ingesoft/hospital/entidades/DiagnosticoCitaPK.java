@@ -8,33 +8,33 @@ import javax.persistence.Embeddable;
 public class DiagnosticoCitaPK implements Serializable {
 	
 	
-	private String citaCodigo;
+	private Integer citaCodigo;
 
-	private String patologiaCodigo;
+	private Integer patologiaCodigo;
 	
 	public DiagnosticoCitaPK(){
 		
 	}
 
-	public DiagnosticoCitaPK(String citaCodigo, String patologiaCodigo) {
+	public DiagnosticoCitaPK(Integer citaCodigo, Integer patologiaCodigo) {
 		super();
 		this.citaCodigo = citaCodigo;
 		this.patologiaCodigo = patologiaCodigo;
 	}
 
-	public String getCitaCodigo() {
+	public Integer getCitaCodigo() {
 		return citaCodigo;
 	}
 
-	public void setCitaCodigo(String citaCodigo) {
+	public void setCitaCodigo(Integer citaCodigo) {
 		this.citaCodigo = citaCodigo;
 	}
 
-	public String getPatologiaCodigo() {
+	public Integer getPatologiaCodigo() {
 		return patologiaCodigo;
 	}
 
-	public void setPatologiaCodigo(String patologiaCodigo) {
+	public void setPatologiaCodigo(Integer patologiaCodigo) {
 		this.patologiaCodigo = patologiaCodigo;
 	}
 

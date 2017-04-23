@@ -24,10 +24,10 @@ import javax.persistence.TemporalType;
 public class ResultadoExamen implements Serializable{
 
 	@Id
-	@Column(name="id", nullable=false, length=20)
-	private String id;
+	@Column(name="codigo")
+	private Integer id;
 	
-	@Column(name="observaciones", nullable=false, length=2000)
+	@Column(name="Observaciones", nullable=false, length=2000)
 	String observaciones;
 	
 	@Temporal(TemporalType.DATE)
@@ -35,15 +35,15 @@ public class ResultadoExamen implements Serializable{
 	Date fecha;
 	
 	@OneToOne
-	@JoinColumn(name = "OrdenCitaAvanzada_Codigo", unique = true)
-	private OrdenCitaAvanzada ordenCitaAvanzada;
+	@JoinColumn(name = "OrdenProce_codigo", unique = true)
+	private OrdenProcedimiento ordenCitaAvanzada;
 	
 	public ResultadoExamen(){
 		
 	}
 	
 
-	public ResultadoExamen(String id, String observaciones, Date fecha, OrdenCitaAvanzada ordenCitaAvanzada) {
+	public ResultadoExamen(Integer id, String observaciones, Date fecha, OrdenProcedimiento ordenCitaAvanzada) {
 		super();
 		this.id = id;
 		this.observaciones = observaciones;
@@ -53,19 +53,17 @@ public class ResultadoExamen implements Serializable{
 
 
 
-
-
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -81,12 +79,12 @@ public class ResultadoExamen implements Serializable{
 	}
 
 
-	public OrdenCitaAvanzada getOrdenCitaAvanzada() {
+	public OrdenProcedimiento getOrdenCitaAvanzada() {
 		return ordenCitaAvanzada;
 	}
 
 
-	public void setOrdenCitaAvanzada(OrdenCitaAvanzada ordenCitaAvanzada) {
+	public void setOrdenCitaAvanzada(OrdenProcedimiento ordenCitaAvanzada) {
 		this.ordenCitaAvanzada = ordenCitaAvanzada;
 	}
 

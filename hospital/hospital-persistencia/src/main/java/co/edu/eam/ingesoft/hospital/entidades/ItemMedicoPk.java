@@ -4,24 +4,24 @@ import java.io.Serializable;
 
 public class ItemMedicoPk implements Serializable {
 	
-	private String especializacionCodigo;
+	private Integer especializacionCodigo;
 	private String medicoUsuarioCedula;
 	
 	public ItemMedicoPk(){
 		
 	}
 
-	public ItemMedicoPk(String especializacionCodigo, String medicoUsuarioCedula) {
+	public ItemMedicoPk(Integer especializacionCodigo, String medicoUsuarioCedula) {
 		super();
 		this.especializacionCodigo = especializacionCodigo;
 		this.medicoUsuarioCedula = medicoUsuarioCedula;
 	}
 
-	public String getEspecializacionCodigo() {
+	public Integer getEspecializacionCodigo() {
 		return especializacionCodigo;
 	}
 
-	public void setEspecializacionCodigo(String especializacionCodigo) {
+	public void setEspecializacionCodigo(Integer especializacionCodigo) {
 		this.especializacionCodigo = especializacionCodigo;
 	}
 

@@ -51,7 +51,7 @@ public class TratamientoEJB {
 	 * @return
 	 */
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public ItemTratamiento buscarItemTratamiento(String codigoTratamiento,String codigoPatologia){
+	public ItemTratamiento buscarItemTratamiento(Integer codigoTratamiento,Integer codigoPatologia){
 		itemTratamientoPK itemPK = new itemTratamientoPK(codigoPatologia, codigoTratamiento);
 		return em.find(ItemTratamiento.class, itemPK);
 	}
@@ -85,7 +85,7 @@ public class TratamientoEJB {
 	 * @param codigoTratamiento
 	 * @param codigoPatologia
 	 */
-	public void eliminar(String codigoTratamiento,String codigoPatologia){
+	public void eliminar(Integer codigoTratamiento,Integer codigoPatologia){
 		itemTratamientoPK itemPK = new itemTratamientoPK(codigoPatologia, codigoTratamiento);
 		em.remove(em.find(ItemTratamiento.class, itemPK));
 	}

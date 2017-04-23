@@ -7,33 +7,35 @@ import javax.persistence.Embeddable;
 
 public class itemTratamientoPK implements Serializable {
 	
-	private String patologiaCodigo;
+	private Integer patologiaCodigo;
 	
-	private String tratamientoCodigo;
+	private Integer tratamientoCodigo;
 	
 	public itemTratamientoPK() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public itemTratamientoPK(String patologiaCodigo, String tratamientoCodigo) {
+	public itemTratamientoPK(Integer patologiaCodigo, Integer tratamientoCodigo) {
 		super();
 		this.patologiaCodigo = patologiaCodigo;
 		this.tratamientoCodigo = tratamientoCodigo;
 	}
 
-	public String getPatologiaCodigo() {
+	
+	
+	public Integer getPatologiaCodigo() {
 		return patologiaCodigo;
 	}
 
-	public void setPatologiaCodigo(String patologiaCodigo) {
+	public void setPatologiaCodigo(Integer patologiaCodigo) {
 		this.patologiaCodigo = patologiaCodigo;
 	}
 
-	public String getTratamientoCodigo() {
+	public Integer getTratamientoCodigo() {
 		return tratamientoCodigo;
 	}
 
-	public void setTratamientoCodigo(String tratamientoCodigo) {
+	public void setTratamientoCodigo(Integer tratamientoCodigo) {
 		this.tratamientoCodigo = tratamientoCodigo;
 	}
 

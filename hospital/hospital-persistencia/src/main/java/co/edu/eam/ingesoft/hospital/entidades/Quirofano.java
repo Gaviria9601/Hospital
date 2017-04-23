@@ -21,10 +21,10 @@ public class Quirofano extends Instalacion implements Serializable {
 	@Column(name="caracteristicas", nullable=false, length=2000)
 	private String caracteristicas;
 	
-	@Column(name="numero_aparatos", nullable=false)
+	@Column(name="numeroAparatos", nullable=false)
 	private int numeroAparatos;
 	
-	@Column(name="cantidad_medico")
+	@Column(name="cantidadMedicoAcompa")
 	private int cantidadMedico;
 	
 	public Quirofano(){

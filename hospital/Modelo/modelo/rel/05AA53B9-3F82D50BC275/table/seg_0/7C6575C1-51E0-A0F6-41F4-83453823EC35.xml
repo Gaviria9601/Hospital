@@ -68,6 +68,16 @@
 <colUsage columnID="FF777E2A-9517-9E78-5259-94C71DD78EA2"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="C38B9AC4-78A6-DCD2-621F-54E610E57C91" name="ResultadoExamen__UN">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-23 05:20:39 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="018998FD-D39F-120A-69CF-11BBFF27C093"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="D5277B32-43B2-BEC5-A630-D94697B0E513" name="OrdenExamen_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-04-22 21:28:09 UTC</createdTime>

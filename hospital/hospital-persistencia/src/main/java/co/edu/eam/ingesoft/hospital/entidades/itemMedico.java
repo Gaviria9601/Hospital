@@ -29,7 +29,7 @@ public class itemMedico implements Serializable{
 	
 	@Id
 	@ManyToOne
-	@JoinColumn(name="medico_Usuario_Cedula")
+	@JoinColumn(name="medico_Cedula")
 	private Medico medicoUsuarioCedula;
 	
 	public itemMedico(){

@@ -8,18 +8,6 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Medico_Usuario_Cedula" id="3EC87C0B-8292-0A9B-7A5A-E4922C0398BC">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 21:52:34 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>20,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="Horario_Codigo_turno" id="7C906617-C1E5-2B8A-C110-EB88BE20459B">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 21:58:36 UTC</createdTime>
@@ -27,12 +15,26 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
-<dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="0BD7513C-B6A5-2C87-B3C9-712407C42C94" referredColumn="327225AF-FF22-9A5B-44A3-313CC247C830"/>
+</associations>
+</Column>
+<Column name="Medico_Cedula" id="B96DAAEB-00BA-804D-F30F-617396AAFF32">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-23 04:24:24 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="766158A2-01C1-4BED-5369-96F5F57C0B56" referredColumn="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
 </associations>
 </Column>
 <Column name="Fecha" id="C30E0314-7A35-2D1F-C9A1-1AB076179E20">
@@ -67,8 +69,8 @@
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="3EC87C0B-8292-0A9B-7A5A-E4922C0398BC"/>
 <colUsage columnID="7C906617-C1E5-2B8A-C110-EB88BE20459B"/>
+<colUsage columnID="B96DAAEB-00BA-804D-F30F-617396AAFF32"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="75CEF593-82C8-1AFD-2FC3-00970D91A932" name="Item_horario_Horario_FK">
@@ -79,6 +81,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="7C906617-C1E5-2B8A-C110-EB88BE20459B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6BE9834D-5ED2-5551-33F9-882365D79233" name="Item_horario_Medico_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-04-23 04:24:23 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B96DAAEB-00BA-804D-F30F-617396AAFF32"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

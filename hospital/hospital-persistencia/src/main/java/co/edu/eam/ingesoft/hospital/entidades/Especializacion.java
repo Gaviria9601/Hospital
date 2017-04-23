@@ -15,12 +15,12 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="Especialización")
+@Table(name="Especializacion")
 public class Especializacion implements Serializable {
 
 	@Id
-	@Column(name="codigo",  length=10)
-	private String codigo;
+	@Column(name="codigo")
+	private Integer codigo;
 	
 	@Column(name="nombre",nullable=false, length=40)
 	private String nombre;
@@ -29,7 +29,7 @@ public class Especializacion implements Serializable {
 		
 	}
 
-	public Especializacion(String codigo, String nombre) {
+	public Especializacion(Integer codigo, String nombre) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -39,14 +39,14 @@ public class Especializacion implements Serializable {
 	/**
 	 * @return the codigo
 	 */
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
 	/**
 	 * @param codigo the codigo to set
 	 */
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 

@@ -13,26 +13,25 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
-@Table(name="FARMACEUTICO")
-public class Farmaceutico  extends Usuario implements Serializable {
-	
-    @Column(name = "Tarjeta_profesional", length = 30)
+@Table(name = "FARMACEUTICO")
+public class Farmaceutico extends Usuario implements Serializable {
+
+	@Column(name = "Tarjeta_profesional", length = 30)
 	private String tarjetaProfesional;
 
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Fecha_ingreso",nullable = false)
+	@Column(name = "Fecha_ingreso", nullable = false)
 	private Date fechaIngreso;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "Farmacia_codigo", nullable=false)
+	@JoinColumn(name = "Farmacia_codigo", nullable = false)
 	private Farmacia farmaciaCodigo;
 
-    public Farmaceutico(){
-    	super();
-    	
-    }
+	public Farmaceutico() {
+		super();
+
+	}
 
 	public Farmaceutico(String tarjetaProfesional, Date fechaIngreso, Farmacia farmaciaCodigo) {
 		super();
@@ -40,7 +39,6 @@ public class Farmaceutico  extends Usuario implements Serializable {
 		this.fechaIngreso = fechaIngreso;
 		this.farmaciaCodigo = farmaciaCodigo;
 	}
-	
 
 	public String getTarjetaProfesional() {
 		return tarjetaProfesional;
@@ -65,7 +63,5 @@ public class Farmaceutico  extends Usuario implements Serializable {
 	public void setFarmaciaCodigo(Farmacia farmaciaCodigo) {
 		this.farmaciaCodigo = farmaciaCodigo;
 	}
-    
-    
-	
+
 }

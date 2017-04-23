@@ -17,8 +17,8 @@ import javax.persistence.TemporalType;
 public class Cita implements Serializable {
 	
     @Id
-	@Column(name = "codigo", length = 20)
-	private String codigo;
+	@Column(name = "codigo")
+	private Integer codigo;
     
     @Temporal(TemporalType.DATE)
 	@Column(name = "fecha", nullable=false)
@@ -28,7 +28,7 @@ public class Cita implements Serializable {
 	@Column(name = "hora_inicio", nullable=false)
 	private Date horaInicio;
     
-    @Column(name = "observación", length = 2000)
+    @Column(name = "observacion", length = 2000)
 	private String observacion;
     
     @Temporal(TemporalType.TIMESTAMP)
@@ -36,11 +36,11 @@ public class Cita implements Serializable {
 	private Date horaFinal;
     
     @ManyToOne
-	@JoinColumn(name = "paciente_usuario_cedula", nullable=false)
+	@JoinColumn(name = "paciente_cedula", nullable=false)
 	private Paciente pacienteUsuarioCedula;
     
     @ManyToOne
-    @JoinColumn(name = "medico_usuario_cedula", nullable=false)
+    @JoinColumn(name = "medico_cedula", nullable=false)
     private Medico medicoUsuarioCedula;
     
     @ManyToOne
@@ -51,9 +51,8 @@ public class Cita implements Serializable {
     	super();
     }
 
-	
 
-	public Cita(String codigo, Date fecha, Date horaInicio, String observacion, Date horaFinal,
+	public Cita(Integer codigo, Date fecha, Date horaInicio, String observacion, Date horaFinal,
 			Paciente pacienteUsuarioCedula, Medico medicoUsuarioCedula, Cita citaCodigo) {
 		super();
 		this.codigo = codigo;
@@ -67,12 +66,11 @@ public class Cita implements Serializable {
 	}
 
 
-
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 

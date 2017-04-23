@@ -20,8 +20,8 @@ public class TipoCirugia implements Serializable{
 
 
 	@Id
-	@Column(name="codigo", nullable=false, length=20)
-	private String codigo;
+	@Column(name="codigo")
+	private Integer codigo;
 	
 	@Column(name="nombre", nullable=false, length=50)
 	private String nombre;
@@ -29,10 +29,8 @@ public class TipoCirugia implements Serializable{
 	public TipoCirugia(){
 		
 	}
-	
-	
 
-	public TipoCirugia(String codigo, String nombre) {
+	public TipoCirugia(Integer codigo, String nombre) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -43,14 +41,14 @@ public class TipoCirugia implements Serializable{
 	/**
 	 * @return the codigo
 	 */
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
 	/**
 	 * @param codigo the codigo to set
 	 */
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 

@@ -18,7 +18,7 @@ public class HabitacionEJB {
 	private EntityManager em;
 	
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public Habitacion buscarHabitacion(String cod) {
+	public Habitacion buscarHabitacion(Integer cod) {
 		Habitacion habitacion = em.find(Habitacion.class, cod);
 		return habitacion;
 	}

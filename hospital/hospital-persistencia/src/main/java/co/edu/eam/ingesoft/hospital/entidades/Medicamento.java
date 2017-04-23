@@ -18,18 +18,18 @@ import javax.persistence.TemporalType;
 public class Medicamento implements Serializable{
 	
 	@Id
-	@Column(name="Codigo",length=10)
-	private String codigo;
+	@Column(name="Codigo")
+	private Integer codigo;
 	
 	@Column(name = "Nombre", length =40, nullable=false)
 	private String nombre;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Fecha_expedición", nullable=false)
+	@Column(name = "Fecha_expedicion", nullable=false)
 	private Date fechaExpedición;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "Fecha_expiración", nullable=false)
+	@Column(name = "Fecha_expiracion", nullable=false)
 	private Date fechaExpiración;
 	
 	@Column(name = "Laboratorio", length =40, nullable=false)
@@ -49,7 +49,7 @@ public class Medicamento implements Serializable{
 		super();
 	}
 
-	public Medicamento(String codigo, String nombre, Date fechaExpedición, Date fechaExpiración, String laboratorio,
+	public Medicamento(Integer codigo, String nombre, Date fechaExpedición, Date fechaExpiración, String laboratorio,
 			int cantidad, boolean estado, Farmacia farmaciaCodigo) {
 		super();
 		this.codigo = codigo;
@@ -62,11 +62,11 @@ public class Medicamento implements Serializable{
 		this.farmaciaCodigo = farmaciaCodigo;
 	}
 
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 

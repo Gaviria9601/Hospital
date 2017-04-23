@@ -22,8 +22,8 @@ import javax.persistence.TemporalType;
 public class Horario implements Serializable{
 
 	@Id
-	@Column(name="codigo_turno", nullable=false, length=10)
-	private String codigoTurno;
+	@Column(name="codigo_turno")
+	private Integer codigoTurno;
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -38,7 +38,7 @@ public class Horario implements Serializable{
 		
 	}
 
-	public Horario(String codigoTurno,Date horaInicio, Date horaFinal) {
+	public Horario(Integer codigoTurno,Date horaInicio, Date horaFinal) {
 		super();
 		this.codigoTurno = codigoTurno;
 		this.horaInicio = horaInicio;
@@ -50,14 +50,14 @@ public class Horario implements Serializable{
 	/**
 	 * @return the codigoTurno
 	 */
-	public String getCodigoTurno() {
+	public Integer getCodigoTurno() {
 		return codigoTurno;
 	}
 
 	/**
 	 * @param codigoTurno the codigoTurno to set
 	 */
-	public void setCodigoTurno(String codigoTurno) {
+	public void setCodigoTurno(Integer codigoTurno) {
 		this.codigoTurno = codigoTurno;
 	}
 

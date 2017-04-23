@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D49B97C9-1193-642E-4FA6-E985BE0596AB" name="Quirofanoo">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D49B97C9-1193-642E-4FA6-E985BE0596AB" name="Quirofano">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-04-22 21:36:46 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -38,7 +38,6 @@
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-04-22 21:37:51 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>

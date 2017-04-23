@@ -18,8 +18,8 @@ import javax.persistence.TemporalType;
 public class Patologia implements Serializable{
 	
 	@Id
-    @Column(name = "codigo",length = 10 )
-	private String codigo;
+    @Column(name = "codigo")
+	private Integer codigo;
 	
 	@Column(name = "nombre", length =50, nullable=false)
 	private String nombre;
@@ -32,7 +32,7 @@ public class Patologia implements Serializable{
     	super();
     }
     
-    public Patologia(String codigo, String nombre, String descripcion) {
+    public Patologia(Integer codigo, String nombre, String descripcion) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -40,11 +40,11 @@ public class Patologia implements Serializable{
 	}
     
     
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 

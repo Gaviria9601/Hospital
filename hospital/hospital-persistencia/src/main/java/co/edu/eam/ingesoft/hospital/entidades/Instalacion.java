@@ -17,13 +17,13 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(name="Instalación")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name="Instalacion")
 public class Instalacion implements Serializable{
 
 	@Id
-	@Column(name = "codigo", nullable = false, length=10)
-	protected String codigo;
+	@Column(name = "codigo")
+	protected Integer codigo;
 	
 	@Column(name = "disponibilidad", nullable = false)
 	protected boolean disponibilidad;
@@ -39,7 +39,7 @@ public class Instalacion implements Serializable{
 		
 	}
 
-	public Instalacion(String codigo, boolean disponibilidad, String observacionDisponible, String tipo) {
+	public Instalacion(Integer codigo, boolean disponibilidad, String observacionDisponible, String tipo) {
 		super();
 		this.codigo = codigo;
 		this.disponibilidad = disponibilidad;
@@ -59,14 +59,14 @@ public class Instalacion implements Serializable{
 	/**
 	 * @return the codigo
 	 */
-	public String getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
 
 	/**
 	 * @param codigo the codigo to set
 	 */
-	public void setCodigo(String codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 

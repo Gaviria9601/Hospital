@@ -15,79 +15,67 @@ import javax.persistence.Table;
  * @author Alejandro Ortega
  *
  */
- @Entity
- @Table(name="Cirugia")
-public class Cirugia extends CitaAvanzada implements Serializable{
+@Entity
+@Table(name = "Cirugia")
+public class Cirugia extends CitaAvanzada implements Serializable {
 
-		@Column(name="recuperación",  length=50, nullable = false)
-		private String recuperacion;
-	 
-		@Column(name="anestesia")
-		private boolean anestesia;
-		
-		@ManyToOne
-		@JoinColumn(name = "tipoCirugia_codigo",nullable = false)
-		private TipoCirugia tipoCirugia;
-		
-		@ManyToOne
-		@JoinColumn(name = "especializacion_codigo", nullable = false)
-		private Especializacion especializacionCodigo;
-		
-		
-		public Cirugia(){
-			
-		}
+	@Column(name = "recuperación", length = 50, nullable = false)
+	private String recuperacion;
 
+	@Column(name = "anestesia")
+	private boolean anestesia;
 
-		public Cirugia(String recuperacion, boolean anestesia, TipoCirugia tipoCirugia,
-				Especializacion especializacionCodigo) {
-			super();
-			this.recuperacion = recuperacion;
-			this.anestesia = anestesia;
-			this.tipoCirugia = tipoCirugia;
-			this.especializacionCodigo = especializacionCodigo;
-		}
+	@ManyToOne
+	@JoinColumn(name = "tipoCirugia_codigo", nullable = false)
+	private TipoCirugia tipoCirugia;
 
+	@ManyToOne
+	@JoinColumn(name = "especializacion_codigo", nullable = false)
+	private Especializacion especializacionCodigo;
 
-		public String getRecuperacion() {
-			return recuperacion;
-		}
+	public Cirugia() {
 
+	}
 
-		public void setRecuperacion(String recuperacion) {
-			this.recuperacion = recuperacion;
-		}
+	public Cirugia(String recuperacion, boolean anestesia, TipoCirugia tipoCirugia,
+			Especializacion especializacionCodigo) {
+		super();
+		this.recuperacion = recuperacion;
+		this.anestesia = anestesia;
+		this.tipoCirugia = tipoCirugia;
+		this.especializacionCodigo = especializacionCodigo;
+	}
 
+	public String getRecuperacion() {
+		return recuperacion;
+	}
 
-		public boolean isAnestesia() {
-			return anestesia;
-		}
+	public void setRecuperacion(String recuperacion) {
+		this.recuperacion = recuperacion;
+	}
 
+	public boolean isAnestesia() {
+		return anestesia;
+	}
 
-		public void setAnestesia(boolean anestesia) {
-			this.anestesia = anestesia;
-		}
+	public void setAnestesia(boolean anestesia) {
+		this.anestesia = anestesia;
+	}
 
+	public TipoCirugia getTipoCirugia() {
+		return tipoCirugia;
+	}
 
-		public TipoCirugia getTipoCirugia() {
-			return tipoCirugia;
-		}
+	public void setTipoCirugia(TipoCirugia tipoCirugia) {
+		this.tipoCirugia = tipoCirugia;
+	}
 
+	public Especializacion getEspecializacionCodigo() {
+		return especializacionCodigo;
+	}
 
-		public void setTipoCirugia(TipoCirugia tipoCirugia) {
-			this.tipoCirugia = tipoCirugia;
-		}
+	public void setEspecializacionCodigo(Especializacion especializacionCodigo) {
+		this.especializacionCodigo = especializacionCodigo;
+	}
 
-
-		public Especializacion getEspecializacionCodigo() {
-			return especializacionCodigo;
-		}
-
-
-		public void setEspecializacionCodigo(Especializacion especializacionCodigo) {
-			this.especializacionCodigo = especializacionCodigo;
-		}
-
-		
-	 
 }

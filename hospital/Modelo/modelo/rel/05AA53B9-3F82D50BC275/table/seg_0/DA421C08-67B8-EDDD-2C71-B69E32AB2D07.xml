@@ -40,7 +40,7 @@
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Dirección" id="370975BA-1C22-A4CD-A85A-D6C6A5D7F23D">
+<Column name="Direccion" id="370975BA-1C22-A4CD-A85A-D6C6A5D7F23D">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 22:30:32 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>

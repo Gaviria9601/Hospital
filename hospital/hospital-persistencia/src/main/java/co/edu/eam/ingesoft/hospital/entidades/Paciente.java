@@ -30,7 +30,7 @@ public class Paciente extends Usuario implements Serializable {
 	private EstratoEnumeracion estrato;
 
 	@ManyToOne
-	@JoinColumn(name = "afiliación_codigo", nullable=false)
+	@JoinColumn(name = "afiliacion_codigo", nullable=false)
 	private Afiliacion afiliacionCodigo;
 	
 	@Column(name = "Trabajo",length =50)
@@ -40,7 +40,6 @@ public class Paciente extends Usuario implements Serializable {
 	public Paciente(){
 		super();
 	}
-	
 	
 	
 	public Paciente(String cedula, String nickname, String clave, String nombre, String apellido, int edad,
