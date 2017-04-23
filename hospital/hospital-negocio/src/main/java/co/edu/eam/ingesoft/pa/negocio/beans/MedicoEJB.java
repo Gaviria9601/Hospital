@@ -1,5 +1,6 @@
 package co.edu.eam.ingesoft.pa.negocio.beans;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.ejb.LocalBean;
@@ -9,8 +10,12 @@ import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import co.edu.eam.ingesoft.hospital.entidades.Especializacion;
+import co.edu.eam.ingesoft.hospital.entidades.ItemMedicoPk;
 import co.edu.eam.ingesoft.hospital.entidades.Medico;
+import co.edu.eam.ingesoft.hospital.entidades.itemMedico;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
+
 @LocalBean
 @Stateless
 public class MedicoEJB {
@@ -24,6 +29,11 @@ public class MedicoEJB {
 		return medico;
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public Especializacion buscarEspecializacion(Integer cod) {
+		Especializacion esp = em.find(Especializacion.class, cod);
+		return esp;
+	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void crearMedico(Medico medico) {
@@ -61,5 +71,35 @@ public class MedicoEJB {
 		}
 		 return total;
 	}
+	
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public ArrayList<Especializacion> listarEspecializaciones() {
+		ArrayList<Especializacion> list;
+		list = (ArrayList<Especializacion>) em.createNamedQuery(Especializacion.especializaciones).getResultList();
+		return list;
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public itemMedico buscarItem(String med,int esp) {
+		ItemMedicoPk pk = new ItemMedicoPk(esp, med);
+		itemMedico item = em.find(itemMedico.class, pk);
+		return item;
+	}
+	
+
+	
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
+	public void asignarEspecializacion(itemMedico item) {
+	itemMedico itemdef = buscarItem(item.getMedicoUsuarioCedula().getCedula(),
+			item.getEspecializacionCodigo().getCodigo());
+		if(itemdef==null){
+			System.out.println(item.getEspecializacionCodigo().getCodigo()+"******"+item.getMedicoUsuarioCedula().getCedula());
+			em.persist(item);	
+	}else {
+		throw new ExcepcionNegocio("Este medico ya tiene asignada esta especializacion");
+	}
+	}
+	
+	
 
 }

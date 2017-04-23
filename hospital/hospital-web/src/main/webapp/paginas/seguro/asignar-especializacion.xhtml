@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h1 align="center">Asignar especialización al medico</h1>
+
+			<br></br>
+			<br></br>
+
+			<p:panel id="basic" header="Datos" style="margin-bottom:20px">
+				<h:panelGrid id="paneldatos" columns="4">
+
+					<h:outputLabel for="tfcedula" id="lblCedula"
+						value="Cedula del medico:" />
+					<h:inputText id="tfcedula"
+						value="#{controladorEspecializacion.cedula}" />
+					<p:message for="tfcedula" />
+
+					<br></br>
+					<br></br>
+
+
+					<h:outputLabel for="cbEspecializacion" id="lblesp"
+						value="Especialización a asignar: " />
+					<h:selectOneMenu id="cbEspecializacion"
+						value="#{controladorEspecializacion.codigoEsp}">
+
+						<f:selectItems
+							value="#{controladorEspecializacion.especializaciones}" var="e"
+							itemValue="#{e.codigo}" itemLabel="#{e.nombre}" />
+					</h:selectOneMenu>
+
+				</h:panelGrid>
+			</p:panel>
+
+			<br></br>
+			<br></br>
+
+			<h:panelGrid id="panelbotones" columns="3">
+
+				<p:commandButton id="btncrear" value="Asignar especialización"
+					process="@this,paneldatos" update="paneldatos"
+					action="#{controladorEspecializacion.asignar}" />
+
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

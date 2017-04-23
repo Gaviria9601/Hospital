@@ -8,16 +8,21 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
 /**
  * @author Alejandro Ortega
  *
  */
+@NamedQueries({
+	@NamedQuery(name = Especializacion.especializaciones, query = "select e from Especializacion e") })
 @Entity
 @Table(name="Especializacion")
 public class Especializacion implements Serializable {
 
+	public static final String especializaciones = "listaEspecializaciones";
+	
 	@Id
 	@Column(name="codigo")
 	private Integer codigo;

@@ -10,16 +10,17 @@
 			<h1 align="center">Buscar medico</h1>
 
 			<p:panel id="bus" style="margin-bottom:20px">
-
-				<h:outputLabel for="tfcedula" id="lblCedula" value="Cedula:" />
-				<h:inputText id="tfcedula" value="#{ControladorMedico.cedula}" />
-				<p:message for="tfcedula" />
+				<h:panelGrid id="panelbus" columns="4">
+					<h:outputLabel for="tfcedula2" id="lblCedula" value="Cedula:" />
+					<h:inputText id="tfcedula2" value="#{ControladorMedico.cedula}" />
+					<p:message for="tfcedula2" />
+				</h:panelGrid>
 				<br></br>
 
 				<p:commandButton id="btnBuscar" value="Buscar Medico"
-					process="@this,tfcedula"
-					update="paneldatos,paneloculto,paneloculto2 panelbotones"
-					action="#{ControladorMedico.buscar}" />
+					process="@this,panelbus"
+					update="paneldatos,paneloculto,paneloculto2 panelbotones,panelbus"
+					action="#{ControladorMedico.buscar}" ajax="true"/>
 
 			</p:panel>
 
@@ -104,11 +105,13 @@
 						rendered="#{ControladorMedico.busco}">
 
 						<p:commandButton id="btnmodif" value="Modificar medico"
-							process="@this,paneldatos" update="paneldatos paneloculto paneloculto2 panelbotones"
+							process="@this,paneldatos"
+							update="paneldatos paneloculto paneloculto2 panelbotones"
 							action="#{ControladorMedico.modificar}" />
 
 						<p:commandButton id="btnelim" value="Eliminar medico"
-							process="@this,paneldatos" update="paneldatos paneloculto paneloculto2 panelbotones"
+							process="@this,paneldatos"
+							update="paneldatos paneloculto paneloculto2 panelbotones"
 							action="#{ControladorMedico.eliminar}" />
 
 						<p:commandButton id="btnlimpiar" value="Limpiar Campos"
