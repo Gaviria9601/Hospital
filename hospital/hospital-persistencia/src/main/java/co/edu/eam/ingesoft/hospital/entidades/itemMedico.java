@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 /**
  * @author Alejandro Ortega
  *
@@ -24,6 +26,7 @@ public class itemMedico implements Serializable{
 	
 	@Id
 	@ManyToOne 
+	@Cascade(value={})
 	@JoinColumn(name="especializacion_codigo")
 	private Especializacion especializacionCodigo;
 	

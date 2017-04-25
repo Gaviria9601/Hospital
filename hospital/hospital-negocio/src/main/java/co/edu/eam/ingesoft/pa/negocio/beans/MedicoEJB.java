@@ -3,6 +3,7 @@ package co.edu.eam.ingesoft.pa.negocio.beans;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -87,14 +88,22 @@ public class MedicoEJB {
 	}
 	
 
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public Especializacion buscarEspeclializacion(int cod) {
+		Especializacion esp = em.find(Especializacion.class, cod);
+		return esp;
+	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void asignarEspecializacion(itemMedico item) {
 	itemMedico itemdef = buscarItem(item.getMedicoUsuarioCedula().getCedula(),
 			item.getEspecializacionCodigo().getCodigo());
-		if(itemdef==null){
+	Especializacion esp = buscarEspecializacion(item.getEspecializacionCodigo().getCodigo());
+	Medico med = buscarMedico(item.getMedicoUsuarioCedula().getCedula());
+	itemMedico asignacion = new itemMedico(esp, med);
+		if(asignacion==null){
 			System.out.println(item.getEspecializacionCodigo().getCodigo()+"******"+item.getMedicoUsuarioCedula().getCedula());
-			em.persist(item);	
+			em.persist(asignacion);	
 	}else {
 		throw new ExcepcionNegocio("Este medico ya tiene asignada esta especializacion");
 	}
