@@ -22,7 +22,7 @@ public class SessionController implements Serializable {
 	private String pass;
 
 	private Usuario usuario;
-	private TipoUsuarioEnum tipoUsuario=TipoUsuarioEnum.Administrador;
+	private TipoUsuarioEnum tipoUsuario = TipoUsuarioEnum.Administrador;
 
 	@EJB
 	private SeguridadEJB segEJB;
@@ -31,27 +31,31 @@ public class SessionController implements Serializable {
 	 * Logea un usuario al sistema
 	 */
 	public String login() {
-		if (user.isEmpty() || pass.isEmpty()) {
-			Messages.addFlashGlobalWarn("Digite los datos para ingresar");
-		} else {
-			Usuario userTemp = segEJB.buscarUsuario(user);
-			tipoUsuario = userTemp.getTipoUsuario();
-			if (userTemp != null) {
-				if (userTemp.getClave().equals(pass)) {
-					usuario = userTemp;
-					setTipoUsuario(usuario.getTipoUsuario());
-					Faces.setSessionAttribute("user", usuario);
-					return "/paginas/seguro/inicio.xhtml?faces-redirect=true";
+		try {
+			if (user.isEmpty() || pass.isEmpty()) {
+				Messages.addFlashGlobalWarn("Digite los datos para ingresar");
+			} else {
+				Usuario userTemp = segEJB.buscarUsuario(user);
+				tipoUsuario = userTemp.getTipoUsuario();
+				if (userTemp != null) {
+					if (userTemp.getClave().equals(pass)) {
+						usuario = userTemp;
+						setTipoUsuario(usuario.getTipoUsuario());
+						Faces.setSessionAttribute("user", usuario);
+						return "/paginas/seguro/inicio.xhtml?faces-redirect=true";
 
+					} else {
+						Messages.addFlashGlobalError("Usuario o  Pass Incorrecto");
+					}
 				} else {
 					Messages.addFlashGlobalError("Usuario o  Pass Incorrecto");
 				}
-			} else {
-				Messages.addFlashGlobalError("Usuario o  Pass Incorrecto");
 			}
+			return null;
+		} catch (Exception e) {
+			Messages.addFlashGlobalError("Usuario no Registrado");
+			return "/paginas/seguro/templates/template.xhtml?faces-redirect=true";
 		}
-		return null;
-
 	}
 
 	/**
