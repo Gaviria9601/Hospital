@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
+
 @Entity
 @Table(name = "FARMACEUTICO")
 public class Farmaceutico extends Usuario implements Serializable {
@@ -33,12 +35,18 @@ public class Farmaceutico extends Usuario implements Serializable {
 
 	}
 
-	public Farmaceutico(String tarjetaProfesional, Date fechaIngreso, Farmacia farmaciaCodigo) {
-		super();
+	
+
+	public Farmaceutico(String cedula, String nickname, String clave, String nombre, String apellido, int edad,
+			String correo, TipoUsuarioEnum tipoUsuario, String telefono, String tarjetaProfesional, Date fechaIngreso,
+			Farmacia farmaciaCodigo) {
+		super(cedula, nickname, clave, nombre, apellido, edad, correo, tipoUsuario, telefono);
 		this.tarjetaProfesional = tarjetaProfesional;
 		this.fechaIngreso = fechaIngreso;
 		this.farmaciaCodigo = farmaciaCodigo;
 	}
+
+
 
 	public String getTarjetaProfesional() {
 		return tarjetaProfesional;

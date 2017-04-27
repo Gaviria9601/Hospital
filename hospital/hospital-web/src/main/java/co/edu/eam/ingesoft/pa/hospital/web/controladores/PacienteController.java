@@ -259,23 +259,40 @@ public class PacienteController implements Serializable{
 
 	public void crearPaciente(){
 	try{
-		a = paciEJB.buscarAfiliacion(afiliacionCodigo);
+		Afiliacion a = paciEJB.buscarAfiliacion(afiliacionCodigo);
 		Paciente pa = new Paciente (cedula, nickname, contrasenia, nombre, apellido, edad, 
 				correo, TipoUsuarioEnum.Paciente, telefono,estrato, a, trabajo);
-		System.out.println(cedula);
+		/**System.out.println(cedula);
 		System.out.println(nickname);
 		System.out.println(nombre);
 		System.out.println(apellido);
 		System.out.println(edad);
 		System.out.println(a);
-		Messages.addFlashGlobalInfo(pa.getApellido(), pa.getCedula(), pa.getClave());
+		Messages.addFlashGlobalInfo(pa.getApellido(), pa.getCedula(), pa.getClave());**/
 		paciEJB.crearPaciente(pa);
-		
-		
-
+		limpiar();
+		Messages.addFlashGlobalInfo("Paciente creado");
+			
 	} catch (ExcepcionNegocio e) {
-       Messages.addGlobalError(e.getMessage());
+		Messages.addFlashGlobalInfo("No se pudo crear el paciente");
+      /** Messages.addGlobalError(e.getMessage());**/
 	   }
+	}
+	/**
+	 * 
+	 */
+	public void limpiar(){
+		
+		nombre ="";
+		apellido  ="";
+		cedula ="";
+		nickname ="";
+		correo="";
+		contrasenia = "";
+		edad = 0;
+		telefono = "";
+	    trabajo = "";
+		
 	}
 	
 public void buscarPaciente(){

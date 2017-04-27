@@ -7,83 +7,79 @@
 	<ui:define name="cuerpo">
 		<h:form prependId="false">
 
-			<h1 align="center">Gestión del Paciente</h1>
+			<h1 align="center">Gestión Farmaceutico</h1>
 
 			<p:panel id="basic" header="Datos" style="margin-bottom:20px">
 				<h:panelGrid id="paneldatos" columns="4" >
 
 					<h:outputLabel for="tfcedula" id="lblCedula" value="Cedula:" />
-					<h:inputText id="tfcedula" value="#{pacienteControlador.cedula}" />
+					<h:inputText id="tfcedula" value="#{farmaceuticoControlador.cedula}" />
 					<p:message for="tfcedula" />
 					<br></br>
 					<br></br>
 					
 					
 					<h:outputLabel for="tfnombre" id="lblnombre" value="Nombre:" />
-					<h:inputText id="tfnombre" value="#{pacienteControlador.nombre}" />
+					<h:inputText id="tfnombre" value="#{farmaceuticoControlador.nombre}" />
 					<p:message for="tfnombre" />
 					<br></br>
 					<br></br>
 
 					<h:outputLabel for="tfapellido" id="lblapellido" value="Apellido:" />
-					<h:inputText id="tfapellido" value="#{pacienteControlador.apellido}" />
+					<h:inputText id="tfapellido" value="#{farmaceuticoControlador.apellido}" />
 					<p:message for="tfapellido" />
 					<br></br>
 					<br></br>
 
 					<h:outputLabel for="tfcorreo" id="lblcorreo" value="Correo:" />
-					<h:inputText id="tfcorreo" value="#{pacienteControlador.correo}" />
+					<h:inputText id="tfcorreo" value="#{farmaceuticoControlador.correo}" />
 					<p:message for="tfcorreo" />
 					<br></br>
 					<br></br>
 
 					<h:outputLabel for="tftel" id="lbltel" value="Telefono:" />
-					<h:inputText id="tftel" value="#{pacienteControlador.telefono}" />
+					<h:inputText id="tftel" value="#{farmaceuticoControlador.telefono}" />
 					<p:message for="tftel" />
 					<br></br>
 					<br></br>
 
 					<h:outputLabel for="tfedad" id="lbledad" value="Edad:" />
-					<h:inputText id="tfedad" value="#{pacienteControlador.edad}" />
+					<h:inputText id="tfedad" value="#{farmaceuticoControlador.edad}" />
 					<p:message for="tfedad" />
 					<br></br>
 					<br></br>
 
 					<h:outputLabel for="tfnickname" id="lblnick" value="Nickname:" />
-					<h:inputText id="tfnickname" value="#{pacienteControlador.nickname}" />
+					<h:inputText id="tfnickname" value="#{farmaceuticoControlador.nickname}" />
 					<p:message for="tfnickname" />
 					<br></br>
 					<br></br>
 
 					<h:outputLabel for="tfcontra" id="lblcontra" value="Contraseña:" />
-					<h:inputText id="tfcontra" value="#{pacienteControlador.contrasenia}" />
+					<h:inputText id="tfcontra" value="#{farmaceuticoControlador.contrasenia}" />
 					<p:message for="tfcontra" />
 					<br></br>
 					<br></br>
 					
-					<p:outputLabel for="tfestratro" id="tfestratro" value="Estrato:" />
-				    <p:inputText id="tfestrato" value="#{pacienteControlador.estrato}" />
-				    <p:message for="tfestrato" />
+					<p:outputLabel for="tftarjeta" id="lbtarjeta" value="Tarjeta profesional:" />
+				    <p:inputText id="tftarjeta" value="#{farmaceuticoControlador.tarjetapro}" />
+				    <p:message for="tftarjeta" />
 				    <br></br>
 			        <br></br>
 			        
-					<p:outputLabel for="afiliacion" id="lblAfiliacion"
-					value="Afiliacion:" />
+			        <p:outputLabel for="farmacia" id="lblFarmacia"
+					value="Farmacia" />
 					
-					<h:selectOneMenu id="afiliacion" 
-				    value="#{pacienteControlador.afiliacionCodigo}">
-                        <f:selectItems value="#{pacienteControlador.listaafiliaciones}" 
+					<h:selectOneMenu id="farmacia" 
+				    value="#{farmaceuticoControlador.codigof}">
+                        <f:selectItems value="#{farmaceuticoControlador.far}" 
                         var="afi"
                      itemValue="#{afi.codigo}" itemLabel="#{afi.nombre}">
                      </f:selectItems>
 				     </h:selectOneMenu>
-				     <p:message for="afiliacion" />
 				     <br></br>
 				     <br></br>
 
-				   <p:outputLabel for="tftra" id="tftrab" value="Trabajo:" />
-				   <p:inputText id="tftra" value="#{pacienteControlador.trabajo}" />
-				   <p:message for="tftra" />
 			        
 
 				</h:panelGrid>
@@ -94,7 +90,7 @@
 
 					<p:commandButton id="btncrearpaciente" value="Guardar Paciente"
 						process="@this " 
-						action="#{pacienteControlador.crearPaciente}" />
+						action="#{farmaceuticoControlador.crearFarmaceutico}" />
 
 					<p:commandButton id="btnBuscarpaciente" value="Buscar Paciente"
 						process="@this,tfcedula" update="paneldatos"
