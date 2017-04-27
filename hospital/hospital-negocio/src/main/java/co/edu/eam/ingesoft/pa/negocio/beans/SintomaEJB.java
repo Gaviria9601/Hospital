@@ -20,7 +20,7 @@ public class SintomaEJB {
 	
 	
 	/**
-	 * 
+	 * Crea el Sintoma
 	 * @param sinto
 	 */
 	public void crearSintoma(Sintoma sinto){
