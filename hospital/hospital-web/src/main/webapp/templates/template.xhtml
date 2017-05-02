@@ -5,6 +5,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
 <h:head>
 	<meta charset="utf-8" />
 	<title>Hospital San Rafael</title>
@@ -94,103 +95,108 @@
 
 			</div>
 
-<h:form>
-			<div class="navbar-main">
+			<h:form>
+				<div class="navbar-main">
 
-				<div class="container">
+					<div class="container">
 
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed"
-							data-toggle="collapse" data-target="#navbar"
-							aria-expanded="false" aria-controls="navbar">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" data-target="#navbar"
+								aria-expanded="false" aria-controls="navbar">
 
-							<span class="sr-only">Toggle navigation</span> <span
-								class="icon-bar"></span> <span class="icon-bar"></span> <span
-								class="icon-bar"></span>
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
 
-						</button>
+							</button>
 
-						<a class="navbar-brand"
-							href="#{request.contextPath}/templates/template.xhtml"><img
-							src="#{request.contextPath}/assets/images/hospital-logo.png"
-							alt="" /></a>
+							<a class="navbar-brand"
+								href="#{request.contextPath}/templates/template.xhtml"><img
+								src="#{request.contextPath}/assets/images/hospital-logo.png"
+								alt="" /></a>
+
+						</div>
+
+						<div id="navbar" class="navbar-collapse collapse pull-right">
+
+							<ul class="nav navbar-nav">
+								<h:panelGroup rendered="#{sessionControl.sesion}">
+									<li><a class="is-active"
+										href="#{request.contextPath}/paginas/seguro/inicio.xhtml">Inicio</a></li>
+								</h:panelGroup>
+								<h:panelGroup rendered="#{sessionControl.sesionFarmaceutico}">
+									<li><a href="#">Gestión Medicamentos</a></li>
+								</h:panelGroup>
+								<h:panelGroup rendered="#{sessionControl.sesionAdmin}">
+									<li class="has-child"><a href="#">Gestión Medico</a>
+										<ul class="submenu">
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/gestion-medico.xhtml">
+													Crear medico </a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/buscar-medico.xhtml">Buscar
+													medico </a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/asignar-especializacion.xhtml">Asignar
+													especialización </a></li>
+										</ul></li>
+									<li class="has-child"><a href="#">Gestión Instalación</a>
+										<ul class="submenu">
+											<li class="submenu-item"><a href="#">Quirofano </a></li>
+											<li class="submenu-item"><a href="#">Habitación </a></li>
+											<li class="submenu-item"><a href="#">Cama </a></li>
+										</ul></li>
+									<li class="has-child"><a href="#">Gestión Enfermedad</a>
+										<ul class="submenu">
+											<li class="submenu-item"><a href="#">Patologia </a></li>
+											<li class="submenu-item"><a href="#">Sintoma </a></li>
+											<li class="submenu-item"><a href="#">Tratamiento </a></li>
+										</ul></li>
+									<li class="submenu-item"><a href="#">Gestión Paciente</a></li>
+									<li class="submenu-item"><a href="#">Gestión
+											Farmaceutico</a></li>
+
+								</h:panelGroup>
+								<h:panelGroup rendered="#{sessionControl.sesionMedico}">
+									<li class="has-child"><a href="#">Gestión Cita
+											Avanzada</a>
+										<ul class="submenu">
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/hospitalizacion.xhtml">Hospitalización</a></li>
+											<li class="submenu-item"><a href="#">Examen</a></li>
+											<li class="submenu-item"><a href="#">Cirugia</a></li>
+										</ul></li>
+								</h:panelGroup>
+								<h:panelGroup rendered="#{sessionControl.sesionPaciente}">
+									<li><a href="#">Reserva Cita</a></li>
+								</h:panelGroup>
+
+								<h:panelGroup rendered="#{sessionControl.sesion}">
+									<li class="has-child"><a href="#">Bienvenido(a)
+											#{sessionControl.usuario.tipoUsuario}(a)
+											#{sessionControl.usuario.nombre}</a>
+										<ul class="submenu">
+											<li><h:commandLink value="Cerrar Sesión" ajax="false"
+													action="#{sessionControl.cerrarSesion}"
+													rendered="#{sessionControl.sesion}" /></li>
+										</ul></li>
+								</h:panelGroup>
+
+
+
+							</ul>
+
+
+						</div>
+						<!-- /#navbar -->
 
 					</div>
-
-					<div id="navbar" class="navbar-collapse collapse pull-right">
-
-						<ul class="nav navbar-nav">
-							<h:panelGroup rendered="#{sessionControl.sesion}">
-								<li><a class="is-active"
-									href="#{request.contextPath}/paginas/seguro/inicio.xhtml">Inicio</a></li>
-							</h:panelGroup>
-							<h:panelGroup rendered="#{sessionControl.sesionFarmaceutico}">
-								<li><a href="#">Gestión Medicamentos</a></li>
-							</h:panelGroup>
-							<h:panelGroup rendered="#{sessionControl.sesionAdmin}">
-								<li class="has-child"><a href="#">Gestión Medico</a>
-									<ul class="submenu">
-										<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/gestion-medico.xhtml">
-										Crear medico </a></li>
-										<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/buscar-medico.xhtml">Buscar medico </a></li>
-										<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/asignar-especializacion.xhtml">Asignar
-												especialización </a></li>
-									</ul></li>
-								<li class="has-child"><a href="#">Gestión Instalación</a>
-									<ul class="submenu">
-										<li class="submenu-item"><a href="#">Quirofano </a></li>
-										<li class="submenu-item"><a href="#">Habitación </a></li>
-										<li class="submenu-item"><a href="#">Cama </a></li>
-									</ul></li>
-								<li class="has-child"><a href="#">Gestión Enfermedad</a>
-									<ul class="submenu">
-										<li class="submenu-item"><a href="#">Patologia </a></li>
-										<li class="submenu-item"><a href="#">Sintoma </a></li>
-										<li class="submenu-item"><a href="#">Tratamiento </a></li>
-									</ul></li>
-								<li class="submenu-item"><a href="#">Gestión Paciente</a></li>
-								<li class="submenu-item"><a href="#">Gestión
-										Farmaceutico</a></li>
-
-							</h:panelGroup>
-							<h:panelGroup rendered="#{sessionControl.sesionMedico}">
-								<li class="has-child"><a href="#">Gestión Cita Avanzada</a>
-									<ul class="submenu">
-										<li class="submenu-item"><a
-											href="#{request.contextPath}/paginas/seguro/hospitalizacion.xhtml">Hospitalización</a></li>
-										<li class="submenu-item"><a href="#">Examen</a></li>
-										<li class="submenu-item"><a href="#">Cirugia</a></li>
-									</ul></li>
-							</h:panelGroup>
-							<h:panelGroup rendered="#{sessionControl.sesionPaciente}">
-								<li><a href="#">Reserva Cita</a></li>
-							</h:panelGroup>
-							
-							<h:panelGroup rendered="#{sessionControl.sesion}">
-							<li class="has-child"><a href="#">Bienvenido(a) #{sessionControl.usuario.tipoUsuario}(a) 
-				#{sessionControl.usuario.nombre}</a>
-							<ul class="submenu">
-							<li><h:commandLink 
-										value="Cerrar Sesión" ajax="false"
-										action="#{sessionControl.cerrarSesion}"
-										rendered="#{sessionControl.sesion}" /></li>
-							</ul></li>
-							</h:panelGroup>
-								
-							
-
-						</ul>
-						
-
-					</div>
-					<!-- /#navbar -->
+					<!-- /.container -->
 
 				</div>
-				<!-- /.container -->
-
-			</div>
-			<!-- /.navbar-main -->
-</h:form>
+				<!-- /.navbar-main -->
+			</h:form>
 
 		</nav>
 
@@ -328,11 +334,11 @@
 	<!-- /.Cuerpos -->
 	<div class="container">
 
-		<p:messages id="facesMessage" autoUpdate="true" globalOnly="true"
-			closable="true" />
+
+		<p:growl id="growl" showDetail="true" sticky="true"></p:growl>
 		<div class="container" align="center">
-			<div class = "row" >
-			<ui:insert name="cuerpo" />
+			<div class="row">
+				<ui:insert name="cuerpo" />
 			</div>
 		</div>
 
