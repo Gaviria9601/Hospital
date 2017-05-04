@@ -7,25 +7,20 @@
 	<ui:define name="cuerpo">
 		<h:form prependId="false">
 
-			<h1 align="center">Asignar especialización al medico</h1>
-
-			<br></br>
-			<br></br>
+			<h2 class="title-style-1">
+				Asignar Especialización al Medico<span class="title-under"></span>
+			</h2>
 
 			<p:panel id="basic" header="Datos" style="margin-bottom:20px">
-				<h:panelGrid id="paneldatos" columns="4">
+				<p:panelGrid id="paneldatos" columns="5" styleClass="ui-noborder">
 
-					<h:outputLabel for="tfcedula" id="lblCedula"
+					<p:outputLabel for="tfcedula" id="lblCedula"
 						value="Cedula del medico:" />
-					<h:inputText id="tfcedula"
+					<p:inputText id="tfcedula"
 						value="#{controladorEspecializacion.cedula}" />
 					<p:message for="tfcedula" />
 
-					<br></br>
-					<br></br>
-
-
-					<h:outputLabel for="cbEspecializacion" id="lblesp"
+					<p:outputLabel for="cbEspecializacion" id="lblesp"
 						value="Especialización a asignar: " />
 					<h:selectOneMenu id="cbEspecializacion"
 						value="#{controladorEspecializacion.codigoEsp}">
@@ -35,19 +30,16 @@
 							itemValue="#{e.codigo}" itemLabel="#{e.nombre}" />
 					</h:selectOneMenu>
 
-				</h:panelGrid>
+				</p:panelGrid>
 			</p:panel>
 
-			<br></br>
-			<br></br>
-
-			<h:panelGrid id="panelbotones" columns="3">
+			<p:panelGrid id="panelbotones" columns="1" styleClass="ui-noborder">
 
 				<p:commandButton id="btncrear" value="Asignar especialización"
 					process="@this,paneldatos" update="paneldatos"
 					action="#{controladorEspecializacion.asignar}" />
 
-			</h:panelGrid>
+			</p:panelGrid>
 		</h:form>
 	</ui:define>
 

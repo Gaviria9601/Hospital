@@ -7,18 +7,20 @@
 	<ui:define name="cuerpo">
 		<h:form prependId="false">
 
-			<h1 align="center">Gestión del Paciente</h1>
+			<h2 class="title-style-1">
+				Gestión del Paciente<span class="title-under"></span>
+			</h2>
 
 			<p:panel id="basic" header="Datos" style="margin-bottom:20px">
-				<h:panelGrid id="paneldatos" columns="4" >
+				<h:panelGrid id="paneldatos" columns="4">
 
 					<h:outputLabel for="tfcedula" id="lblCedula" value="Cedula:" />
 					<h:inputText id="tfcedula" value="#{pacienteControlador.cedula}" />
 					<p:message for="tfcedula" />
 					<br></br>
 					<br></br>
-					
-					
+
+
 					<h:outputLabel for="tfnombre" id="lblnombre" value="Nombre:" />
 					<h:inputText id="tfnombre" value="#{pacienteControlador.nombre}" />
 					<p:message for="tfnombre" />
@@ -26,7 +28,8 @@
 					<br></br>
 
 					<h:outputLabel for="tfapellido" id="lblapellido" value="Apellido:" />
-					<h:inputText id="tfapellido" value="#{pacienteControlador.apellido}" />
+					<h:inputText id="tfapellido"
+						value="#{pacienteControlador.apellido}" />
 					<p:message for="tfapellido" />
 					<br></br>
 					<br></br>
@@ -50,41 +53,42 @@
 					<br></br>
 
 					<h:outputLabel for="tfnickname" id="lblnick" value="Nickname:" />
-					<h:inputText id="tfnickname" value="#{pacienteControlador.nickname}" />
+					<h:inputText id="tfnickname"
+						value="#{pacienteControlador.nickname}" />
 					<p:message for="tfnickname" />
 					<br></br>
 					<br></br>
 
 					<h:outputLabel for="tfcontra" id="lblcontra" value="Contraseña:" />
-					<h:inputText id="tfcontra" value="#{pacienteControlador.contrasenia}" />
+					<h:inputText id="tfcontra"
+						value="#{pacienteControlador.contrasenia}" />
 					<p:message for="tfcontra" />
 					<br></br>
 					<br></br>
-					
-					<p:outputLabel for="tfestratro" id="tfestratro" value="Estrato:" />
-				    <p:inputText id="tfestrato" value="#{pacienteControlador.estrato}" />
-				    <p:message for="tfestrato" />
-				    <br></br>
-			        <br></br>
-			        
-					<p:outputLabel for="afiliacion" id="lblAfiliacion"
-					value="Afiliacion:" />
-					
-					<h:selectOneMenu id="afiliacion" 
-				    value="#{pacienteControlador.afiliacionCodigo}">
-                        <f:selectItems value="#{pacienteControlador.listaafiliaciones}" 
-                        var="afi"
-                     itemValue="#{afi.codigo}" itemLabel="#{afi.nombre}">
-                     </f:selectItems>
-				     </h:selectOneMenu>
-				     <p:message for="afiliacion" />
-				     <br></br>
-				     <br></br>
 
-				   <p:outputLabel for="tftra" id="tftrab" value="Trabajo:" />
-				   <p:inputText id="tftra" value="#{pacienteControlador.trabajo}" />
-				   <p:message for="tftra" />
-			        
+					<p:outputLabel for="tfestratro" id="tfestratro" value="Estrato:" />
+					<p:inputText id="tfestrato" value="#{pacienteControlador.estrato}" />
+					<p:message for="tfestrato" />
+					<br></br>
+					<br></br>
+
+					<p:outputLabel for="afiliacion" id="lblAfiliacion"
+						value="Afiliacion:" />
+
+					<h:selectOneMenu id="afiliacion"
+						value="#{pacienteControlador.afiliacionCodigo}">
+						<f:selectItems value="#{pacienteControlador.listaafiliaciones}"
+							var="afi" itemValue="#{afi.codigo}" itemLabel="#{afi.nombre}">
+						</f:selectItems>
+					</h:selectOneMenu>
+					<p:message for="afiliacion" />
+					<br></br>
+					<br></br>
+
+					<p:outputLabel for="tftra" id="tftrab" value="Trabajo:" />
+					<p:inputText id="tftra" value="#{pacienteControlador.trabajo}" />
+					<p:message for="tftra" />
+
 
 				</h:panelGrid>
 			</p:panel>
@@ -93,20 +97,19 @@
 				<h:panelGrid id="panelbotones" columns="3">
 
 					<p:commandButton id="btncrearpaciente" value="Guardar Paciente"
-						process="@this " 
-						action="#{pacienteControlador.crearPaciente}" />
+						process="@this " action="#{pacienteControlador.crearPaciente}" />
 
 					<p:commandButton id="btnBuscarpaciente" value="Buscar Paciente"
 						process="@this,tfcedula" update="paneldatos"
 						action="#{pacienteControlador.buscarpaciente}" />
 
-					<p:commandButton id="btnmodificarpaciente" value="Modificar Paciente"
-						process="@this,paneldatos" update="paneldatos"
-						action="#{pacienteControlador.editarpaciente}" />
+					<p:commandButton id="btnmodificarpaciente"
+						value="Modificar Paciente" process="@this,paneldatos"
+						update="paneldatos" action="#{pacienteControlador.editarpaciente}" />
 
 					<p:commandButton id="btneliminarpaciente" value="Eliminar Paciente"
-						process="@this,paneldatos" update="paneldatos" 
-						action="#{pacienteControlador.eliminarpaciente}"/>
+						process="@this,paneldatos" update="paneldatos"
+						action="#{pacienteControlador.eliminarpaciente}" />
 
 				</h:panelGrid>
 

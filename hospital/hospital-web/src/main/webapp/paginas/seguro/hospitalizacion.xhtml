@@ -12,9 +12,36 @@
 
 		<h:form prependId="false">
 
+			<p:panel header="Datos" toggleable="true" toggleSpeed="500">
+				<p:panelGrid columns="6" cellpadding="5" styleClass="ui-noborder">
+
+					<p:outputLabel for="tfnombre" id="lblnombre" value="Nombre" />
+					<p:inputText id="tfnombre" cols="30" style="width: 100%;"
+						value="#{hospitalizacionController.nombre}" />
+					<p:message for="tfnombre" />
+
+					<p:outputLabel for="tftiempoestimado" id="lbltiempoestimado"
+						value="Tiempo Estimado" />
+					<p:inputText id="tftiempoestimado" style="width: 100%;"
+						value="#{hospitalizacionController.tiempoestimado}" />
+					<p:message for="tftiempoestimado" />
+
+
+					<p:outputLabel for="tfobservaciones" id="lblobservaciones"
+						value="Observaciones" />
+					<p:inputTextarea rows="10" cols="30" id="tfobservaciones"
+						value="#{hospitalizacionController.observaciones}" />
+					<p:message for="tfobservaciones" />
+
+					<p:outputLabel for="tfcausas" id="lblcausas" value="Causas" />
+					<p:inputTextarea rows="10" cols="30" id="tfcausas"
+						value="#{hospitalizacionController.causas}" />
+					<p:message for="tfcausas" />
+
+				</p:panelGrid>
+			</p:panel>
+
 		</h:form>
-
-
 	</ui:define>
 
 </ui:composition>
