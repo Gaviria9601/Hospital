@@ -60,7 +60,7 @@ public class MedicoEJB {
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void eliminarMedico(Medico medico){
-		em.remove(medico);
+		em.remove(buscarMedico(medico.getCedula()));
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
