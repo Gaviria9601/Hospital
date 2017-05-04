@@ -34,6 +34,9 @@
 
 					<h:panelGroup id="paneloculto"
 						rendered="#{ControladorMedico.busco}">
+						
+						<p:panelGrid id="paneldatos2" columns="3" cellpadding="5"
+					styleClass="ui-noborder">
 
 						<p:outputLabel for="tfcarnet" id="lblcarnet" value="Carnet:" />
 						<p:inputText id="tfcarnet" value="#{ControladorMedico.carnet}"
@@ -80,6 +83,8 @@
 							<f:selectItem itemValue="true" itemLabel="Activo" />
 							<f:selectItem itemValue="false" itemLabel="Inactivo" />
 						</h:selectOneMenu>
+						
+						</p:panelGrid>
 					</h:panelGroup>
 
 				</p:panelGrid>
