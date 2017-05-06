@@ -16,6 +16,7 @@ import org.omnifaces.util.Messages;
 
 import co.edu.eam.ingesoft.hospital.entidades.Farmaceutico;
 import co.edu.eam.ingesoft.hospital.entidades.Farmacia;
+import co.edu.eam.ingesoft.hospital.entidades.Medico;
 import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
 import co.edu.eam.ingesoft.pa.negocio.beans.FarmaceuticoEJB;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
@@ -55,7 +56,18 @@ public class FarmaceuticoController implements Serializable  {
 	
 	private int codigofarmacia;
 	
+	private boolean busco = false;
 	
+	
+	
+
+	public boolean isBusco() {
+		return busco;
+	}
+
+	public void setBusco(boolean busco) {
+		this.busco = busco;
+	}
 
 	public String getCedula() {
 		return cedula;
@@ -163,7 +175,9 @@ public class FarmaceuticoController implements Serializable  {
 		
 	
 	}
-	
+	/**
+	 * Metodo que crear el farmaceutico
+	 */
 	
 	public void crearFarmaceutico(){
 		try{
@@ -179,6 +193,9 @@ public class FarmaceuticoController implements Serializable  {
 	       Messages.addGlobalError(e.getMessage());
 		   }
 		}
+	/**
+	 * Metodo que limpiar los campos del farmaceutico
+	 */
 public void limpiar(){
 		
 		nombre ="";
@@ -190,9 +207,69 @@ public void limpiar(){
 		edad = 0;
 		telefono = "";
 		tarjetapro= "";
+		busco = false;
+		
 		
 	}
-
+   /**
+    * Metodo para buscar un farmaceutico
+    */
+public void buscarFarmaceutico(){
+	Farmaceutico f = farEJB.buscarFarmaceutico(cedula);
+	if(f!=null){
+		nombre = f.getNombre();
+		apellido  = f.getApellido();
+		cedula = f.getCedula();
+		nickname = f.getNickname();
+		correo= f.getCorreo();
+		contrasenia = f.getClave();
+		edad = f.getEdad();
+		telefono = f.getTelefono();
+		tarjetapro = f.getTarjetaProfesional();	
+		busco = true;
+		Messages.addFlashGlobalInfo("FARMACEUTICO ENCONTRADO");
+		
+	}else{
+		Messages.addFlashGlobalError("FARMACEUTICO  NO EXISTE");
+ 	}
+}
+/**
+ * Metodo paara modificcar un farmaceutico
+ */
+public void modificarFarmaceutico(){
+	try{
+	Farmaceutico f = farEJB.buscarFarmaceutico(cedula);
+	f.setNickname(nickname);
+	f.setClave(contrasenia);
+	f.setNombre(nombre);
+	f.setApellido(apellido);
+	f.setEdad(edad);
+	f.setCorreo(correo);
+	f.setTelefono(telefono);
+	f.setTarjetaProfesional(tarjetapro);
+	farEJB.modificarFarmaceutico(f);
+	limpiar();
+	Messages.addFlashGlobalInfo("FARMACEUTICO MODIFICADO CORRECTAMENTE");
+	}catch (ExcepcionNegocio e) {
+		Messages.addGlobalError(e.getMessage());
+	}
+}
+/**
+ * Metodo que elimina un farmaceutico
+ */
+public void eliminarFarmaceutico(){
+	try {
+		Farmaceutico fa = farEJB.buscarFarmaceutico(cedula);
+		if(fa!=null){
+			farEJB.eliminarFarmaceutico(fa);
+			Messages.addFlashGlobalInfo("FARMACEUTICO ELIMINADO EXITOSAMENTE");
+		}else{
+			Messages.addGlobalError("ERROR AL ELIMINAR");
+		}
+	} catch (ExcepcionNegocio e) {
+		Messages.addGlobalError(e.getMessage());
+	}
+}
 
 
 

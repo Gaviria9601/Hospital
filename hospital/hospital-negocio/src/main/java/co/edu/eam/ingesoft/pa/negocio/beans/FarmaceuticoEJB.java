@@ -55,7 +55,7 @@ public class FarmaceuticoEJB {
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void modificarFarmaceutico(Farmaceutico pa){
 		Farmaceutico far =buscarFarmaceutico(pa.getCedula());
-		if(far==null){
+		if(far!=null){
 				em.merge(pa);
 		}else {
 			throw new ExcepcionNegocio("Ya esta esta cedula de usuario registrado");
@@ -68,7 +68,7 @@ public class FarmaceuticoEJB {
 	 */
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void eliminarFarmaceutico(Farmaceutico pa){
-		em.remove(pa);
+		em.remove(buscarFarmaceutico(pa.getCedula()));
 	}
 	
 	/**
