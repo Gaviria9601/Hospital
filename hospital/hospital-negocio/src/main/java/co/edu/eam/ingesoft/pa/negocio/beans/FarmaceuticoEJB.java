@@ -87,7 +87,7 @@ public class FarmaceuticoEJB {
 	 * @return
 	 */
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public Farmacia buscarFarmacia(String codigo) {
+	public Farmacia buscarFarmacia(int codigo) {
     Farmacia far= em.find(Farmacia.class, codigo);
 		return far;
 	}

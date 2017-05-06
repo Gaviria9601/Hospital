@@ -16,7 +16,6 @@ import org.omnifaces.util.Messages;
 
 import co.edu.eam.ingesoft.hospital.entidades.Farmaceutico;
 import co.edu.eam.ingesoft.hospital.entidades.Farmacia;
-import co.edu.eam.ingesoft.hospital.entidades.Paciente;
 import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
 import co.edu.eam.ingesoft.pa.negocio.beans.FarmaceuticoEJB;
 import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
@@ -54,10 +53,7 @@ public class FarmaceuticoController implements Serializable  {
 	
 	private Date fecha;
 	
-	private List<Farmacia> far;
-	
-	private String codigofarmacia;
-	
+	private int codigofarmacia;
 	
 	
 
@@ -141,19 +137,13 @@ public class FarmaceuticoController implements Serializable  {
 		this.fecha = fecha;
 	}
 
-	public List<Farmacia> getFar() {
-		return far;
-	}
 
-	public void setFar(List<Farmacia> far) {
-		this.far = far;
-	}
 
-	public String getCodigofarmacia() {
+	public int getCodigofarmacia() {
 		return codigofarmacia;
 	}
 
-	public void setCodigofarmacia(String codigofarmacia) {
+	public void setCodigofarmacia(int codigofarmacia) {
 		this.codigofarmacia = codigofarmacia;
 	}
 
@@ -170,7 +160,7 @@ public class FarmaceuticoController implements Serializable  {
 	
 	@PostConstruct
 	public void inicializador(){
-		far = farEJB.listarAFarmaceutico();
+		
 	
 	}
 	
@@ -178,14 +168,35 @@ public class FarmaceuticoController implements Serializable  {
 	public void crearFarmaceutico(){
 		try{
 			Date fecha = farEJB.generarFechaActual();
-			Farmacia f = farEJB.buscarFarmacia(codigofarmacia);
-			Farmaceutico farm = new Farmaceutico(cedula, nickname, contrasenia, nombre, apellido, edad
-					, correo, TipoUsuarioEnum.Paciente, telefono, tarjetapro, fecha, f);
-		farEJB.crearFarmaceutico(farm);
+			Farmacia fa = farEJB.buscarFarmacia(3434);
+		    Farmaceutico farm = new Farmaceutico(cedula, nickname, contrasenia, nombre, apellido, edad,
+					correo, TipoUsuarioEnum.Farmaceutico, telefono, tarjetapro, fecha, fa);
+		   farEJB.crearFarmaceutico(farm);
+		   limpiar();
+		    Messages.addFlashGlobalInfo("FARMACEUTICO INGRESADO AL SISTEMA CORRECTAMENTE");
+		    
 		} catch (ExcepcionNegocio e) {
 	       Messages.addGlobalError(e.getMessage());
 		   }
 		}
-	
+public void limpiar(){
+		
+		nombre ="";
+		apellido  ="";
+		cedula ="";
+		nickname ="";
+		correo="";
+		contrasenia = "";
+		edad = 0;
+		telefono = "";
+		tarjetapro= "";
+		
+	}
 
-}
+
+
+
+	}
+
+
+

@@ -29,13 +29,13 @@ public class Farmaceutico extends Usuario implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "Farmacia_codigo", nullable = false)
 	private Farmacia farmaciaCodigo;
+	
+	
 
 	public Farmaceutico() {
 		super();
 
 	}
-
-	
 
 	public Farmaceutico(String cedula, String nickname, String clave, String nombre, String apellido, int edad,
 			String correo, TipoUsuarioEnum tipoUsuario, String telefono, String tarjetaProfesional, Date fechaIngreso,
@@ -45,6 +45,10 @@ public class Farmaceutico extends Usuario implements Serializable {
 		this.fechaIngreso = fechaIngreso;
 		this.farmaciaCodigo = farmaciaCodigo;
 	}
+
+
+
+
 
 
 
