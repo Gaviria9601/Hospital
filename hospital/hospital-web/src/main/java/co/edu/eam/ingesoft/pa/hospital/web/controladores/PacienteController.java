@@ -54,7 +54,11 @@ public class PacienteController implements Serializable{
 	
 	private EstratoEnumeracion estrato;
 	
-	private String afiliacionCodigo;
+	public EstratoEnumeracion[] getTipos(){
+		return EstratoEnumeracion.values();
+	}
+	
+	private Integer afiliacionCodigo;
 	
 	@Pattern(regexp="[A-Za-z ]*",message="Este campo solo acepta letras")
 	@Length(min=4,max=10,message="longitud entre 4 y 50")
@@ -185,13 +189,15 @@ public class PacienteController implements Serializable{
 
 
 
-	public String getAfiliacionCodigo() {
+
+
+	public Integer getAfiliacionCodigo() {
 		return afiliacionCodigo;
 	}
 
 
 
-	public void setAfiliacionCodigo(String afiliacionCodigo) {
+	public void setAfiliacionCodigo(Integer afiliacionCodigo) {
 		this.afiliacionCodigo = afiliacionCodigo;
 	}
 
@@ -262,21 +268,14 @@ public class PacienteController implements Serializable{
 		Afiliacion a = paciEJB.buscarAfiliacion(afiliacionCodigo);
 		Paciente pa = new Paciente (cedula, nickname, contrasenia, nombre, apellido, edad, 
 				correo, TipoUsuarioEnum.Paciente, telefono,estrato, a, trabajo);
-		/**System.out.println(cedula);
-		System.out.println(nickname);
-		System.out.println(nombre);
-		System.out.println(apellido);
-		System.out.println(edad);
-		System.out.println(a);
-		Messages.addFlashGlobalInfo(pa.getApellido(), pa.getCedula(), pa.getClave());**/
+		
 		paciEJB.crearPaciente(pa);
 		limpiar();
-		Messages.addFlashGlobalInfo("Paciente creado");
+		Messages.addFlashGlobalInfo("PACIENTE INGRESADO AL SISTEMA CORRECTAMENTE");
 			
 	} catch (ExcepcionNegocio e) {
-		Messages.addFlashGlobalInfo("No se pudo crear el paciente");
-      /** Messages.addGlobalError(e.getMessage());**/
-	   }
+	       Messages.addGlobalError(e.getMessage());
+		   }
 	}
 	/**
 	 * 
@@ -292,6 +291,7 @@ public class PacienteController implements Serializable{
 		edad = 0;
 		telefono = "";
 	    trabajo = "";
+	    
 		
 	}
 	
@@ -302,8 +302,7 @@ public void buscarPaciente(){
 			cedula = pa.getCedula();
 			estrato = pa.getEstrato();
 			trabajo= pa.getTrabajo();
-			afiliacionCodigo = pa.getAfiliacionCodigo().getNombre();
-			
+			afiliacionCodigo =Integer.parseInt (pa.getAfiliacionCodigo().getNombre() );
 			Messages.addFlashGlobalInfo("Paciente encontrado");
 
 		} else {

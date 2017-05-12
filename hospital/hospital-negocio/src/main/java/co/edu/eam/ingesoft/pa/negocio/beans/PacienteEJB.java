@@ -80,7 +80,7 @@ public class PacienteEJB {
 	 * @return la afiliación
 	 */
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public Afiliacion buscarAfiliacion(String codigo) {
+	public Afiliacion buscarAfiliacion(Integer codigo) {
 		Afiliacion pa = em.find(Afiliacion.class, codigo);
 		return pa;
 	}
