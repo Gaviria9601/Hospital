@@ -22,7 +22,6 @@ public class Afiliacion implements Serializable {
 	@Id
 	@Column(name = "codigo")
 	private Integer codigo;
-
 	@Column(name = "nombre", length = 30,nullable = false)
 	private String nombre;
 

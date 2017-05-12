@@ -278,7 +278,7 @@ public class PacienteController implements Serializable{
 		   }
 	}
 	/**
-	 * 
+	 *
 	 */
 	public void limpiar(){
 		

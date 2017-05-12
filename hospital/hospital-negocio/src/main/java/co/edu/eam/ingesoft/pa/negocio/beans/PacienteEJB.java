@@ -28,7 +28,6 @@ public class PacienteEJB {
 	 * Metodo que sirve para crear un paciente
 	 * @param pa, paciente crear
 	 */
-
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void crearPaciente(Paciente pa) {
 	Paciente p =buscarPaciente(pa.getCedula());
