@@ -14,6 +14,7 @@ import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
 
 import co.edu.eam.ingesoft.hospital.entidades.Afiliacion;
+import co.edu.eam.ingesoft.hospital.entidades.Farmaceutico;
 import co.edu.eam.ingesoft.hospital.entidades.Paciente;
 import co.edu.eam.ingesoft.hospital.entidades.Usuario;
 import co.edu.eam.ingesoft.hospital.enumeraciones.EstratoEnumeracion;
@@ -64,12 +65,37 @@ public class PacienteController implements Serializable{
 	@Length(min=4,max=10,message="longitud entre 4 y 50")
 	private String trabajo;
 	
-	private Afiliacion a;
+	
 	private List<Afiliacion> listaafiliaciones;
 	private List<Paciente> listapaciente;
-
-
 	
+	private boolean busco = false;
+	
+	private Afiliacion afi;
+	
+	
+	public Afiliacion getAfi() {
+		return afi;
+	}
+
+
+
+	public void setAf(Afiliacion afi) {
+		this.afi = afi;
+	}
+
+
+
+	public boolean isBusco() {
+		return busco;
+	}
+
+
+
+	public void setBusco(boolean busco) {
+		this.busco = busco;
+	}
+
 	@EJB
 	private PacienteEJB paciEJB;
 	
@@ -78,7 +104,7 @@ public class PacienteController implements Serializable{
 		listaafiliaciones = paciEJB.listarAfiliacion();
 		listapaciente = paciEJB.listarPaciente();
 	}
-	
+	 
 	
 	
 	public String getCedula() {
@@ -215,17 +241,6 @@ public class PacienteController implements Serializable{
 
 
 
-	public Afiliacion getA() {
-		return a;
-	}
-
-
-
-	public void setA(Afiliacion a) {
-		this.a = a;
-	}
-
-
 
 	public List<Afiliacion> getListaafiliaciones() {
 		return listaafiliaciones;
@@ -260,10 +275,10 @@ public class PacienteController implements Serializable{
 	public void setPaciEJB(PacienteEJB paciEJB) {
 		this.paciEJB = paciEJB;
 	}
-
-
-
-	public void crearPaciente(){
+ /**
+  * Metodo para crear un paciente
+  */
+    public void crearPaciente(){
 	try{
 		Afiliacion a = paciEJB.buscarAfiliacion(afiliacionCodigo);
 		Paciente pa = new Paciente (cedula, nickname, contrasenia, nombre, apellido, edad, 
@@ -278,7 +293,7 @@ public class PacienteController implements Serializable{
 		   }
 	}
 	/**
-	 *
+	 *Metodo para limpiar los campos del paciente
 	 */
 	public void limpiar(){
 		
@@ -299,39 +314,61 @@ public void buscarPaciente(){
 		
 		Paciente pa = paciEJB.buscarPaciente(cedula);
 		if(pa!=null){
+			nombre = pa.getNombre();
+			apellido  = pa.getApellido();
 			cedula = pa.getCedula();
+			nickname = pa.getNickname();
+			correo=pa.getCorreo();
+			contrasenia = pa.getClave();
+			edad = pa.getEdad();
+			telefono = pa.getTelefono();
 			estrato = pa.getEstrato();
 			trabajo= pa.getTrabajo();
-			afiliacionCodigo =Integer.parseInt (pa.getAfiliacionCodigo().getNombre() );
-			Messages.addFlashGlobalInfo("Paciente encontrado");
+		   afiliacionCodigo =pa.getAfiliacionCodigo().getCodigo();
+			busco = true;
+			Messages.addFlashGlobalInfo("PACIENTE ENCONTRADO");
+			
+		}else{
+			Messages.addFlashGlobalError("PACIENTE  NO EXISTE");
+	 	}
+	}
 
-		} else {
-			Messages.addFlashGlobalWarn("El paciente no se encuentra");
+
+
+public void borrarPaciente() {
+	try {
+		Paciente pac = paciEJB.buscarPaciente(cedula);
+		if(pac!=null){
+			paciEJB.eliminarPaciente(pac);
+			Messages.addFlashGlobalInfo("PACIENTE ELIMINADO EXITOSAMENTE");
+		}else{
+			Messages.addGlobalError("ERROR AL ELIMINAR");
 		}
+	} catch (ExcepcionNegocio e) {
+		Messages.addGlobalError(e.getMessage());
 	}
 
-public void borrarPaciente(Paciente pa) {
-
-	paciEJB.eliminarPaciente(pa);
-	Messages.addFlashGlobalInfo("El paciente ha sido eliminado");
-	listapaciente = paciEJB.listarPaciente();
 }
-
-public void editarPaciente() {
-	Paciente pa = paciEJB.buscarPaciente(cedula);
-	if (pa != null) {
-		pa.setEstrato(estrato);
-		pa.setTrabajo(trabajo);
-		pa.getAfiliacionCodigo().getNombre();
-		listapaciente = paciEJB.listarPaciente();
-		
-		Messages.addFlashGlobalInfo("El paciente a sido editado ");
-	} else {
-		Messages.addFlashGlobalWarn("El paciente no existe");
+public void modificarPaciente(){
+	try{
+	Paciente f = paciEJB.buscarPaciente(cedula);
+	f.setNickname(nickname);
+	f.setClave(contrasenia);
+	f.setNombre(nombre);
+	f.setApellido(apellido);
+	f.setEdad(edad);
+	f.setCorreo(correo);
+	f.setTelefono(telefono);
+	f.setEstrato(estrato);
+	
+	f.setTrabajo(trabajo);
+	paciEJB.modificarPaciente(f);
+	limpiar();
+	Messages.addFlashGlobalInfo("PACIENTE MODIFICADO CORRECTAMENTE");
+	}catch (ExcepcionNegocio e) {
+		Messages.addGlobalError(e.getMessage());
 	}
 }
-
-
 }
 	
 	

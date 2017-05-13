@@ -71,7 +71,7 @@ public class PacienteEJB {
 	 */
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void eliminarPaciente(Paciente pa){
-		em.remove(pa);
+		em.remove(buscarPaciente(pa.getCedula()));
 	}
 	/**
 	 * Metodo que sirve para buscar una afiliacion
