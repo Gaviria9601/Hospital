@@ -34,81 +34,87 @@
 
 					<h:panelGroup id="paneloculto"
 						rendered="#{ControladorMedico.busco}">
-						
+
 						<p:panelGrid id="paneldatos2" columns="3" cellpadding="5"
-					styleClass="ui-noborder">
+							styleClass="ui-noborder">
 
-						<p:outputLabel for="tfcarnet" id="lblcarnet" value="Carnet:" />
-						<p:inputText id="tfcarnet" value="#{ControladorMedico.carnet}"
-							disabled="true" />
-						<p:message for="tfcarnet" />
+							<p:outputLabel for="tfcarnet" id="lblcarnet" value="Carnet:" />
+							<p:inputText id="tfcarnet" value="#{ControladorMedico.carnet}"
+								disabled="true" />
+							<p:message for="tfcarnet" />
 
-						<p:outputLabel for="tfnombre" id="lblnombre" value="Nombre:" />
-						<p:inputText id="tfnombre" value="#{ControladorMedico.nombre}" />
-						<p:message for="tfnombre" />
+							<p:outputLabel for="tfnombre" id="lblnombre" value="Nombre:" />
+							<p:inputText id="tfnombre" value="#{ControladorMedico.nombre}" />
+							<p:message for="tfnombre" />
 
-						<p:outputLabel for="tfapellido" id="lblapellido" value="Apellido:" />
-						<p:inputText id="tfapellido" value="#{ControladorMedico.apellido}" />
-						<p:message for="tfapellido" />
+							<p:outputLabel for="tfapellido" id="lblapellido"
+								value="Apellido:" />
+							<p:inputText id="tfapellido"
+								value="#{ControladorMedico.apellido}" />
+							<p:message for="tfapellido" />
 
-						<p:outputLabel for="tfcorreo" id="lblcorreo" value="Correo:" />
-						<p:inputText id="tfcorreo" value="#{ControladorMedico.correo}" />
-						<p:message for="tfcorreo" />
+							<p:outputLabel for="tfcorreo" id="lblcorreo" value="Correo:" />
+							<p:inputText id="tfcorreo" value="#{ControladorMedico.correo}" />
+							<p:message for="tfcorreo" />
 
-						<p:outputLabel for="tftel" id="lbltel" value="Telefono:" />
-						<p:inputText id="tftel" value="#{ControladorMedico.telefono}" />
-						<p:message for="tftel" />
+							<p:outputLabel for="tftel" id="lbltel" value="Telefono:" />
+							<p:inputText id="tftel" value="#{ControladorMedico.telefono}" />
+							<p:message for="tftel" />
 
-						<p:outputLabel for="tfedad" id="lbledad" value="Edad:" />
-						<p:inputText id="tfedad" value="#{ControladorMedico.edad}" />
-						<p:message for="tfedad" />
+							<p:outputLabel for="tfedad" id="lbledad" value="Edad:" />
+							<p:inputText id="tfedad" value="#{ControladorMedico.edad}" />
+							<p:message for="tfedad" />
 
-						<p:outputLabel for="tfuniv" id="lbluniv" value="Universidad:" />
-						<p:inputText id="tfuniv" value="#{ControladorMedico.facultad}" />
-						<p:message for="tfuniv" />
+							<p:outputLabel for="tfuniv" id="lbluniv" value="Universidad:" />
+							<p:inputText id="tfuniv" value="#{ControladorMedico.facultad}" />
+							<p:message for="tfuniv" />
 
-						<p:outputLabel for="tfnickname" id="lblnick" value="Nickname:" />
-						<p:inputText id="tfnickname" value="#{ControladorMedico.nickname}" />
-						<p:message for="tfnickname" />
+							<p:outputLabel for="tfnickname" id="lblnick" value="Nickname:" />
+							<p:inputText id="tfnickname"
+								value="#{ControladorMedico.nickname}" />
+							<p:message for="tfnickname" />
 
-						<p:outputLabel for="tfcontra" id="lblcontra" value="Contraseña:" />
-						<p:inputText id="tfcontra"
-							value="#{ControladorMedico.contrasenia}" />
-						<p:message for="tfcontra" />
+							<p:outputLabel for="tfcontra" id="lblcontra" value="Contraseña:" />
+							<p:inputText id="tfcontra"
+								value="#{ControladorMedico.contrasenia}" />
+							<p:message for="tfcontra" />
 
 
-						<p:outputLabel for="cbtestado" id="lblestado" value="Estado:" />
-						<h:selectOneMenu id="cbtestado"
-							value="#{ControladorMedico.estado}">
-							<f:selectItem itemValue="true" itemLabel="Activo" />
-							<f:selectItem itemValue="false" itemLabel="Inactivo" />
-						</h:selectOneMenu>
-						
+							<p:outputLabel for="cbtestado" id="lblestado" value="Estado:" />
+							<h:selectOneMenu id="cbtestado"
+								value="#{ControladorMedico.estado}">
+								<f:selectItem itemValue="true" itemLabel="Activo" />
+								<f:selectItem itemValue="false" itemLabel="Inactivo" />
+							</h:selectOneMenu>
+
 						</p:panelGrid>
 					</h:panelGroup>
 
 				</p:panelGrid>
 
-				<p:panelGrid id="panelbotones" columns="3" styleClass="ui-noborder">
-					<h:panelGroup id="paneloculto2"
-						rendered="#{ControladorMedico.busco}">
+				<p:panel id="botones" style="margin-bottom:20px">
 
-						<p:commandButton id="btnmodif" value="Modificar medico"
-							process="@this,paneldatos"
-							update="paneldatos paneloculto paneloculto2 panelbotones"
-							action="#{ControladorMedico.modificar}" />
+					<p:panelGrid id="panelbotones" columns="3" styleClass="ui-noborder">
+						<h:panelGroup id="paneloculto2"
+							rendered="#{ControladorMedico.busco}">
 
-						<p:commandButton id="btnelim" value="Eliminar medico"
-							process="@this,paneldatos"
-							update="paneldatos paneloculto paneloculto2 panelbotones"
-							action="#{ControladorMedico.eliminar}" />
+							<p:commandButton id="btnmodif" value="Modificar medico"
+								process="@this,paneldatos"
+								update="paneldatos paneloculto paneloculto2 panelbotones"
+								action="#{ControladorMedico.modificar}" />
 
-						<p:commandButton id="btnlimpiar" value="Limpiar Campos"
-							process="@this"
-							update="paneldatos paneloculto paneloculto2 panelbotones"
-							action="#{ControladorMedico.limpiar}" />
-					</h:panelGroup>
-				</p:panelGrid>
+							<p:commandButton id="btnelim" value="Eliminar medico"
+								process="@this,paneldatos"
+								update="paneldatos paneloculto paneloculto2 panelbotones"
+								action="#{ControladorMedico.eliminar}" />
+
+							<p:commandButton id="btnlimpiar" value="Limpiar Campos"
+								process="@this"
+								update="paneldatos paneloculto paneloculto2 panelbotones"
+								action="#{ControladorMedico.limpiar}" />
+						</h:panelGroup>
+					</p:panelGrid>
+				</p:panel>
 
 			</p:panel>
 

@@ -7,10 +7,17 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import co.edu.eam.ingesoft.hospital.enumeraciones.CitaAvanzadaEnum;
 
 /**
  * @author Alejandro Ortega
@@ -18,11 +25,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name="CitaAvanzada")
+@Table(name="Cita_Avanzada")
 public class CitaAvanzada implements Serializable {
 
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
+	@SequenceGenerator(name = "id_Sequence", sequenceName = "Cita_avanzada_Codigo_SEQ",allocationSize=1)
 	@Column(name="codigo")
 	protected Integer codigo;
 	
@@ -35,14 +44,15 @@ public class CitaAvanzada implements Serializable {
 	@Column(name="tiempoEstimado", nullable=false, length=50)
 	protected String tiempoEstimado;
 	
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo")
-	protected String tipo;
+	protected CitaAvanzadaEnum tipo;
 	
 	public CitaAvanzada(){
 		
 	}
 
-	public CitaAvanzada(Integer codigo, String nombre, String observaciones, String tiempoEstimado, String tipo) {
+	public CitaAvanzada(Integer codigo,String nombre, String observaciones, String tiempoEstimado, CitaAvanzadaEnum tipo) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
@@ -52,11 +62,11 @@ public class CitaAvanzada implements Serializable {
 	}
 
 
-	public String getTipo() {
+	public CitaAvanzadaEnum getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(CitaAvanzadaEnum tipo) {
 		this.tipo = tipo;
 	}
 
@@ -140,6 +150,9 @@ public class CitaAvanzada implements Serializable {
 			return false;
 		return true;
 	}
+	
+	
+
 
 	
 }

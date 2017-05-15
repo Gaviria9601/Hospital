@@ -9,7 +9,7 @@
 	<ui:define name="cuerpo">
 
 		<h2 class="title-style-1">
-			Gestión Hospitalización<span class="title-under"></span>
+			Ingresar Cirugia al Sistema<span class="title-under"></span>
 		</h2>
 
 		<h:form prependId="false">
@@ -19,26 +19,52 @@
 
 					<p:outputLabel for="tfnombre" id="lblnombre" value="Nombre" />
 					<p:inputText id="tfnombre" cols="30" style="width: 100%;"
-						value="#{hospitalizacionController.nombre}" />
+						value="#{cirugiaController.nombre}" />
 					<p:message for="tfnombre" />
 
 					<p:outputLabel for="tftiempoestimado" id="lbltiempoestimado"
 						value="Tiempo Estimado" />
 					<p:inputText id="tftiempoestimado" style="width: 100%;"
-						a:placeholder = "# Tiempo" value="#{hospitalizacionController.tiempoestimado}" />
+						a:placeholder = "# Tiempo" value="#{cirugiaController.tiempoestimado}" />
 					<p:message for="tftiempoestimado" />
 
 
 					<p:outputLabel for="tfobservaciones" id="lblobservaciones"
 						value="Observaciones" />
 					<p:inputTextarea rows="10" cols="30" id="tfobservaciones"
-						value="#{hospitalizacionController.observaciones}" />
+						value="#{cirugiaController.observaciones}" />
 					<p:message for="tfobservaciones" />
 
-					<p:outputLabel for="tfcausas" id="lblcausas" value="Causas" />
-					<p:inputTextarea rows="10" cols="30" id="tfcausas"
-						value="#{hospitalizacionController.causas}" />
-					<p:message for="tfcausas" />
+					<p:outputLabel for="tfrecuperacion" id="lblrecuperacion" value="Recuperación" />
+					<p:inputTextarea rows="10" cols="30" id="tfrecuperacion"
+						value="#{cirugiaController.recuperacion}" />
+					<p:message for="tfrecuperacion" />
+					
+					<p:outputLabel id="lblanesterisa" value = "Anestesia"/>
+					<p:selectBooleanCheckbox value="#{cirugiaController.anestesia}" />
+					<br/>
+					
+					<h:outputLabel id="lblespecializacion" value="Especialización" />
+					<h:selectOneMenu id="cbespecializacion"
+						value="#{cirugiaController.especializacion}"
+						converter="espConverter">
+
+						<f:selectItems value="#{cirugiaController.especializaciones}"
+							var="esp" itemValue="#{esp}" itemLabel="#{esp.nombre}" />
+
+					</h:selectOneMenu>
+					<br />
+					
+					<h:outputLabel id="lbltipoCirugia" value="Tipo Cirugia" />
+					<h:selectOneMenu id="cbtipoCirugia"
+						value="#{cirugiaController.tipoCirugia}"
+						converter="tipoCiruConverter">
+
+						<f:selectItems value="#{cirugiaController.tipoCirugias}"
+							var="tipoCiru" itemValue="#{tipoCiru}" itemLabel="#{tipoCiru.nombre}" />
+
+					</h:selectOneMenu>
+					<br />
 
 				</p:panelGrid>
 			</p:panel>
@@ -47,13 +73,13 @@
 				toggleable="true" toggleSpeed="500">
 				<p:panelGrid id="panelbotones" columns="3" styleClass="ui-noborder">
 
-					<p:commandButton id="btncrear" value="Crear Hospitalización"
+					<p:commandButton id="btncrear" value="Crear Cirugia"
 						process="@this,paneldatos" update="paneldatos"
-						action="#{hospitalizacionController.crear}" />
+						action="#{cirugiaController.crear}" />
 
 					<p:commandButton id="btnlimpiar" value="Limpiar Campos"
 						process="@this" update="paneldatos"
-						action="#{hospitalizacionController.limpiar}" />
+						action="#{cirugiaController.limpiar}" />
 
 				</p:panelGrid>
 
