@@ -1,0 +1,73 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	 template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+
+		<h2 class="title-style-1">
+			Ingresar Examen al Sistema<span class="title-under"></span>
+		</h2>
+
+		<h:form prependId="false">
+
+			<p:panel header="Datos" toggleable="true" toggleSpeed="500">
+				<p:panelGrid id="paneldatos" columns="6" cellpadding="5" styleClass="ui-noborder">
+
+					<p:outputLabel for="tfnombre" id="lblnombre" value="Nombre" />
+					<p:inputText id="tfnombre" cols="30" style="width: 100%;"
+						value="#{examenController.nombre}" />
+					<p:message for="tfnombre" />
+
+					<p:outputLabel for="tftiempoestimado" id="lbltiempoestimado"
+						value="Tiempo Estimado" />
+					<p:inputText id="tftiempoestimado" style="width: 100%;"
+						a:placeholder = "# Tiempo" value="#{examenController.tiempoestimado}" />
+					<p:message for="tftiempoestimado" />
+
+
+					<p:outputLabel for="tfobservaciones" id="lblobservaciones"
+						value="Observaciones" />
+					<p:inputTextarea rows="10" cols="30" id="tfobservaciones"
+						value="#{examenController.observaciones}" />
+					<p:message for="tfobservaciones" />
+
+					
+					<h:outputLabel id="lbltipoExamen" value="Tipo Examen" />
+					<h:selectOneMenu id="cbtipoExamen"
+						value="#{examenController.tipoExamen}"
+						converter="tipoExaConverter">
+
+						<f:selectItems value="#{examenController.tipoExamenes}"
+							var="tipoExa" itemValue="#{tipoExa}" itemLabel="#{tipoExa.nombre}" />
+
+					</h:selectOneMenu>
+					<br />
+
+				</p:panelGrid>
+			</p:panel>
+			
+			<p:panel id="botones" header="Acciones" style="margin-bottom:20px"
+				toggleable="true" toggleSpeed="500">
+				<p:panelGrid id="panelbotones" columns="3" styleClass="ui-noborder">
+
+					<p:commandButton id="btncrear" value="Crear Examen"
+						process="@this,paneldatos" update="paneldatos"
+						action="#{examenController.crear}" />
+
+					<p:commandButton id="btnlimpiar" value="Limpiar Campos"
+						process="@this" update="paneldatos"
+						action="#{examenController.limpiar}" />
+
+				</p:panelGrid>
+
+			</p:panel>
+			
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

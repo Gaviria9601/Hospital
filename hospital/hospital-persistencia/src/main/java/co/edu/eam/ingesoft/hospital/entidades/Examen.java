@@ -9,6 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -16,8 +18,13 @@ import javax.persistence.Table;
  *
  */
 @Entity
+@NamedQueries({
+	@NamedQuery(name=Examen.LISTAR_EXAMEN,query="select exa from Examen exa")
+})
 @Table(name="Examen")
 public class Examen extends CitaAvanzada implements Serializable{
+	
+	public static final String LISTAR_EXAMEN = "ListarExamen";
 
 	@ManyToOne
 	@JoinColumn(name = "tipoExamen_id",nullable = false)

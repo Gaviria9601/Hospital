@@ -16,13 +16,14 @@
 				toggleable="true" toggleSpeed="500">
 
 				<p:dataTable id="tablaCirugias"
-					value="#{cirugiaController.cirugias}" var="ciru" border="1">
+					value="#{cirugiaController.cirugias}" var="ciru" border="1" filteredValue="#{cirugiaController.filtroCirugias}"
+					emptyMessage="Sin Coincidencias">
 
 					<p:column headerText="Codigo">
 						<h:outputLabel value="#{ciru.codigo}" />
 					</p:column>
 
-					<p:column headerText="Nombre">
+					<p:column headerText="Nombre" filterBy="#{ciru.nombre}" filterMatchMode="contains">
 						<h:outputLabel value="#{ciru.nombre}" />
 					</p:column>
 

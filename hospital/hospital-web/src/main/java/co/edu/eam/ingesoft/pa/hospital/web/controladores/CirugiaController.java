@@ -1,6 +1,7 @@
 package co.edu.eam.ingesoft.pa.hospital.web.controladores;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -46,8 +47,22 @@ public class CirugiaController implements Serializable {
 	private List<TipoCirugia> tipoCirugias;
 
 	private List<Cirugia> cirugias;
+	
+	private ArrayList<Cirugia> filtroCirugias = new ArrayList<Cirugia>();
 
 	private boolean busco = false;
+	
+	
+
+	public ArrayList<Cirugia> getFiltroCirugias() {
+		return filtroCirugias;
+	}
+
+
+	public void setFiltroCirugias(ArrayList<Cirugia> filtroCirugias) {
+		this.filtroCirugias = filtroCirugias;
+	}
+
 
 	public List<Cirugia> getCirugias() {
 		return cirugias;
