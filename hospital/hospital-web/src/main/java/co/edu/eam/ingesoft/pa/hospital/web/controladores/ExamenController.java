@@ -6,11 +6,14 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import org.hibernate.validator.constraints.Length;
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
+import org.primefaces.component.datatable.DataTable;
+import org.primefaces.context.RequestContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.Examen;
 import co.edu.eam.ingesoft.hospital.entidades.TipoExamen;
@@ -160,10 +163,20 @@ public class ExamenController implements Serializable {
 			examenEJB.eliminarExamen(exa.getCodigo());
 			Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE EL EXAMEN");
 			examenes = examenEJB.listarExamenes();
+			resetearFitrosTabla("tablaExamenes");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
+	
+	/**
+	 * 
+	 * @param id
+	 */
+	public void resetearFitrosTabla(String id) {
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+		requestContext.execute("PF('vtWidget').clearFilters()");
+    }
 
 	/**
 	 * 

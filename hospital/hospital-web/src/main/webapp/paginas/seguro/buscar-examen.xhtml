@@ -17,14 +17,13 @@
 
 				<p:dataTable id="tablaExamenes" value="#{examenController.examenes}"
 					var="exa" border="1"
-					filteredValue="#{examenController.filtroExamenes}"
-					emptyMessage="Sin Coincidencias">
+					emptyMessage="Sin Coincidencias" widgetVar="vtWidget">
 
 					<p:column headerText="Codigo">
 						<h:outputLabel value="#{exa.codigo}" />
 					</p:column>
 
-					<p:column headerText="Nombre" filterBy="#{exa.nombre}"
+					<p:column headerText="Nombre" footerText="contains" sortBy="#{exa.nombre}" filterBy="#{exa.nombre}"
 						filterMatchMode="contains">
 						<h:outputLabel value="#{exa.nombre}" />
 					</p:column>
@@ -39,7 +38,7 @@
 
 					<p:column headerText="Acciones">
 						<p:commandButton action="#{examenController.eliminar(exa)}"
-							process="@this" value="Eliminar" update="panelexamen tablaExamenes" />
+							process="@this" value="Eliminar" update="panelexamen tablaExamenes"/>
 
 						<p:commandButton action="#{examenController.editar(exa)}"
 							process="@this,panelexamen" value="Modificar"
