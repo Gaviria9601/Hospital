@@ -3,37 +3,38 @@ package co.edu.eam.ingesoft.hospital.entidades;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name=Tratamiento.LISTAR_TRATAMIENTO,query="select tra from Tratamiento tra")
+})
 @Table(name="TRATAMIENTO")
 public class Tratamiento {
+	
+	public static final String LISTAR_TRATAMIENTO = "ListarTratamiento";
 	
 	@Id
     @Column(name = "codigo")
 	private Integer codigo;
 	
-	@Column(name = "tipo", length =50)
-	private String tipo;
+	@Column(name = "descripcion")
+	private String descripcion;
 	
-    @Column(name = "farmacos_aplicar", length =500,nullable = false)
-	private String farmacosAplicar;
-
-    @Column(name = "problema", length =500, nullable = false)
-	private String problema;
-
+    
 
     public Tratamiento(){
     	super();
     }
 
+	public String getDescripcion() {
+		return descripcion;
+	}
 
-	public Tratamiento(Integer codigo, String tipo, String farmacosAplicar, String problema) {
-		super();
-		this.codigo = codigo;
-		this.tipo = tipo;
-		this.farmacosAplicar = farmacosAplicar;
-		this.problema = problema;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 
@@ -46,35 +47,6 @@ public class Tratamiento {
 		this.codigo = codigo;
 	}
 
-
-	public String getTipo() {
-		return tipo;
-	}
-
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-
-	public String getFarmacosAplicar() {
-		return farmacosAplicar;
-	}
-
-
-	public void setFarmacosAplicar(String farmacosAplicar) {
-		this.farmacosAplicar = farmacosAplicar;
-	}
-
-
-	public String getProblema() {
-		return problema;
-	}
-
-
-	public void setProblema(String problema) {
-		this.problema = problema;
-	}
 
 
 	@Override

@@ -1,5 +1,7 @@
 package co.edu.eam.ingesoft.pa.negocio.beans;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -88,6 +90,14 @@ public class TratamientoEJB {
 	public void eliminar(Integer codigoTratamiento,Integer codigoPatologia){
 		itemTratamientoPK itemPK = new itemTratamientoPK(codigoPatologia, codigoTratamiento);
 		em.remove(em.find(ItemTratamiento.class, itemPK));
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Tratamiento> listarTratamientos(){
+		return (List<Tratamiento>) em.createNamedQuery(Tratamiento.LISTAR_TRATAMIENTO).getResultList();
 	}
 	
 }

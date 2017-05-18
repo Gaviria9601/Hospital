@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D09FBFF6-FFDB-2545-8D3E-9AC23BDE4E0A" name="item_causa">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-17 22:08:58 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<ordsAlias>table_36</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Patologia_Codigo" id="455F13DF-7494-24F6-820C-EBE59B39C0EF">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-17 22:10:31 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AB69120F-DD1E-026B-03E0-DC962347B5BF" referredColumn="5C1E2F2C-4741-EFBD-65EB-AFBD48876629"/>
+</associations>
+</Column>
+<Column name="Causa_codigo" id="450193A7-51DF-6F44-BCD1-3DCB54B8DF73">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-17 22:10:41 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C73E608F-43EF-C455-A280-FBCA7516C7B7" referredColumn="602BBFE3-B40E-8487-41AB-6ABACD2C339B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1EE47AD9-0007-9F14-0DB9-3119F97CD934" name="item_causa_PK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-17 22:10:58 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="455F13DF-7494-24F6-820C-EBE59B39C0EF"/>
+<colUsage columnID="450193A7-51DF-6F44-BCD1-3DCB54B8DF73"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3C508D9D-1B3B-066D-17AE-58D372AC605B" name="item_causa_Patologia_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-17 22:10:31 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="455F13DF-7494-24F6-820C-EBE59B39C0EF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5532D62E-548C-1164-8DD0-14F29F169745" name="item_causa_Causa_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-17 22:10:41 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="450193A7-51DF-6F44-BCD1-3DCB54B8DF73"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

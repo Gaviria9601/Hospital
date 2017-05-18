@@ -5,37 +5,31 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@NamedQueries({
-	@NamedQuery(name=Sintoma.LISTAR_SINTOMAS,query="select sin from Sintoma sin")
-})
-@Table(name="SINTOMA")
-public class Sintoma implements Serializable{
-	
-	public static final String LISTAR_SINTOMAS = "ListarSintomas";
+@Table(name="Causa")
+public class Causa implements Serializable {
 	
 	@Id
-    @Column(name = "codigo")
+	@Column(name="codigo")
 	private Integer codigo;
 	
-    @Column(name = "descripcion")
+	@Column(name="descripcion")
 	private String descripcion;
-    
 
-	public Sintoma(){
-		super();
+	public Causa() {
+		// TODO Auto-generated constructor stub
 	}
-    
-    public Sintoma(Integer codigo,String descripcion) {
+	
+	
+	public Causa(Integer codigo, String descripcion) {
 		super();
 		this.codigo = codigo;
 		this.descripcion = descripcion;
 	}
-	
+
+
 
 	public Integer getCodigo() {
 		return codigo;
@@ -53,7 +47,6 @@ public class Sintoma implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	
 
 	@Override
 	public int hashCode() {
@@ -63,6 +56,7 @@ public class Sintoma implements Serializable{
 		return result;
 	}
 
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -71,7 +65,7 @@ public class Sintoma implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Sintoma other = (Sintoma) obj;
+		Causa other = (Causa) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
@@ -79,7 +73,7 @@ public class Sintoma implements Serializable{
 			return false;
 		return true;
 	}
+	
 
-    
-
+	
 }

@@ -1,0 +1,201 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+
+		<h2 class="title-style-1">
+			Ingresar Patologia al Sistema<span class="title-under"></span>
+		</h2>
+
+		<h:form prependId="false">
+			<p:wizard id="wiza" showNavBar="false" widgetVar="terminationWizard">
+				<p:tab id="patologia" title="Patologia">
+					<p:panel header="Detalles Patologia">
+						<p:panelGrid columns="3" cellpadding="3" styleClass="ui-noborder">
+
+							<p:outputLabel for="tfnombre" id="lblnombre" value="Nombre " />
+							<p:inputText id="tfnombre" cols="50" style="width: 100%;"
+								value="#{patologiaController.nombre}" />
+							<p:message for="tfnombre" />
+
+
+							<p:outputLabel for="tfdescripcion" id="lbldescripcion"
+								value="Descripción " />
+							<p:inputTextarea rows="5" cols="50" id="tfdescripcion"
+								value="#{patologiaController.descripcion}" />
+							<p:message for="tfdescripcion" />
+
+						</p:panelGrid>
+					</p:panel>
+					
+					<p:commandButton value="Next" icon="ui-icon-arrow-1-e"
+						iconPos="left" onclick="PF('terminationWizard').next();"
+						widgetVar="stepForward" />
+				</p:tab>
+
+				<p:tab id="causa" title="Causas">
+					<p:panel header="Detalles Causas">
+						<p:panelGrid columns="3" cellpadding="3" styleClass="ui-noborder">
+
+							<p:outputLabel for="tfdescripcioncausa" id="lbldescripcioncausa"
+								value="Descripción " />
+							<p:inputText id="tfdescripcioncausa" cols="50"
+								style="width: 100%;"
+								value="#{patologiaController.descripcionCausa}" />
+							<p:message for="tfdescripcioncausa" />
+
+						</p:panelGrid>
+
+						<p:commandButton id="btnagreCau" value="Agregar"
+							process="@this,causa" update="causa,causas"
+							action="#{patologiaController.agregarCausa}" />
+
+						<p:commandButton id="btnlimpiarCau" value="Limpiar Campos"
+							process="@this" update="causa"
+							action="#{patologiaController.limpiarCamposCausa}" />
+
+					</p:panel>
+
+					<p:outputPanel id="causas">
+						<p:dataTable value="#{patologiaController.causas}" var="cau"
+							id="causaTable">
+
+							<p:column headerText="Codigo">
+								<h:outputText value="#{sinto.codigo}" />
+							</p:column>
+
+							<p:column headerText="Descripción">
+								<h:outputText value="#{cau.descripcion}" />
+							</p:column>
+
+							<p:column headerText="Acción">
+								<p:commandLink value="Quitar" update="causas" process="@this"
+									action="#{patologiaController.quitarCausa(cau)}">
+								</p:commandLink>
+							</p:column>
+
+						</p:dataTable>
+					</p:outputPanel>
+					<p:commandButton widgetVar="stepBackward" value="Back"
+						icon="ui-icon-arrow-1-w" iconPos="right"
+						onclick="PF('terminationWizard').back()" />
+					<p:commandButton value="Next" icon="ui-icon-arrow-1-e"
+						iconPos="left" onclick="PF('terminationWizard').next();"
+						widgetVar="stepForward" />
+
+				</p:tab>
+
+
+
+				<p:tab id="sintoma" title="Sintomas">
+					<p:panel header="Detalles Sintomas">
+						<p:panelGrid columns="3" cellpadding="3" styleClass="ui-noborder">
+
+							<p:outputLabel for="tfdescripcionSintoma"
+								id="lbldescripcionSintoma" value="Descripción " />
+							<p:inputText id="tfdescripcionSintoma" cols="50"
+								style="width: 100%;"
+								value="#{patologiaController.descripcionSintoma}" />
+							<p:message for="tfdescripcionSintoma" />
+
+						</p:panelGrid>
+
+						<p:commandButton id="btnagreSint" value="Agregar"
+							process="@this,sintoma" update="sintoma,sintomas"
+							action="#{patologiaController.agregarSintoma}" />
+
+						<p:commandButton id="btnlimpiarSin" value="Limpiar Campos"
+							process="@this" update="sintoma"
+							action="#{patologiaController.limpiarCamposSintoma}" />
+
+					</p:panel>
+
+					<p:outputPanel id="sintomas">
+						<p:dataTable value="#{patologiaController.sintomas}" var="sinto"
+							id="sintomaTable">
+
+							<p:column headerText="Codigo">
+								<h:outputText value="#{sinto.codigo}" />
+							</p:column>
+
+							<p:column headerText="Descripción">
+								<h:outputText value="#{sinto.descripcion}" />
+							</p:column>
+
+							<p:column headerText="Acción">
+								<p:commandLink value="Quitar" update="sintomas" process="@this"
+									action="#{patologiaController.quitarSintoma(sinto)}">
+								</p:commandLink>
+							</p:column>
+
+						</p:dataTable>
+					</p:outputPanel>
+					<p:commandButton widgetVar="stepBackward" value="Back"
+						icon="ui-icon-arrow-1-w" iconPos="right"
+						onclick="PF('terminationWizard').back()" />
+					<p:commandButton value="Next" icon="ui-icon-arrow-1-e"
+						iconPos="left" onclick="PF('terminationWizard').next();"
+						widgetVar="stepForward" />
+				</p:tab>
+
+				<p:tab id="tratamiento" title="Tratamientos">
+					<p:panel header="Detalles Tratamientos">
+						<p:panelGrid columns="3" cellpadding="3" styleClass="ui-noborder">
+
+							<p:outputLabel for="tfdescripcionTratamiento"
+								id="lbldescripcionTratamiento" value="Descripción " />
+							<p:inputText id="tfdescripcionTratamiento" cols="50"
+								style="width: 100%;"
+								value="#{patologiaController.descripcionTratamiento}" />
+							<p:message for="tfdescripcionTratamiento" />
+
+							<p:commandButton id="btnagreTrata" value="Agregar"
+								process="@this,sintoma" update="sintoma,sintomas"
+								action="#{patologiaController.agregarSintoma}" />
+
+							<p:commandButton id="btnlimpiarTrata" value="Limpiar Campos"
+								process="@this" update="tratamiento"
+								action="#{patologiaController.limpiarCamposTratamiento}" />
+
+
+
+						</p:panelGrid>
+					</p:panel>
+
+					<p:outputPanel id="tratamientos">
+						<p:dataTable value="#{patologiaController.tratamientos}"
+							var="trata" id="trataTable">
+
+							<p:column headerText="Codigo">
+								<h:outputText value="#{trata.codigo}" />
+							</p:column>
+
+							<p:column headerText="Descripcion">
+								<h:outputText value="#{trata.descripcion}" />
+							</p:column>
+
+							<p:column headerText="Acción">
+								<p:commandLink value="Quitar" update="tratamientos"
+									process="@this"
+									action="#{patologiaController.quitarTratamiento(trata)}">
+								</p:commandLink>
+							</p:column>
+
+						</p:dataTable>
+					</p:outputPanel>
+					<p:commandButton widgetVar="stepBackward" value="Back"
+						icon="ui-icon-arrow-1-w" iconPos="right"
+						onclick="PF('terminationWizard').back()" />
+				</p:tab>
+
+
+			</p:wizard>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
