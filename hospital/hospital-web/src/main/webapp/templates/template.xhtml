@@ -126,8 +126,19 @@
 										href="#{request.contextPath}/paginas/seguro/inicio.xhtml">Inicio</a></li>
 								</h:panelGroup>
 								<h:panelGroup rendered="#{sessionControl.sesionFarmaceutico}">
-									<li><a href="#">Gestión Medicamentos</a></li>
+									
+									<li class="has-child"><a href="#">Gestión Medicamento</a>
+										<ul class="submenu">
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/crear-Medicamento.xhtml">
+													Crear Medicamento </a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/medicamento.xhtml">
+													Buscar medicamento</a></li>
+										</ul></li>
 								</h:panelGroup>
+								
+								
 								<h:panelGroup rendered="#{sessionControl.sesionAdmin}">
 									<li class="has-child"><a href="#">Gestión Medico</a>
 										<ul class="submenu">
@@ -141,6 +152,27 @@
 												href="#{request.contextPath}/paginas/seguro/asignar-especializacion.xhtml">Asignar
 													especialización </a></li>
 										</ul></li>
+										
+										<li class="has-child"><a href="#">Gestión Paciente</a>
+										<ul class="submenu">
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/crear-Paciente.xhtml">
+													Crear paciente </a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/paciente.xhtml">
+													Buscar paciente </a></li>
+										</ul></li>
+										
+										<li class="has-child"><a href="#">Gestión Farmaceutico</a>
+										<ul class="submenu">
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/crear-Farmaceutico.xhtml">
+													Crear Farmaceutico </a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/farmaceutico.xhtml">
+													Buscar farmaceutico</a></li>
+										</ul></li>
+											
 									<li class="has-child"><a href="#">Gestión Instalación</a>
 										<ul class="submenu">
 											<li class="submenu-item"><a href="#">Quirofano </a></li>
@@ -153,10 +185,7 @@
 											<li class="submenu-item"><a href="#">Sintoma </a></li>
 											<li class="submenu-item"><a href="#">Tratamiento </a></li>
 										</ul></li>
-									<li class="submenu-item"><a href="#">Gestión Paciente</a></li>
-									<li class="submenu-item"><a href="#">Gestión
-											Farmaceutico</a></li>
-
+								
 								</h:panelGroup>
 								<h:panelGroup rendered="#{sessionControl.sesionMedico}">
 									<li class="has-child"><a href="#">Gestión Cita
@@ -257,7 +286,7 @@
 
 				<div class="item ">
 
-					<img src="#{request.contextPath}/assets/images/slider/hospi5.jpg"
+					<img src="#{request.contextPath}/assets/images/med.jpg"
 						alt="" />
 					<div class="container">
 
