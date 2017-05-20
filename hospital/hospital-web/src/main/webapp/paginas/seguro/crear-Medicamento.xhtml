@@ -1,0 +1,84 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h2 class="title-style-1">
+				Ingresar medicamento al sistema<span class="title-under"></span>
+			</h2>
+
+			<p:panel id="basic" header="Datos" style="margin-bottom:20px"
+				toggleable="true" toggleSpeed="500">
+				<p:panelGrid id="paneldatos" columns="6" cellpadding="5"
+					styleClass="ui-noborder">
+
+					<p:outputLabel for="tfnombre" id="lblnombre" value="Nombre:" />
+					<p:inputText id="tfnombre" value="#{MedicamentosControlador.nombre}" />
+					<p:message for="tfnombre" />
+					
+					<p:outputLabel for="tffecha1"  value="Fecha expedición:" />
+					<p:inputText id="tffecha1" value="#{MedicamentosControlador.fecha_expedicion}" 
+					mode="inline">
+					<f:convertDateTime pattern = "dd-MM-yyyy" />
+					</p:inputText>
+					<p:message for="tffecha1" />
+
+					<p:outputLabel for="tffecha2"  value="Fecha expiración:" />
+					<p:inputText id="tffecha2" value="#{MedicamentosControlador.fecha_expiracion}" 
+					mode="inline">
+					<f:convertDateTime pattern = "dd-MM-yyyy" />
+					</p:inputText>
+					<p:message for="tffecha2" />
+
+					<p:outputLabel for="laboratorio" id="lbllaboratorio"
+						value="Laboratorio:" />
+					<h:selectOneMenu id="laboratorio"
+						value="#{MedicamentosControlador.laboratorio}">
+						
+						<f:selectItems value="#{MedicamentosControlador.tipos}"
+						     >
+						</f:selectItems>
+					</h:selectOneMenu>
+					<p:message for="laboratorio" />
+
+					<p:outputLabel for="tfcantidad" id="lblcantidad" value="Cantidad:" />
+					<p:inputText id="tfcantidad" value="#{MedicamentosControlador.cantidad}" />
+					<p:message for="tfcantidad" />
+
+					<p:outputLabel for="cbtestado" id="lblestado" value="Estado:" />
+					<h:selectOneMenu id="cbtestado" value="#{MedicamentosControlador.estado}">
+					     <f:selectItem itemValue="true" itemLabel="Disponible" />
+						<f:selectItem itemValue="false" itemLabel="No Disponible" />
+					</h:selectOneMenu>
+					
+					
+				</p:panelGrid>
+			</p:panel>
+
+			<p:panel id="botones" header="Acciones" style="margin-bottom:20px"
+				toggleable="true" toggleSpeed="500">
+				<p:panelGrid id="panelbotones" columns="3" styleClass="ui-noborder">
+
+					<p:commandButton id="btncrear" value="Ingresar Medicamento al sistema"
+						process="@this,paneldatos" update="paneldatos"
+						action="#{MedicamentosControlador.crearMedicamento}" />
+
+					<p:commandButton id="btnlimpiar" value="Limpiar Campos"
+						process="@this" update="paneldatos"
+						 />
+
+
+
+				</p:panelGrid>
+
+			</p:panel>
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

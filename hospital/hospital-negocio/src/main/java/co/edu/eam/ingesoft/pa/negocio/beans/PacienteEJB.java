@@ -58,7 +58,7 @@ public class PacienteEJB {
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void modificarPaciente(Paciente pa){
 		Paciente p =buscarPaciente(pa.getCedula());
-		if(p==null){
+		if(p!=null){
 				em.merge(pa);
 		}else {
 			throw new ExcepcionNegocio("Ya esta esta cedula de usuario registrado");

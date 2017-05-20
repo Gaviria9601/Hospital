@@ -7,15 +7,15 @@ import javax.persistence.Embeddable;
 
 public class OrdenMedicamentoPK implements Serializable {
 	
-	private Integer citaCodigo;
+	private int citaCodigo;
 
-	private Integer medicamentosCodigo;
+	private int medicamentosCodigo;
 	
 	public OrdenMedicamentoPK() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrdenMedicamentoPK(Integer citaCodigo, Integer medicamentosCodigo) {
+	public OrdenMedicamentoPK(int citaCodigo, int medicamentosCodigo) {
 		super();
 		this.citaCodigo = citaCodigo;
 		this.medicamentosCodigo = medicamentosCodigo;
@@ -43,8 +43,8 @@ public class OrdenMedicamentoPK implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((citaCodigo == null) ? 0 : citaCodigo.hashCode());
-		result = prime * result + ((medicamentosCodigo == null) ? 0 : medicamentosCodigo.hashCode());
+		result = prime * result + citaCodigo;
+		result = prime * result + medicamentosCodigo;
 		return result;
 	}
 
@@ -57,18 +57,14 @@ public class OrdenMedicamentoPK implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		OrdenMedicamentoPK other = (OrdenMedicamentoPK) obj;
-		if (citaCodigo == null) {
-			if (other.citaCodigo != null)
-				return false;
-		} else if (!citaCodigo.equals(other.citaCodigo))
+		if (citaCodigo != other.citaCodigo)
 			return false;
-		if (medicamentosCodigo == null) {
-			if (other.medicamentosCodigo != null)
-				return false;
-		} else if (!medicamentosCodigo.equals(other.medicamentosCodigo))
+		if (medicamentosCodigo != other.medicamentosCodigo)
 			return false;
 		return true;
 	}
+
+	
 
 	
 	
