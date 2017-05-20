@@ -20,7 +20,7 @@ public class Sintoma implements Serializable{
 	
 	@Id
     @Column(name = "codigo")
-	private Integer codigo;
+	private int codigo;
 	
     @Column(name = "descripcion")
 	private String descripcion;
@@ -53,13 +53,11 @@ public class Sintoma implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + codigo;
 		return result;
 	}
 
@@ -72,14 +70,14 @@ public class Sintoma implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Sintoma other = (Sintoma) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
-				return false;
-		} else if (!codigo.equals(other.codigo))
+		if (codigo != other.codigo)
 			return false;
 		return true;
 	}
 
+	
+
+	
     
 
 }

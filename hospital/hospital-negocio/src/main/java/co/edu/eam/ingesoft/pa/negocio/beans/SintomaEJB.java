@@ -43,7 +43,7 @@ public class SintomaEJB {
 	 * @return
 	 */
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public Sintoma buscarSintoma(String codigo){
+	public Sintoma buscarSintoma(int codigo){
 		return em.find(Sintoma.class, codigo);
 	}
 	
@@ -100,6 +100,17 @@ public class SintomaEJB {
 	 */
 	public List<Sintoma> listarSintomas(){
 		return (List<Sintoma>) em.createNamedQuery(Sintoma.LISTAR_SINTOMAS).getResultList();
+	}
+	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 */
+	public List<Sintoma> listarSintomasPatologia(Integer codigo){
+		return (List<Sintoma>) em.createNativeQuery("select sin.* from Sintoma sin "
+				+ " join Item_Sintoma im on sin.codigo = im.sintoma_Codigo join Patologia pa on pa.codigo = " +
+				" im.patologia_Codigo where im.patologia_Codigo = ?1",Sintoma.class).setParameter(1, codigo);
 	}
 	
 }

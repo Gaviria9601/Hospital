@@ -21,6 +21,7 @@ public class PatologiaEJB {
 	 * 
 	 * @param pato
 	 */
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void crearPatologia(Patologia pato){
 		em.persist(pato);
 	}
@@ -31,8 +32,17 @@ public class PatologiaEJB {
 	 * @return
 	 */
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public Patologia buscarPatologia(String codigo){
+	public Patologia buscarPatologia(int codigo){
 		return em.find(Patologia.class, codigo);
+	}
+	
+	/**
+	 * 
+	 * @param nombre
+	 * @return
+	 */
+	public Patologia buscarPatologiaNom(String nombre){
+		return (Patologia)em.createNamedQuery(Patologia.Buscar_PATOLOGIA).setParameter(1, nombre).getSingleResult();
 	}
 	
 	/**

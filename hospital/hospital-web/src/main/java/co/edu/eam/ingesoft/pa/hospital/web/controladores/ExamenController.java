@@ -200,6 +200,7 @@ public class ExamenController implements Serializable {
 		examen.setTiempoEstimado(tiempoestimado);
 		examen.setTipo(CitaAvanzadaEnum.Examen);
 		examen.setTipoExamen(tipoExamen);
+		examenEJB.editarExamen(examen);
 		Messages.addGlobalInfo("EL EXAMEN FUE MODIFICADO CORRECTAMENTE");
 		limpiar();
 	}

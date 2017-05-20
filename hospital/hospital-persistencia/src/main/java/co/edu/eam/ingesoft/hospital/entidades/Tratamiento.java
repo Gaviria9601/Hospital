@@ -18,7 +18,7 @@ public class Tratamiento {
 	
 	@Id
     @Column(name = "codigo")
-	private Integer codigo;
+	private int codigo;
 	
 	@Column(name = "descripcion")
 	private String descripcion;
@@ -47,16 +47,13 @@ public class Tratamiento {
 		this.codigo = codigo;
 	}
 
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + codigo;
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -67,13 +64,11 @@ public class Tratamiento {
 		if (getClass() != obj.getClass())
 			return false;
 		Tratamiento other = (Tratamiento) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
-				return false;
-		} else if (!codigo.equals(other.codigo))
+		if (codigo != other.codigo)
 			return false;
 		return true;
 	}
-    
+
+
     
 }

@@ -26,6 +26,9 @@
         <dependent-module archiveName="hospital-persistencia.jar" deploy-path="/lib" handle="module:/resource/hospital-persistencia/hospital-persistencia">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="google-collect.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/google/common/google-collect/0.5/google-collect-0.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="hospital-web.war" deploy-path="/" handle="module:/resource/hospital-web/hospital-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>

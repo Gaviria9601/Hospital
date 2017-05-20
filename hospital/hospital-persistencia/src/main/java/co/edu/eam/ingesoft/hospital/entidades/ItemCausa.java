@@ -16,7 +16,7 @@ public class ItemCausa implements Serializable {
 
 	@Id
 	@ManyToOne
-	@JoinColumn(name="patologa_codigo")
+	@JoinColumn(name="patologia_codigo")
 	private Patologia patologia;
 	
 	@Id

@@ -8,6 +8,7 @@
 	</parent>
 	<artifactId>hospital-web</artifactId>
 	<packaging>war</packaging>
+
 	<dependencies>
 		<dependency>
 			<groupId>co.edu.eam.ingesoft.proyecto</groupId>

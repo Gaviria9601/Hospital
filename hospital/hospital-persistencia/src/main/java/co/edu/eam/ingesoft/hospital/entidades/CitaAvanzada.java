@@ -31,7 +31,7 @@ public class CitaAvanzada implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
-	@SequenceGenerator(name = "id_Sequence", sequenceName = "Cita_avanzada_Codigo_SEQ",allocationSize=1)
+	@SequenceGenerator(name = "id_Sequence", sequenceName = "SEQ_CITA_AVANZADA",allocationSize=1)
 	@Column(name="codigo")
 	protected Integer codigo;
 	

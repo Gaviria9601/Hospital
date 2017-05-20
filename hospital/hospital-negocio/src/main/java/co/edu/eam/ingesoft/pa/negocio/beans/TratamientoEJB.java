@@ -9,8 +9,10 @@ import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import co.edu.eam.ingesoft.hospital.entidades.ItemSintoma;
 import co.edu.eam.ingesoft.hospital.entidades.ItemTratamiento;
 import co.edu.eam.ingesoft.hospital.entidades.Tratamiento;
+import co.edu.eam.ingesoft.hospital.entidades.itemSintomaPK;
 import co.edu.eam.ingesoft.hospital.entidades.itemTratamientoPK;
 
 @LocalBean
@@ -42,7 +44,7 @@ public class TratamientoEJB {
 	 * @return
 	 */
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-	public Tratamiento buscarTratamiento(String codigo){
+	public Tratamiento buscarTratamiento(int codigo){
 		return em.find(Tratamiento.class,codigo);
 	}
 	
@@ -94,10 +96,31 @@ public class TratamientoEJB {
 	
 	/**
 	 * 
+	 * @param codigoTratamiento
+	 * @param codigoPatologia
+	 */
+	public void eliminarItemTratamiento(Integer codigoTratamiento,Integer codigoPatologia){
+		itemTratamientoPK itemPK = new itemTratamientoPK(codigoPatologia,codigoTratamiento);
+		em.remove(em.find(ItemTratamiento.class, itemPK));
+	}
+	
+	/**
+	 * 
 	 * @return
 	 */
 	public List<Tratamiento> listarTratamientos(){
 		return (List<Tratamiento>) em.createNamedQuery(Tratamiento.LISTAR_TRATAMIENTO).getResultList();
+	}
+	
+	/**
+	 * 
+	 * @param codigo
+	 * @return
+	 */
+	public List<Tratamiento> listarTratamietoPatologia(Integer codigo){
+		return (List<Tratamiento>) em.createNativeQuery("select tra.* from Tratamiento tra "
+				+ " join Item_Tratamiento it on tra.codigo = it.tratamiento_Codigo join Patologia pa on pa.codigo = " +
+				" it.patologia_Codigo where it.patologia_Codigo = ?1",Tratamiento.class).setParameter(1, codigo);
 	}
 	
 }

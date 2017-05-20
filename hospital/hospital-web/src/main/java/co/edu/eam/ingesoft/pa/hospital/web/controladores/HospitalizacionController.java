@@ -72,7 +72,6 @@ public class HospitalizacionController implements Serializable {
 	public void crear(){
 		try{
 		Hospitalizacion hospi = new Hospitalizacion();
-		hospi.setCodigo(null);
 		hospi.setNombre(nombre);
 		hospi.setObservaciones(observaciones);
 		hospi.setTiempoEstimado(tiempoestimado);

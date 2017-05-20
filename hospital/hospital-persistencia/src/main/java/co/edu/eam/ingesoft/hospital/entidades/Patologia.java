@@ -8,18 +8,25 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name=Patologia.Buscar_PATOLOGIA,query="select pa from Patologia pa where pa.nombre=?1")
+})
 @Table(name="PATOLOGIA")
 public class Patologia implements Serializable{
 	
+	public static final String Buscar_PATOLOGIA = "BuscarPatologia";
+	
 	@Id
     @Column(name = "codigo")
-	private Integer codigo;
+	private int codigo;
 	
 	@Column(name = "nombre", length =50, nullable=false)
 	private String nombre;
@@ -32,19 +39,17 @@ public class Patologia implements Serializable{
     	super();
     }
     
-    public Patologia(Integer codigo, String nombre, String descripcion) {
-		super();
-		this.codigo = codigo;
+    public Patologia(String nombre, String descripcion) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 	}
     
-    
-	public Integer getCodigo() {
+
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
@@ -64,13 +69,11 @@ public class Patologia implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + codigo;
 		return result;
 	}
 
@@ -83,12 +86,13 @@ public class Patologia implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Patologia other = (Patologia) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
-				return false;
-		} else if (!codigo.equals(other.codigo))
+		if (codigo != other.codigo)
 			return false;
 		return true;
 	}
 
+	
+	
+
+	
 }

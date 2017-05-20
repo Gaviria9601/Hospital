@@ -5,15 +5,22 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name=Causa.LISTAR_CAUSAS,query="select ca from Causa ca")
+})
 @Table(name="Causa")
 public class Causa implements Serializable {
 	
+	public static final String LISTAR_CAUSAS = "ListarCausas";
+	
 	@Id
 	@Column(name="codigo")
-	private Integer codigo;
+	private int codigo;
 	
 	@Column(name="descripcion")
 	private String descripcion;
@@ -52,7 +59,7 @@ public class Causa implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + codigo;
 		return result;
 	}
 
@@ -66,14 +73,10 @@ public class Causa implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Causa other = (Causa) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
-				return false;
-		} else if (!codigo.equals(other.codigo))
+		if (codigo != other.codigo)
 			return false;
 		return true;
 	}
-	
 
 	
 }

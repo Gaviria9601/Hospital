@@ -30,6 +30,13 @@ a:hover, a:focus, a:active {
   color: inherit;
 }
 
+.ui-selectonemenu{
+     width: auto !important;
+}
+.ui-selectonemenu-label{
+     width: auto !important;
+}  
+
 /* =============================================================================
   Layout
 ========================================================================== */
