@@ -7,9 +7,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -22,6 +25,8 @@ import javax.persistence.Table;
 public class Instalacion implements Serializable{
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequencee")
+	@SequenceGenerator(name = "id_Sequencee", sequenceName = "SEQ_INSTALACION",allocationSize=1)
 	@Column(name = "codigo")
 	protected Integer codigo;
 	
@@ -39,9 +44,8 @@ public class Instalacion implements Serializable{
 		
 	}
 
-	public Instalacion(Integer codigo, boolean disponibilidad, String observacionDisponible, String tipo) {
+	public Instalacion(boolean disponibilidad, String observacionDisponible, String tipo) {
 		super();
-		this.codigo = codigo;
 		this.disponibilidad = disponibilidad;
 		this.observacionDisponible = observacionDisponible;
 		this.tipo = tipo;
@@ -129,7 +133,6 @@ public class Instalacion implements Serializable{
 		return true;
 	}
 
-
-
+	
 	
 }

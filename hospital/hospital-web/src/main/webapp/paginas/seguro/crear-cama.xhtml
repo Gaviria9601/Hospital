@@ -1,0 +1,63 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h2 class="title-style-1">
+				Ingresar Cama al sistema<span class="title-under"></span>
+			</h2>
+			
+			<p:panel id="basic" header="Datos" style="margin-bottom:20px"
+				toggleable="true" toggleSpeed="500">
+				<p:panelGrid id="paneldatos" columns="6" cellpadding="5"
+					styleClass="ui-noborder">
+
+					<p:outputLabel for="tfnumero" id="lblnumero" value="Numero de la cama:" />
+					<p:inputText id="tfnumero" value="#{ControladorCama.numero}" />
+					<p:message for="tfnumero" />
+
+					<p:outputLabel for="cbHabi" id="lblesp"
+						value="Habitación a asignar: " />
+						
+					<h:selectOneMenu id="cbHabi"
+						value="#{ControladorCama.habitacion}">
+
+						<f:selectItems
+							value="#{ControladorCama.habitaciones}" var="e"
+							itemValue="#{e.numero}" itemLabel="#{e.numero}" />
+					</h:selectOneMenu>
+					<br></br>
+
+					<p:outputLabel for="tfdesc" id="lbldesc" value="Descripción:" />
+					<p:inputTextarea id="tfdesc"
+						value="#{ControladorCama.descripcion}" />
+					<p:message for="tfdesc" />
+				</p:panelGrid>
+			</p:panel>
+
+
+			<p:panel id="botones" header="Acciones" style="margin-bottom:20px"
+				toggleable="true" toggleSpeed="500">
+				<p:panelGrid id="panelbotones" columns="3" styleClass="ui-noborder">
+
+					<p:commandButton id="btncrear" value="Ingresar cama al sistema"
+						process="@this,paneldatos" update="paneldatos"
+						action="#{ControladorCama.crear}" />
+
+					<p:commandButton id="btnlimpiar" value="Limpiar Campos"
+						process="@this" update="paneldatos"
+						action="#{ControladorCama.limpiar}" />
+
+				</p:panelGrid>
+
+			</p:panel>
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

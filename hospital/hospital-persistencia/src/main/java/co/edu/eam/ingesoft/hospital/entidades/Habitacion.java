@@ -8,19 +8,27 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
  * @author Alejandro Ortega
  *
  */
+@NamedQueries({
+	@NamedQuery(name = Habitacion.buscarhabitacion, query = "select e from Habitacion e where e.numero=?1"),
+	@NamedQuery(name = Habitacion.listarHabitaciones, query = "select e from Habitacion e")})
 @Entity
 @Table(name="Habitacion")
 public class Habitacion implements Serializable {
+	
+	public static final String buscarhabitacion = "buscarhab";
+	public static final String listarHabitaciones = "listarhab";
 
 	@Id
 	@Column(name="codigo")
-	private Integer codigo;
+	private int codigo;
 	
 	@Column(name="numero", nullable=false)
 	private int numero;
@@ -46,12 +54,12 @@ public class Habitacion implements Serializable {
 	
 	
 
-	public Integer getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
@@ -99,15 +107,24 @@ public class Habitacion implements Serializable {
 	}
 
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result + codigo;
+		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
+		result = prime * result + numero;
+		result = prime * result + piso;
 		return result;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -117,15 +134,20 @@ public class Habitacion implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Habitacion other = (Habitacion) obj;
-		if (codigo == null) {
-			if (other.codigo != null)
+		if (codigo != other.codigo)
+			return false;
+		if (descripcion == null) {
+			if (other.descripcion != null)
 				return false;
-		} else if (!codigo.equals(other.codigo))
+		} else if (!descripcion.equals(other.descripcion))
+			return false;
+		if (numero != other.numero)
+			return false;
+		if (piso != other.piso)
 			return false;
 		return true;
 	}
 
-	
-	
+
 	
 }

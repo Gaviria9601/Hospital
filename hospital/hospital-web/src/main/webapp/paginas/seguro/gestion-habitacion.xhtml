@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h2 class="title-style-1">
+				Ingresar habitación al sistema<span class="title-under"></span>
+			</h2>
+
+			<p:panel id="basic" header="Datos" style="margin-bottom:20px"
+				toggleable="true" toggleSpeed="500">
+				<p:panelGrid id="paneldatos" columns="6" cellpadding="5"
+					styleClass="ui-noborder">
+
+					<p:outputLabel for="tfnumero" id="lblnumero" value="Numero:" />
+					<p:inputText id="tfnumero" value="#{ControladorHabitacion.numero}" />
+					<p:message for="tfnumero" />
+
+					<p:outputLabel for="tfPiso" id="lblPiso" value="Piso:" />
+					<p:spinner id="tfPiso" value="#{ControladorHabitacion.piso}" />
+					<p:message for="tfPiso" />
+
+					<p:outputLabel for="tfdesc" id="lbldesc" value="Descripción:" />
+					<p:inputTextarea id="tfdesc"
+						value="#{ControladorHabitacion.descripcion}" />
+					<p:message for="tfdesc" />
+				</p:panelGrid>
+			</p:panel>
+
+
+			<p:panel id="botones" header="Acciones" style="margin-bottom:20px"
+				toggleable="true" toggleSpeed="500">
+				<p:panelGrid id="panelbotones" columns="3" styleClass="ui-noborder">
+
+					<p:commandButton id="btncrear" value="Ingresar habitación al sistema"
+						process="@this,paneldatos" update="paneldatos"
+						action="#{ControladorHabitacion.crear}" />
+
+					<p:commandButton id="btnlimpiar" value="Limpiar Campos"
+						process="@this" update="paneldatos"
+						action="#{ControladorHabitacion.limpiar}" />
+
+				</p:panelGrid>
+
+			</p:panel>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

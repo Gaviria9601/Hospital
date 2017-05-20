@@ -1,0 +1,105 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h2 class="title-style-1">
+				Buscar cama<span class="title-under"></span>
+			</h2>
+			<p:panel id="bus" style="margin-bottom:20px">
+				<p:panelGrid id="panelbus" columns="4" cellpadding="5"
+					styleClass="ui-noborder">
+					<p:outputLabel for="tfnumero" id="lblnumero"
+						value="Numero de cama: " />
+					<p:inputText id="tfnumero" value="#{ControladorCama.numero}" />
+					<p:message for="tfnumero" />
+					<br></br>
+					<p:outputLabel for="cbHabi" id="lblhab"
+						value="Numero de habitación:" />
+					<h:selectOneMenu id="cbHabi" value="#{ControladorCama.habitacion}">
+
+						<f:selectItems value="#{ControladorCama.habitaciones}" var="e"
+							itemValue="#{e.numero}" itemLabel="#{e.numero}" />
+					</h:selectOneMenu>
+				</p:panelGrid>
+
+				<p:commandButton id="btnBuscar" value="Buscar Cama"
+					process="@this,panelbus"
+					update="paneldatos,paneloculto,paneloculto2 panelbotones,panelbus"
+					action="#{ControladorCama.buscar}" ajax="true" />
+			</p:panel>
+
+
+
+			<p:panel id="basic" header="Datos cama encontrada"
+				style="margin-bottom:20px">
+
+				<p:panelGrid id="paneldatos" columns="6" cellpadding="5"
+					styleClass="ui-noborder">
+
+					<h:panelGroup id="paneloculto" rendered="#{ControladorCama.busco}">
+
+						<p:panelGrid id="paneldatos2" columns="3" cellpadding="5"
+							styleClass="ui-noborder">
+
+							<p:outputLabel for="tfnumero2" id="lblnumero2" value="Numero de cama:" />
+							<p:inputText id="tfnumero2" value="#{ControladorCama.numero}" />
+							<p:message for="tfnumero2" />
+
+							<p:outputLabel for="tfdescrip" id="lbldesc" value="Descripción:" />
+							<p:inputTextarea id="tfdescrip" value="#{ControladorCama.descripcion}" />
+							<p:message for="tfdescrip" />
+
+							<p:outputLabel for="cbdisp" id="lbldisp" value="Disponibilidad:" />
+							<h:selectOneMenu id="cbdisp"
+						value="#{ControladorCama.disponibilidaddef}">
+						<f:selectItem itemValue="true" itemLabel="Disponible" />
+						<f:selectItem itemValue="false" itemLabel="Ocupada" />
+					</h:selectOneMenu>
+					<br></br>
+							
+							<p:outputLabel for="tfobs" id="lblobs" value="Observación:" />
+							<p:inputTextarea id="tfobs"
+								value="#{ControladorCama.observacion}" />
+							<p:message for="tfobs" />
+
+						</p:panelGrid>
+					</h:panelGroup>
+
+				</p:panelGrid>
+
+				<p:panel id="botones" style="margin-bottom:20px">
+
+					<p:panelGrid id="panelbotones" columns="3" styleClass="ui-noborder">
+						<h:panelGroup id="paneloculto2"
+							rendered="#{ControladorCama.busco}">
+
+							<p:commandButton id="btnmodif" value="Modificar habitación"
+								process="@this,paneldatos"
+								update="paneldatos paneloculto paneloculto2 panelbotones"
+								action="#{ControladorCama.modificar}" />
+
+							<p:commandButton id="btnelim" value="Eliminar habitación"
+								process="@this,paneldatos"
+								update="paneldatos paneloculto paneloculto2 panelbotones"
+								action="#{ControladorCama.eliminar}" />
+
+							<p:commandButton id="btnlimpiar" value="Limpiar Campos"
+								process="@this"
+								update="paneldatos paneloculto paneloculto2 panelbotones,panelbus"
+								action="#{ControladorCama.limpiar}" />
+						</h:panelGroup>
+					</p:panelGrid>
+				</p:panel>
+
+			</p:panel>
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

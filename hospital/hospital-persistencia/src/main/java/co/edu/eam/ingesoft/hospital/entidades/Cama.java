@@ -10,15 +10,22 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
  * @author Alejandro Ortega
  *
  */
+@NamedQueries({
+	@NamedQuery(name = Cama.buscarCama, query = "select e from Cama e where e.numero=?1 and e.habitacionCodigo.numero=?2")})
+
 @Entity
 @Table(name="Cama")
 public class Cama extends Instalacion implements Serializable{
+	
+	public static final String buscarCama = "buscarCam";
 
 	
 	@Column(name="numero", nullable=false)
@@ -38,6 +45,16 @@ public class Cama extends Instalacion implements Serializable{
 
 	public Cama(int numero,String descripcion, Habitacion habitacionCodigo) {
 		super();
+		this.numero = numero;
+		this.descripcion = descripcion;
+		this.habitacionCodigo = habitacionCodigo;
+	}
+	
+	
+
+	public Cama(boolean disponibilidad, String observacionDisponible, String tipo,
+			int numero,String descripcion, Habitacion habitacionCodigo) {
+		super(disponibilidad, observacionDisponible, tipo);
 		this.numero = numero;
 		this.descripcion = descripcion;
 		this.habitacionCodigo = habitacionCodigo;
@@ -81,6 +98,35 @@ public class Cama extends Instalacion implements Serializable{
 		this.habitacionCodigo = habitacionCodigo;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + numero;
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cama other = (Cama) obj;
+		if (numero != other.numero)
+			return false;
+		return true;
+	}
+
+	
 	
 	
 }
