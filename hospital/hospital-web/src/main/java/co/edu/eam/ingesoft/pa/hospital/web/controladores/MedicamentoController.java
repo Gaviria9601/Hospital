@@ -21,6 +21,8 @@ import co.edu.eam.ingesoft.hospital.entidades.Examen;
 import co.edu.eam.ingesoft.hospital.entidades.Farmaceutico;
 import co.edu.eam.ingesoft.hospital.entidades.Farmacia;
 import co.edu.eam.ingesoft.hospital.entidades.Medicamento;
+import co.edu.eam.ingesoft.hospital.entidades.Paciente;
+import co.edu.eam.ingesoft.hospital.enumeraciones.CitaAvanzadaEnum;
 import co.edu.eam.ingesoft.hospital.enumeraciones.EstratoEnumeracion;
 import co.edu.eam.ingesoft.hospital.enumeraciones.LaboratorioEnum;
 import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
@@ -33,6 +35,8 @@ public class MedicamentoController implements Serializable   {
 	
 	private Medicamento medi;
 	
+	@Pattern(regexp="[A-Za-z ]*",message="solo Letras")
+	@Length(min=3,max=50,message="longitud entre 3 y 50")
 	private String nombre;
 	
 	private int codigo;
@@ -242,20 +246,31 @@ public void modificarMedicamento(Medicamento exa) {
 	estado = exa.isEstado();
 	busco = true;
 }
+
+public void editar() {
+	medi.setNombre(nombre);
+	medi.setLaboratorio(laboratorio);
+	medi.setFechaExpedicion(fecha_expedicion);
+	medi.setFechaExpiracion(fecha_expiracion);
+	medi.setEstado(estado);
+	medi.setCantidad(cantidad);
+	mediEJB.editarMedicamento(medi);
+	Messages.addGlobalInfo("EL MEDICAMENTO FUE MODIFICADO CORRECTAMENTE");
+	limpiar();
+}
+
+
 /**
  * Metodo que elimina un farmaceutico
  */
-public void eliminarMedicamento(){
+public void eliminar(Medicamento exa) {
 	try {
-		Medicamento fa = mediEJB.buscarMedicamento(codigo);
-		if(fa!=null){
-			mediEJB.eliminarMedicamentos(fa);
-			Messages.addFlashGlobalInfo("MEDICAMENTO ELIMINADO EXITOSAMENTE");
-		}else{
-			Messages.addGlobalError("ERROR AL ELIMINAR");
-		}
-	} catch (ExcepcionNegocio e) {
-		Messages.addGlobalError(e.getMessage());
+		mediEJB.eliminarMedicamento(exa.getCodigo());
+		Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE EL MEDICAMENTO");
+		medicamentos = mediEJB.listarMedicamentos();
+		resetearFitrosTabla("tablaExamenes");
+	} catch (Exception e) {
+		// TODO: handle exception
 	}
 }
 

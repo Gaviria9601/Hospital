@@ -53,20 +53,15 @@ public class MedicamentosEJB {
 	 * @param med, medicamento a editar
 	 */
 	
-	public void editarMedicamentos(Medicamento med){
-		Medicamento far =buscarMedicamento(med.getCodigo());
-		if(far!=null){
-				em.merge(far);
-		}else {
-			throw new ExcepcionNegocio("Ya esta esta codigo de medicamento registrado");
-		}
+	public void editarMedicamento(Medicamento exa){
+		em.merge(exa);
 	}
 	/**
 	 * Metodo que sirve para eliminar un farmaceutico
 	 * @param codigo, codigo del farmaceutico para eliminar
 	 */
-	public void eliminarMedicamentos(Medicamento m){
-		em.remove(buscarMedicamento(m.getCodigo()));
+	public void eliminarMedicamento(Integer codigo){
+		em.remove(em.find(Medicamento.class, codigo));
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
@@ -76,7 +71,7 @@ public class MedicamentosEJB {
 	}
 	
 	public List<Medicamento> listarMedicamentos(){
-		return em.createNamedQuery(Medicamento.LISTAR_MEDI).getResultList();
+		return (List<Medicamento>)em.createNamedQuery(Medicamento.LISTAR_MEDI).getResultList();
 	}
 	
 }

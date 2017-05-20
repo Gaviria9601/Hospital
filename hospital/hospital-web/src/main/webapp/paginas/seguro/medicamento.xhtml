@@ -48,7 +48,7 @@
 					</p:column>
 
 					<p:column headerText="Acciones">
-						<p:commandButton action="#{MedicamentosControlador.eliminarMedicamento(exa)}"
+						<p:commandButton action="#{MedicamentosControlador.eliminar(exa)}"
 							process="@this" value="Eliminar" update="panelexamen tablaExamenes" />
 
 						<p:commandButton action="#{MedicamentosControlador.modificarMedicamento(exa)}"
@@ -78,31 +78,31 @@
 								value="#{MedicamentosControlador.nombre}" />
 							<p:message for="tfnombre" />
 
-							<p:outputLabel for="tfFechaExpe" id="lblFechaExpe"
-								value="Fecha de expedición" />
-							<p:inputText id="tfFechaExpe" style="width: 100%;"
-								
-								value="#{MedicamentosControlador.fecha_expedicion}" />
-							<p:message for="tfFechaExpe" />
-							
-							<p:outputLabel for="tfFechaExpi" id="lblFechaExpi"
-								value="Fecha de expiración" />
-							<p:inputText id="tfFechaExpi" style="width: 100%;"
-								
-								value="#{MedicamentosControlador.fecha_expiracion}" />
-							<p:message for="tfFechaExpi" />
+					        <p:outputLabel for="tffecha1"  value="Fecha expedición:" />
+					         <p:inputText id="tffecha1"
+					          value="#{MedicamentosControlador.fecha_expedicion}" 
+					          mode="inline">
+					         <f:convertDateTime pattern = "dd-MM-yyyy" />
+					         </p:inputText>
+					         <p:message for="tffecha1" />
+
+					        <p:outputLabel for="tffecha2"  value="Fecha expiración:" />
+					        <p:inputText id="tffecha2" 
+					        value="#{MedicamentosControlador.fecha_expiracion}" 
+					        mode="inline">
+					       <f:convertDateTime pattern = "dd-MM-yyyy" />
+					       </p:inputText>
+					       <p:message for="tffecha2" />
 
 
-							<p:outputLabel for="laboratorio" id="lbllaboratorio"
+						<p:outputLabel for="laboratorio" id="lbllaboratorio"
 						value="Laboratorio:" />
 					    <h:selectOneMenu id="laboratorio"
 						value="#{MedicamentosControlador.laboratorio}">
-						
-						<f:selectItems value="#{MedicamentosControlador.tipos}"
-						     >
-						</f:selectItems>
-					</h:selectOneMenu>
-					<p:message for="laboratorio" />
+						<f:selectItems value="#{MedicamentosControlador.tipos}">
+						  </f:selectItems>
+					      </h:selectOneMenu>
+					      <p:message for="laboratorio" />
 							
 							<p:outputLabel for="tfcantidad" id="lblcantidad" value="Cantidad" />
 							<p:inputText id="tfcantidad" cols="30" style="width: 100%;"
@@ -120,7 +120,8 @@
 							<p:commandButton id="btnmodif" value="Modificar Medicamento"
 								process="@this,paneldatos"
 								update="datosExamen,paneloculto,panelexamen"
-								action="#{MedicamentosControlador.modificarMedicamento}" />
+								action="#{MedicamentosControlador.editar}" />
+								
 
 							<p:commandButton id="btnlimpiar" value="Limpiar Campos"
 								process="@this" update="datosExamen,paneloculto"
