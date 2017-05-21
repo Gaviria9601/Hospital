@@ -15,19 +15,19 @@ import javax.persistence.Table;
 public class ItemCausa implements Serializable {
 
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade={})
 	@JoinColumn(name="patologia_codigo")
 	private Patologia patologia;
 	
 	@Id
-	@ManyToOne
+	@ManyToOne(cascade={})
 	@JoinColumn(name="causa_codigo")
 	private Causa causa;
 	
 	public ItemCausa() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public ItemCausa(Patologia patologia, Causa causa) {
 		super();
 		this.patologia = patologia;

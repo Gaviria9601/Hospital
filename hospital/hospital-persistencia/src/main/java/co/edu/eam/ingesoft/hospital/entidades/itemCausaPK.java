@@ -4,33 +4,33 @@ import java.io.Serializable;
 
 public class itemCausaPK implements Serializable{
 	
-	private Integer patologia;
+	private int patologia;
 	
-	private Integer causa;
+	private int causa;
 	
 	public itemCausaPK() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public itemCausaPK(Integer patologia, Integer causa) {
+	public itemCausaPK(int patologia, int causa) {
 		super();
 		this.patologia = patologia;
 		this.causa = causa;
 	}
 
-	public Integer getPatologia() {
+	public int getPatologia() {
 		return patologia;
 	}
 
-	public void setPatologia(Integer patologia) {
+	public void setPatologia(int patologia) {
 		this.patologia = patologia;
 	}
 
-	public Integer getCausa() {
+	public int getCausa() {
 		return causa;
 	}
 
-	public void setCausa(Integer causa) {
+	public void setCausa(int causa) {
 		this.causa = causa;
 	}
 
@@ -38,8 +38,8 @@ public class itemCausaPK implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((causa == null) ? 0 : causa.hashCode());
-		result = prime * result + ((patologia == null) ? 0 : patologia.hashCode());
+		result = prime * result + causa;
+		result = prime * result + patologia;
 		return result;
 	}
 
@@ -52,20 +52,12 @@ public class itemCausaPK implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		itemCausaPK other = (itemCausaPK) obj;
-		if (causa == null) {
-			if (other.causa != null)
-				return false;
-		} else if (!causa.equals(other.causa))
+		if (causa != other.causa)
 			return false;
-		if (patologia == null) {
-			if (other.patologia != null)
-				return false;
-		} else if (!patologia.equals(other.patologia))
+		if (patologia != other.patologia)
 			return false;
 		return true;
 	}
-	
-	
-	
 
+	
 }

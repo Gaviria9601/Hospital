@@ -35,6 +35,14 @@ public class ItemSintoma implements Serializable {
 
 	
 
+	public ItemSintoma(Sintoma sintomaCodigo, Patologia patologiaCodigo) {
+		super();
+		this.sintomaCodigo = sintomaCodigo;
+		this.patologiaCodigo = patologiaCodigo;
+	}
+
+
+
 	public Sintoma getSintomaCodigo() {
 		return sintomaCodigo;
 	}

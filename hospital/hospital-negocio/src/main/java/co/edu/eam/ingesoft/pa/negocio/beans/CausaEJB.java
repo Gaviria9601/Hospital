@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -43,6 +45,7 @@ public class CausaEJB {
 	 * 
 	 * @param itemCausa
 	 */
+	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void crearItemCausa(ItemCausa itemCausa){
 		em.persist(itemCausa);
 	}
@@ -71,8 +74,8 @@ public class CausaEJB {
 	 * @param codigoCausa
 	 * @param codigoPatologia
 	 */
-	public void eliminarItemCausa(Integer codigoCausa,Integer codigoPatologia){
-		itemCausaPK itemPK = new itemCausaPK(codigoCausa, codigoPatologia);
+	public void eliminarItemCausa(int codigoCausa,int codigoPatologia){
+		itemCausaPK itemPK = new itemCausaPK(codigoPatologia, codigoCausa);
 		em.remove(em.find(ItemCausa.class, itemPK));
 	}
 	

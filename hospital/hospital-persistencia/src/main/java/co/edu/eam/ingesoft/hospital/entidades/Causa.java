@@ -38,11 +38,11 @@ public class Causa implements Serializable {
 
 
 
-	public Integer getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 

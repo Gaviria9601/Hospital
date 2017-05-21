@@ -34,22 +34,21 @@
 						</p:panelGrid>
 					</p:panel>
 
-					<p:commandButton process="@this" update="wiza"
-						action="#{patologiaController.agregarPatologia}" value="Next"
-						icon="ui-icon-arrow-1-e" iconPos="left"
-						onclick="PF('terminationWizard').next();" widgetVar="stepForward" />
+					<p:commandButton process="@this patologia"
+						action="#{patologiaController.agregarPatologia}" value="Siguiente"
+						icon="ui-icon-arrow-1-e" iconPos="left" widgetVar="stepForward" />
 				</p:tab>
 
 				<p:tab id="causa" title="Causas">
-					<p:panel header="Detalles Causas">
+					<p:panel header="Detalles Causas #{patologiaController.nombre}">
 						<p:panelGrid columns="3" cellpadding="3" styleClass="ui-noborder">
 
 							<p:outputLabel id="lbldescripcioncausa" value="Descripción " />
 							<p:selectOneListbox id="causaOne" style="width: 700px !important"
-								value="#{patologiaController.causa}"
-								converter="causaConverter" var="c" filter="true"
-								filterMatchMode="contains">
-								<f:selectItems style="width: 700px !important" value="#{patologiaController.causas}" var="cau"
+								value="#{patologiaController.causa}" converter="causaConverter"
+								var="c" filter="true" filterMatchMode="contains">
+								<f:selectItems style="width: 700px !important"
+									value="#{patologiaController.causas}" var="cau"
 									itemLabel="#{cau.descripcion}" itemValue="#{cau}" />
 								<p:column>
 									<h:outputText value="#{c.descripcion}" />
@@ -59,7 +58,7 @@
 						</p:panelGrid>
 
 						<p:commandButton id="btnagreCau" value="Agregar"
-							process="@this causa" update="causa pcausas causaTable wiza"
+							process="@this causa" update="wiza"
 							action="#{patologiaController.agregarCausa}" />
 
 					</p:panel>
@@ -97,13 +96,14 @@
 					<p:panel header="Detalles Sintomas">
 						<p:panelGrid columns="3" cellpadding="3" styleClass="ui-noborder">
 
-							<p:outputLabel
-								id="lbldescripcionSintoma" value="Descripción " />
-							<p:selectOneListbox id="sintomaOne" style="width: 700px !important"
+							<p:outputLabel id="lbldescripcionSintoma" value="Descripción " />
+							<p:selectOneListbox id="sintomaOne"
+								style="width: 700px !important"
 								value="#{patologiaController.sintoma}"
 								converter="sintomaConverter" var="s" filter="true"
 								filterMatchMode="contains">
-								<f:selectItems style="width: 700px !important" value="#{patologiaController.sintomas}" var="sin"
+								<f:selectItems style="width: 700px !important"
+									value="#{patologiaController.sintomas}" var="sin"
 									itemLabel="#{sin.descripcion}" itemValue="#{sin}" />
 								<p:column>
 									<h:outputText value="#{s.descripcion}" />
@@ -113,14 +113,14 @@
 						</p:panelGrid>
 
 						<p:commandButton id="btnagreSint" value="Agregar"
-							process="@this,sintoma" update="sintoma,sintomas"
+							process="@this sintoma" update="wiza"
 							action="#{patologiaController.agregarSintoma}" />
 
 					</p:panel>
 
 					<p:outputPanel id="sintomas">
-						<p:dataTable value="#{patologiaController.sintomasAgre}" var="sinto"
-							id="sintomaTable">
+						<p:dataTable value="#{patologiaController.sintomasAgre}"
+							var="sinto" id="sintomaTable">
 
 							<p:column headerText="Codigo">
 								<h:outputText value="#{sinto.codigo}" />
@@ -150,13 +150,15 @@
 					<p:panel header="Detalles Tratamientos">
 						<p:panelGrid columns="3" cellpadding="3" styleClass="ui-noborder">
 
-							<p:outputLabel
-								id="lbldescripcionTratamiento" value="Descripción " />
-							<p:selectOneListbox id="tratamientoOne" style="width: 700px !important"
+							<p:outputLabel id="lbldescripcionTratamiento"
+								value="Descripción " />
+							<p:selectOneListbox id="tratamientoOne"
+								style="width: 700px !important"
 								value="#{patologiaController.tratamiento}"
 								converter="tratamientoConverter" var="t" filter="true"
 								filterMatchMode="contains">
-								<f:selectItems style="width: 700px !important" value="#{patologiaController.tratamientos}" var="tra"
+								<f:selectItems style="width: 700px !important"
+									value="#{patologiaController.tratamientos}" var="tra"
 									itemLabel="#{tra.descripcion}" itemValue="#{tra}" />
 								<p:column>
 									<h:outputText value="#{t.descripcion}" />
@@ -164,8 +166,8 @@
 							</p:selectOneListbox>
 
 							<p:commandButton id="btnagreTrata" value="Agregar"
-								process="@this,sintoma" update="sintoma,sintomas"
-								action="#{patologiaController.agregarSintoma}" />
+								process="@this tratamiento" update="wiza"
+								action="#{patologiaController.agregarTratamiento}" />
 
 						</p:panelGrid>
 					</p:panel>
@@ -194,6 +196,8 @@
 					<p:commandButton widgetVar="stepBackward" value="Anterior"
 						icon="ui-icon-arrow-1-w" iconPos="right"
 						onclick="PF('terminationWizard').back()" />
+					<p:commandButton value="Terminar" iconPos="right"
+						action="#{patologiaController.terminar}"/>
 				</p:tab>
 
 

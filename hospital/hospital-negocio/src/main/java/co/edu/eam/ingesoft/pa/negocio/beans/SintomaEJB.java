@@ -89,7 +89,7 @@ public class SintomaEJB {
 	 * @param codigoSintoma
 	 * @param codigoPatologia
 	 */
-	public void eliminarItemSintoma(Integer codigoSintoma,Integer codigoPatologia){
+	public void eliminarItemSintoma(int codigoSintoma,int codigoPatologia){
 		itemSintomaPK itemPK = new itemSintomaPK(codigoSintoma, codigoPatologia);
 		em.remove(em.find(ItemSintoma.class, itemPK));
 	}
@@ -107,10 +107,10 @@ public class SintomaEJB {
 	 * @param codigo
 	 * @return
 	 */
-	public List<Sintoma> listarSintomasPatologia(Integer codigo){
+	public List<Sintoma> listarSintomasPatologia(int codigo){
 		return (List<Sintoma>) em.createNativeQuery("select sin.* from Sintoma sin "
 				+ " join Item_Sintoma im on sin.codigo = im.sintoma_Codigo join Patologia pa on pa.codigo = " +
-				" im.patologia_Codigo where im.patologia_Codigo = ?1",Sintoma.class).setParameter(1, codigo);
+				" im.patologia_Codigo where im.patologia_Codigo = ?1",Sintoma.class).setParameter(1, codigo).getResultList();
 	}
 	
 }

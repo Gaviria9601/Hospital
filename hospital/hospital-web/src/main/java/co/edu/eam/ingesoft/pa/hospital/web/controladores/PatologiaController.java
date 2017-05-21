@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
+import org.primefaces.context.RequestContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.Causa;
 import co.edu.eam.ingesoft.hospital.entidades.ItemCausa;
@@ -17,6 +18,7 @@ import co.edu.eam.ingesoft.hospital.entidades.ItemTratamiento;
 import co.edu.eam.ingesoft.hospital.entidades.Patologia;
 import co.edu.eam.ingesoft.hospital.entidades.Sintoma;
 import co.edu.eam.ingesoft.hospital.entidades.Tratamiento;
+import co.edu.eam.ingesoft.hospital.entidades.itemCausaPK;
 import co.edu.eam.ingesoft.pa.negocio.beans.CausaEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.PatologiaEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.SintomaEJB;
@@ -49,9 +51,9 @@ public class PatologiaController implements Serializable {
 	private List<Causa> causas;
 
 	private List<Causa> causasAgre;
-	
+
 	private List<Sintoma> sintomasAgre;
-	
+
 	private List<Tratamiento> tratamientosAgre;
 
 	private List<Tratamiento> tratamientos;
@@ -168,8 +170,6 @@ public class PatologiaController implements Serializable {
 		this.tratamientosAgre = tratamientosAgre;
 	}
 
-
-
 	@EJB
 	private PatologiaEJB patologiaEJB;
 
@@ -187,22 +187,27 @@ public class PatologiaController implements Serializable {
 		causas = causaEJB.listarCausas();
 		sintomas = sintomaEJB.listarSintomas();
 		tratamientos = tratamientoEJB.listarTratamientos();
-				
 	}
 
 	/**
 	 * 
 	 */
 	public void agregarPatologia() {
-		try {
-			Patologia pato = new Patologia(nombre, descripcion);
-			patologiaEJB.crearPatologia(pato);
-			Messages.addFlashGlobalInfo("SE HA INGRESADO CORRECTAMENTE LA PATOLOGIA");
-			patolo = patologiaEJB.buscarPatologiaNom(nombre);
-		} catch (Exception e) {
-			Messages.addFlashGlobalError("ERROR AL CREAR LA PATOLOGIA");
+		if (nombre.isEmpty() || descripcion.isEmpty()) {
+			Messages.addFlashGlobalError("INGRESE LA INFORMACIÓN PARA INGRESAR LA PATOLOGIA");
+		} else {
+			try {
+				RequestContext requestContext = RequestContext.getCurrentInstance();
+				Patologia pato = new Patologia(nombre, descripcion);
+				patologiaEJB.crearPatologia(pato);
+				patolo = patologiaEJB.buscarPatologiaNom(nombre);
+				requestContext.execute("PF('terminationWizard').next()");
+				Messages.addFlashGlobalInfo("SE HA INGRESADO CORRECTAMENTE LA PATOLOGIA");
+			} catch (Exception e) {
+				Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADA LA PATOLOGIA");
 
-		}
+			}
+		}		
 	}
 
 	/**
@@ -214,9 +219,8 @@ public class PatologiaController implements Serializable {
 			itemSin.setPatologiaCodigo(patolo);
 			itemSin.setSintomaCodigo(sintoma);
 			sintomaEJB.crearItemSintoma(itemSin);
-			sintomas = sintomaEJB.listarSintomasPatologia(patolo.getCodigo());
+			sintomasAgre = sintomaEJB.listarSintomasPatologia(patolo.getCodigo());
 			Messages.addFlashGlobalInfo("SE HA AGREGADO EL SINTOMA");
-
 		} catch (Exception e) {
 			// TODO: handle exception
 			Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADO EL SINTOMA");
@@ -227,35 +231,18 @@ public class PatologiaController implements Serializable {
 	/**
 	 * 
 	 */
-	public void limpiarCamposSintoma() {
-		descripcionSintoma = "";
-	}
-
-	/**
-	 * 
-	 */
 	public void agregarCausa() {
 		try {
-			ItemCausa itemCau = new ItemCausa();
-			itemCau.setPatologia(patolo);
-			itemCau.setCausa(causa);
+			ItemCausa itemCau = new ItemCausa(patolo, causa);
 			causaEJB.crearItemCausa(itemCau);
 			causasAgre = causaEJB.listarCausasPatologia(patolo.getCodigo());
 			Messages.addFlashGlobalInfo("SE HA AGREGADO LA CAUSA");
 
 		} catch (Exception e) {
-			// TODO: handle exception
 			Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADA LA CAUSA");
 
 		}
 
-	}
-
-	/**
-	 * 
-	 */
-	public void limpiarCamposCausa() {
-		descripcionCausa = "";
 	}
 
 	/**
@@ -267,7 +254,7 @@ public class PatologiaController implements Serializable {
 			itemTra.setPatologiaCodigo(patolo);
 			itemTra.setTratamientoCodigo(tratamiento);
 			tratamientoEJB.crearItemTratamiento(itemTra);
-			tratamientos = tratamientoEJB.listarTratamietoPatologia(patolo.getCodigo());
+			tratamientosAgre = tratamientoEJB.listarTratamietoPatologia(patolo.getCodigo());
 			Messages.addFlashGlobalInfo("SE HA AGREGADO EL TRATAMIENTO");
 
 		} catch (Exception e) {
@@ -276,13 +263,6 @@ public class PatologiaController implements Serializable {
 
 		}
 
-	}
-
-	/**
-	 * 
-	 */
-	public void limpiarCamposTratamiento() {
-		descripcionTratamiento = "";
 	}
 
 	/**
@@ -302,7 +282,7 @@ public class PatologiaController implements Serializable {
 	 */
 	public void quitarSintoma(Sintoma sint) {
 		sintomaEJB.eliminarItemSintoma(sint.getCodigo(), patolo.getCodigo());
-		causasAgre = causaEJB.listarCausasPatologia(patolo.getCodigo());
+		sintomasAgre = sintomaEJB.listarSintomasPatologia(patolo.getCodigo());
 		Messages.addFlashGlobalInfo("SE HA QUITADO EL SINTOMA");
 
 	}
@@ -313,9 +293,13 @@ public class PatologiaController implements Serializable {
 	 */
 	public void quitarTratamiento(Tratamiento tra) {
 		tratamientoEJB.eliminarItemTratamiento(tra.getCodigo(), patolo.getCodigo());
-		causasAgre = causaEJB.listarCausasPatologia(patolo.getCodigo());
+		tratamientosAgre = tratamientoEJB.listarTratamietoPatologia(patolo.getCodigo());
 		Messages.addFlashGlobalInfo("SE HA QUITADO EL TRATAMIENTO");
 
+	}
+
+	public String terminar() {
+		return "/paginas/seguro/crear-Patologia.xhtml?faces-redirect=true";
 	}
 
 }
