@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.ItemSintoma;
+import co.edu.eam.ingesoft.hospital.entidades.Patologia;
 import co.edu.eam.ingesoft.hospital.entidades.Sintoma;
 import co.edu.eam.ingesoft.hospital.entidades.itemSintomaPK;
 
@@ -33,8 +34,11 @@ public class SintomaEJB {
 	 * 
 	 * @param itemSintoma
 	 */
-	public void crearItemSintoma(ItemSintoma itemSintoma){
-		em.persist(itemSintoma);
+	public void crearItemSintoma(Patologia pato,Sintoma sin){
+		Patologia patolo = em.find(Patologia.class, pato.getCodigo());
+		Sintoma sinto = em.find(Sintoma.class, sin.getCodigo());
+		ItemSintoma itemSin = new ItemSintoma(sinto,patolo);
+		em.persist(itemSin);
 	}
 	
 	/**

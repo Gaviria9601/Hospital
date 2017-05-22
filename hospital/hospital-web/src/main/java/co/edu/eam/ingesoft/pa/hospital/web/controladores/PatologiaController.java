@@ -215,10 +215,7 @@ public class PatologiaController implements Serializable {
 	 */
 	public void agregarSintoma() {
 		try {
-			ItemSintoma itemSin = new ItemSintoma();
-			itemSin.setPatologiaCodigo(patolo);
-			itemSin.setSintomaCodigo(sintoma);
-			sintomaEJB.crearItemSintoma(itemSin);
+			sintomaEJB.crearItemSintoma(patolo,sintoma);
 			sintomasAgre = sintomaEJB.listarSintomasPatologia(patolo.getCodigo());
 			Messages.addFlashGlobalInfo("SE HA AGREGADO EL SINTOMA");
 		} catch (Exception e) {
@@ -233,11 +230,9 @@ public class PatologiaController implements Serializable {
 	 */
 	public void agregarCausa() {
 		try {
-			ItemCausa itemCau = new ItemCausa(patolo, causa);
-			causaEJB.crearItemCausa(itemCau);
+			causaEJB.crearItemCausa(patolo,causa);
 			causasAgre = causaEJB.listarCausasPatologia(patolo.getCodigo());
 			Messages.addFlashGlobalInfo("SE HA AGREGADO LA CAUSA");
-
 		} catch (Exception e) {
 			Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADA LA CAUSA");
 
@@ -250,10 +245,7 @@ public class PatologiaController implements Serializable {
 	 */
 	public void agregarTratamiento() {
 		try {
-			ItemTratamiento itemTra = new ItemTratamiento();
-			itemTra.setPatologiaCodigo(patolo);
-			itemTra.setTratamientoCodigo(tratamiento);
-			tratamientoEJB.crearItemTratamiento(itemTra);
+			tratamientoEJB.crearItemTratamiento(patolo,tratamiento);
 			tratamientosAgre = tratamientoEJB.listarTratamietoPatologia(patolo.getCodigo());
 			Messages.addFlashGlobalInfo("SE HA AGREGADO EL TRATAMIENTO");
 
@@ -299,6 +291,7 @@ public class PatologiaController implements Serializable {
 	}
 
 	public String terminar() {
+		Messages.addFlashGlobalInfo("FINALIZADO LA GESTION DE LA PATOLOGIA");
 		return "/paginas/seguro/crear-Patologia.xhtml?faces-redirect=true";
 	}
 

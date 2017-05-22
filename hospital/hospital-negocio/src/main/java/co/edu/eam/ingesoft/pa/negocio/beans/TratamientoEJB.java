@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.ItemSintoma;
 import co.edu.eam.ingesoft.hospital.entidades.ItemTratamiento;
+import co.edu.eam.ingesoft.hospital.entidades.Patologia;
 import co.edu.eam.ingesoft.hospital.entidades.Tratamiento;
 import co.edu.eam.ingesoft.hospital.entidades.itemSintomaPK;
 import co.edu.eam.ingesoft.hospital.entidades.itemTratamientoPK;
@@ -34,8 +35,11 @@ public class TratamientoEJB {
 	 * Busca el puto tratamiento , perra
 	 * @param itemTrata
 	 */
-	public void crearItemTratamiento(ItemTratamiento itemTrata){
-		em.persist(itemTrata);
+	public void crearItemTratamiento(Patologia pato,Tratamiento tra){
+		Patologia patolo = em.find(Patologia.class,pato.getCodigo());
+		Tratamiento trata = em.find(Tratamiento.class, tra.getCodigo());
+		ItemTratamiento itemTra = new ItemTratamiento(trata, patolo);
+		em.persist(itemTra);
 	}
 	
 	/**

@@ -46,8 +46,11 @@ public class CausaEJB {
 	 * @param itemCausa
 	 */
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public void crearItemCausa(ItemCausa itemCausa){
-		em.persist(itemCausa);
+	public void crearItemCausa(Patologia pato,Causa cau){
+		Patologia patolo = em.find(Patologia.class, pato.getCodigo());
+		Causa causa = em.find(Causa.class, cau.getCodigo());
+		ItemCausa itemCau = new ItemCausa(patolo, causa);
+		em.persist(itemCau);
 	}
 	
 	/**
