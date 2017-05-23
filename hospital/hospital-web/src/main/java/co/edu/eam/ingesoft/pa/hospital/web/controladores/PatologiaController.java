@@ -196,7 +196,7 @@ public class PatologiaController implements Serializable {
 	 */
 	public void agregarPatologia() {
 		if (nombre.isEmpty() || descripcion.isEmpty()) {
-			Messages.addFlashGlobalError("INGRESE LA INFORMACIÓN PARA INGRESAR LA PATOLOGIA");
+			Messages.addFlashGlobalWarn("INGRESE LA INFORMACIÓN PARA INGRESAR LA PATOLOGIA");
 		} else {
 			try {
 				RequestContext requestContext = RequestContext.getCurrentInstance();
@@ -207,9 +207,6 @@ public class PatologiaController implements Serializable {
 				Messages.addFlashGlobalInfo("SE HA INGRESADO CORRECTAMENTE LA PATOLOGIA");
 			} catch (Exception e) {
 				Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADA LA PATOLOGIA");
-				FacesContext context = FacesContext.getCurrentInstance();
-		         
-		        context.addMessage(null, new FacesMessage("YA SE ENCUENTRA AGREGADA LA PATOLOGIA"));
 
 			}
 		}
@@ -220,7 +217,7 @@ public class PatologiaController implements Serializable {
 	 */
 	public void agregarSintoma() {
 		if (sintoma == null) {
-			Messages.addFlashGlobalError("DEBE ESCOJER EL SINTOMA PARA AGREGARLA");
+			Messages.addFlashGlobalWarn("DEBE ESCOJER EL SINTOMA PARA AGREGARLA");
 		} else {
 			try {
 				sintomaEJB.crearItemSintoma(patolo, sintoma);
@@ -239,7 +236,7 @@ public class PatologiaController implements Serializable {
 	 */
 	public void agregarCausa() {
 		if (causa == null) {
-			Messages.addFlashGlobalError("DEBE ESCOJER LA CAUSA PARA AGREGARLA");
+			Messages.addFlashGlobalWarn("DEBE ESCOJER LA CAUSA PARA AGREGARLA");
 		} else {
 			try {
 				causaEJB.crearItemCausa(patolo, causa);
@@ -251,9 +248,66 @@ public class PatologiaController implements Serializable {
 			}
 		}
 	}
-	
-	public void ingresaCausa(){
-		
+
+	/**
+	 * 
+	 */
+	public void ingresaCausa() {
+		if (descripcionCausa.isEmpty()) {
+			Messages.addFlashGlobalWarn("INGRESE LA INFORMACIÓN PARA INGRESAR LA CAUSA");
+		} else {
+			try {
+				Causa cau = new Causa();
+				cau.setDescripcion(descripcionCausa);
+				causaEJB.crearCausa(cau);
+				causas = causaEJB.listarCausas();
+				Messages.addFlashGlobalInfo("SE HA INGRESADO CORRECTAMENTE LA CAUSA AL SISTEMA");
+				descripcionCausa = "";
+			} catch (Exception e) {
+				Messages.addFlashGlobalError("YA SE ENCUENTRA INGRESADA LA CAUSA EN EL SISTEMA");
+
+			}
+		}
+	}
+
+	/**
+	 * 
+	 */
+	public void ingresaSintoma() {
+		if (descripcionSintoma.isEmpty()) {
+			Messages.addFlashGlobalWarn("INGRESE LA INFORMACIÓN PARA INGRESAR EL SINTOMA");
+		} else {
+			try {
+				Sintoma sinto = new Sintoma();
+				sinto.setDescripcion(descripcionSintoma);
+				sintomaEJB.crearSintoma(sinto);
+				sintomas = sintomaEJB.listarSintomas();
+				Messages.addFlashGlobalInfo("SE HA INGRESADO CORRECTAMENTE EL SINTOMA AL SISTEMA");
+				descripcionSintoma = "";
+			} catch (Exception e) {
+				Messages.addFlashGlobalError("YA SE ENCUENTRA INGRESADO EL SINTOMA EN EL SISTEMA");
+			}
+		}
+	}
+
+	/**
+	 * 
+	 */
+	public void ingresaTratamiento() {
+		if (descripcionTratamiento.isEmpty()) {
+			Messages.addFlashGlobalWarn("INGRESE LA INFORMACIÓN PARA INGRESAR EL TRATAMIENTO");
+		} else {
+			try {
+				Tratamiento tra = new Tratamiento();
+				tra.setDescripcion(descripcionTratamiento);
+				tratamientoEJB.crearTratamiento(tra);
+				tratamientos = tratamientoEJB.listarTratamientos();
+				Messages.addFlashGlobalInfo("SE HA INGRESADO CORRECTAMENTE EL TRATAMIENTO AL SISTEMA");
+				descripcionTratamiento = "";
+			} catch (Exception e) {
+				Messages.addFlashGlobalError("YA SE ENCUENTRA INGRESADO EL TRATAMIENTO EN EL SISTEMA");
+			}
+		}
 	}
 
 	/**
@@ -261,7 +315,7 @@ public class PatologiaController implements Serializable {
 	 */
 	public void agregarTratamiento() {
 		if (tratamiento == null) {
-			Messages.addFlashGlobalError("DEBE ESCOJER EL TRATAMIENTO PARA AGREGARLO");
+			Messages.addFlashGlobalWarn("DEBE ESCOJER EL TRATAMIENTO PARA AGREGARLO");
 		} else {
 			try {
 				tratamientoEJB.crearItemTratamiento(patolo, tratamiento);
@@ -284,7 +338,6 @@ public class PatologiaController implements Serializable {
 		causaEJB.eliminarItemCausa(cau.getCodigo(), patolo.getCodigo());
 		causasAgre = causaEJB.listarCausasPatologia(patolo.getCodigo());
 		Messages.addFlashGlobalInfo("SE HA QUITADO LA CAUSA");
-
 	}
 
 	/**
@@ -309,6 +362,10 @@ public class PatologiaController implements Serializable {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public String terminar() {
 		Messages.addFlashGlobalInfo("FINALIZADO LA GESTION DE LA PATOLOGIA");
 		return "/paginas/seguro/crear-Patologia.xhtml?faces-redirect=true";

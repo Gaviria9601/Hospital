@@ -109,27 +109,35 @@
 					<p:panel
 						header="Detalles Sintomas Patologia #{patologiaController.nombre}">
 						<p:panelGrid columns="3" cellpadding="3" styleClass="ui-noborder">
-
-							<p:outputLabel id="lbldescripcionSintoma" value="Descripción " />
-							<p:selectOneListbox id="sintomaOne"
-								style="width: 700px !important"
-								value="#{patologiaController.sintoma}"
-								converter="sintomaConverter" var="s" filter="true"
-								filterMatchMode="contains">
-								<f:selectItems style="width: 700px !important"
-									value="#{patologiaController.sintomas}" var="sin"
-									itemLabel="#{sin.descripcion}" itemValue="#{sin}" />
-								<p:column>
-									<h:outputText value="#{s.descripcion}" />
-								</p:column>
-							</p:selectOneListbox>
-
-
-							<p:commandButton id="btnagreSint" value="Agregar"
-								process="@this sintoma" update="wiza"
-								action="#{patologiaController.agregarSintoma}" />
+							<p:row></p:row>
+							<p:row align="center">
+								<a href="#" data-toggle="modal" data-target="#crearSintoma">¿Quieres
+									Ingresar un nuevo Sintoma?</a>
+							</p:row>
+							<p:row></p:row>
+							<p:row>
+								<p:outputLabel id="lbldescripcionSintoma" value="Descripción " />
+							</p:row>
+							<p:row>
+								<p:selectOneListbox id="sintomaOne"
+									style="width: 700px !important"
+									value="#{patologiaController.sintoma}"
+									converter="sintomaConverter" var="s" filter="true"
+									filterMatchMode="contains">
+									<f:selectItems style="width: 700px !important"
+										value="#{patologiaController.sintomas}" var="sin"
+										itemLabel="#{sin.descripcion}" itemValue="#{sin}" />
+									<p:column>
+										<h:outputText value="#{s.descripcion}" />
+									</p:column>
+								</p:selectOneListbox>
+							</p:row>
+							<p:row>
+								<p:commandButton id="btnagreSint" value="Agregar"
+									process="@this sintoma" update="wiza"
+									action="#{patologiaController.agregarSintoma}" />
+							</p:row>
 						</p:panelGrid>
-
 					</p:panel>
 
 					<p:outputPanel id="sintomas">
@@ -166,26 +174,35 @@
 					<p:panel
 						header="Detalles Tratamientos Patologia #{patologiaController.nombre}">
 						<p:panelGrid columns="3" cellpadding="3" styleClass="ui-noborder">
-
-							<p:outputLabel id="lbldescripcionTratamiento"
-								value="Descripción " />
-							<p:selectOneListbox id="tratamientoOne"
-								style="width: 700px !important"
-								value="#{patologiaController.tratamiento}"
-								converter="tratamientoConverter" var="t" filter="true"
-								filterMatchMode="contains">
-								<f:selectItems style="width: 700px !important"
-									value="#{patologiaController.tratamientos}" var="tra"
-									itemLabel="#{tra.descripcion}" itemValue="#{tra}" />
-								<p:column>
-									<h:outputText value="#{t.descripcion}" />
-								</p:column>
-							</p:selectOneListbox>
-
-							<p:commandButton id="btnagreTrata" value="Agregar"
-								process="@this tratamiento" update="wiza"
-								action="#{patologiaController.agregarTratamiento}" />
-
+							<p:row></p:row>
+							<p:row align="center">
+								<a href="#" data-toggle="modal" data-target="#crearTratamiento">¿Quieres
+									Ingresar una nuevo Tratamiento?</a>
+							</p:row>
+							<p:row></p:row>
+							<p:row>
+								<p:outputLabel id="lbldescripcionTratamiento"
+									value="Descripción " />
+							</p:row>
+							<p:row>
+								<p:selectOneListbox id="tratamientoOne"
+									style="width: 700px !important"
+									value="#{patologiaController.tratamiento}"
+									converter="tratamientoConverter" var="t" filter="true"
+									filterMatchMode="contains">
+									<f:selectItems style="width: 700px !important"
+										value="#{patologiaController.tratamientos}" var="tra"
+										itemLabel="#{tra.descripcion}" itemValue="#{tra}" />
+									<p:column>
+										<h:outputText value="#{t.descripcion}" />
+									</p:column>
+								</p:selectOneListbox>
+							</p:row>
+							<p:row>
+								<p:commandButton id="btnagreTrata" value="Agregar"
+									process="@this tratamiento" update="wiza"
+									action="#{patologiaController.agregarTratamiento}" />
+							</p:row>
 						</p:panelGrid>
 					</p:panel>
 
@@ -218,9 +235,8 @@
 					<p:commandButton value="Terminar" iconPos="right"
 						action="#{patologiaController.terminar}" />
 				</p:tab>
-
-
 			</p:wizard>
+
 
 			<div class="modal fade" id="crearCausa" tabindex="-1" role="dialog"
 				aria-labelledby="donateModalLabel" aria-hidden="true">
@@ -236,33 +252,29 @@
 						</div>
 						<div class="modal-body">
 
-							<h:form prependId="false">
+							<h3 class="title-style-1 text-center">
+								Ingresar Causa al Sistema<span class="title-under"></span>
+							</h3>
 
-								<h3 class="title-style-1 text-center">
-									Ingresar Causa al Sistema<span class="title-under"></span>
-								</h3>
-
-								<div class="row">
-									<div class="form-group col-md-12">
-										<p:inputTextarea rows="5" cols="80" id="tfdescripcionCausa"
-											class="form-control" a:placeholder="Descripción"
-											value="#{patologiaController.descripcionCausa}" />
-										<p:message for="tfdescripcionCausa" />
-									</div>
-
+							<div class="row">
+								<div class="form-group col-md-12">
+									<p:inputTextarea rows="2" cols="80" id="tfdescripcionCausa"
+										class="form-control" a:placeholder="Descripción"
+										value="#{patologiaController.descripcionCausa}" />
+									<p:message for="tfdescripcionCausa" />
 								</div>
 
-								<div class="row">
+							</div>
 
-									<div class="form-group col-md-12">
-										<p:commandButton value="Ingresar" ajax="false"
-											class="btn btn-primary pull-center"
-											action="#{patologiaController.ingresaCausa}"/>
-									</div>
+							<div class="row">
 
+								<div class="form-group col-md-12">
+									<p:commandButton value="Ingresar" ajax="false" update="wiza"
+										class="btn btn-primary pull-center"
+										action="#{patologiaController.ingresaCausa}" />
 								</div>
 
-							</h:form>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -270,7 +282,92 @@
 
 
 
+			<div class="modal fade" id="crearSintoma" tabindex="-1" role="dialog"
+				aria-labelledby="donateModalLabel" aria-hidden="true">
 
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true"></span>
+							</button>
+							<h4 class="modal-title" id="donateModalLabel">Gestion
+								Sintoma</h4>
+						</div>
+						<div class="modal-body">
+							<h3 class="title-style-1 text-center">
+								Ingresar Sintoma al Sistema<span class="title-under"></span>
+							</h3>
+
+							<div class="row">
+								<div class="form-group col-md-12">
+									<p:inputTextarea rows="2" cols="80" id="tfdescripcionSintoma"
+										class="form-control" a:placeholder="Descripción"
+										value="#{patologiaController.descripcionSintoma}" />
+									<p:message for="tfdescripcionSintoma" />
+								</div>
+
+							</div>
+
+							<div class="row">
+
+								<div class="form-group col-md-12">
+									<p:commandButton value="Ingresar"
+										process="tfdescripcionSintoma" ajax="false" update="wiza"
+										class="btn btn-primary pull-center"
+										action="#{patologiaController.ingresaSintoma}" />
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="crearTratamiento" tabindex="-1"
+				role="dialog" aria-labelledby="donateModalLabel" aria-hidden="true">
+
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true"></span>
+							</button>
+							<h4 class="modal-title" id="donateModalLabel">Gestion
+								Tratamiento</h4>
+						</div>
+						<div class="modal-body">
+							<h3 class="title-style-1 text-center">
+								Ingresar Tratamiento al Sistema<span class="title-under"></span>
+							</h3>
+
+							<div class="row">
+								<div class="form-group col-md-12">
+									<p:inputTextarea rows="2" cols="80"
+										id="tfdescripcionTratamiento" class="form-control"
+										a:placeholder="Descripción"
+										value="#{patologiaController.descripcionTratamiento}" />
+									<p:message for="tfdescripcionTratamiento" />
+								</div>
+
+							</div>
+
+							<div class="row">
+
+								<div class="form-group col-md-12">
+									<p:commandButton value="Ingresar"
+										process="tfdescripcionTratamiento" ajax="false" update="wiza"
+										class="btn btn-primary pull-center"
+										action="#{patologiaController.ingresaTratamiento}" />
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</h:form>
 	</ui:define>
 

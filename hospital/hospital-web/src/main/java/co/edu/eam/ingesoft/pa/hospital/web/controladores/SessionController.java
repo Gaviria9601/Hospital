@@ -1,6 +1,7 @@
 package co.edu.eam.ingesoft.pa.hospital.web.controladores;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -27,6 +28,8 @@ public class SessionController implements Serializable {
 	@EJB
 	private SeguridadEJB segEJB;
 
+	
+	
 	/**
 	 * Logea un usuario al sistema
 	 */
