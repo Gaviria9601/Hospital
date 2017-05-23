@@ -45,8 +45,8 @@
 						<p:panelGrid columns="3" cellpadding="3" styleClass="ui-noborder">
 							<p:row></p:row>
 							<p:row align="center">
-								<a href="#" data-toggle="modal" data-target="#donateModal">¿Quieres Ingresar
-									una nueva Causa?</a>
+								<a href="#" data-toggle="modal" data-target="#crearCausa">¿Quieres
+									Ingresar una nueva Causa?</a>
 							</p:row>
 							<p:row></p:row>
 							<p:row>
@@ -221,6 +221,56 @@
 
 
 			</p:wizard>
+
+			<div class="modal fade" id="crearCausa" tabindex="-1" role="dialog"
+				aria-labelledby="donateModalLabel" aria-hidden="true">
+
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true"></span>
+							</button>
+							<h4 class="modal-title" id="donateModalLabel">Gestion Causa</h4>
+						</div>
+						<div class="modal-body">
+
+							<h:form prependId="false">
+
+								<h3 class="title-style-1 text-center">
+									Ingresar Causa al Sistema<span class="title-under"></span>
+								</h3>
+
+								<div class="row">
+									<div class="form-group col-md-12">
+										<p:inputTextarea rows="5" cols="80" id="tfdescripcionCausa"
+											class="form-control" a:placeholder="Descripción"
+											value="#{patologiaController.descripcionCausa}" />
+										<p:message for="tfdescripcionCausa" />
+									</div>
+
+								</div>
+
+								<div class="row">
+
+									<div class="form-group col-md-12">
+										<p:commandButton value="Ingresar" ajax="false"
+											class="btn btn-primary pull-center"
+											action="#{patologiaController.ingresaCausa}"/>
+									</div>
+
+								</div>
+
+							</h:form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
 		</h:form>
 	</ui:define>
 

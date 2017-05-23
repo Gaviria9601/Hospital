@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import org.omnifaces.cdi.ViewScoped;
@@ -205,23 +207,30 @@ public class PatologiaController implements Serializable {
 				Messages.addFlashGlobalInfo("SE HA INGRESADO CORRECTAMENTE LA PATOLOGIA");
 			} catch (Exception e) {
 				Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADA LA PATOLOGIA");
+				FacesContext context = FacesContext.getCurrentInstance();
+		         
+		        context.addMessage(null, new FacesMessage("YA SE ENCUENTRA AGREGADA LA PATOLOGIA"));
 
 			}
-		}		
+		}
 	}
 
 	/**
 	 * 
 	 */
 	public void agregarSintoma() {
-		try {
-			sintomaEJB.crearItemSintoma(patolo,sintoma);
-			sintomasAgre = sintomaEJB.listarSintomasPatologia(patolo.getCodigo());
-			Messages.addFlashGlobalInfo("SE HA AGREGADO EL SINTOMA");
-		} catch (Exception e) {
-			// TODO: handle exception
-			Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADO EL SINTOMA");
+		if (sintoma == null) {
+			Messages.addFlashGlobalError("DEBE ESCOJER EL SINTOMA PARA AGREGARLA");
+		} else {
+			try {
+				sintomaEJB.crearItemSintoma(patolo, sintoma);
+				sintomasAgre = sintomaEJB.listarSintomasPatologia(patolo.getCodigo());
+				Messages.addFlashGlobalInfo("SE HA AGREGADO EL SINTOMA");
+			} catch (Exception e) {
+				// TODO: handle exception
+				Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADO EL SINTOMA");
 
+			}
 		}
 	}
 
@@ -229,32 +238,42 @@ public class PatologiaController implements Serializable {
 	 * 
 	 */
 	public void agregarCausa() {
-		try {
-			causaEJB.crearItemCausa(patolo,causa);
-			causasAgre = causaEJB.listarCausasPatologia(patolo.getCodigo());
-			Messages.addFlashGlobalInfo("SE HA AGREGADO LA CAUSA");
-		} catch (Exception e) {
-			Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADA LA CAUSA");
+		if (causa == null) {
+			Messages.addFlashGlobalError("DEBE ESCOJER LA CAUSA PARA AGREGARLA");
+		} else {
+			try {
+				causaEJB.crearItemCausa(patolo, causa);
+				causasAgre = causaEJB.listarCausasPatologia(patolo.getCodigo());
+				Messages.addFlashGlobalInfo("SE HA AGREGADO LA CAUSA");
+			} catch (Exception e) {
+				Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADA LA CAUSA");
 
+			}
 		}
-
+	}
+	
+	public void ingresaCausa(){
+		
 	}
 
 	/**
 	 * 
 	 */
 	public void agregarTratamiento() {
-		try {
-			tratamientoEJB.crearItemTratamiento(patolo,tratamiento);
-			tratamientosAgre = tratamientoEJB.listarTratamietoPatologia(patolo.getCodigo());
-			Messages.addFlashGlobalInfo("SE HA AGREGADO EL TRATAMIENTO");
+		if (tratamiento == null) {
+			Messages.addFlashGlobalError("DEBE ESCOJER EL TRATAMIENTO PARA AGREGARLO");
+		} else {
+			try {
+				tratamientoEJB.crearItemTratamiento(patolo, tratamiento);
+				tratamientosAgre = tratamientoEJB.listarTratamietoPatologia(patolo.getCodigo());
+				Messages.addFlashGlobalInfo("SE HA AGREGADO EL TRATAMIENTO");
 
-		} catch (Exception e) {
-			// TODO: handle exception
-			Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADO EL TRATAMIENTO");
+			} catch (Exception e) {
+				// TODO: handle exception
+				Messages.addFlashGlobalError("YA SE ENCUENTRA AGREGADO EL TRATAMIENTO");
 
+			}
 		}
-
 	}
 
 	/**

@@ -126,7 +126,7 @@
 										href="#{request.contextPath}/paginas/seguro/inicio.xhtml">Inicio</a></li>
 								</h:panelGroup>
 								<h:panelGroup rendered="#{sessionControl.sesionFarmaceutico}">
-									
+
 									<li class="has-child"><a href="#">Gestión Medicamento</a>
 										<ul class="submenu">
 											<li class="submenu-item"><a
@@ -137,8 +137,8 @@
 													Buscar medicamento</a></li>
 										</ul></li>
 								</h:panelGroup>
-								
-								
+
+
 								<h:panelGroup rendered="#{sessionControl.sesionAdmin}">
 									<li class="has-child"><a href="#">Gestión Medico</a>
 										<ul class="submenu">
@@ -152,8 +152,8 @@
 												href="#{request.contextPath}/paginas/seguro/asignar-especializacion.xhtml">Asignar
 													especialización </a></li>
 										</ul></li>
-										
-										<li class="has-child"><a href="#">Gestión Paciente</a>
+
+									<li class="has-child"><a href="#">Gestión Paciente</a>
 										<ul class="submenu">
 											<li class="submenu-item"><a
 												href="#{request.contextPath}/paginas/seguro/crear-Paciente.xhtml">
@@ -162,8 +162,8 @@
 												href="#{request.contextPath}/paginas/seguro/paciente.xhtml">
 													Buscar paciente </a></li>
 										</ul></li>
-										
-										<li class="has-child"><a href="#">Gestión Farmaceutico</a>
+
+									<li class="has-child"><a href="#">Gestión Farmaceutico</a>
 										<ul class="submenu">
 											<li class="submenu-item"><a
 												href="#{request.contextPath}/paginas/seguro/crear-Farmaceutico.xhtml">
@@ -172,15 +172,25 @@
 												href="#{request.contextPath}/paginas/seguro/farmaceutico.xhtml">
 													Buscar farmaceutico</a></li>
 										</ul></li>
-											
+
 									<li class="has-child"><a href="#">Gestión Instalación</a>
 										<ul class="submenu">
-											<li class="submenu-item"><a href="#">Crear Quirofano </a></li>
-											<li class="submenu-item"><a href="#">buscar Quirofano </a></li>
-											<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/gestion-habitacion.xhtml">Crear Habitación</a></li>
-											<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/buscar-habitacion.xhtml">Buscar Habitación</a></li>
-											<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/crear-cama.xhtml">Crear Cama</a></li>
-											<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/buscar-cama.xhtml">Buscar Cama</a></li>
+											<li class="submenu-item"><a href="#">Crear Quirofano
+											</a></li>
+											<li class="submenu-item"><a href="#">buscar
+													Quirofano </a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/gestion-habitacion.xhtml">Crear
+													Habitación</a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/buscar-habitacion.xhtml">Buscar
+													Habitación</a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/crear-cama.xhtml">Crear
+													Cama</a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/buscar-cama.xhtml">Buscar
+													Cama</a></li>
 										</ul></li>
 									<li class="has-child"><a href="#">Gestión Enfermedad</a>
 										<ul class="submenu">
@@ -188,7 +198,7 @@
 											<li class="submenu-item"><a href="#">Sintoma </a></li>
 											<li class="submenu-item"><a href="#">Tratamiento </a></li>
 										</ul></li>
-								
+
 								</h:panelGroup>
 								<h:panelGroup rendered="#{sessionControl.sesionMedico}">
 									<li class="has-child"><a href="#">Gestión Cita
@@ -289,8 +299,7 @@
 
 				<div class="item ">
 
-					<img src="#{request.contextPath}/assets/images/med.jpg"
-						alt="" />
+					<img src="#{request.contextPath}/assets/images/med.jpg" alt="" />
 					<div class="container">
 
 						<div class="carousel-caption">
@@ -364,8 +373,8 @@
 	</h:panelGroup>
 
 	<!-- /.Cuerpos -->
-	<p:messages id="facesMessage" autoUpdate="true" globalOnly="true"
-		closable="true" />
+	 <p:messages id="facesMessage" autoUpdate="true" globalOnly="true"
+		closable="true"  />
 	<div class="container">
 		<div class="container" align="center">
 			<ui:insert name="cuerpo" />
