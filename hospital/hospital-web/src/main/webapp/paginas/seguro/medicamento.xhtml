@@ -15,12 +15,14 @@
 			<p:panel header="Medicamentos" id="panelexamen"
 				style="margin-bottom:20px" toggleable="true" toggleSpeed="500">
 
-				<p:dataTable id="tablaExamenes" value="#{MedicamentosControlador.medicamentos}"
+				<p:dataTable id="tablaExamenes" paginator="true" rows="5"
+					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15" value="#{MedicamentosControlador.medicamentos}"
 					var="exa" border="1"
 					filteredValue="#{MedicamentosControlador.filtroMedi}"
 					emptyMessage="Sin Coincidencias">
 
-					<p:column headerText="Nombre" footerText="contains" 
+					<p:column headerText="Nombre"
 					sortBy="#{exa.nombre}" filterBy="#{exa.nombre}"
 						filterMatchMode="contains">
 						<h:outputLabel value="#{exa.nombre}" />

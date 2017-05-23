@@ -1,0 +1,452 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h2 class="title-style-1">
+				Buscar Patologia<span class="title-under"></span>
+			</h2>
+			<p:panel header="Patologias" id="panelpatologia"
+				style="margin-bottom:20px" toggleable="true" toggleSpeed="500">
+
+				<p:dataTable id="tablaPatologias" paginator="true" rows="5"
+					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15"
+					value="#{patologiaController.patologias}" var="pato" border="1"
+					emptyMessage="Sin Coincidencias" widgetVar="vtWidget">
+
+
+					<p:column headerText="Nombre" sortBy="#{pato.nombre}"
+						filterBy="#{pato.nombre}" filterMatchMode="contains">
+						<h:outputLabel value="#{pato.nombre}" />
+					</p:column>
+
+					<p:column headerText="Descripción">
+						<h:outputLabel value="#{pato.descripcion}" />
+					</p:column>
+
+
+					<p:column headerText="Acciones">
+						<p:commandButton action="#{patologiaController.eliminar(pato)}"
+							process="@this" value="Eliminar" update="tablaPatologias" />
+
+						<p:commandButton action="#{patologiaController.editar(pato)}"
+							process="@this,panelpatologia" value="Modificar"
+							update="datosPatologia,paneloculto" />
+					</p:column>
+
+				</p:dataTable>
+
+			</p:panel>
+
+			<br />
+
+			<p:panel id="datosPatologia" header="Modificación Patologia"
+				style="margin-bottom:20px">
+
+				<h:panelGroup id="paneloculto"
+					rendered="#{patologiaController.busco}">
+
+					<p:wizard id="wiza" showNavBar="false"
+						widgetVar="terminationWizard">
+						<p:tab id="patologia" title="Patologia">
+							<p:panel header="Detalles Patologia">
+								<p:panelGrid columns="3" cellpadding="3"
+									styleClass="ui-noborder">
+
+									<p:outputLabel for="tfnombre" id="lblnombre" value="Nombre " />
+									<p:inputText id="tfnombre" cols="50" style="width: 100%;"
+										value="#{patologiaController.nombre}" />
+									<p:message for="tfnombre" />
+
+
+									<p:outputLabel for="tfdescripcion" id="lbldescripcion"
+										value="Descripción " />
+
+									<p:inputTextarea rows="5" cols="50" id="tfdescripcion"
+										value="#{patologiaController.descripcion}" />
+									<p:message for="tfdescripcion" />
+
+								</p:panelGrid>
+							</p:panel>
+
+							<p:commandButton process="@this patologia tablaPatologias"
+								action="#{patologiaController.modificarPatologia}"
+								value="Siguiente" icon="ui-icon-arrow-1-e" iconPos="left"
+								widgetVar="stepForward" />
+						</p:tab>
+
+						<p:tab id="causa" title="Causas">
+							<p:panel
+								header="Detalles Causas Patologia #{patologiaController.nombre}">
+								<p:panelGrid columns="3" cellpadding="3"
+									styleClass="ui-noborder">
+									<p:row></p:row>
+									<p:row align="center">
+										<a href="#" data-toggle="modal" data-target="#crearCausa">¿Quieres
+											Ingresar una nueva Causa?</a>
+									</p:row>
+									<p:row></p:row>
+									<p:row>
+										<p:outputLabel id="lbldescripcioncausa" value="Descripción " />
+									</p:row>
+									<p:row>
+										<p:selectOneListbox id="causaOne"
+											style="width: 700px !important"
+											value="#{patologiaController.causa}"
+											converter="causaConverter" var="c" filter="true"
+											filterMatchMode="contains">
+											<f:selectItems style="width: 700px !important"
+												value="#{patologiaController.causas}" var="cau"
+												itemLabel="#{cau.descripcion}" itemValue="#{cau}" />
+											<p:column>
+												<h:outputText value="#{c.descripcion}" />
+											</p:column>
+										</p:selectOneListbox>
+									</p:row>
+									<p:row>
+										<p:column>
+											<p:commandButton id="btnagreCau" value="Agregar"
+												process="@this causa" update="wiza"
+												action="#{patologiaController.agregarCausa}" />
+										</p:column>
+										<p:column>
+										<p:commandButton id="btneliCau" value="Eliminar Causa"
+											process="@this causa" update="wiza"
+											action="#{patologiaController.eliminarCausa}" />
+										</p:column>
+									</p:row>
+								</p:panelGrid>
+
+							</p:panel>
+
+							<p:outputPanel id="pcausas">
+								<p:dataTable value="#{patologiaController.causasAgre}" var="cau"
+									id="causaTable">
+									<f:facet name="header">
+            				Causas Agregadas
+        					</f:facet>
+									<p:column headerText="Codigo">
+										<h:outputText value="#{cau.codigo}" />
+									</p:column>
+
+									<p:column headerText="Descripción">
+										<h:outputText value="#{cau.descripcion}" />
+									</p:column>
+
+									<p:column headerText="Acción">
+										<p:commandLink value="Quitar" update="pcausas" process="@this"
+											action="#{patologiaController.quitarCausa(cau)}">
+										</p:commandLink>
+									</p:column>
+
+								</p:dataTable>
+							</p:outputPanel>
+
+							<p:commandButton value="Siguiente" icon="ui-icon-arrow-1-e"
+								iconPos="left" onclick="PF('terminationWizard').next();"
+								widgetVar="stepForward" />
+
+						</p:tab>
+
+
+
+						<p:tab id="sintoma" title="Sintomas">
+							<p:panel
+								header="Detalles Sintomas Patologia #{patologiaController.nombre}">
+								<p:panelGrid columns="3" cellpadding="3"
+									styleClass="ui-noborder">
+									<p:row></p:row>
+									<p:row align="center">
+										<a href="#" data-toggle="modal" data-target="#crearSintoma">¿Quieres
+											Ingresar un nuevo Sintoma?</a>
+									</p:row>
+									<p:row></p:row>
+									<p:row>
+										<p:outputLabel id="lbldescripcionSintoma" value="Descripción " />
+									</p:row>
+									<p:row>
+										<p:selectOneListbox id="sintomaOne"
+											style="width: 700px !important"
+											value="#{patologiaController.sintoma}"
+											converter="sintomaConverter" var="s" filter="true"
+											filterMatchMode="contains">
+											<f:selectItems style="width: 700px !important"
+												value="#{patologiaController.sintomas}" var="sin"
+												itemLabel="#{sin.descripcion}" itemValue="#{sin}" />
+											<p:column>
+												<h:outputText value="#{s.descripcion}" />
+											</p:column>
+										</p:selectOneListbox>
+									</p:row>
+									<p:row>
+										<p:column>
+											<p:commandButton id="btnagreSint" value="Agregar"
+												process="@this sintoma" update="wiza"
+												action="#{patologiaController.agregarSintoma}" />
+										</p:column>
+										<br />
+										<p:column>
+											<p:commandButton id="btneliSin" value="Eliminar Sintoma"
+												process="@this sintoma" update="wiza"
+												action="#{patologiaController.eliminarSintoma}" />
+										</p:column>
+									</p:row>
+								</p:panelGrid>
+							</p:panel>
+
+							<p:outputPanel id="sintomas">
+								<p:dataTable value="#{patologiaController.sintomasAgre}"
+									var="sinto" id="sintomaTable">
+									<f:facet name="header">
+            				Sintomas Agregados
+        					</f:facet>
+									<p:column headerText="Codigo">
+										<h:outputText value="#{sinto.codigo}" />
+									</p:column>
+
+									<p:column headerText="Descripción">
+										<h:outputText value="#{sinto.descripcion}" />
+									</p:column>
+
+									<p:column headerText="Acción">
+										<p:commandLink value="Quitar" update="sintomas"
+											process="@this"
+											action="#{patologiaController.quitarSintoma(sinto)}">
+										</p:commandLink>
+									</p:column>
+
+								</p:dataTable>
+							</p:outputPanel>
+							<p:commandButton widgetVar="stepBackward" value="Anterior"
+								icon="ui-icon-arrow-1-w" iconPos="right"
+								onclick="PF('terminationWizard').back()" />
+							<p:commandButton value="Siguiente" icon="ui-icon-arrow-1-e"
+								iconPos="left" onclick="PF('terminationWizard').next();"
+								widgetVar="stepForward" />
+						</p:tab>
+
+						<p:tab id="tratamiento" title="Tratamientos">
+							<p:panel
+								header="Detalles Tratamientos Patologia #{patologiaController.nombre}">
+								<p:panelGrid columns="3" cellpadding="3"
+									styleClass="ui-noborder">
+									<p:row></p:row>
+									<p:row align="center">
+										<a href="#" data-toggle="modal"
+											data-target="#crearTratamiento">¿Quieres Ingresar una
+											nuevo Tratamiento?</a>
+									</p:row>
+									<p:row></p:row>
+									<p:row>
+										<p:outputLabel id="lbldescripcionTratamiento"
+											value="Descripción " />
+									</p:row>
+									<p:row>
+										<p:selectOneListbox id="tratamientoOne"
+											style="width: 700px !important"
+											value="#{patologiaController.tratamiento}"
+											converter="tratamientoConverter" var="t" filter="true"
+											filterMatchMode="contains">
+											<f:selectItems style="width: 700px !important"
+												value="#{patologiaController.tratamientos}" var="tra"
+												itemLabel="#{tra.descripcion}" itemValue="#{tra}" />
+											<p:column>
+												<h:outputText value="#{t.descripcion}" />
+											</p:column>
+										</p:selectOneListbox>
+									</p:row>
+									<p:row>
+										<p:column>
+											<p:commandButton id="btnagreTrata" value="Agregar"
+												process="@this tratamiento" update="wiza"
+												action="#{patologiaController.agregarTratamiento}" />
+										</p:column>
+										<p:column>
+											<p:commandButton id="btneliTra" value="Eliminar Tratamiento"
+												process="@this tratamiento" update="wiza"
+												action="#{patologiaController.eliminarTratamiento}" />
+										</p:column>
+									</p:row>
+								</p:panelGrid>
+							</p:panel>
+
+							<p:outputPanel id="tratamientos">
+								<p:dataTable value="#{patologiaController.tratamientosAgre}"
+									var="trata" id="trataTable">
+									<f:facet name="header">
+            				Tratamientos Agregados
+        					</f:facet>
+									<p:column headerText="Codigo">
+										<h:outputText value="#{trata.codigo}" />
+									</p:column>
+
+									<p:column headerText="Descripcion">
+										<h:outputText value="#{trata.descripcion}" />
+									</p:column>
+
+									<p:column headerText="Acción">
+										<p:commandLink value="Quitar" update="tratamientos"
+											process="@this"
+											action="#{patologiaController.quitarTratamiento(trata)}">
+										</p:commandLink>
+									</p:column>
+
+								</p:dataTable>
+							</p:outputPanel>
+							<p:commandButton widgetVar="stepBackward" value="Anterior"
+								icon="ui-icon-arrow-1-w" iconPos="right"
+								onclick="PF('terminationWizard').back()" />
+							<p:commandButton value="Terminar" iconPos="right"
+								action="#{patologiaController.terminarModi}" />
+						</p:tab>
+					</p:wizard>
+
+
+					<div class="modal fade" id="crearCausa" tabindex="-1" role="dialog"
+						aria-labelledby="donateModalLabel" aria-hidden="true">
+
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true"></span>
+									</button>
+									<h4 class="modal-title" id="donateModalLabel">Gestion
+										Causa</h4>
+								</div>
+								<div class="modal-body">
+
+									<h3 class="title-style-1 text-center">
+										Ingresar Causa al Sistema<span class="title-under"></span>
+									</h3>
+
+									<div class="row">
+										<div class="form-group col-md-12">
+											<p:inputTextarea rows="2" cols="80" id="tfdescripcionCausa"
+												class="form-control" a:placeholder="Descripción"
+												value="#{patologiaController.descripcionCausa}" />
+											<p:message for="tfdescripcionCausa" />
+										</div>
+
+									</div>
+
+									<div class="row">
+
+										<div class="form-group col-md-12">
+											<p:commandButton value="Ingresar" ajax="false" update="wiza"
+												class="btn btn-primary pull-center"
+												action="#{patologiaController.ingresaCausa}" />
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="modal fade" id="crearSintoma" tabindex="-1"
+						role="dialog" aria-labelledby="donateModalLabel"
+						aria-hidden="true">
+
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true"></span>
+									</button>
+									<h4 class="modal-title" id="donateModalLabel">Gestion
+										Sintoma</h4>
+								</div>
+								<div class="modal-body">
+									<h3 class="title-style-1 text-center">
+										Ingresar Sintoma al Sistema<span class="title-under"></span>
+									</h3>
+
+									<div class="row">
+										<div class="form-group col-md-12">
+											<p:inputTextarea rows="2" cols="80" id="tfdescripcionSintoma"
+												class="form-control" a:placeholder="Descripción"
+												value="#{patologiaController.descripcionSintoma}" />
+											<p:message for="tfdescripcionSintoma" />
+										</div>
+
+									</div>
+
+									<div class="row">
+
+										<div class="form-group col-md-12">
+											<p:commandButton value="Ingresar"
+												process="tfdescripcionSintoma" ajax="false" update="wiza"
+												class="btn btn-primary pull-center"
+												action="#{patologiaController.ingresaSintoma}" />
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="modal fade" id="crearTratamiento" tabindex="-1"
+						role="dialog" aria-labelledby="donateModalLabel"
+						aria-hidden="true">
+
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-label="Close">
+										<span aria-hidden="true"></span>
+									</button>
+									<h4 class="modal-title" id="donateModalLabel">Gestion
+										Tratamiento</h4>
+								</div>
+								<div class="modal-body">
+									<h3 class="title-style-1 text-center">
+										Ingresar Tratamiento al Sistema<span class="title-under"></span>
+									</h3>
+
+									<div class="row">
+										<div class="form-group col-md-12">
+											<p:inputTextarea rows="2" cols="80"
+												id="tfdescripcionTratamiento" class="form-control"
+												a:placeholder="Descripción"
+												value="#{patologiaController.descripcionTratamiento}" />
+											<p:message for="tfdescripcionTratamiento" />
+										</div>
+
+									</div>
+
+									<div class="row">
+
+										<div class="form-group col-md-12">
+											<p:commandButton value="Ingresar"
+												process="tfdescripcionTratamiento" ajax="false"
+												update="wiza" class="btn btn-primary pull-center"
+												action="#{patologiaController.ingresaTratamiento}" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</h:panelGroup>
+			</p:panel>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

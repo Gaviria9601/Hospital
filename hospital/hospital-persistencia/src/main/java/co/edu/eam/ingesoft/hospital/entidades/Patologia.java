@@ -17,12 +17,14 @@ import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name=Patologia.Buscar_PATOLOGIA,query="select pa from Patologia pa where pa.nombre=?1")
+	@NamedQuery(name=Patologia.BUSCAR_PATOLOGIA,query="select pa from Patologia pa where pa.nombre=?1"),
+	@NamedQuery(name=Patologia.LISTAR_PATOLOGIA,query="select pa from Patologia pa")
 })
 @Table(name="PATOLOGIA")
 public class Patologia implements Serializable{
 	
-	public static final String Buscar_PATOLOGIA = "BuscarPatologia";
+	public static final String BUSCAR_PATOLOGIA = "BuscarPatologia";
+	public static final String LISTAR_PATOLOGIA = "Listar_Patolgia";
 	
 	@Id
     @Column(name = "codigo")

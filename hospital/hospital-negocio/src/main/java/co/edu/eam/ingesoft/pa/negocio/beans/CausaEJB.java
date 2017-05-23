@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.Causa;
+import co.edu.eam.ingesoft.hospital.entidades.Examen;
 import co.edu.eam.ingesoft.hospital.entidades.ItemCausa;
 import co.edu.eam.ingesoft.hospital.entidades.ItemSintoma;
 import co.edu.eam.ingesoft.hospital.entidades.Patologia;
@@ -39,6 +40,14 @@ public class CausaEJB {
 	 */
 	public Causa buscarCausa(int codigo){
 		return em.find(Causa.class, codigo);
+	}
+	
+	/**
+	 * 
+	 * @param codigo
+	 */
+	public void eliminarCausa(Integer codigo){
+		em.remove(em.find(Causa.class, codigo));
 	}
 	
 	/**

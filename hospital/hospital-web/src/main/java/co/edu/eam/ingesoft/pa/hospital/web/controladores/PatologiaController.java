@@ -60,6 +60,18 @@ public class PatologiaController implements Serializable {
 
 	private List<Tratamiento> tratamientos;
 
+	private List<Patologia> patologias;
+
+	private boolean busco;
+
+	public List<Patologia> getPatologias() {
+		return patologias;
+	}
+
+	public void setPatologias(List<Patologia> patologias) {
+		this.patologias = patologias;
+	}
+
 	public Sintoma getSintoma() {
 		return sintoma;
 	}
@@ -189,6 +201,7 @@ public class PatologiaController implements Serializable {
 		causas = causaEJB.listarCausas();
 		sintomas = sintomaEJB.listarSintomas();
 		tratamientos = tratamientoEJB.listarTratamientos();
+		patologias = patologiaEJB.listarPatologias();
 	}
 
 	/**
@@ -370,5 +383,115 @@ public class PatologiaController implements Serializable {
 		Messages.addFlashGlobalInfo("FINALIZADO LA GESTION DE LA PATOLOGIA");
 		return "/paginas/seguro/crear-Patologia.xhtml?faces-redirect=true";
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String terminarModi() {
+		Messages.addFlashGlobalInfo("FINALIZADO LA MODIFICACIÓN DE LA PATOLOGIA");
+		busco = false;
+		return "/paginas/seguro/buscar-Patologia.xhtml?faces-redirect=true";
+	}
 
+	public boolean isBusco() {
+		return busco;
+	}
+
+	/**
+	 * 
+	 * @param patoli
+	 */
+	public void editar(Patologia patoli) {
+		patolo = patoli;
+		nombre = patoli.getNombre();
+		descripcion = patoli.getDescripcion();
+		busco = true;
+	}
+
+	public void eliminar(Patologia patoli) {
+		try {
+			patologiaEJB.eliminarPatologia(patoli.getCodigo());
+			patologias = patologiaEJB.listarPatologias();
+			resetearFitrosTabla("tablaPatologias");
+			Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE LA PATOLOGIA");
+		} catch (Exception e) {
+			Messages.addFlashGlobalError("ERROR AL ELIMINAR LA PATOLOGIA");
+		}
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 */
+	public void resetearFitrosTabla(String id) {
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+		requestContext.execute("PF('vtWidget').clearFilters()");
+    }
+
+	/**
+	 * 
+	 */
+	public void modificarPatologia() {
+		if (nombre.isEmpty() || descripcion.isEmpty()) {
+			Messages.addFlashGlobalWarn("INGRESE LA INFORMACIÓN PARA MODIFICAR LA PATOLOGIA");
+		} else {
+			try {
+				RequestContext requestContext = RequestContext.getCurrentInstance();
+				patolo.setNombre(nombre);
+				patolo.setDescripcion(descripcion);
+				patologiaEJB.editarPatologia(patolo);
+				causasAgre = causaEJB.listarCausasPatologia(patolo.getCodigo());
+				sintomasAgre = sintomaEJB.listarSintomasPatologia(patolo.getCodigo());
+				tratamientosAgre = tratamientoEJB.listarTratamietoPatologia(patolo.getCodigo());
+				requestContext.execute("PF('terminationWizard').next()");
+				resetearFitrosTabla("tablaPatologias");
+				Messages.addFlashGlobalInfo("SE HA MODIFICADO CORRECTAMENTE LA PATOLOGIA");
+			} catch (Exception e) {
+				Messages.addFlashGlobalError("ERROR AL TRATAR DE MODIFICAR LA PATOLOGIA");
+
+			}
+		}
+
+	}
+	
+	/**
+	 * 
+	 */
+	public void eliminarCausa(){
+		try{
+		causaEJB.eliminarCausa(causa.getCodigo());
+		causas = causaEJB.listarCausas();
+		Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE LA CAUSA");
+		}catch (Exception e) {
+			Messages.addFlashGlobalError("ERROR AL ELIMINAR LA CAUSA,ESTA ASOCIADA A VARIAS PATOLOGIAS");
+		}
+	}
+
+	/**
+	 * 
+	 */
+	public void eliminarSintoma(){
+		try{
+		sintomaEJB.eliminarSintoma(sintoma.getCodigo());
+		sintomas = sintomaEJB.listarSintomas();
+		Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE EL SINTOMA");
+		}catch (Exception e) {
+			Messages.addFlashGlobalError("ERROR AL ELIMINAR EL SINTOMA,ESTA ASOCIADA A VARIAS PATOLOGIAS");
+		}
+	}
+	
+	/**
+	 * 
+	 */
+	public void eliminarTratamiento(){
+		try{
+		tratamientoEJB.eliminarTratamiento(tratamiento.getCodigo());
+		tratamientos = tratamientoEJB.listarTratamientos();
+		Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE EL TRATAMIENTO");
+		}catch (Exception e) {
+			Messages.addFlashGlobalError("ERROR AL ELIMINAR EL TRATAMIENTO,ESTA ASOCIADO A VARIAS PATOLOGIAS");
+		}
+	}
+	
 }

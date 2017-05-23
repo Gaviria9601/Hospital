@@ -84,7 +84,7 @@ public class TratamientoEJB {
 	 * 
 	 * @param codigo
 	 */
-	public void eliminar(String codigo){
+	public void eliminarTratamiento(Integer codigo){
 		em.remove(em.find(Tratamiento.class, codigo));
 	}
 	

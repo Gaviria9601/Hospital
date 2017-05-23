@@ -15,13 +15,11 @@
 			<p:panel header="Cirugias" id="panelcirugia" style="margin-bottom:20px"
 				toggleable="true" toggleSpeed="500">
 
-				<p:dataTable id="tablaCirugias"
+				<p:dataTable id="tablaCirugias" paginator="true" rows="5"
+					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15"
 					value="#{cirugiaController.cirugias}" var="ciru" border="1" filteredValue="#{cirugiaController.filtroCirugias}"
 					emptyMessage="Sin Coincidencias">
-
-					<p:column headerText="Codigo">
-						<h:outputLabel value="#{ciru.codigo}" />
-					</p:column>
 
 					<p:column headerText="Nombre" filterBy="#{ciru.nombre}" filterMatchMode="contains">
 						<h:outputLabel value="#{ciru.nombre}" />

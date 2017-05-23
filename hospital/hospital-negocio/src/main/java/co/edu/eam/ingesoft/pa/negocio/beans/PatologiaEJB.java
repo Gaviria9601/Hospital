@@ -1,5 +1,7 @@
 package co.edu.eam.ingesoft.pa.negocio.beans;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -42,7 +44,7 @@ public class PatologiaEJB {
 	 * @return
 	 */
 	public Patologia buscarPatologiaNom(String nombre){
-		return (Patologia)em.createNamedQuery(Patologia.Buscar_PATOLOGIA).setParameter(1, nombre).getSingleResult();
+		return (Patologia)em.createNamedQuery(Patologia.BUSCAR_PATOLOGIA).setParameter(1, nombre).getSingleResult();
 	}
 	
 	/**
@@ -57,10 +59,16 @@ public class PatologiaEJB {
 	 * 
 	 * @param codigo
 	 */
-	public void eliminarPatologia(String codigo){
+	public void eliminarPatologia(Integer codigo){
 		em.remove(em.find(Patologia.class, codigo));
 	}
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Patologia> listarPatologias(){
+		return (List<Patologia>) em.createNamedQuery(Patologia.LISTAR_PATOLOGIA).getResultList();
+	}
 
 }

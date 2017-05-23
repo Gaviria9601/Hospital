@@ -84,7 +84,7 @@ public class SintomaEJB {
 	 * 
 	 * @param codigo
 	 */
-	public void eliminarSintoma(String codigo){
+	public void eliminarSintoma(Integer codigo){
 		em.remove(em.find(Sintoma.class, codigo));
 	}
 	
