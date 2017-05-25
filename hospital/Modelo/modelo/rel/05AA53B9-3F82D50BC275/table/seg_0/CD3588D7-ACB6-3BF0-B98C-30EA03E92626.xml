@@ -71,6 +71,7 @@
 <indexColumnUsage>
 <colUsage columnID="7C906617-C1E5-2B8A-C110-EB88BE20459B"/>
 <colUsage columnID="B96DAAEB-00BA-804D-F30F-617396AAFF32"/>
+<colUsage columnID="C30E0314-7A35-2D1F-C9A1-1AB076179E20"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="75CEF593-82C8-1AFD-2FC3-00970D91A932" name="Item_horario_Horario_FK">

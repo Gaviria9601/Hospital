@@ -11,6 +11,7 @@ import javax.inject.Named;
 import org.hibernate.validator.constraints.Length;
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
+import org.primefaces.context.RequestContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.Cirugia;
 import co.edu.eam.ingesoft.hospital.entidades.Especializacion;
@@ -173,6 +174,7 @@ public class CirugiaController implements Serializable {
 			cirugia.setEspecializacionCodigo(especializacion);
 			cirugia.setTipoCirugia(tipoCirugia);
 			cirugiaEJB.crearCirugia(cirugia);
+			cirugias = cirugiaEJB.listarCirugias();
 			Messages.addFlashGlobalInfo("CIRUGIA INGRESADA AL SISTEMA CORRECTAMENTE");
 			nombre = "";
 			tiempoestimado = "";
@@ -184,6 +186,16 @@ public class CirugiaController implements Serializable {
 		}
 
 	}
+	
+	/**
+	 * 
+	 * @param id
+	 */
+	public void resetearFitrosTabla(String id) {
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+		requestContext.execute("PF('vtWidget').clearFilters()");
+    }
+
 
 	/**
 	 * Limpia los campos del registro de la cirugia
@@ -204,8 +216,9 @@ public class CirugiaController implements Serializable {
 	public void eliminar(Cirugia ciru) {
 		try {
 			cirugiaEJB.eliminarCirugia(ciru.getCodigo());
-			Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE LA CIRUGIA");
 			cirugias = cirugiaEJB.listarCirugias();
+			Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE LA CIRUGIA");
+			resetearFitrosTabla("tablaCirugias");
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

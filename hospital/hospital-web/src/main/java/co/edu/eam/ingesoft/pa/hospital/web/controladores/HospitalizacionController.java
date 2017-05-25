@@ -19,7 +19,7 @@ import co.edu.eam.ingesoft.pa.negocio.beans.HospitalizacionEJB;
 public class HospitalizacionController implements Serializable {
 
 	@Length(min=4,max=50,message="Longitud entre 4 y 50")
-	private String nombre;
+	private String nombre; 
 	
 	
 	private String tiempoestimado;

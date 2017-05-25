@@ -134,6 +134,7 @@ public class ExamenController implements Serializable {
 			examen.setTipo(CitaAvanzadaEnum.Examen);
 			examen.setTipoExamen(tipoExamen);
 			examenEJB.crearExamen(examen);
+			examenes = examenEJB.listarExamenes();
 			Messages.addFlashGlobalInfo("EXAMEN INGRESADO AL SISTEMA CORRECTAMENTE");
 			nombre = "";
 			tiempoestimado = "";

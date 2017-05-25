@@ -413,7 +413,6 @@ public class PatologiaController implements Serializable {
 		try {
 			patologiaEJB.eliminarPatologia(patoli.getCodigo());
 			patologias = patologiaEJB.listarPatologias();
-			resetearFitrosTabla("tablaPatologias");
 			Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE LA PATOLOGIA");
 		} catch (Exception e) {
 			Messages.addFlashGlobalError("ERROR AL ELIMINAR LA PATOLOGIA");
@@ -445,7 +444,6 @@ public class PatologiaController implements Serializable {
 				sintomasAgre = sintomaEJB.listarSintomasPatologia(patolo.getCodigo());
 				tratamientosAgre = tratamientoEJB.listarTratamietoPatologia(patolo.getCodigo());
 				requestContext.execute("PF('terminationWizard').next()");
-				resetearFitrosTabla("tablaPatologias");
 				Messages.addFlashGlobalInfo("SE HA MODIFICADO CORRECTAMENTE LA PATOLOGIA");
 			} catch (Exception e) {
 				Messages.addFlashGlobalError("ERROR AL TRATAR DE MODIFICAR LA PATOLOGIA");

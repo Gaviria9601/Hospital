@@ -12,16 +12,15 @@
 			<h2 class="title-style-1">
 				Buscar Examen<span class="title-under"></span>
 			</h2>
-			<p:panel header="Examenes" id="panelexamen"
-				style="margin-bottom:20px" toggleable="true" toggleSpeed="500">
 
 				<p:dataTable id="tablaExamenes" paginator="true" rows="5"
 					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
 					rowsPerPageTemplate="5,10,15" value="#{examenController.examenes}"
 					var="exa" border="1" emptyMessage="Sin Coincidencias"
 					widgetVar="vtWidget">
-
-
+					<f:facet name="header">
+           				Examenes
+        			</f:facet>
 					<p:column headerText="Nombre" sortBy="#{exa.nombre}"
 						filterBy="#{exa.nombre}" filterMatchMode="contains">
 						<h:outputLabel value="#{exa.nombre}" />
@@ -47,7 +46,6 @@
 
 				</p:dataTable>
 
-			</p:panel>
 
 			<br />
 

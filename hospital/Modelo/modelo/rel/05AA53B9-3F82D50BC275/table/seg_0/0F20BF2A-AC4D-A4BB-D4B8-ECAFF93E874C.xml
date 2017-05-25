@@ -18,26 +18,6 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Fecha" id="4E1806A1-5E7F-C8CE-D4E4-FE956C32C325">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 22:15:51 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Hora_inicio" id="1BECDFC8-CA81-0843-3424-0F7144D3E58E">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 22:15:51 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT015</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="Observacion" id="2952397D-448A-7224-1085-2DFE4C6BEBEE">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-02-21 22:15:51 UTC</createdTime>
@@ -50,16 +30,6 @@
 <ownDataTypeParameters>2000,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="hora_final" id="B86887C9-D6B7-CB3A-9D29-59181715C80D">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-02-21 22:15:51 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT015</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="Cita_Codigo" id="38C66F1D-8B94-013D-2933-45F3234B8347">
 <createdBy>Lenovo</createdBy>
 <createdTime>2017-02-23 22:06:31 UTC</createdTime>
@@ -68,27 +38,11 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>20,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="3564F342-70CC-42BC-2C61-59E475C8EF98" referredColumn="406E6113-A91F-1089-6429-4BFCA0C80E94"/>
-</associations>
-</Column>
-<Column name="Medico_Cedula" id="204B1A08-4A37-88A2-33EB-701A8BEAD26E">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-04-22 22:07:27 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="EA9EAC2A-4317-F243-36E8-967336838E5E" referredColumn="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
+<colAssociation fkAssociation="3564F342-70CC-42BC-2C61-59E475C8EF98" referredColumn="406E6113-A91F-1089-6429-4BFCA0C80E94"/>
 </associations>
 </Column>
 <Column name="Paciente_cedula" id="5190639D-136E-38E7-4C70-FC0BFD5E3F12">
@@ -104,6 +58,64 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="D94B4514-15D7-6D0E-6278-FF02FB120FEC" referredColumn="CB1BB199-EC5D-3EEF-4E5E-6B33E1ADA0F6"/>
+</associations>
+</Column>
+<Column name="Medico_Cedula" id="1AC94224-126D-FE2B-1D82-DCCAACC8AFF9">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 21:58:23 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4AC68E64-1D2A-D420-8EE3-394E9A27D53B" referredColumn="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
+</associations>
+</Column>
+<Column name="Horario_Codigo_turno" id="9CDB727D-06F9-8AC0-36D6-5DE610038B09">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 22:04:59 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="316F4A08-FFCE-C631-7BDD-3AD7F4975295" referredColumn="7C906617-C1E5-2B8A-C110-EB88BE20459B"/>
+</associations>
+</Column>
+<Column name="Medico_Horario" id="BA927C59-974E-80A9-AB1F-3CE2B1041F84">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 22:04:59 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="316F4A08-FFCE-C631-7BDD-3AD7F4975295" referredColumn="B96DAAEB-00BA-804D-F30F-617396AAFF32"/>
+</associations>
+</Column>
+<Column name="Fecha" id="05BF5521-0913-54A0-36A3-1DB2757AACFE">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 22:04:59 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="316F4A08-FFCE-C631-7BDD-3AD7F4975295" referredColumn="C30E0314-7A35-2D1F-C9A1-1AB076179E20"/>
 </associations>
 </Column>
 </columns>
@@ -129,16 +141,6 @@
 <colUsage columnID="38C66F1D-8B94-013D-2933-45F3234B8347"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="C68A48FB-4182-BDCE-3EF9-76B744FE5378" name="Cita_Medico_FK">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-04-22 22:07:27 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="204B1A08-4A37-88A2-33EB-701A8BEAD26E"/>
-</indexColumnUsage>
-</ind_PK_UK>
 <ind_PK_UK id="2E0817DA-EE1A-BE6F-355C-65EB719859AB" name="Cita_Paciente_FK">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-04-22 22:07:55 UTC</createdTime>
@@ -147,6 +149,28 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="5190639D-136E-38E7-4C70-FC0BFD5E3F12"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="556FEE47-F311-52A5-21CF-A9AE03740CC2" name="Cita_Medico_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 21:58:23 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1AC94224-126D-FE2B-1D82-DCCAACC8AFF9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9F08D202-015A-0B5C-7A41-E4B6A60A6B8F" name="Cita_Item_horario_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 22:04:59 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9CDB727D-06F9-8AC0-36D6-5DE610038B09"/>
+<colUsage columnID="BA927C59-974E-80A9-AB1F-3CE2B1041F84"/>
+<colUsage columnID="05BF5521-0913-54A0-36A3-1DB2757AACFE"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

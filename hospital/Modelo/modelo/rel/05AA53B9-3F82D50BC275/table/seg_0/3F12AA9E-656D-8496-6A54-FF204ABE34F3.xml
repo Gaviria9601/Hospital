@@ -60,6 +60,17 @@
 <colAssociation fkAssociation="3FDAC559-9B17-4EC3-2634-5329B695310D" referredColumn="43934D3E-7C7E-472D-F573-A243511AA30C"/>
 </associations>
 </Column>
+<Column name="fecha" id="6676F4C7-F7C0-2397-0FB3-90DE7F3CB67F">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 22:09:02 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="BD419C6A-3845-FC81-4972-64FAA7E4805F" name="OrdenCitaAvanzada_PK">

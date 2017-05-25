@@ -30,7 +30,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -52,28 +52,6 @@
 <colAssociation fkAssociation="10A1B0D2-BBEF-F0CC-539A-B1E20559A424" referredColumn="124DB7B9-8BD6-8423-EBE5-E7F96D768F0A"/>
 </associations>
 </Column>
-<Column name="horafinal" id="8BB51351-94D8-7339-F794-C630A37836CB">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-04-22 20:55:36 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT015</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="horaInicio" id="9DBA2818-0D20-3A0C-5E34-85335553F4F4">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-04-22 20:55:25 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT015</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="Quirofanoo_Instalacion_Codigo" id="B018B9B1-3491-3589-E3B5-E67C69EC3C53">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-04-22 21:39:40 UTC</createdTime>
@@ -86,6 +64,49 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="E2612CF6-FB0E-766B-C323-C3C6929D7432" referredColumn="E92B5C29-E466-13E9-804E-E6F4ACE6B54A"/>
+</associations>
+</Column>
+<Column name="Horario_Codigo_turno" id="BB974957-E7BA-2ABA-9CA8-5B4A249BDCD3">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 22:10:11 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="01DCAACB-956B-3DD9-E5FB-944B7DDFAE1D" referredColumn="7C906617-C1E5-2B8A-C110-EB88BE20459B"/>
+</associations>
+</Column>
+<Column name="Medico_Horario" id="4410F99D-2335-1AFE-4C1F-A945D7093743">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 22:10:11 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="01DCAACB-956B-3DD9-E5FB-944B7DDFAE1D" referredColumn="B96DAAEB-00BA-804D-F30F-617396AAFF32"/>
+</associations>
+</Column>
+<Column name="Fecha" id="D234039C-A990-7D04-6B00-4B211EDED718">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 22:10:11 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="01DCAACB-956B-3DD9-E5FB-944B7DDFAE1D" referredColumn="C30E0314-7A35-2D1F-C9A1-1AB076179E20"/>
 </associations>
 </Column>
 </columns>
@@ -139,6 +160,18 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="B018B9B1-3491-3589-E3B5-E67C69EC3C53"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BD7D0775-31C2-F2B5-75F9-3951A350AE67" name="OrdenCirugia_Item_horario_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 22:10:11 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BB974957-E7BA-2ABA-9CA8-5B4A249BDCD3"/>
+<colUsage columnID="4410F99D-2335-1AFE-4C1F-A945D7093743"/>
+<colUsage columnID="D234039C-A990-7D04-6B00-4B211EDED718"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

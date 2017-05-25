@@ -30,17 +30,6 @@
 <ownDataTypeParameters>2000,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="fecha" id="DB013725-4B68-2925-3BF5-371DC4726929">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-04-22 20:47:38 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="estado" id="4F8DD9EC-2706-EA48-9A3F-7116041889D7">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-04-22 21:06:41 UTC</createdTime>

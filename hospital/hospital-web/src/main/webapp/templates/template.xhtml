@@ -194,19 +194,25 @@
 										</ul></li>
 									<li class="has-child"><a href="#">Gestión Patologia</a>
 										<ul class="submenu">
-											<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/crear-Patologia.xhtml">Crear Patologia </a></li>
-											<li class="submenu-item"><a href="#{request.contextPath}/paginas/seguro/buscar-Patologia.xhtml">Buscar Patologia </a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/crear-Patologia.xhtml">Crear
+													Patologia </a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/buscar-Patologia.xhtml">Buscar
+													Patologia </a></li>
 										</ul></li>
 
 								</h:panelGroup>
 								<h:panelGroup rendered="#{sessionControl.sesionMedico}">
-									<li class="has-child"><a href="#">Gestión Cita
-											Avanzada</a>
+									<li class="has-child"><a href="#">Gestión
+											Procedimiento</a>
 										<ul class="submenu">
 											<li class="submenu-item"><a
 												href="#{request.contextPath}/paginas/seguro/hospitalizacion.xhtml">Hospitalización</a></li>
-											<li class="submenu-item"><a href="#">Examen</a></li>
-											<li class="submenu-item"><a href="#">Cirugia</a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/examen.xhtml">Examen</a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/cirugia.xhtml">Cirugia</a></li>
 										</ul></li>
 								</h:panelGroup>
 								<h:panelGroup rendered="#{sessionControl.sesionPaciente}">
@@ -372,8 +378,8 @@
 	</h:panelGroup>
 
 	<!-- /.Cuerpos -->
-	 <p:messages id="facesMessage" autoUpdate="true" globalOnly="true"
-		closable="true"  />
+	<p:messages id="facesMessage" autoUpdate="true" globalOnly="true"
+		closable="true" />
 	<div class="container">
 		<div class="container" align="center">
 			<ui:insert name="cuerpo" />

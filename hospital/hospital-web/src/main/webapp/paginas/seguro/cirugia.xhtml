@@ -1,0 +1,228 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+
+		<h2 class="title-style-1">
+			Gestión Cirugia<span class="title-under"></span>
+		</h2>
+
+		<h:form prependId="false">
+
+			<p:tabView orientation="top" id="modCirugia">
+				<p:tab title="Ingresar Cirugia">
+					<p:panel header="Datos" toggleable="true" toggleSpeed="500">
+						<p:panelGrid id="paneldatos" columns="6" cellpadding="5"
+							styleClass="ui-noborder">
+
+							<p:outputLabel for="tfnombre" id="lblnombre" value="Nombre" />
+							<p:inputText id="tfnombre" cols="30" style="width: 100%;"
+								value="#{cirugiaController.nombre}" />
+							<p:message for="tfnombre" />
+
+							<p:outputLabel for="tftiempoestimado" id="lbltiempoestimado"
+								value="Tiempo Estimado" />
+							<p:inputText id="tftiempoestimado" style="width: 100%;"
+								a:placeholder="# Tiempo"
+								value="#{cirugiaController.tiempoestimado}" />
+							<p:message for="tftiempoestimado" />
+
+
+							<p:outputLabel for="tfobservaciones" id="lblobservaciones"
+								value="Observaciones" />
+							<p:inputTextarea rows="10" cols="30" id="tfobservaciones"
+								value="#{cirugiaController.observaciones}" />
+							<p:message for="tfobservaciones" />
+
+							<p:outputLabel for="tfrecuperacion" id="lblrecuperacion"
+								value="Recuperación" />
+							<p:inputTextarea rows="10" cols="30" id="tfrecuperacion"
+								value="#{cirugiaController.recuperacion}" />
+							<p:message for="tfrecuperacion" />
+
+							<p:outputLabel id="lblanesterisa" value="Anestesia" />
+							<p:selectBooleanCheckbox value="#{cirugiaController.anestesia}" />
+							<br />
+
+							<p:outputLabel id="lblespecializacion" value="Especialización" />
+							<h:selectOneMenu id="cbespecializacion"
+								value="#{cirugiaController.especializacion}"
+								converter="espConverter">
+
+								<f:selectItems value="#{cirugiaController.especializaciones}"
+									var="esp" itemValue="#{esp}" itemLabel="#{esp.nombre}" />
+
+							</h:selectOneMenu>
+							<br />
+
+							<p:outputLabel id="lbltipoCirugia" value="Tipo Cirugia" />
+							<h:selectOneMenu id="cbtipoCirugia"
+								value="#{cirugiaController.tipoCirugia}"
+								converter="tipoCiruConverter">
+
+								<f:selectItems value="#{cirugiaController.tipoCirugias}"
+									var="tipoCiru" itemValue="#{tipoCiru}"
+									itemLabel="#{tipoCiru.nombre}" />
+
+							</h:selectOneMenu>
+							<br />
+
+						</p:panelGrid>
+					</p:panel>
+
+					<p:panel id="botones" header="Acciones" style="margin-bottom:20px"
+						toggleable="true" toggleSpeed="500">
+						<p:panelGrid id="panelbotones" columns="3"
+							styleClass="ui-noborder">
+
+							<p:commandButton id="btncrear" value="Crear Cirugia"
+								process="@this,paneldatos"
+								update="paneldatos modCirugia"
+								action="#{cirugiaController.crear}" />
+
+							<p:commandButton id="btnlimpiar" value="Limpiar Campos"
+								process="@this" update="paneldatos"
+								action="#{cirugiaController.limpiar}" />
+
+						</p:panelGrid>
+
+					</p:panel>
+
+				</p:tab>
+				<p:tab title="Busqueda Cirugia">
+
+					<p:dataTable id="tablaCirugias" paginator="true" rows="5"
+						paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+						rowsPerPageTemplate="5,10,15"
+						value="#{cirugiaController.cirugias}" var="ciru" border="1"
+						filteredValue="#{cirugiaController.filtroCirugias}"
+						emptyMessage="Sin Coincidencias">
+						<f:facet name="header">
+           				Cirugias
+        				</f:facet>
+						<p:column headerText="Nombre" filterBy="#{ciru.nombre}"
+							filterMatchMode="contains">
+							<h:outputLabel value="#{ciru.nombre}" />
+						</p:column>
+
+						<p:column headerText="Tiempo Estimado">
+							<h:outputLabel value="#{ciru.tiempoEstimado}" />
+						</p:column>
+
+						<p:column headerText="Especialización">
+							<h:outputLabel value="#{ciru.especializacionCodigo.nombre}" />
+						</p:column>
+
+						<p:column headerText="Tipo Cirugia">
+							<h:outputLabel value="#{ciru.tipoCirugia.nombre}" />
+						</p:column>
+
+						<p:column headerText="Acciones">
+							<p:commandButton action="#{cirugiaController.eliminar(ciru)}"
+								process="@this" value="Eliminar"
+								update="tablaCirugias" />
+
+							<p:commandButton action="#{cirugiaController.editar(ciru)}"
+								process="@this" value="Modificar"
+								update=":modCirugia:datosCirugia" />
+						</p:column>
+
+					</p:dataTable>
+					
+					<br/>
+
+					<p:panel id="datosCirugia" header="Modificación Cirugia"
+						style="margin-bottom:20px">
+
+						<p:panelGrid id="paneldatos1" columns="6" cellpadding="5"
+							styleClass="ui-noborder">
+
+							<h:panelGroup id="paneloculto"
+								rendered="#{cirugiaController.busco}">
+
+								<p:panelGrid id="paneldatos2" columns="6" cellpadding="5"
+									styleClass="ui-noborder">
+
+									<p:outputLabel for="tfnombreMod" id="lblnombreMod"
+										value="Nombre" />
+									<p:inputText id="tfnombreMod" cols="30" style="width: 100%;"
+										value="#{cirugiaController.nombre}" />
+									<p:message for="tfnombreMod" />
+
+									<p:outputLabel for="tftiempoestimadoMod"
+										id="lbltiempoestimadoMod" value="Tiempo Estimado" />
+									<p:inputText id="tftiempoestimadoMod" style="width: 100%;"
+										a:placeholder="# Tiempo"
+										value="#{cirugiaController.tiempoestimado}" />
+									<p:message for="tftiempoestimadoMod" />
+
+
+									<p:outputLabel for="tfobservacionesMod"
+										id="lblobservacionesMod" value="Observaciones" />
+									<p:inputTextarea rows="10" cols="30" id="tfobservacionesMod"
+										value="#{cirugiaController.observaciones}" />
+									<p:message for="tfobservacionesMod" />
+
+									<p:outputLabel for="tfrecuperacionMod" id="lblrecuperacionMod"
+										value="Recuperación" />
+									<p:inputTextarea rows="10" cols="30" id="tfrecuperacionMod"
+										value="#{cirugiaController.recuperacion}" />
+									<p:message for="tfrecuperacionMod" />
+
+									<p:outputLabel id="lblanesterisaMod" value="Anestesia" />
+									<p:selectBooleanCheckbox value="#{cirugiaController.anestesia}" />
+									<br />
+
+									<p:outputLabel id="lblespecializacionMod" color="#115b9b"
+										value="Especialización" />
+									<h:selectOneMenu id="cbespecializacionMod"
+										value="#{cirugiaController.especializacion}"
+										converter="espConverter">
+
+										<f:selectItems value="#{cirugiaController.especializaciones}"
+											var="esp" itemValue="#{esp}" itemLabel="#{esp.nombre}" />
+
+									</h:selectOneMenu>
+									<br />
+
+									<p:outputLabel id="lbltipoCirugiaMod" value="Tipo Cirugia" />
+									<h:selectOneMenu id="cbtipoCirugiaMod"
+										value="#{cirugiaController.tipoCirugia}"
+										converter="tipoCiruConverter">
+
+										<f:selectItems value="#{cirugiaController.tipoCirugias}"
+											var="tipoCiru" itemValue="#{tipoCiru}"
+											itemLabel="#{tipoCiru.nombre}" />
+
+									</h:selectOneMenu>
+									<br />
+
+									<p:commandButton id="btnmodif" value="Modificar Cirugia"
+										process="@this,paneldatos2"
+										update="datosCirugia paneloculto :modCirugia:tablaCirugias"
+										action="#{cirugiaController.modificar}" />
+
+									<p:commandButton id="btnlimpiarMod" value="Limpiar Campos"
+										process="@this" update="datosCirugia,paneloculto"
+										action="#{cirugiaController.limpiar}" />
+
+								</p:panelGrid>
+
+							</h:panelGroup>
+						</p:panelGrid>
+
+					</p:panel>
+
+				</p:tab>
+			</p:tabView>
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

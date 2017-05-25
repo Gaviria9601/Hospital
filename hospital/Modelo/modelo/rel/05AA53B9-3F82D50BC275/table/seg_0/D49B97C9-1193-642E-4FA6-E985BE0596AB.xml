@@ -22,18 +22,6 @@
 <colAssociation fkAssociation="D3C716A8-E050-A01A-DC8D-48E1393EDD53" referredColumn="0E0D4FFA-3C5E-3CDC-E186-F567CAE153FE"/>
 </associations>
 </Column>
-<Column name="Caracteristicas" id="BF72B23D-2FD1-2B83-60E4-E993EC1ACED3">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-04-22 21:37:19 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>2000</dataTypeSize>
-<ownDataTypeParameters>2000,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="NumeroAparatos" id="8BBBD1A0-75B1-1367-103D-1A20940E93C3">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-04-22 21:37:51 UTC</createdTime>

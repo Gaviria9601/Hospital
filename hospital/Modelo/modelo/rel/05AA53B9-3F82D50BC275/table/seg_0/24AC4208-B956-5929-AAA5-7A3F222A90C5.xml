@@ -48,6 +48,17 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="fecha" id="C49339A8-E400-FD08-B4A0-6D6AFCE3A4D5">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-25 22:08:45 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="CF2F98B3-D8EB-945A-EB7E-3CB96421BB1E" name="OrdenExamen_PK">

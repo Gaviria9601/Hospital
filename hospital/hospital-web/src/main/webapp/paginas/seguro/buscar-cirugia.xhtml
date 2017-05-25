@@ -12,7 +12,7 @@
 			<h2 class="title-style-1">
 				Buscar Cirugia<span class="title-under"></span>
 			</h2>
-			<p:panel header="Cirugias" id="panelcirugia" style="margin-bottom:20px"
+			<p:panel header="Cirugias" id="panelcirugia2" style="margin-bottom:20px"
 				toggleable="true" toggleSpeed="500">
 
 				<p:dataTable id="tablaCirugias" paginator="true" rows="5"
@@ -39,10 +39,10 @@
 
 					<p:column headerText="Acciones">
 						<p:commandButton action="#{cirugiaController.eliminar(ciru)}"
-							process="@this" value="Eliminar" update="panelcirugia"/>
+							process="@this" value="Eliminar" update="panelcirugia2"/>
 
 						<p:commandButton action="#{cirugiaController.editar(ciru)}"
-							process="@this,panelcirugia" value="Modificar"
+							process="@this,panelcirugia2" value="Modificar"
 							update="datosCirugia,paneloculto"/>
 					</p:column>
 
@@ -117,7 +117,7 @@
 							<br />
 
 							<p:commandButton id="btnmodif" value="Modificar Cirugia"
-								process="@this,paneldatos" update="datosCirugia,paneloculto,panelcirugia"
+								process="@this,paneldatos" update="datosCirugia,paneloculto,panelcirugia2"
 								action="#{cirugiaController.modificar}" />
 
 							<p:commandButton id="btnlimpiar" value="Limpiar Campos"
