@@ -258,7 +258,7 @@ public void editar() {
 	medi.setCantidad(Integer.parseInt(cantidad));
 	mediEJB.editarMedicamento(medi);
 	limpiar();
-	busco = false;
+	
 	Messages.addGlobalInfo("EL MEDICAMENTO FUE MODIFICADO CORRECTAMENTE");
 	limpiar();
 }
@@ -270,7 +270,7 @@ public void editar() {
 public void eliminar(Medicamento exa) {
 	try {
 		mediEJB.eliminarMedicamento(exa.getCodigo());
-		busco = false;
+		
 		limpiar();
 		Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE EL MEDICAMENTO");
 		medicamentos = mediEJB.listarMedicamentos();

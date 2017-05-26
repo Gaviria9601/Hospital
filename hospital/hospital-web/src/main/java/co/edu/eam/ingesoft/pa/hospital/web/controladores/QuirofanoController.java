@@ -1,7 +1,8 @@
 package co.edu.eam.ingesoft.pa.hospital.web.controladores;
 
 import java.io.Serializable;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -11,8 +12,10 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
+import org.primefaces.context.RequestContext;
 
-
+import co.edu.eam.ingesoft.hospital.entidades.Examen;
+import co.edu.eam.ingesoft.hospital.entidades.Medicamento;
 import co.edu.eam.ingesoft.hospital.entidades.Quirofano;
 
 import co.edu.eam.ingesoft.pa.negocio.beans.QuirofanoEJB;
@@ -22,10 +25,14 @@ import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
 @ViewScoped
 public class QuirofanoController implements Serializable  {
 	
+	private Quirofano quiro;
+	
+	 private List<Quirofano> listaQuirofano;
+		
+	private ArrayList<Quirofano> filtroQuiro = new ArrayList<Quirofano>();
+	
 	private boolean disponi;
 	
-	@Pattern(regexp="[A-Za-z ]*",message="solo Letras")
-	@Length(min=3,max=2000,message="longitud entre 3 y 2000")
 	private String observacion;
 	
 	private String tipo = "Quirofano";
@@ -40,6 +47,51 @@ public class QuirofanoController implements Serializable  {
 	@Length(min=1,max=200,message="longitud entre 1 y 200")
 	private String cantidadMedico;
 
+	
+	private boolean busco = false;
+	
+	
+	
+
+	public boolean isBusco() {
+		return busco;
+	}
+
+	public void setBusco(boolean busco) {
+		this.busco = busco;
+	}
+
+	public Quirofano getQuiro() {
+		return quiro;
+	}
+
+	public void setQuiro(Quirofano quiro) {
+		this.quiro = quiro;
+	}
+
+	public List<Quirofano> getListaQuirofano() {
+		return listaQuirofano;
+	}
+
+	public void setListaQuirofano(List<Quirofano> listaQuirofano) {
+		this.listaQuirofano = listaQuirofano;
+	}
+
+	public ArrayList<Quirofano> getFiltroQuiro() {
+		return filtroQuiro;
+	}
+
+	public void setFiltroQuiro(ArrayList<Quirofano> filtroQuiro) {
+		this.filtroQuiro = filtroQuiro;
+	}
+
+	public QuirofanoEJB getQuiroEJB() {
+		return quiroEJB;
+	}
+
+	public void setQuiroEJB(QuirofanoEJB quiroEJB) {
+		this.quiroEJB = quiroEJB;
+	}
 
 	public boolean isDisponi() {
 		return disponi;
@@ -100,7 +152,7 @@ public class QuirofanoController implements Serializable  {
 	
 	@PostConstruct
 	public void inicializador(){
-		
+	listaQuirofano = quiroEJB.listarQuirofanos();
 	
 	}
 	/**
@@ -128,10 +180,7 @@ public void limpiar(){
 		tipo = "";
 		numeroAparato = "";
 		cantidadMedico="";
-		
-		
-		
-		
+		busco = false;
 	}
    /**
     * Metodo para buscar un farmaceutico
@@ -145,28 +194,38 @@ public void buscar(){
 		numeroAparato = f.getNumeroAparatos() + "";
 		tipo = f.getTipo();
 		disponi = f.isDisponibilidad();
-		
-			
-		
+		busco=true;
 		Messages.addFlashGlobalInfo("QUIROFANO ENCONTRADO");
 		
 	}else{
 		Messages.addFlashGlobalError("FARMACEUTICO  NO EXISTE");
  	}
 }
+
+public void resetearFitrosTabla(String id) {
+	RequestContext requestContext = RequestContext.getCurrentInstance();
+	requestContext.execute("PF('vtWidget').clearFilters()");
+}
+
+public void modificar(Quirofano exa) {
+	quiro = exa;
+	cantidadMedico= exa.getCantidadMedico() + "";
+	numeroAparato= exa.getNumeroAparatos() + "";
+	disponi= exa.isDisponibilidad();
+	observacion= exa.getObservacionDisponible();
+	busco = true;
+}
 /**
  * Metodo paara modificcar un farmaceutico
  */
-public void modificar(){
+public void editar(){
 	try{
-	Quirofano f = quiroEJB.buscar(codigoQuiro);
-	f.setCantidadMedico(Integer.parseInt(cantidadMedico));
-    f.setDisponibilidad(disponi);
-	f.setNumeroAparatos(Integer.parseInt(numeroAparato));
-	f.setObservacionDisponible(observacion);
-	f.setTipo(tipo);
-	quiroEJB.modificar(f);
-	
+	quiro.setCantidadMedico(Integer.parseInt(cantidadMedico));
+    quiro.setDisponibilidad(disponi);
+	quiro.setNumeroAparatos(Integer.parseInt(numeroAparato));
+	quiro.setObservacionDisponible(observacion);
+	quiroEJB.modificar(quiro);
+	busco = false;
 	limpiar();
 	Messages.addFlashGlobalInfo("QUIROFANO MODIFICADO CORRECTAMENTE");
 	}catch (ExcepcionNegocio e) {
@@ -176,27 +235,14 @@ public void modificar(){
 /**
  * Metodo que elimina un farmaceutico
  */
-public void eliminar(){
+public void eliminar(Quirofano exa) {
 	try {
-		Quirofano fa = quiroEJB.buscar(codigoQuiro);
-		if(fa!=null){
-			quiroEJB.eliminar(fa);
-			Messages.addFlashGlobalInfo("QUIROFANO ELIMINADO EXITOSAMENTE");
-		}else{
-			Messages.addGlobalError("ERROR AL ELIMINAR");
-		}
-	} catch (ExcepcionNegocio e) {
-		Messages.addGlobalError(e.getMessage());
+		quiroEJB.eliminar(exa.getCodigo());
+		Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE EL QUIROFANO");
+		listaQuirofano = quiroEJB.listarQuirofanos();
+		resetearFitrosTabla("tablaExamenes");
+	} catch (Exception e) {
+		// TODO: handle exception
 	}
 }
-
-
-
-
-
-
-
-
-	
-
 }

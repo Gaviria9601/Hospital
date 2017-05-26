@@ -8,6 +8,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -16,8 +18,13 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="Quirofano")
+@NamedQueries({
+@NamedQuery (name=Quirofano.LISTAR_QUIRO, query="select m from Quirofano m")
+})
 public class Quirofano extends Instalacion implements Serializable {
 	
+	
+	public static final String LISTAR_QUIRO = "Listarquiro";
 	
 	@Column(name="numeroAparatos", nullable=false)
 	private int numeroAparatos;

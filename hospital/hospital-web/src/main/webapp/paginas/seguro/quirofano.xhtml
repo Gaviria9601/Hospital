@@ -15,47 +15,52 @@
 			<p:panel header="Medicamentos" id="panelexamen"
 				style="margin-bottom:20px" toggleable="true" toggleSpeed="500">
 
-				<p:dataTable id="tablaExamenes" paginator="true" rows="5"
-					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-					rowsPerPageTemplate="5,10,15" value="#{quirofanoControlador.disponi}"
-					var="exa" border="1"
-					filteredValue="#{MedicamentosControlador.filtroMedi}"
+				<p:dataTable id="tablaExamenes" paginator="true" rows="5" widgetVar="quirofanoTable"
+					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} 
+					{CurrentPageReport} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15"
+					value="#{quirofanoControlador.listaQuirofano}" var="exa" border="1"
+					filteredValue="#{quirofanoControlador.filtroQuiro}"
 					emptyMessage="Sin Coincidencias">
-
-					<p:column headerText="Nombre"
-					sortBy="#{exa.nombre}" filterBy="#{exa.nombre}"
-						filterMatchMode="contains">
-						<h:outputLabel value="#{exa.nombre}" />
+					
+                    <p:column headerText="Número de equipos">
+						<h:outputLabel value="#{exa.numeroAparatos}" />
 					</p:column>
 
-					<p:column headerText="Fecha expedición">
-						<h:outputLabel value="#{exa.fechaExpedicion}" />
+					<p:column headerText="Cantidad de medicos">
+						<h:outputLabel value="#{exa.cantidadMedico}" />
+					</p:column>
+					
+					<p:column filterBy="#{exa.disponibilidad}" headerText="Disponibilidad"
+						filterMatchMode="exact">
+						<f:facet name="filter">
+							<h:selectOneMenu onchange="PF('quirofanoTable').filter()" >
+								<f:selectItem itemLabel="Disponible" itemValue="true"/>
+								<f:selectItem itemLabel="No Disponible" itemValue="false"/>
+							</h:selectOneMenu>
+						</f:facet>
+						
+						<p:column headerText="Disponibilidad">
+						<h:outputLabel value="Disponible"
+							rendered="#{exa.disponibilidad == true}" />
+						<h:outputLabel value=" No Disponible"
+							rendered="#{exa.disponibilidad == false}" />
+					</p:column>
 					</p:column>
 
-					<p:column headerText="Fecha expiración">
-						<h:outputLabel value="#{exa.fechaExpiracion}" />
-					</p:column>
-					
-					<p:column headerText="Laboratorio">
-						<h:outputLabel value="#{exa.laboratorio}" />
-					</p:column>
-					
-					<p:column headerText="Cantidad">
-						<h:outputLabel value="#{exa.cantidad}" />
-					</p:column>
-					
-					
-					<p:column headerText="Estado">
-						<h:outputLabel value="#{exa.estado}" />
+					<p:column headerText="Observaciones">
+						<h:outputLabel value="#{exa.observacionDisponible}" />
 					</p:column>
 
 					<p:column headerText="Acciones">
-						<p:commandButton action="#{MedicamentosControlador.eliminar(exa)}"
-							process="@this" value="Eliminar" update="panelexamen tablaExamenes" />
+						<p:commandButton action="#{quirofanoControlador.eliminar(exa)}"
+						process="@this" value="Eliminar"
+							update="panelexamen tablaExamenes" />
 
-						<p:commandButton action="#{MedicamentosControlador.modificarMedicamento(exa)}"
-							process="@this,panelexamen" value="Modificar"
-							update="datosExamen,paneloculto" />
+						<p:commandButton action="#{quirofanoControlador.modificar(exa)}"
+						process="@this,panelexamen"
+							value="Modificar" update="datosExamen,paneloculto" 
+							/>
 					</p:column>
 
 				</p:dataTable>
@@ -64,70 +69,52 @@
 
 			<br />
 
-			<p:panel id="datosExamen" header="Modificación Medicamento"
+			<p:panel id="datosExamen" header="Modificación Quirofano"
 				style="margin-bottom:20px">
 
 				<p:panelGrid id="paneldatos1" columns="6" cellpadding="5"
 					styleClass="ui-noborder">
 
-					<h:panelGroup id="paneloculto" rendered="#{MedicamentosControlador.busco}">
+					<h:panelGroup id="paneloculto"
+						rendered="#{quirofanoControlador.busco}">
 
 						<p:panelGrid id="paneldatos" columns="6" cellpadding="5"
 							styleClass="ui-noborder">
 
-							<p:outputLabel for="tfnombre" id="lblnombre" value="Nombre" />
-							<p:inputText id="tfnombre" cols="30" style="width: 100%;"
-								value="#{MedicamentosControlador.nombre}" />
-							<p:message for="tfnombre" />
+						
+					<p:outputLabel for="tfObser" id="lblObser"
+								value="Observación:" />
 
-					        <p:outputLabel for="tffecha1"  value="Fecha expedición:" />
-					         <p:inputText id="tffecha1"
-					          value="#{MedicamentosControlador.fecha_expedicion}" 
-					          mode="inline">
-					         <f:convertDateTime pattern = "dd-MM-yyyy" />
-					         </p:inputText>
-					         <p:message for="tffecha1" />
+					<p:inputTextarea rows="3" cols="20" id="tfObser"
+								value="#{quirofanoControlador.observacion}" />
+					<p:message for="tfObser" />
+					
+					
+					<p:outputLabel for="tfnumApa" id="lblnumApa" value="Número de equipos:" />
+					<p:inputText id="tfnumApa" value="#{quirofanoControlador.numeroAparato}" />
+					<p:message for="tfnumApa" />
 
-					        <p:outputLabel for="tffecha2"  value="Fecha expiración:" />
-					        <p:inputText id="tffecha2" 
-					        value="#{MedicamentosControlador.fecha_expiracion}" 
-					        mode="inline">
-					       <f:convertDateTime pattern = "dd-MM-yyyy" />
-					       </p:inputText>
-					       <p:message for="tffecha2" />
+					<p:outputLabel for="tfcantidadMedi" id="lblCantiadMedi" value="Cantidad de medicos:" />
+					<p:inputText id="tfcantidadMedi" value="#{quirofanoControlador.cantidadMedico}" />
+					<p:message for="tfcantidadMedi" />
 
+					<p:outputLabel for="cbtDispo" id="lblDispo" value="Disponibilidad:" />
+					<h:selectOneMenu id="cbtDispo" value="#{quirofanoControlador.disponi}">
+					     <f:selectItem itemValue="true" itemLabel="Disponible" />
+						<f:selectItem itemValue="false" itemLabel="No Disponible" />
+					</h:selectOneMenu>
+						
+						<br />
 
-						<p:outputLabel for="laboratorio" id="lbllaboratorio"
-						value="Laboratorio:" />
-					    <h:selectOneMenu id="laboratorio"
-						value="#{MedicamentosControlador.laboratorio}">
-						<f:selectItems value="#{MedicamentosControlador.tipos}">
-						  </f:selectItems>
-					      </h:selectOneMenu>
-					      <p:message for="laboratorio" />
-							
-							<p:outputLabel for="tfcantidad" id="lblcantidad" value="Cantidad" />
-							<p:inputText id="tfcantidad" cols="30" style="width: 100%;"
-								value="#{MedicamentosControlador.cantidad}" />
-							<p:message for="tfcantidad" />
-
-
-							<p:outputLabel for="cbtestado" id="lblestado" value="Estado:" />
-					        <h:selectOneMenu id="cbtestado" value="#{MedicamentosControlador.estado}">
-					        <f:selectItem itemValue="true" itemLabel="Disponible" />
-			                <f:selectItem itemValue="false" itemLabel="No disponible" />
-					        </h:selectOneMenu>
-							<br />
-
-							<p:commandButton id="btnmodif" value="Modificar Medicamento"
+							<p:commandButton id="btnmodif" value="Modificar Quirofano"
 								process="@this,paneldatos"
 								update="datosExamen,paneloculto,panelexamen"
-								action="#{MedicamentosControlador.editar}" />
-								
+								action="#{quirofanoControlador.editar}" />
+
 
 							<p:commandButton id="btnlimpiar" value="Limpiar Campos"
 								process="@this" update="datosExamen,paneloculto"
-								 />
+								action="#{quirofanoControlador.limpiar}" />
 
 						</p:panelGrid>
 					</h:panelGroup>
