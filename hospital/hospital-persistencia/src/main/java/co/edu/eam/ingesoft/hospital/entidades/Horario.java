@@ -23,7 +23,7 @@ public class Horario implements Serializable{
 
 	@Id
 	@Column(name="codigo_turno")
-	private Integer codigoTurno;
+	private int codigoTurno;
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -38,7 +38,7 @@ public class Horario implements Serializable{
 		
 	}
 
-	public Horario(Integer codigoTurno,Date horaInicio, Date horaFinal) {
+	public Horario(int codigoTurno,Date horaInicio, Date horaFinal) {
 		super();
 		this.codigoTurno = codigoTurno;
 		this.horaInicio = horaInicio;
@@ -50,7 +50,7 @@ public class Horario implements Serializable{
 	/**
 	 * @return the codigoTurno
 	 */
-	public Integer getCodigoTurno() {
+	public int getCodigoTurno() {
 		return codigoTurno;
 	}
 
@@ -97,7 +97,7 @@ public class Horario implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codigoTurno == null) ? 0 : codigoTurno.hashCode());
+		result = prime * result + codigoTurno;
 		return result;
 	}
 
@@ -113,13 +113,15 @@ public class Horario implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Horario other = (Horario) obj;
-		if (codigoTurno == null) {
-			if (other.codigoTurno != null)
-				return false;
-		} else if (!codigoTurno.equals(other.codigoTurno))
+		if (codigoTurno != other.codigoTurno)
 			return false;
 		return true;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	
 
 	
 

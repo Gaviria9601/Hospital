@@ -2,6 +2,7 @@ package co.edu.eam.ingesoft.pa.negocio.beans;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -11,6 +12,7 @@ import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import co.edu.eam.ingesoft.hospital.entidades.Cama;
 import co.edu.eam.ingesoft.hospital.entidades.Especializacion;
 import co.edu.eam.ingesoft.hospital.entidades.ItemMedicoPk;
 import co.edu.eam.ingesoft.hospital.entidades.Medico;
@@ -81,6 +83,21 @@ public class MedicoEJB {
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public ArrayList<Medico> listarMedicos() {
+		ArrayList<Medico> list;
+		list = (ArrayList<Medico>) em.createNamedQuery(Medico.medicos).getResultList();
+		return list;
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public List<Medico> listarMedicosxEspecializacion(int codigoEsp) {
+		List<Medico> lista = em.createNativeQuery("select * from MEDICO m join ITEM_MEDICO i on i.MEDICO_CEDULA = m.CEDULA join USUARIO u on u.CEDULA = m.CEDULA "
+				+ "where i.ESPECIALIZACION_CODIGO =?1 ",Medico.class)
+				.setParameter(1, codigoEsp).getResultList();
+		return lista;
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public itemMedico buscarItem(String med,int esp) {
 		ItemMedicoPk pk = new ItemMedicoPk(esp, med);
 		itemMedico item = em.find(itemMedico.class, pk);
@@ -101,7 +118,7 @@ public class MedicoEJB {
 	Especializacion esp = buscarEspecializacion(item.getEspecializacionCodigo().getCodigo());
 	Medico med = buscarMedico(item.getMedicoUsuarioCedula().getCedula());
 	itemMedico asignacion = new itemMedico(esp, med);
-		if(asignacion==null){
+		if(itemdef==null){
 			System.out.println(item.getEspecializacionCodigo().getCodigo()+"******"+item.getMedicoUsuarioCedula().getCedula());
 			em.persist(asignacion);	
 	}else {

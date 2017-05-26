@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -18,22 +19,10 @@ public class Cita implements Serializable {
 	
     @Id
 	@Column(name = "codigo")
-	private Integer codigo;
-    
-    @Temporal(TemporalType.DATE)
-	@Column(name = "fecha", nullable=false)
-	private Date fecha;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "hora_inicio", nullable=false)
-	private Date horaInicio;
+	private int codigo;
     
     @Column(name = "observacion", length = 2000)
 	private String observacion;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "hora_final", nullable=false)
-	private Date horaFinal;
     
     @ManyToOne
 	@JoinColumn(name = "paciente_cedula", nullable=false)
@@ -47,47 +36,36 @@ public class Cita implements Serializable {
 	@JoinColumn(name = "cita_codigo", nullable=true)
 	private Cita citaCodigo;
 
+    @JoinColumns({
+
+		@JoinColumn(name = "medicoHorario", referencedColumnName = "medico_cedula"),
+		@JoinColumn(name = "horarioCodigoTurno", referencedColumnName = "horario_codigo_turno"),
+		@JoinColumn(name = "fecha", referencedColumnName = "fecha")})
+@ManyToOne
+private itemHorario horario;
     public Cita(){
     	super();
     }
 
 
-	public Cita(Integer codigo, Date fecha, Date horaInicio, String observacion, Date horaFinal,
-			Paciente pacienteUsuarioCedula, Medico medicoUsuarioCedula, Cita citaCodigo) {
+	public Cita(int codigo, String observacion, Paciente pacienteUsuarioCedula,
+			Medico medicoUsuarioCedula, Cita citaCodigo, itemHorario horario) {
 		super();
 		this.codigo = codigo;
-		this.fecha = fecha;
-		this.horaInicio = horaInicio;
 		this.observacion = observacion;
-		this.horaFinal = horaFinal;
 		this.pacienteUsuarioCedula = pacienteUsuarioCedula;
 		this.medicoUsuarioCedula = medicoUsuarioCedula;
 		this.citaCodigo = citaCodigo;
+		this.horario = horario;
 	}
 
 
-	public Integer getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
-	}
-
-	public Date getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
-
-	public Date getHoraInicio() {
-		return horaInicio;
-	}
-
-	public void setHoraInicio(Date horaInicio) {
-		this.horaInicio = horaInicio;
 	}
 
 	public String getObservacion() {
@@ -98,13 +76,6 @@ public class Cita implements Serializable {
 		this.observacion = observacion;
 	}
 
-	public Date getHoraFinal() {
-		return horaFinal;
-	}
-
-	public void setHoraFinal(Date horaFinal) {
-		this.horaFinal = horaFinal;
-	}
 
 	public Paciente getPacienteUsuarioCedula() {
 		return pacienteUsuarioCedula;
@@ -126,14 +97,32 @@ public class Cita implements Serializable {
 		return medicoUsuarioCedula;
 	}
 
+	
 
 
 	public void setMedicoUsuarioCedula(Medico medicoUsuarioCedula) {
 		this.medicoUsuarioCedula = medicoUsuarioCedula;
 	}
 
+	/**
+	 * @return the horario
+	 */
+	public itemHorario getHorario() {
+		return horario;
+	}
 
 
+	/**
+	 * @param horario the horario to set
+	 */
+	public void setHorario(itemHorario horario) {
+		this.horario = horario;
+	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -142,6 +131,10 @@ public class Cita implements Serializable {
 		return result;
 	}
 
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

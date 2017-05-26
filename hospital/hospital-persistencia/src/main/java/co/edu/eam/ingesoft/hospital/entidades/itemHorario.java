@@ -35,6 +35,7 @@ public class itemHorario implements Serializable{
 	@JoinColumn(name="horario_codigo_turno")
 	private Horario horarioCodigoTurno;
 	
+	@Id
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha", nullable=false)
 	private Date fecha;

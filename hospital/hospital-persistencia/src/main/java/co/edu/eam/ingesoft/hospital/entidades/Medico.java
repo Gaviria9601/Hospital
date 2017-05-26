@@ -7,6 +7,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
@@ -15,9 +17,13 @@ import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
  * @author Alejandro Ortega
  *
  */
+@NamedQueries({
+	@NamedQuery(name = Medico.medicos, query = "select e from Medico e")})
 @Entity
 @Table(name="Medico")
 public class Medico extends Usuario implements Serializable {
+	
+	public static final String medicos = "listamedicos";
 
 	@Column(name="carnet", nullable=false, length=30)
 	private String carnet;

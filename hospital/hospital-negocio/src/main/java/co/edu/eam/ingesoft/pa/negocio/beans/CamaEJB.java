@@ -25,7 +25,8 @@ public class CamaEJB {
 	public Cama buscarCama(int num,int habitacion) {
 		if(num!=0){
 			//e.DESCRIPCION,e.HABITACION_CODIGO,e.INSTALACION_CODIGO,e.NUMERO, i.DISPONIBILIDAD,i.OBSERVACIONDISPONIBLE
-			List<Cama> cama = em.createNativeQuery("select * from Cama e join HABITACION h on h.CODIGO = e.CODIGO JOIN INSTALACION i ON i.CODIGO = e.CODIGO WHERE e.NUMERO=?1 AND h.NUMERO=?2",Cama.class)
+			List<Cama> cama = em.createNativeQuery("select * from Cama e join HABITACION h on h.CODIGO ="
+					+ " e.CODIGO JOIN INSTALACION i ON i.CODIGO = e.CODIGO WHERE e.NUMERO=?1 AND h.NUMERO=?2",Cama.class)
 					.setParameter(1, num).setParameter(2, habitacion).getResultList();
 			if(!cama.isEmpty()){
 				return cama.get(0);

@@ -1,0 +1,234 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h2 class="title-style-1">
+				Asignación de cita<span class="title-under"></span>
+			</h2>
+			<p:panel id="basic" header="Datos" style="margin-bottom:20px"
+				toggleable="true" toggleSpeed="500">
+
+				<p:tabView orientation="Top">
+					<p:tab title="Cita general">
+						<h:panelGrid columns="3" id="paneldatos1" cellpadding="10"
+							styleClass="ui-noborder">
+
+							<p:row>
+								<p:outputLabel for="tfcitacontrol"
+									value="¿Cita de control? Ingrese codigo de cita:" />
+							</p:row>
+
+							<p:row>
+								<p:inputText id="tfcitacontrol"
+									value="#{ControladorHorario.numero}" />
+							</p:row>
+
+
+							<p:row>
+								<p:message for="tfcitacontrol" />
+							</p:row>
+
+							<p:row>
+								<p:outputLabel for="cbMedico1" id="lblmedi1" value="Medico: " />
+							</p:row>
+
+							<p:row>
+								<h:selectOneMenu id="cbMedico1"
+									value="#{ControladorHorario.cedulaMedico}">
+									<f:selectItems value="#{ControladorHorario.medicos}" var="e"
+										itemValue="#{e.cedula}" itemLabel="#{e.nombre}  #{e.apellido}" />
+								</h:selectOneMenu>
+							</p:row>
+
+							<p:row></p:row>
+
+							<p:row>
+								<p:outputLabel for="date1" value="Fecha: " />
+							</p:row>
+
+							<p:row>
+								<p:inputMask id="date1" value="#{ControladorHorario.fechaString}"
+									mask="99/99/9999" />
+							</p:row>
+
+							<p:row>
+							</p:row>
+
+						</h:panelGrid>
+						<br></br>
+
+						<p:outputLabel value="Horario: " for="horario1" />
+
+
+
+						<p:selectOneButton value="#{ControladorHorario.codigoHorario}"
+							id="horario1">
+							<f:selectItem itemLabel="07:00-07:30am" itemValue="9" />
+							<f:selectItem itemLabel="07:30-08:00am" itemValue="10" />
+							<f:selectItem itemLabel="08:00-08:30am" itemValue="11" />
+							<f:selectItem itemLabel="08:30-09:00am" itemValue="12" />
+							<f:selectItem itemLabel="09:00-09:30am" itemValue="13" />
+							<f:selectItem itemLabel="09:30-10:00am" itemValue="14" />
+							<f:selectItem itemLabel="10:00-10:30am" itemValue="15" />
+							<f:selectItem itemLabel="10:30-11:00am" itemValue="16" />
+							<f:selectItem itemLabel="11:00-11:30am" itemValue="17" />
+							<f:selectItem itemLabel="11:30-12:00pm" itemValue="18" />
+							<f:selectItem itemLabel="12:00-12:30pm" itemValue="19" />
+							<f:selectItem itemLabel="12:30-01:00pm" itemValue="20" />
+							<f:selectItem itemLabel="01:00-01:30pm" itemValue="21" />
+							<f:selectItem itemLabel="01:30-02:00pm" itemValue="22" />
+							<f:selectItem itemLabel="02:00-02:30pm" itemValue="23" />
+							<f:selectItem itemLabel="02:30-03:00pm" itemValue="24" />
+							<f:selectItem itemLabel="03:00-03:30pm" itemValue="25" />
+							<f:selectItem itemLabel="03:30-04:00pm" itemValue="26" />
+							<f:selectItem itemLabel="04:00-04:30pm" itemValue="27" />
+							<f:selectItem itemLabel="04:30-05:00pm" itemValue="28" />
+							<f:selectItem itemLabel="05:00-05:30pm" itemValue="29" />
+							<f:selectItem itemLabel="05:30-06:00pm" itemValue="30" />
+							<f:selectItem itemLabel="06:00-06:30pm" itemValue="31" />
+							<f:selectItem itemLabel="06:30-07:00pm" itemValue="32" />
+						</p:selectOneButton>
+						
+						<br></br>
+
+
+						<p:panelGrid id="panelbotones" columns="3"
+							styleClass="ui-noborder">
+
+							<p:commandButton id="btncrear"
+								value="Reservar cita" process="@this,basic"
+								update="basic" action="#{ControladorHorario.asignarGeneral}" />
+
+							<p:commandButton id="btnlimpiar" value="Limpiar Campos"
+								process="@this" update="basic" action="#" />
+
+						</p:panelGrid>
+
+
+
+
+					</p:tab>
+					<p:tab title="Cita con especialista">
+						<h:panelGrid columns="3" cellpadding="10" id="paneldatos2">
+
+							<p:row>
+								<p:outputLabel for="tfcitacontrol2"
+									value="¿Cita de control? Ingrese codigo de cita:" />
+							</p:row>
+
+							<p:row>
+								<p:inputText id="tfcitacontrol2"
+									value="#{ControladorHorario.numero}" />
+							</p:row>
+
+
+							<p:row>
+								<p:message for="tfcitacontrol2" />
+							</p:row>
+
+							<p:row>
+								<p:outputLabel for="cbEspecializacion" id="lblesp"
+									value="Especializaciones: " />
+							</p:row>
+
+							<p:row>
+								<h:selectOneMenu id="cbEspecializacion"
+									value="#{ControladorHorario.especializacion}">
+									<f:selectItem itemLabel="Seleccione especialización"
+										itemValue="0" noSelectionOption="true" />
+									<f:selectItems value="#{ControladorHorario.especializaciones}"
+										var="e" itemValue="#{e.codigo}" itemLabel="#{e.nombre}" />
+									<f:ajax event="change" execute="@this" render="cbMedico2"
+										listener="#{ControladorHorario.seleccionarEspecializacion}" />
+								</h:selectOneMenu>
+							</p:row>
+							<p:row></p:row>
+
+
+							<p:row>
+								<p:outputLabel for="cbMedico2" id="lblmedi2" value="Medico: " />
+							</p:row>
+
+							<p:row>
+								<h:selectOneMenu id="cbMedico2"
+									value="#{ControladorHorario.cedulaMedico}">
+
+									<f:selectItem itemLabel="Seleccione medico" itemValue=""
+										noSelectionOption="true" />
+									<f:selectItems value="#{ControladorHorario.medicos2}" var="e"
+										itemValue="#{e.cedula}" itemLabel="#{e.nombre}  #{e.apellido}" />
+
+								</h:selectOneMenu>
+							</p:row>
+
+							<p:row></p:row>
+
+							<p:row>
+								<p:outputLabel for="date2" value="Fecha: " />
+							</p:row>
+							<p:row>
+								<p:inputMask id="date2" value="#{ControladorHorario.fecha}"
+									mask="99/99/9999" />
+							</p:row>
+
+							<p:row></p:row>
+
+						</h:panelGrid>
+
+						<p:outputLabel value="Horario " />
+						<p:selectOneButton value="#{ControladorHorario.codigoHorario}"
+							id="horario2">
+							<f:selectItem itemLabel="07:00-07:30am" itemValue="9" />
+							<f:selectItem itemLabel="07:30-08:00am" itemValue="10" />
+							<f:selectItem itemLabel="08:00-08:30am" itemValue="11" />
+							<f:selectItem itemLabel="08:30-09:00am" itemValue="12" />
+							<f:selectItem itemLabel="09:00-09:30am" itemValue="13" />
+							<f:selectItem itemLabel="09:30-10:00am" itemValue="14" />
+							<f:selectItem itemLabel="10:00-10:30am" itemValue="15" />
+							<f:selectItem itemLabel="10:30-11:00am" itemValue="16" />
+							<f:selectItem itemLabel="11:00-11:30am" itemValue="17" />
+							<f:selectItem itemLabel="11:30-12:00pm" itemValue="18" />
+							<f:selectItem itemLabel="12:00-12:30pm" itemValue="19" />
+							<f:selectItem itemLabel="12:30-01:00pm" itemValue="20" />
+							<f:selectItem itemLabel="01:00-01:30pm" itemValue="21" />
+							<f:selectItem itemLabel="01:30-02:00pm" itemValue="22" />
+							<f:selectItem itemLabel="02:00-02:30pm" itemValue="23" />
+							<f:selectItem itemLabel="02:30-03:00pm" itemValue="24" />
+							<f:selectItem itemLabel="03:00-03:30pm" itemValue="25" />
+							<f:selectItem itemLabel="03:30-04:00pm" itemValue="26" />
+							<f:selectItem itemLabel="04:00-04:30pm" itemValue="27" />
+							<f:selectItem itemLabel="04:30-05:00pm" itemValue="28" />
+							<f:selectItem itemLabel="05:00-05:30pm" itemValue="29" />
+							<f:selectItem itemLabel="05:30-06:00pm" itemValue="30" />
+							<f:selectItem itemLabel="06:00-06:30pm" itemValue="31" />
+							<f:selectItem itemLabel="06:30-07:00pm" itemValue="32" />
+						</p:selectOneButton>
+						
+						<br></br>
+						
+						<p:panelGrid id="panelbotones2" columns="3"
+							styleClass="ui-noborder">
+
+							<p:commandButton id="btncrear2"
+								value="Reservar cita con especialista" process="@this,basic"
+								update="basic" action="#" />
+
+							<p:commandButton id="btnlimpiar2" value="Limpiar Campos"
+								process="@this" update="basic" action="#" />
+
+						</p:panelGrid>
+
+					</p:tab>
+				</p:tabView>
+			</p:panel>
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
