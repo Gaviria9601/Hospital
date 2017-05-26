@@ -1,0 +1,74 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h2 class="title-style-1">
+				Ingresar quirofano al sistema<span class="title-under"></span>
+			</h2>
+
+			<p:panel id="basic" header="Datos" style="margin-bottom:20px"
+				toggleable="true" toggleSpeed="500">
+				<p:panelGrid id="paneldatos" columns="6" cellpadding="5"
+					styleClass="ui-noborder">
+
+					
+					<p:outputLabel for="tfcaracte" id="lblcaracte"
+								value="Caracteristicas:" />
+
+					<p:inputTextarea rows="3" cols="20" id="tfcaracte"
+								value="#{quirofanoControlador.caracte}" />
+					<p:message for="tfcaracte" />
+					
+					<p:outputLabel for="tfObser" id="lblObser"
+								value="Observación:" />
+
+					<p:inputTextarea rows="3" cols="20" id="tfObser"
+								value="#{quirofanoControlador.observacion}" />
+					<p:message for="tfObser" />
+					
+					
+					<p:outputLabel for="tfnumApa" id="lblnumApa" value="Número de equipos:" />
+					<p:inputText id="tfnumApa" value="#{quirofanoControlador.numeroAparato}" />
+					<p:message for="tfnumApa" />
+
+					<p:outputLabel for="tfcantidadMedi" id="lblCantiadMedi" value="Cantidad de medicos:" />
+					<p:inputText id="tfcantidadMedi" value="#{quirofanoControlador.cantidadMedico}" />
+					<p:message for="tfcantidadMedi" />
+
+					<p:outputLabel for="cbtDispo" id="lblDispo" value="Disponibilidad:" />
+					<h:selectOneMenu id="cbtDispo" value="#{quirofanoControlador.disponi}">
+					     <f:selectItem itemValue="true" itemLabel="Disponible" />
+						<f:selectItem itemValue="false" itemLabel="No Disponible" />
+					</h:selectOneMenu>
+
+				</p:panelGrid>
+			</p:panel>
+
+			<p:panel id="botones" header="Acciones" style="margin-bottom:20px"
+				toggleable="true" toggleSpeed="500">
+				<p:panelGrid id="panelbotones" columns="3" styleClass="ui-noborder">
+
+					<p:commandButton id="btncrear" value="Ingresar Quirofano al sistema"
+						process="@this,paneldatos" update="paneldatos"
+						action="#{quirofanoControlador.crearQuirofano}" />
+
+					<p:commandButton id="btnlimpiar" value="Limpiar Campos"
+						process="@this" update="paneldatos"
+						 />
+
+
+
+				</p:panelGrid>
+
+			</p:panel>
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>

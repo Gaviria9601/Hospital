@@ -21,10 +21,10 @@
 					<p:message for="tfnombre" />
 					
 					<p:outputLabel for="tffecha1"  value="Fecha expedición:" />
-					<p:inputText id="tffecha1" value="#{MedicamentosControlador.fecha_expedicion}" 
+					<p:inputMask id="tffecha1" value="#{MedicamentosControlador.fecha_expedicion}" 
 					mode="inline">
 					<f:convertDateTime pattern = "dd-MM-yyyy" />
-					</p:inputText>
+					</p:inputMask>
 					<p:message for="tffecha1" />
 
 					<p:outputLabel for="tffecha2"  value="Fecha expiración:" />

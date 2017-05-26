@@ -18,39 +18,31 @@ import javax.persistence.Table;
 @Table(name="Quirofano")
 public class Quirofano extends Instalacion implements Serializable {
 	
-	@Column(name="caracteristicas", nullable=false, length=2000)
-	private String caracteristicas;
 	
 	@Column(name="numeroAparatos", nullable=false)
 	private int numeroAparatos;
 	
-	@Column(name="cantidadMedicoAcompa")
+	@Column(name="cantidadMedico")
 	private int cantidadMedico;
+	
 	
 	public Quirofano(){
 		
 	}
 
-	public Quirofano(String caracteristicas, int numeroAparatos, int cantidadMedico) {
-		super();
-		this.caracteristicas = caracteristicas;
+	
+	public Quirofano(boolean disponibilidad, String observacionDisponible, String tipo, int numeroAparatos,
+			int cantidadMedico) {
+		super(disponibilidad, observacionDisponible, tipo);
 		this.numeroAparatos = numeroAparatos;
 		this.cantidadMedico = cantidadMedico;
 	}
 
-	/**
-	 * @return the caracteristicas
-	 */
-	public String getCaracteristicas() {
-		return caracteristicas;
-	}
 
-	/**
-	 * @param caracteristicas the caracteristicas to set
-	 */
-	public void setCaracteristicas(String caracteristicas) {
-		this.caracteristicas = caracteristicas;
-	}
+
+
+
+
 
 	/**
 	 * @return the numeroAparatos

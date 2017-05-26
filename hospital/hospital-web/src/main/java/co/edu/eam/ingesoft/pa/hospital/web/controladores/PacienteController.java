@@ -27,7 +27,7 @@ import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
 public class PacienteController implements Serializable{
 	
 	@Pattern(regexp="[0-9]*",message="solo numeros")
-	@Length(min=4,max=15,message="longitud entre 4 y 15")
+	@Length(min=6,max=10,message="longitud entre 6 y 10")
 	private String cedula;
 	
 	@Pattern(regexp="[A-Za-z ]*",message="solo Letras")
@@ -45,7 +45,9 @@ public class PacienteController implements Serializable{
 	@Length(max=20,message="maximo 20 digitos")
 	private String telefono;
 	
-	private int edad;
+	@Pattern(regexp="[0-9]*",message="solo numeros")
+	@Length(max=20,message="maximo 20 digitos")
+	private String edad;
 	
 	@Length(max=20,message="maximo 20 digitos")
 	private String nickname;
@@ -62,7 +64,7 @@ public class PacienteController implements Serializable{
 	private Integer afiliacionCodigo;
 	
 	@Pattern(regexp="[A-Za-z ]*",message="Este campo solo acepta letras")
-	@Length(min=4,max=10,message="longitud entre 4 y 50")
+	@Length(min=4,max=150,message="longitud entre 4 y 150")
 	private String trabajo;
 	
 	
@@ -167,13 +169,17 @@ public class PacienteController implements Serializable{
 
 
 
-	public int getEdad() {
+	
+
+
+
+	public String getEdad() {
 		return edad;
 	}
 
 
 
-	public void setEdad(int edad) {
+	public void setEdad(String edad) {
 		this.edad = edad;
 	}
 
@@ -281,7 +287,7 @@ public class PacienteController implements Serializable{
     public void crearPaciente(){
 	try{
 		Afiliacion a = paciEJB.buscarAfiliacion(afiliacionCodigo);
-		Paciente pa = new Paciente (cedula, nickname, contrasenia, nombre, apellido, edad, 
+		Paciente pa = new Paciente (cedula, nickname, contrasenia, nombre, apellido,Integer.parseInt(edad),
 				correo, TipoUsuarioEnum.Paciente, telefono,estrato, a, trabajo);
 		
 		paciEJB.crearPaciente(pa);
@@ -303,12 +309,11 @@ public class PacienteController implements Serializable{
 		nickname ="";
 		correo="";
 		contrasenia = "";
-		edad = 0;
+		edad = "";
 		telefono = "";
 	    trabajo = "";
-	    
-		
-	}
+	    busco = false;
+		}
 	
 public void buscarPaciente(){
 		
@@ -320,11 +325,11 @@ public void buscarPaciente(){
 			nickname = pa.getNickname();
 			correo=pa.getCorreo();
 			contrasenia = pa.getClave();
-			edad = pa.getEdad();
+			edad = pa.getEdad()  + "";
 			telefono = pa.getTelefono();
 			estrato = pa.getEstrato();
 			trabajo= pa.getTrabajo();
-		   afiliacionCodigo =pa.getAfiliacionCodigo().getCodigo();
+		    afiliacionCodigo =pa.getAfiliacionCodigo().getCodigo();
 			busco = true;
 			Messages.addFlashGlobalInfo("PACIENTE ENCONTRADO");
 			
@@ -340,6 +345,9 @@ public void borrarPaciente() {
 		Paciente pac = paciEJB.buscarPaciente(cedula);
 		if(pac!=null){
 			paciEJB.eliminarPaciente(pac);
+			   busco = false;
+			   limpiar();
+			   cedula = "";
 			Messages.addFlashGlobalInfo("PACIENTE ELIMINADO EXITOSAMENTE");
 		}else{
 			Messages.addGlobalError("ERROR AL ELIMINAR");
@@ -356,14 +364,15 @@ public void modificarPaciente(){
 	f.setClave(contrasenia);
 	f.setNombre(nombre);
 	f.setApellido(apellido);
-	f.setEdad(edad);
+	f.setEdad(Integer.parseInt(edad) );
 	f.setCorreo(correo);
 	f.setTelefono(telefono);
 	f.setEstrato(estrato);
-	
 	f.setTrabajo(trabajo);
 	paciEJB.modificarPaciente(f);
 	limpiar();
+	cedula = "";
+	   busco = false;
 	Messages.addFlashGlobalInfo("PACIENTE MODIFICADO CORRECTAMENTE");
 	}catch (ExcepcionNegocio e) {
 		Messages.addGlobalError(e.getMessage());

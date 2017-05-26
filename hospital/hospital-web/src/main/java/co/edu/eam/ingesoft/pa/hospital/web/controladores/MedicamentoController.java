@@ -47,7 +47,9 @@ public class MedicamentoController implements Serializable   {
 	
 	private LaboratorioEnum laboratorio;
 	
-	private int cantidad;
+	@Pattern(regexp="[0-9]*",message="solo numeros")
+	@Length(min=1,max=2000,message="longitud entre 1 y 2000")
+	private String cantidad;
 	
 	private boolean estado;
 	
@@ -121,11 +123,20 @@ public class MedicamentoController implements Serializable   {
 		this.laboratorio = laboratorio;
 	}
 
-	public int getCantidad() {
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
+	public void setCantidad(String cantidad) {
 		this.cantidad = cantidad;
 	}
 
@@ -173,15 +184,7 @@ public class MedicamentoController implements Serializable   {
 			
 			Farmacia fa = mediEJB.buscarFarmacia(3434);
 		    Medicamento m = new Medicamento(nombre, fecha_expedicion, fecha_expiracion,
-		    		laboratorio, cantidad, estado, fa);
-		    
-		    System.out.println(nombre);
-		    System.out.println(fecha_expedicion);
-		    System.out.println(fecha_expiracion);
-		    System.out.println(laboratorio);
-		    System.out.println(cantidad);
-		    System.out.println(estado);
-		    System.out.println(fa);
+		    		laboratorio, Integer.parseInt(cantidad), estado, fa);
 		    
 		    mediEJB.crearMedica(m);
 		   limpiar();
@@ -199,8 +202,7 @@ public void limpiar(){
 		nombre ="";
 		fecha_expedicion = null;
 		fecha_expiracion = null;
-		
-		cantidad = 0;
+		cantidad = "";
 		busco = false;
 		
 		
@@ -215,7 +217,7 @@ public void buscarMedicamento(){
 		fecha_expedicion = f.getFechaExpedicion();
 		fecha_expiracion = f.getFechaExpiracion();
 		laboratorio = f.getLaboratorio();
-		cantidad = f.getCantidad();
+		cantidad = f.getCantidad() + "";
 		estado = f.isEstado();
 		busco = true;
 		Messages.addFlashGlobalInfo("MEDICAMENTO ENCONTRADO");
@@ -241,7 +243,7 @@ public void modificarMedicamento(Medicamento exa) {
 	fecha_expedicion = exa.getFechaExpedicion();
 	fecha_expiracion = exa.getFechaExpiracion();
 	laboratorio = exa.getLaboratorio();
-	cantidad = exa.getCantidad();
+	cantidad = exa.getCantidad() + "";
 	nombre = exa.getNombre();
 	estado = exa.isEstado();
 	busco = true;
@@ -253,8 +255,10 @@ public void editar() {
 	medi.setFechaExpedicion(fecha_expedicion);
 	medi.setFechaExpiracion(fecha_expiracion);
 	medi.setEstado(estado);
-	medi.setCantidad(cantidad);
+	medi.setCantidad(Integer.parseInt(cantidad));
 	mediEJB.editarMedicamento(medi);
+	limpiar();
+	busco = false;
 	Messages.addGlobalInfo("EL MEDICAMENTO FUE MODIFICADO CORRECTAMENTE");
 	limpiar();
 }
@@ -266,6 +270,8 @@ public void editar() {
 public void eliminar(Medicamento exa) {
 	try {
 		mediEJB.eliminarMedicamento(exa.getCodigo());
+		busco = false;
+		limpiar();
 		Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE EL MEDICAMENTO");
 		medicamentos = mediEJB.listarMedicamentos();
 		resetearFitrosTabla("tablaExamenes");

@@ -35,11 +35,12 @@
 					<p:message for="tfcorreo" />
 
 					<p:outputLabel for="tftel" id="lbltel" value="Telefono:" />
-					<p:inputText id="tftel" value="#{farmaceuticoControlador.telefono}" />
+					<p:inputText id="tftel" value="#{farmaceuticoControlador.telefono}" 
+					 />
 					<p:message for="tftel" />
 
 					<p:outputLabel for="tfedad" id="lbledad" value="Edad:" />
-					<p:inputText id="tfedad" value="#{farmaceuticoControlador.edad}" />
+					<p:inputMask id="tfedad" value="#{farmaceuticoControlador.edad}"  mask="99"/>
 					<p:message for="tfedad" />
 
 					<p:outputLabel for="tfnickname" id="lblnick" value="Nickname:" />

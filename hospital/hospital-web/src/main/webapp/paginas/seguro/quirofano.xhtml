@@ -10,14 +10,14 @@
 		<h:form prependId="false">
 
 			<h2 class="title-style-1">
-				Buscar Medicamento<span class="title-under"></span>
+				Buscar Quirofano<span class="title-under"></span>
 			</h2>
 			<p:panel header="Medicamentos" id="panelexamen"
 				style="margin-bottom:20px" toggleable="true" toggleSpeed="500">
 
 				<p:dataTable id="tablaExamenes" paginator="true" rows="5"
 					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-					rowsPerPageTemplate="5,10,15" value="#{MedicamentosControlador.medicamentos}"
+					rowsPerPageTemplate="5,10,15" value="#{quirofanoControlador.disponi}"
 					var="exa" border="1"
 					filteredValue="#{MedicamentosControlador.filtroMedi}"
 					emptyMessage="Sin Coincidencias">
@@ -46,8 +46,7 @@
 					
 					
 					<p:column headerText="Estado">
-					<h:outputLabel value="Disponible"  rendered="#{exa.estado == true}" />
-					<h:outputLabel value=" No Disponible"  rendered="#{exa.estado == false}" />
+						<h:outputLabel value="#{exa.estado}" />
 					</p:column>
 
 					<p:column headerText="Acciones">

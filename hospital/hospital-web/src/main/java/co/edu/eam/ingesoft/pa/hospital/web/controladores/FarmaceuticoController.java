@@ -25,7 +25,7 @@ import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
 public class FarmaceuticoController implements Serializable  {
 	
 	@Pattern(regexp="[0-9]*",message="solo numeros")
-	@Length(min=4,max=15,message="longitud entre 4 y 15")
+	@Length(min=6,max=10,message="longitud entre 6 y 10")
 	private String cedula;
 	
 	@Pattern(regexp="[A-Za-z ]*",message="solo Letras")
@@ -39,17 +39,23 @@ public class FarmaceuticoController implements Serializable  {
 	@Email
 	private String correo;
 	
+	
 	@Pattern(regexp="[0-9]*",message="solo numeros")
-	@Length(max=20,message="maximo 20 digitos")
+	@Length(min=7,max=10,message="longitud entre 7 y 10")
 	private String telefono;
 	
-	private int edad;
+	@Pattern(regexp="[0-9]*",message="solo numeros")
+	@Length(min=2,max=4,message="longitud entre 2 y 4")
+	private String edad;
 	
-	@Length(max=20,message="maximo 20 digitos")
+	@Pattern(regexp="[A-Za-z ]*",message="solo Letras")
+	@Length(min=3,max=50,message="longitud entre 3 y 50")
 	private String nickname;
 	
 	private String contrasenia;
 	
+	@Pattern(regexp="[0-9]*",message="solo numeros")
+	@Length(min=5,max=15,message="longitud entre 5 y 15")
 	private String tarjetapro;
 	
 	private Date fecha;
@@ -60,6 +66,13 @@ public class FarmaceuticoController implements Serializable  {
 	
 	
 	
+	public String getEdad() {
+		return edad;
+	}
+
+	public void setEdad(String edad) {
+		this.edad = edad;
+	}
 
 	public boolean isBusco() {
 		return busco;
@@ -109,13 +122,6 @@ public class FarmaceuticoController implements Serializable  {
 		this.telefono = telefono;
 	}
 
-	public int getEdad() {
-		return edad;
-	}
-
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
 
 	public String getNickname() {
 		return nickname;
@@ -183,7 +189,7 @@ public class FarmaceuticoController implements Serializable  {
 		try{
 			Date fecha = farEJB.generarFechaActual();
 			Farmacia fa = farEJB.buscarFarmacia(3434);
-		    Farmaceutico farm = new Farmaceutico(cedula, nickname, contrasenia, nombre, apellido, edad,
+		    Farmaceutico farm = new Farmaceutico(cedula, nickname, contrasenia, nombre, apellido,Integer.parseInt(edad),
 					correo, TipoUsuarioEnum.Farmaceutico, telefono, tarjetapro, fecha, fa);
 		   farEJB.crearFarmaceutico(farm);
 		   limpiar();
@@ -204,13 +210,11 @@ public void limpiar(){
 		nickname ="";
 		correo="";
 		contrasenia = "";
-		edad = 0;
+		edad = "";
 		telefono = "";
 		tarjetapro= "";
 		busco = false;
-		
-		
-	}
+		}
    /**
     * Metodo para buscar un farmaceutico
     */
@@ -223,7 +227,7 @@ public void buscarFarmaceutico(){
 		nickname = f.getNickname();
 		correo= f.getCorreo();
 		contrasenia = f.getClave();
-		edad = f.getEdad();
+		edad = f.getEdad() + "";
 		telefono = f.getTelefono();
 		tarjetapro = f.getTarjetaProfesional();	
 		busco = true;
@@ -243,12 +247,13 @@ public void modificarFarmaceutico(){
 	f.setClave(contrasenia);
 	f.setNombre(nombre);
 	f.setApellido(apellido);
-	f.setEdad(edad);
+	f.setEdad(Integer.parseInt(edad));
 	f.setCorreo(correo);
 	f.setTelefono(telefono);
 	f.setTarjetaProfesional(tarjetapro);
 	farEJB.modificarFarmaceutico(f);
 	limpiar();
+	busco = false;
 	Messages.addFlashGlobalInfo("FARMACEUTICO MODIFICADO CORRECTAMENTE");
 	}catch (ExcepcionNegocio e) {
 		Messages.addGlobalError(e.getMessage());
@@ -262,6 +267,7 @@ public void eliminarFarmaceutico(){
 		Farmaceutico fa = farEJB.buscarFarmaceutico(cedula);
 		if(fa!=null){
 			farEJB.eliminarFarmaceutico(fa);
+			busco = false;
 			Messages.addFlashGlobalInfo("FARMACEUTICO ELIMINADO EXITOSAMENTE");
 		}else{
 			Messages.addGlobalError("ERROR AL ELIMINAR");
@@ -270,8 +276,6 @@ public void eliminarFarmaceutico(){
 		Messages.addGlobalError(e.getMessage());
 	}
 }
-
-
 
 	}
 
