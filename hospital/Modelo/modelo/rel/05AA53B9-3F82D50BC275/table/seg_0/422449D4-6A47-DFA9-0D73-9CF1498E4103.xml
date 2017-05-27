@@ -22,16 +22,19 @@
 <colAssociation fkAssociation="55914D9E-800F-E562-9C00-17DE06E7D09F" referredColumn="00FB1231-767C-F450-785D-4FEDD5963BEE"/>
 </associations>
 </Column>
-<Column name="Causas" id="DEAEC1F6-629E-5138-E3AC-C7BE3B59D047">
+<Column name="TipoHospitalizacion_codigo" id="F101E98E-F141-20DA-F3FB-00FB31949D87">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-03-16 05:12:03 UTC</createdTime>
+<createdTime>2017-05-27 15:51:31 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>500</dataTypeSize>
-<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9446966F-3109-980C-A5A7-E03DD04D3520" referredColumn="346CBEB7-9841-C4F8-D49A-053C818F7893"/>
+</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -54,6 +57,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="2C648485-9CF9-C196-D5DF-2F7C2A92090E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2714E3C3-8F4C-4686-A1D7-C11C351A4453" name="Hospitalizacion_TipoHospitalizacion_FK">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-27 15:51:31 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F101E98E-F141-20DA-F3FB-00FB31949D87"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -7,6 +7,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -17,32 +19,28 @@ import javax.persistence.Table;
 @Table(name="Hospitalizacion")
 public class Hospitalizacion extends CitaAvanzada implements Serializable{
 	
-	@Column(name="causas", nullable=false, length=500)
-	private String causas;
+	@ManyToOne
+	@JoinColumn(name="tipo")
+	private TipoHospitalizacion tipoHospitalizacion;
 
 	public Hospitalizacion(){
 		
 	}
-	
-	public Hospitalizacion(String causas) {
+
+	public Hospitalizacion(TipoHospitalizacion tipoHospitalizacion) {
 		super();
-		this.causas = causas;
+		this.tipoHospitalizacion = tipoHospitalizacion;
 	}
 
-	/**
-	 * @return the causas
-	 */
-	public String getCausas() {
-		return causas;
+	public TipoHospitalizacion getTipoHospitalizacion() {
+		return tipoHospitalizacion;
 	}
 
-	/**
-	 * @param causas the causas to set
-	 */
-	public void setCausas(String causas) {
-		this.causas = causas;
+	public void setTipoHospitalizacion(TipoHospitalizacion tipoHospitalizacion) {
+		this.tipoHospitalizacion = tipoHospitalizacion;
 	}
 	
+		
 	
 	
 

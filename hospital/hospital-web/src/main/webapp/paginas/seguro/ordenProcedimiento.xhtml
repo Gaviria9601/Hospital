@@ -36,18 +36,18 @@
 						<p:row>
 							<p:panelGrid id="paneldatos2" columns="3" cellpadding="8"
 								styleClass="ui-noborder">
-								<h:outputLabel id="lbltipoExamen" value="Tipo Hospitalización" />
-								<h:selectOneMenu id="cbtipoExamen"
-									value="#{examenController.tipoExamen}"
-									converter="tipoExaConverter">
-									<f:selectItems value="#{examenController.tipoExamenes}"
-										var="tipoExa" itemValue="#{tipoExa}"
-										itemLabel="#{tipoExa.nombre}" />
+								<h:outputLabel id="lbltipoHospitalizacion" value="Tipo Hospitalización" />
+								<h:selectOneMenu id="cbtipoHospitalizacion"
+									value="#{hospitalizacionController.tipoHospitalizacion}"
+									converter="tipoHosConverter">
+									<f:selectItems value="#{hospitalizacionController.tipoHospitalizaciones}"
+										var="tipoHos" itemValue="#{tipoHos}"
+										itemLabel="#{tipoHos.nombre}" />
 								</h:selectOneMenu>
 								<br />
 								<p:outputLabel value="Fecha: " />
 								<p:inputMask id="date"
-									value="#{hospitalizacionController.fecha}" mask="99/99/9999" />
+									value="#{hospitalizacionController.fecha}" mask="9999-99-99" />
 								<p:message for="date" />
 
 								<p:outputLabel value="Hora Inicio:" />

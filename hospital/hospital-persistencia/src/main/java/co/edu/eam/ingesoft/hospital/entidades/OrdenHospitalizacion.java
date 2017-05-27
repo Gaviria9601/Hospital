@@ -27,16 +27,37 @@ public class OrdenHospitalizacion extends OrdenProcedimiento implements Serializ
 	@JoinColumn(name = "Cama_Instalacion_Codigo")
 	private Cama cama;
 	
+	@Temporal(TemporalType.DATE)
+	@Column(name="fecha")
+	private Date fecha;
+	
+	
 	public OrdenHospitalizacion() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrdenHospitalizacion(Date horaInicio, Hospitalizacion hospitalizacion, Cama cama) {
+
+	public OrdenHospitalizacion(Date horaInicio, Hospitalizacion hospitalizacion, Cama cama, Date fecha) {
 		super();
 		this.horaInicio = horaInicio;
 		this.hospitalizacion = hospitalizacion;
 		this.cama = cama;
+		this.fecha = fecha;
 	}
+
+
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+
 
 	public Date getHoraInicio() {
 		return horaInicio;
