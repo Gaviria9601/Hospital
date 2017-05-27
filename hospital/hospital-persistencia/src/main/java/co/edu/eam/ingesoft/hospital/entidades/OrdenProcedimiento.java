@@ -8,11 +8,14 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,15 +30,13 @@ import javax.persistence.TemporalType;
 public class OrdenProcedimiento implements Serializable {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequenceee")
+	@SequenceGenerator(name = "id_Sequenceee", sequenceName = "SEQ_ORDEN_PROCEDIMIENTO",allocationSize=1)
 	@Column(name = "codigo")
 	private Integer codigo;
 
 	@Column(name="observaciones")
 	private String observaciones;
-
-	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha", nullable = false)
-	private Date fecha;
 
 	@Column(name = "estado")
 	private boolean estado;
@@ -49,11 +50,10 @@ public class OrdenProcedimiento implements Serializable {
 
 	}
 
-	public OrdenProcedimiento(Integer codigo, String observaciones, Date fecha, boolean estado, Cita citaCodigo) {
+	public OrdenProcedimiento(Integer codigo, String observaciones,boolean estado, Cita citaCodigo) {
 		super();
 		this.codigo = codigo;
 		this.observaciones = observaciones;
-		this.fecha = fecha;
 		this.estado = estado;
 		this.citaCodigo = citaCodigo;
 	}
@@ -72,14 +72,6 @@ public class OrdenProcedimiento implements Serializable {
 
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
-	}
-
-	public Date getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
 	}
 
 	public boolean isEstado() {
