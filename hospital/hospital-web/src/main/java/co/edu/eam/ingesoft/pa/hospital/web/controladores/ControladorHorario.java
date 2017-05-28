@@ -45,21 +45,22 @@ public class ControladorHorario implements Serializable {
 	private int especializacion;
 	private List<Especializacion> especializaciones;
 	private int numero;
+	private int numero2;
 	private boolean primeracita = false;
 	private Paciente paciente;
 
 	@EJB
 	MedicoEJB medicoejb;
-	
+
 	@EJB
 	HorarioEJB horarioejb;
-	
+
 	@EJB
 	CitaEJB citaejb;
-	
+
 	@EJB
 	PacienteEJB pacienteejb;
-	
+
 	@Inject
 	private SessionController sesion;
 
@@ -67,7 +68,7 @@ public class ControladorHorario implements Serializable {
 	public void inicializar() {
 		especializaciones = medicoejb.listarEspecializaciones();
 		medicos = medicoejb.listarMedicos();
-		
+
 	}
 
 	public void seleccionarEspecializacion() {
@@ -81,37 +82,25 @@ public class ControladorHorario implements Serializable {
 		}
 
 	}
-	
 
-	
-
-
-	public void asignarGeneral(){
-		try{
-			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy/MM/dd");
+	public void asignarGeneral() {
+		try {
+			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 			fecha = formatoDelTexto.parse(fechaString);
 			Paciente paciente1 = pacienteejb.buscarPaciente("200000");
 			Medico med = medicoejb.buscarMedico(cedulaMedico);
 			Horario horario = horarioejb.buscarHorario(codigoHorario);
-		itemHorario item = new itemHorario(med,horario, fecha, false);
-		boolean ban = citaejb.asignarHorarioMedico(item);
-		
-		if(ban==true){
-			Cita cita = new Cita(0, null, paciente1, med, null, item);
-			citaejb.crearCita(cita);
+			itemHorario item = new itemHorario(med, horario, fecha, false);
+			citaejb.asignarHorarioMedico(item,paciente1,numero);
+
+			Messages.addFlashGlobalInfo("Cita asignada el dia " + fecha + " a la hora " + horario.getHoraInicio().getTime());
+		} catch (ExcepcionNegocio e) {
+			Messages.addGlobalError(e.getMessage());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			Messages.addGlobalError(e.getMessage());
 		}
-		
-		Messages.addFlashGlobalInfo("Cita asignada el dia "+fecha+" a la hora "+horario.getHoraInicio());	
-	}catch(ExcepcionNegocio e){
-		Messages.addGlobalError(e.getMessage());
-	} catch (ParseException e) {
-		// TODO Auto-generated catch block
-		Messages.addGlobalError(e.getMessage());
 	}
-	}
-	
-	
-	
 
 	/**
 	 * @return the fecha
@@ -230,7 +219,8 @@ public class ControladorHorario implements Serializable {
 	}
 
 	/**
-	 * @param numero the numero to set
+	 * @param numero
+	 *            the numero to set
 	 */
 	public void setNumero(int numero) {
 		this.numero = numero;
@@ -244,7 +234,8 @@ public class ControladorHorario implements Serializable {
 	}
 
 	/**
-	 * @param cedulaMedico the cedulaMedico to set
+	 * @param cedulaMedico
+	 *            the cedulaMedico to set
 	 */
 	public void setCedulaMedico(String cedulaMedico) {
 		this.cedulaMedico = cedulaMedico;
@@ -258,7 +249,8 @@ public class ControladorHorario implements Serializable {
 	}
 
 	/**
-	 * @param paciente the paciente to set
+	 * @param paciente
+	 *            the paciente to set
 	 */
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
@@ -272,7 +264,8 @@ public class ControladorHorario implements Serializable {
 	}
 
 	/**
-	 * @param fechaString the fechaString to set
+	 * @param fechaString
+	 *            the fechaString to set
 	 */
 	public void setFechaString(String fechaString) {
 		this.fechaString = fechaString;
@@ -286,7 +279,8 @@ public class ControladorHorario implements Serializable {
 	}
 
 	/**
-	 * @param cedulaMedico2 the cedulaMedico2 to set
+	 * @param cedulaMedico2
+	 *            the cedulaMedico2 to set
 	 */
 	public void setCedulaMedico2(String cedulaMedico2) {
 		this.cedulaMedico2 = cedulaMedico2;
@@ -300,11 +294,25 @@ public class ControladorHorario implements Serializable {
 	}
 
 	/**
-	 * @param codigoHorario2 the codigoHorario2 to set
+	 * @param codigoHorario2
+	 *            the codigoHorario2 to set
 	 */
 	public void setCodigoHorario2(int codigoHorario2) {
 		this.codigoHorario2 = codigoHorario2;
 	}
 
+	/**
+	 * @return the numero2
+	 */
+	public int getNumero2() {
+		return numero2;
+	}
+
+	/**
+	 * @param numero2 the numero2 to set
+	 */
+	public void setNumero2(int numero2) {
+		this.numero2 = numero2;
+	}
 
 }
