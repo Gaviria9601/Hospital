@@ -86,8 +86,10 @@ public class CitaEJB {
 	itemHorario itemdef = buscarItem(item.getMedicoUsuarioCedula().getCedula(),
 			item.getHorarioCodigoTurno().getCodigoTurno(),item.getFecha());
 	if(itemdef==null){
-	Horario hor= horarioejb.buscarHorario(item.getHorarioCodigoTurno().getCodigoTurno());
-	Medico med = medicoejb.buscarMedico(item.getMedicoUsuarioCedula().getCedula());
+	//Horario hor= horarioejb.buscarHorario(item.getHorarioCodigoTurno().getCodigoTurno());
+	//Medico med = medicoejb.buscarMedico(item.getMedicoUsuarioCedula().getCedula());
+Horario hor = em.find(Horario.class, item.getHorarioCodigoTurno().getCodigoTurno());
+Medico med = em.find(Medico.class,item.getMedicoUsuarioCedula().getCedula());
 	itemHorario asignacion = new itemHorario(med, hor, item.getFecha(), false);
 		
 			System.out.println(item.getHorarioCodigoTurno().getCodigoTurno()+"******"+item.getMedicoUsuarioCedula().getCedula()

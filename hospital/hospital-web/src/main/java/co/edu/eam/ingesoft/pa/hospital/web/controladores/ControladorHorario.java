@@ -37,7 +37,9 @@ public class ControladorHorario implements Serializable {
 	private String fechaString;
 	private Date fecha;
 	private int codigoHorario;
+	private int codigoHorario2;
 	private String cedulaMedico;
+	private String cedulaMedico2;
 	private List<Medico> medicos2;
 	private List<Medico> medicos;
 	private int especializacion;
@@ -89,7 +91,7 @@ public class ControladorHorario implements Serializable {
 			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy/MM/dd");
 			fecha = formatoDelTexto.parse(fechaString);
 			Paciente paciente1 = pacienteejb.buscarPaciente("200000");
-			Medico med = medicoejb.buscarMedico("1970");
+			Medico med = medicoejb.buscarMedico(cedulaMedico);
 			Horario horario = horarioejb.buscarHorario(codigoHorario);
 		itemHorario item = new itemHorario(med,horario, fecha, false);
 		boolean ban = citaejb.asignarHorarioMedico(item);
@@ -274,6 +276,34 @@ public class ControladorHorario implements Serializable {
 	 */
 	public void setFechaString(String fechaString) {
 		this.fechaString = fechaString;
+	}
+
+	/**
+	 * @return the cedulaMedico2
+	 */
+	public String getCedulaMedico2() {
+		return cedulaMedico2;
+	}
+
+	/**
+	 * @param cedulaMedico2 the cedulaMedico2 to set
+	 */
+	public void setCedulaMedico2(String cedulaMedico2) {
+		this.cedulaMedico2 = cedulaMedico2;
+	}
+
+	/**
+	 * @return the codigoHorario2
+	 */
+	public int getCodigoHorario2() {
+		return codigoHorario2;
+	}
+
+	/**
+	 * @param codigoHorario2 the codigoHorario2 to set
+	 */
+	public void setCodigoHorario2(int codigoHorario2) {
+		this.codigoHorario2 = codigoHorario2;
 	}
 
 

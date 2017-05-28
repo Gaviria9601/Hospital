@@ -127,7 +127,7 @@ private itemHorario horario;
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((citaCodigo == null) ? 0 : citaCodigo.hashCode());
+		result = prime * result + codigo;
 		return result;
 	}
 
@@ -144,14 +144,11 @@ private itemHorario horario;
 		if (getClass() != obj.getClass())
 			return false;
 		Cita other = (Cita) obj;
-		if (citaCodigo == null) {
-			if (other.citaCodigo != null)
-				return false;
-		} else if (!citaCodigo.equals(other.citaCodigo))
+		if (codigo != other.codigo)
 			return false;
 		return true;
 	}
-    
-    
+
+
 
 }
