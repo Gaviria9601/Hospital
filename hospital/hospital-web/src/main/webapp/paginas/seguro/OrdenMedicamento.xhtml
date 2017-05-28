@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h2 class="title-style-1">
+				Orden de medicamento<span class="title-under"></span>
+			</h2>
+			<p:panel id="bus" style="margin-bottom:20px">
+				<p:panelGrid id="panelbus" columns="4" cellpadding="5"
+					styleClass="ui-noborder">
+					
+					<p:outputLabel for="tfcedula2" id="lblCedula"
+					 value="Cedula del paciente:" />
+					 <p:inputText id="tfcedula2"
+					 value="#{ordenMedicamentoControlador.pacientes}" />
+					<p:message for="tfcedula2" />
+				    </p:panelGrid>
+
+				<p:commandButton id="btnBuscar" value="Buscar ordenes"
+					process="@this,panelbus, bus"
+					update="paneldatos"
+					action="#{ordenMedicamentoControlador.listarOrden}" 
+					ajax="true" />
+                </p:panel>
+			
+            <p:dataTable var="tb" value="#{ordenMedicamentoControlador.lista}"
+             id="paneldatos" paginator="true" rows="5">
+					
+                    <p:column headerText="Codigo medicamento">
+					<h:outputLabel value="#{tb.medicamentos_Codigo}" />
+					</p:column>
+
+					<p:column headerText="Codigo de la cita">
+						<h:outputLabel value="#{tb.cita_Codigo}" />
+					</p:column>
+
+					<p:column headerText="Cantidad">
+						<h:outputLabel value="#{tb.cantidad}" />
+					</p:column>
+					
+					<p:column headerText="Formula">
+						<h:outputLabel value="#{tb.formula}" />
+					</p:column>
+					
+					<p:column headerText="Estado">
+						<h:outputLabel value="#{tb.estado}" />
+					</p:column>
+					
+
+					<p:column headerText="Acciones">
+						<p:commandButton action="#"
+							 />
+                    </p:column>
+
+				</p:dataTable>
+          </h:form>
+	</ui:define>
+
+</ui:composition>
