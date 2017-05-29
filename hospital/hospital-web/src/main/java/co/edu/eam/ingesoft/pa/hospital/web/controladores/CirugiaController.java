@@ -15,6 +15,7 @@ import org.primefaces.context.RequestContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.Cirugia;
 import co.edu.eam.ingesoft.hospital.entidades.Especializacion;
+import co.edu.eam.ingesoft.hospital.entidades.Medico;
 import co.edu.eam.ingesoft.hospital.entidades.TipoCirugia;
 import co.edu.eam.ingesoft.hospital.enumeraciones.CitaAvanzadaEnum;
 import co.edu.eam.ingesoft.pa.negocio.beans.CirugiaEJB;
@@ -30,6 +31,8 @@ public class CirugiaController implements Serializable {
 	private String nombre;
 
 	private String tiempoestimado;
+	
+	private String tiempo;
 
 	@Length(min = 5, max = 500, message = "Longitud entre 5 y 500")
 	private String observaciones;
@@ -53,7 +56,86 @@ public class CirugiaController implements Serializable {
 
 	private boolean busco = false;
 	
+	private String observacionesOrdenPro;
 	
+	private String fecha;
+	
+	private String cedulaMedico;
+	
+	private List<Medico> medicos;
+	
+	private String horaInicio;
+	
+	
+	public String getTiempo() {
+		return tiempo;
+	}
+
+
+	public void setTiempo(String tiempo) {
+		this.tiempo = tiempo;
+	}
+
+
+	public String getHoraInicio() {
+		return horaInicio;
+	}
+
+
+	public void setHoraInicio(String horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+
+	public Cirugia getCirugia() {
+		return cirugia;
+	}
+
+
+	public void setCirugia(Cirugia cirugia) {
+		this.cirugia = cirugia;
+	}
+
+
+	public String getCedulaMedico() {
+		return cedulaMedico;
+	}
+
+
+	public void setCedulaMedico(String cedulaMedico) {
+		this.cedulaMedico = cedulaMedico;
+	}
+
+
+	public List<Medico> getMedicos() {
+		return medicos;
+	}
+
+
+	public void setMedicos(List<Medico> medicos) {
+		this.medicos = medicos;
+	}
+
+
+	public String getFecha() {
+		return fecha;
+	}
+
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+
+	public String getObservacionesOrdenPro() {
+		return observacionesOrdenPro;
+	}
+
+
+	public void setObservacionesOrdenPro(String observacionesOrdenPro) {
+		this.observacionesOrdenPro = observacionesOrdenPro;
+	}
+
 
 	public ArrayList<Cirugia> getFiltroCirugias() {
 		return filtroCirugias;
@@ -167,7 +249,7 @@ public class CirugiaController implements Serializable {
 			Cirugia cirugia = new Cirugia();
 			cirugia.setNombre(nombre);
 			cirugia.setObservaciones(observaciones);
-			cirugia.setTiempoEstimado(tiempoestimado);
+			cirugia.setTiempoEstimado(tiempoestimado + " " + tiempo);
 			cirugia.setTipo(CitaAvanzadaEnum.Cirugía);
 			cirugia.setRecuperacion(recuperacion);
 			cirugia.setAnestesia(anestesia);
@@ -176,11 +258,13 @@ public class CirugiaController implements Serializable {
 			cirugiaEJB.crearCirugia(cirugia);
 			cirugias = cirugiaEJB.listarCirugias();
 			Messages.addFlashGlobalInfo("CIRUGIA INGRESADA AL SISTEMA CORRECTAMENTE");
+			resetearFitrosTabla("tablaCirugias");
 			nombre = "";
 			tiempoestimado = "";
 			observaciones = "";
 			recuperacion = "";
 			anestesia = false;
+			tiempo = "";
 		} catch (Exception e) {
 			Messages.addFlashGlobalError("ERROR AL INGRESAR LA CIRUGIA");
 		}
@@ -207,6 +291,7 @@ public class CirugiaController implements Serializable {
 		recuperacion = "";
 		anestesia = false;
 		busco = false;
+		tiempo = "";
 	}
 
 	/**
@@ -216,8 +301,8 @@ public class CirugiaController implements Serializable {
 	public void eliminar(Cirugia ciru) {
 		try {
 			cirugiaEJB.eliminarCirugia(ciru.getCodigo());
-			cirugias = cirugiaEJB.listarCirugias();
 			Messages.addFlashGlobalInfo("SE HA ELIMINADO CORRECTAMENTE LA CIRUGIA");
+			cirugias = cirugiaEJB.listarCirugias();
 			resetearFitrosTabla("tablaCirugias");
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -231,7 +316,9 @@ public class CirugiaController implements Serializable {
 		cirugia = ciru;
 		nombre = ciru.getNombre();
 		observaciones = ciru.getObservaciones();
-		tiempoestimado = ciru.getTiempoEstimado();
+		String[] datos = ciru.getTiempoEstimado().split(" ");
+		tiempoestimado = datos[0];
+		tiempo = datos[1];
 		recuperacion = ciru.getRecuperacion();
 		anestesia = ciru.isAnestesia();
 		especializacion = ciru.getEspecializacionCodigo();
@@ -246,7 +333,7 @@ public class CirugiaController implements Serializable {
 	public void modificar() {
 		cirugia.setNombre(nombre);
 		cirugia.setObservaciones(observaciones);
-		cirugia.setTiempoEstimado(tiempoestimado);
+		cirugia.setTiempoEstimado(tiempoestimado + " " + tiempo);
 		cirugia.setTipo(CitaAvanzadaEnum.Cirugía);
 		cirugia.setRecuperacion(recuperacion);
 		cirugia.setAnestesia(anestesia);
@@ -260,5 +347,28 @@ public class CirugiaController implements Serializable {
 	public boolean isBusco() {
 		return busco;
 	}
+	
+	/**
+	 * 
+	 */
+	public void seleccionarEspecializacion() {
 
+		if (cirugia != null) {
+			Especializacion esp = cirugiaEJB.buscarEspecializacion(cirugia.getCodigo());
+			System.out.println(esp.getNombre());
+			medicos = medicoEJB.listarMedicosxEspecializacion(esp.getCodigo());
+		} else {
+			medicos = null;
+		}
+
+	}
+
+	public void crearOrden(){
+		
+	}
+	
+	public void limpiarOrden(){
+		
+	}
+	
 }

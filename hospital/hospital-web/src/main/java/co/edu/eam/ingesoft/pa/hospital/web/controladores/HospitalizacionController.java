@@ -34,6 +34,8 @@ public class HospitalizacionController implements Serializable {
 	private String nombre;
 
 	private String tiempoestimado;
+	
+	private String tiempo;
 
 	private TipoHospitalizacion tipoHospitalizacion;
 	
@@ -48,6 +50,14 @@ public class HospitalizacionController implements Serializable {
 
 	
 	
+	public String getTiempo() {
+		return tiempo;
+	}
+
+	public void setTiempo(String tiempo) {
+		this.tiempo = tiempo;
+	}
+
 	public List<TipoHospitalizacion> getTipoHospitalizaciones() {
 		return tipoHospitalizaciones;
 	}
@@ -132,35 +142,37 @@ public class HospitalizacionController implements Serializable {
 	 * Crea una hospitalización
 	 */
 	public void crear() {
-		DatosManager.setCodigoCita(5);
+		DatosManager.setCodigoCita(6);
 		try {
 			Hospitalizacion hospi = new Hospitalizacion();
 			hospi.setNombre(nombre);
 			hospi.setObservaciones(observacionesOrdenPro);
-			hospi.setTiempoEstimado(tiempoestimado);
+			hospi.setTiempoEstimado(tiempoestimado + " " + 	tiempo);
 			hospi.setTipo(CitaAvanzadaEnum.Hospitalización);
 			hospi.setTipoHospitalizacion(tipoHospitalizacion);
 			hospitalizacionEJB.crearHospitalizacion(hospi);
 			OrdenHospitalizacion ordHos = new OrdenHospitalizacion();
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			Date horaIni = dateFormat.parse(fecha + " " + horaInicio);	
 			ordHos.setHoraInicio(horaIni);
 			ordHos.setHospitalizacion(hospi);
 			ordHos.setCama(camaEJB.buscarCamaNormal(2));
-			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-mm-dd");
+			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 			ordHos.setFecha(formatoDelTexto.parse(fecha));
 			ordHos.setObservaciones(observacionesOrdenPro);
 			ordHos.setEstado(true);
-			Cita cita = citaEJB.buscarCita(5);
+			Cita cita = citaEJB.buscarCita(DatosManager.getCodigoCita());
 			ordHos.setCitaCodigo(cita);
 			ordenHoEJB.crearOrdenHospitalizacion(ordHos);
-			Messages.addFlashGlobalInfo("HOSPITALIZACIÓN CREADA CORRECTAMENTE");
+			Messages.addFlashGlobalInfo("ORDEN DE HOSPITALIZACIÓN CREADA CORRECTAMENTE");
 			nombre = "";
 			observacionesOrdenPro = "";
 			tiempoestimado = "";
+			fecha = "";
+			horaInicio = "";
+			tiempo = "";
 		} catch (Exception e) {
-			e.printStackTrace();
-			Messages.addFlashGlobalError("ERRROR AL CREAR LA HOSPITALIZACIÓN");
+			Messages.addFlashGlobalError("ERRROR AL CREAR LA ORDEN DE HOSPITALIZACIÓN");
 		}
 
 	}
@@ -173,6 +185,9 @@ public class HospitalizacionController implements Serializable {
 		nombre = "";
 		observacionesOrdenPro = "";
 		tiempoestimado = "";
+		fecha = "";
+		horaInicio = "";
+		tiempo = "";
 	}
 
 }

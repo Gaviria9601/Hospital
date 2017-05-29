@@ -5,13 +5,12 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import co.edu.eam.ingesoft.hospital.entidades.Cita;
-import co.edu.eam.ingesoft.hospital.entidades.OrdenHospitalizacion;
+import co.edu.eam.ingesoft.hospital.entidades.OrdenExamen;
 
-@LocalBean
 @Stateless
-public class OrdenHospitalizacionEJB {
-	
+@LocalBean
+public class OrdenExamenEJB {
+
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -19,9 +18,8 @@ public class OrdenHospitalizacionEJB {
 	 * 
 	 * @param orden
 	 */
-	public void crearOrdenHospitalizacion(OrdenHospitalizacion orden){
+	public void crearOrdenExamen(OrdenExamen orden){
 		em.persist(orden);
 	}
 	
-
 }

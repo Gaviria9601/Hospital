@@ -1,24 +1,28 @@
 package co.edu.eam.ingesoft.pa.hospital.web.controladores;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 import org.hibernate.validator.constraints.Length;
 import org.omnifaces.cdi.ViewScoped;
 import org.omnifaces.util.Messages;
-import org.primefaces.component.datatable.DataTable;
 import org.primefaces.context.RequestContext;
 
+import co.edu.eam.ingesoft.hospital.entidades.Cita;
 import co.edu.eam.ingesoft.hospital.entidades.Examen;
+import co.edu.eam.ingesoft.hospital.entidades.OrdenExamen;
 import co.edu.eam.ingesoft.hospital.entidades.TipoExamen;
 import co.edu.eam.ingesoft.hospital.enumeraciones.CitaAvanzadaEnum;
+import co.edu.eam.ingesoft.pa.negocio.beans.CitaEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.ExamenEJB;
+import co.edu.eam.ingesoft.pa.negocio.beans.OrdenExamenEJB;
 
 @Named("examenController")
 @ViewScoped
@@ -30,6 +34,8 @@ public class ExamenController implements Serializable {
 	private String nombre;
 
 	private String tiempoestimado;
+	
+	private String tiempo;
 
 	@Length(min = 5, max = 500, message = "Longitud entre 5 y 500")
 	private String observaciones;
@@ -44,7 +50,45 @@ public class ExamenController implements Serializable {
 
 	private boolean busco = false;
 	
+	private String observacionesOrdenPro;
 	
+	private String fecha;
+	
+	private String horaInicio;
+	
+
+	public String getTiempo() {
+		return tiempo;
+	}
+
+	public void setTiempo(String tiempo) {
+		this.tiempo = tiempo;
+	}
+
+	public String getHoraInicio() {
+		return horaInicio;
+	}
+
+	public void setHoraInicio(String horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getObservacionesOrdenPro() {
+		return observacionesOrdenPro;
+	}
+
+	public void setObservacionesOrdenPro(String observacionesOrdenPro) {
+		this.observacionesOrdenPro = observacionesOrdenPro;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -114,6 +158,11 @@ public class ExamenController implements Serializable {
 	@EJB
 	private ExamenEJB examenEJB;
 
+	@EJB
+	private CitaEJB citaEJB;
+	
+	@EJB
+	private OrdenExamenEJB ordenExamenEJB;
 	
 
 	@PostConstruct
@@ -130,15 +179,17 @@ public class ExamenController implements Serializable {
 			Examen examen = new Examen();
 			examen.setNombre(nombre);
 			examen.setObservaciones(observaciones);
-			examen.setTiempoEstimado(tiempoestimado);
+			examen.setTiempoEstimado(tiempoestimado + " " + tiempo);
 			examen.setTipo(CitaAvanzadaEnum.Examen);
 			examen.setTipoExamen(tipoExamen);
 			examenEJB.crearExamen(examen);
 			examenes = examenEJB.listarExamenes();
 			Messages.addFlashGlobalInfo("EXAMEN INGRESADO AL SISTEMA CORRECTAMENTE");
+			resetearFitrosTabla("tablaExamenes");
 			nombre = "";
 			tiempoestimado = "";
 			observaciones = "";
+			tiempo = "";
 		} catch (Exception e) {
 			Messages.addFlashGlobalError("ERROR AL INGRESAR EL EXAMEN");
 		}
@@ -152,6 +203,7 @@ public class ExamenController implements Serializable {
 		nombre = "";
 		tiempoestimado = "";
 		observaciones = "";
+		tiempo = "";
 		busco = false;
 	}
 
@@ -186,7 +238,9 @@ public class ExamenController implements Serializable {
 		examen = exa;
 		nombre = exa.getNombre();
 		observaciones = exa.getObservaciones();
-		tiempoestimado = exa.getTiempoEstimado();
+		String[] datos = exa.getTiempoEstimado().split(" ");
+		tiempoestimado = datos[0];
+		tiempo = datos[1];
 		tipoExamen = exa.getTipoExamen();
 		busco = true;
 	}
@@ -198,7 +252,7 @@ public class ExamenController implements Serializable {
 	public void modificar() {
 		examen.setNombre(nombre);
 		examen.setObservaciones(observaciones);
-		examen.setTiempoEstimado(tiempoestimado);
+		examen.setTiempoEstimado(tiempoestimado + " " + tiempo);
 		examen.setTipo(CitaAvanzadaEnum.Examen);
 		examen.setTipoExamen(tipoExamen);
 		examenEJB.editarExamen(examen);
@@ -208,6 +262,44 @@ public class ExamenController implements Serializable {
 
 	public boolean isBusco() {
 		return busco;
+	}
+	
+	/**
+	 * 
+	 */
+	public void crearOrden(){
+		DatosManager.setCodigoCita(6);
+		try{
+		OrdenExamen orExa = new OrdenExamen();
+		orExa.setObservaciones(observacionesOrdenPro);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date horaIni = dateFormat.parse(fecha + " " + horaInicio);	
+		orExa.setHora(horaIni);
+		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
+		orExa.setFecha(formatoDelTexto.parse(fecha));
+		orExa.setEstado(true);
+		orExa.setExamen(examen);
+		Cita cita = citaEJB.buscarCita(DatosManager.getCodigoCita());
+		orExa.setCitaCodigo(cita);
+		ordenExamenEJB.crearOrdenExamen(orExa);
+		Messages.addFlashGlobalInfo("ORDEN DE EXAMEN CREADA CORRECTAMENTE");
+		observacionesOrdenPro = "";
+		fecha = "";
+		horaInicio = "";
+		examen = null;
+		}catch (Exception e) {
+			Messages.addFlashGlobalError("ERRROR AL CREAR LA ORDEN DE EXAMEN");
+		}
+	}
+	
+	/**
+	 * 
+	 */
+	public void limpiarOrden(){
+		observacionesOrdenPro = "";
+		fecha = "";
+		horaInicio = "";
+		examen = null;
 	}
 
 	

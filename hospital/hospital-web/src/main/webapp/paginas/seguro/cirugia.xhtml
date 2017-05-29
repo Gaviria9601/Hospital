@@ -27,9 +27,12 @@
 
 							<p:outputLabel for="tftiempoestimado" id="lbltiempoestimado"
 								value="Tiempo Estimado" />
-							<p:inputText id="tftiempoestimado" style="width: 100%;"
-								a:placeholder="# Tiempo"
-								value="#{cirugiaController.tiempoestimado}" />
+							<p:selectOneButton value="#{cirugiaController.tiempo}">
+								<p:inputText id="tftiempoestimado" style="width: 20%;" mask="99"
+									a:placeholder="N°" value="#{cirugiaController.tiempoestimado}" />
+								<f:selectItem itemValue="Minutos" itemLabel="Minutos" />
+								<f:selectItem itemValue="Horas" itemLabel="Horas" />
+							</p:selectOneButton>
 							<p:message for="tftiempoestimado" />
 
 
@@ -81,8 +84,7 @@
 							styleClass="ui-noborder">
 
 							<p:commandButton id="btncrear" value="Crear Cirugia"
-								process="@this,paneldatos"
-								update="paneldatos modCirugia"
+								process="@this,paneldatos" update="paneldatos tablaCirugias"
 								action="#{cirugiaController.crear}" />
 
 							<p:commandButton id="btnlimpiar" value="Limpiar Campos"
@@ -101,7 +103,7 @@
 						rowsPerPageTemplate="5,10,15"
 						value="#{cirugiaController.cirugias}" var="ciru" border="1"
 						filteredValue="#{cirugiaController.filtroCirugias}"
-						emptyMessage="Sin Coincidencias">
+						emptyMessage="Sin Coincidencias" widgetVar="vtWidget">
 						<f:facet name="header">
            				Cirugias
         				</f:facet>
@@ -124,8 +126,7 @@
 
 						<p:column headerText="Acciones">
 							<p:commandButton action="#{cirugiaController.eliminar(ciru)}"
-								process="@this" value="Eliminar"
-								update="tablaCirugias" />
+								process="@this" value="Eliminar" update="tablaCirugias" />
 
 							<p:commandButton action="#{cirugiaController.editar(ciru)}"
 								process="@this" value="Modificar"
@@ -133,8 +134,8 @@
 						</p:column>
 
 					</p:dataTable>
-					
-					<br/>
+
+					<br />
 
 					<p:panel id="datosCirugia" header="Modificación Cirugia"
 						style="margin-bottom:20px">
@@ -156,9 +157,13 @@
 
 									<p:outputLabel for="tftiempoestimadoMod"
 										id="lbltiempoestimadoMod" value="Tiempo Estimado" />
-									<p:inputText id="tftiempoestimadoMod" style="width: 100%;"
-										a:placeholder="# Tiempo"
-										value="#{cirugiaController.tiempoestimado}" />
+									<p:selectOneButton value="#{cirugiaController.tiempo}">
+										<p:inputText id="tftiempoestimadoMod" style="width: 20%;"
+											mask="99" a:placeholder="N°"
+											value="#{cirugiaController.tiempoestimado}" />
+										<f:selectItem itemValue="Minutos" itemLabel="Minutos" />
+										<f:selectItem itemValue="Horas" itemLabel="Horas" />
+									</p:selectOneButton>
 									<p:message for="tftiempoestimadoMod" />
 
 

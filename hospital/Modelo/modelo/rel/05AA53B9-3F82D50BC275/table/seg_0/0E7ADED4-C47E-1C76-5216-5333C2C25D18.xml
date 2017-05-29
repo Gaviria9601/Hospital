@@ -8,7 +8,7 @@
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="OrdenProce" id="7E05AE87-796A-ECAF-1D1D-E0D0735227D3">
+<Column name="Codigo" id="7E05AE87-796A-ECAF-1D1D-E0D0735227D3">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-04-22 21:30:51 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -66,48 +66,27 @@
 <colAssociation fkAssociation="E2612CF6-FB0E-766B-C323-C3C6929D7432" referredColumn="E92B5C29-E466-13E9-804E-E6F4ACE6B54A"/>
 </associations>
 </Column>
-<Column name="Horario_Codigo_turno" id="BB974957-E7BA-2ABA-9CA8-5B4A249BDCD3">
+<Column name="hora_Inicio" id="6D5859A1-DD7C-382F-1F88-B0DCB9E95F3B">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-05-25 22:10:11 UTC</createdTime>
+<createdTime>2017-05-29 00:05:07 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT015</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="01DCAACB-956B-3DD9-E5FB-944B7DDFAE1D" referredColumn="7C906617-C1E5-2B8A-C110-EB88BE20459B"/>
-</associations>
 </Column>
-<Column name="Medico_Horario" id="4410F99D-2335-1AFE-4C1F-A945D7093743">
+<Column name="hora_final" id="C1D71A04-6357-8EA3-6D88-4C63C8DDA8C7">
 <createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-05-25 22:10:11 UTC</createdTime>
+<createdTime>2017-05-29 00:05:17 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
+<logicalDatatype>LOGDT015</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="01DCAACB-956B-3DD9-E5FB-944B7DDFAE1D" referredColumn="B96DAAEB-00BA-804D-F30F-617396AAFF32"/>
-</associations>
-</Column>
-<Column name="Fecha" id="D234039C-A990-7D04-6B00-4B211EDED718">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-05-25 22:10:11 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="01DCAACB-956B-3DD9-E5FB-944B7DDFAE1D" referredColumn="C30E0314-7A35-2D1F-C9A1-1AB076179E20"/>
-</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -160,18 +139,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="B018B9B1-3491-3589-E3B5-E67C69EC3C53"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="BD7D0775-31C2-F2B5-75F9-3951A350AE67" name="OrdenCirugia_Item_horario_FK">
-<createdBy>USUARIO WINDOWS</createdBy>
-<createdTime>2017-05-25 22:10:11 UTC</createdTime>
-<ownerDesignName>modelo</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="BB974957-E7BA-2ABA-9CA8-5B4A249BDCD3"/>
-<colUsage columnID="4410F99D-2335-1AFE-4C1F-A945D7093743"/>
-<colUsage columnID="D234039C-A990-7D04-6B00-4B211EDED718"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

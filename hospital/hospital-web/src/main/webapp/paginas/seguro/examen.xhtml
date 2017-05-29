@@ -28,9 +28,12 @@
 
 							<p:outputLabel for="tftiempoestimado" id="lbltiempoestimado"
 								value="Tiempo Estimado" />
-							<p:inputText id="tftiempoestimado" style="width: 100%;"
-								a:placeholder="# Tiempo"
-								value="#{examenController.tiempoestimado}" />
+							<p:selectOneButton value="#{examenController.tiempo}">
+								<p:inputText id="tftiempoestimado" style="width: 20%;" mask="99"
+									a:placeholder="N°" value="#{examenController.tiempoestimado}" />
+								<f:selectItem itemValue="Minutos" itemLabel="Minutos" />
+								<f:selectItem itemValue="Horas" itemLabel="Horas" />
+							</p:selectOneButton>
 							<p:message for="tftiempoestimado" />
 
 
@@ -62,7 +65,7 @@
 							styleClass="ui-noborder">
 
 							<p:commandButton id="btncrear" value="Crear Examen"
-								process="@this,paneldatos" update="paneldatos modExamen"
+								process="@this,paneldatos" update="paneldatos tablaExamenes"
 								action="#{examenController.crear}" />
 
 							<p:commandButton id="btnlimpiar" value="Limpiar Campos"
@@ -102,8 +105,7 @@
 
 						<p:column headerText="Acciones">
 							<p:commandButton action="#{examenController.eliminar(exa)}"
-								process="@this" value="Eliminar"
-								update="tablaExamenes" />
+								process="@this" value="Eliminar" update="tablaExamenes" />
 
 							<p:commandButton action="#{examenController.editar(exa)}"
 								process="@this" value="Modificar"
@@ -111,7 +113,7 @@
 						</p:column>
 
 					</p:dataTable>
-					<br/>
+					<br />
 
 					<p:panel id="datosExamen" header="Modificación Examen"
 						style="margin-bottom:20px">
@@ -125,21 +127,26 @@
 								<p:panelGrid id="paneldatos2" columns="6" cellpadding="5"
 									styleClass="ui-noborder">
 
-									<p:outputLabel for="tfnombreMod" id="lblnombreMod" value="Nombre" />
+									<p:outputLabel for="tfnombreMod" id="lblnombreMod"
+										value="Nombre" />
 									<p:inputText id="tfnombreMod" cols="30" style="width: 100%;"
 										value="#{examenController.nombre}" />
 									<p:message for="tfnombreMod" />
 
-									<p:outputLabel for="tftiempoestimadoMod" id="lbltiempoestimadoMod"
-										value="Tiempo Estimado" />
-									<p:inputText id="tftiempoestimadoMod" style="width: 100%;"
-										a:placeholder="# Tiempo"
-										value="#{examenController.tiempoestimado}" />
+									<p:outputLabel for="tftiempoestimadoMod"
+										id="lbltiempoestimadoMod" value="Tiempo Estimado" />
+									<p:selectOneButton value="#{examenController.tiempo}">
+										<p:inputText id="tftiempoestimadoMod" style="width: 20%;"
+											mask="99" a:placeholder="N°"
+											value="#{examenController.tiempoestimado}" />
+										<f:selectItem itemValue="Minutos" itemLabel="Minutos" />
+										<f:selectItem itemValue="Horas" itemLabel="Horas" />
+									</p:selectOneButton>
 									<p:message for="tftiempoestimadoMod" />
 
 
-									<p:outputLabel for="tfobservacionesMod" id="lblobservacionesMod"
-										value="Observaciones" />
+									<p:outputLabel for="tfobservacionesMod"
+										id="lblobservacionesMod" value="Observaciones" />
 									<p:inputTextarea rows="10" cols="30" id="tfobservacionesMod"
 										value="#{examenController.observaciones}" />
 									<p:message for="tfobservacionesMod" />

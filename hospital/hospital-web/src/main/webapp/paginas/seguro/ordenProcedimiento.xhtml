@@ -13,7 +13,7 @@
 		</h2>
 		<h:form prependId="false">
 
-			<p:accordionPanel>
+			<p:accordionPanel id="general">
 				<p:tab title="Hospitalización">
 
 					<p:panelGrid id="paneldatos" columns="6" cellpadding="20"
@@ -36,32 +36,39 @@
 						<p:row>
 							<p:panelGrid id="paneldatos2" columns="3" cellpadding="8"
 								styleClass="ui-noborder">
-								<h:outputLabel id="lbltipoHospitalizacion" value="Tipo Hospitalización" />
+								<h:outputLabel id="lbltipoHospitalizacion"
+									value="Tipo Hospitalización" />
 								<h:selectOneMenu id="cbtipoHospitalizacion"
 									value="#{hospitalizacionController.tipoHospitalizacion}"
 									converter="tipoHosConverter">
-									<f:selectItems value="#{hospitalizacionController.tipoHospitalizaciones}"
+									<f:selectItems
+										value="#{hospitalizacionController.tipoHospitalizaciones}"
 										var="tipoHos" itemValue="#{tipoHos}"
 										itemLabel="#{tipoHos.nombre}" />
 								</h:selectOneMenu>
 								<br />
 								<p:outputLabel value="Fecha: " />
 								<p:inputMask id="date"
-									value="#{hospitalizacionController.fecha}" mask="9999-99-99" />
+									value="#{hospitalizacionController.fecha}" mask="9999-99-99"
+									a:placeholder="Año-Mes-Dia" />
 								<p:message for="date" />
 
 								<p:outputLabel value="Hora Inicio:" />
 								<p:inputMask id="hora"
-									value="#{hospitalizacionController.horaInicio}" mask="99:99" />
+									value="#{hospitalizacionController.horaInicio}" mask="99:99"
+									a:placeholder="Hora:Minuto" />
 								<p:message for="hora" />
 
 								<p:outputLabel for="tftiempoestimado" id="lbltiempoestimado"
 									value="Tiempo Estimado" />
-								<p:inputText id="tftiempoestimado" style="width: 100%;"
-									a:placeholder="# Tiempo"
-									value="#{hospitalizacionController.tiempoestimado}" />
-								<p:message for="tftiempoestimado" />
-
+								<p:selectOneButton value="#{hospitalizacionController.tiempo}">
+									<p:inputMask id="tftiempoestimado" style="width: 20%;"
+										mask="99" a:placeholder="N°"
+										value="#{hospitalizacionController.tiempoestimado}" />
+									<f:selectItem itemValue="Horas" itemLabel="Horas" />
+									<f:selectItem itemValue="Dias" itemLabel="Dias" />
+									<f:selectItem itemValue="Meses" itemLabel="Meses" />
+								</p:selectOneButton>
 							</p:panelGrid>
 						</p:row>
 						<p:row></p:row>
@@ -69,8 +76,8 @@
 						<p:row></p:row>
 
 						<p:commandButton process="@this paneldatos"
-							action="#{hospitalizacionController.crear}"
-							value="Crear Hospitalización" />
+							action="#{hospitalizacionController.crear}" update="paneldatos"
+							value="Ordenar Hospitalización" />
 						<br />
 						<br />
 						<p:commandButton id="btnlimpiar" value="Limpiar Campos"
@@ -81,13 +88,173 @@
 
 				</p:tab>
 
-				<p:tab title="Cirugia">
+				<p:tab id="cirugiaTab" title="Cirugia">
+					<br/>
+					<p:dataTable id="tablaCirugias" paginator="true" rows="5"
+						paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+						rowsPerPageTemplate="5,10,15"
+						value="#{cirugiaController.cirugias}" var="ciru" border="1"
+						filteredValue="#{cirugiaController.filtroCirugias}"
+						emptyMessage="Sin Coincidencias" selectionMode="single"
+						selection="#{cirugiaController.cirugia}" rowKey="#{ciru.codigo}">
+						<f:facet name="header">
+           				Cirugias
+        				</f:facet>
+						<p:ajax event="rowSelect"
+							listener="#{cirugiaController.seleccionarEspecializacion}"
+							update="general:cbMedico" />
+						<p:column headerText="Nombre" filterBy="#{ciru.nombre}"
+							filterMatchMode="contains">
+							<h:outputLabel value="#{ciru.nombre}" />
+						</p:column>
+
+						<p:column headerText="Tiempo Estimado">
+							<h:outputLabel value="#{ciru.tiempoEstimado}" />
+						</p:column>
+
+						<p:column headerText="Especialización">
+							<h:outputLabel value="#{ciru.especializacionCodigo.nombre}" />
+						</p:column>
+
+						<p:column headerText="Tipo Cirugia">
+							<h:outputLabel value="#{ciru.tipoCirugia.nombre}" />
+						</p:column>
+
+						<p:column headerText="Descripción">
+							<h:outputLabel value="#{ciru.observaciones}" />
+						</p:column>
+
+					</p:dataTable>
+			
+					<br/>
+
+					<p:panelGrid id="paneldatosCiru" columns="6" cellpadding="20"
+						styleClass="ui-noborder">
+
+						<p:outputLabel for="tfobservacionesOrdenCiru"
+							id="lblobservacionesOrdenCiru" value="Observaciones" />
+						<p:inputTextarea rows="10" cols="50" id="tfobservacionesOrdenCiru"
+							value="#{cirugiaController.observacionesOrdenPro}" />
+						<p:message for="tfobservacionesOrdenCiru" />
+						<p:row>
+							<p:panelGrid id="paneldatos5" columns="3" cellpadding="8"
+								styleClass="ui-noborder">
+								<p:outputLabel value="Fecha: " />
+								<p:inputMask id="dateCiru" value="#{cirugiaController.fecha}"
+									mask="9999-99-99" a:placeholder="Año-Mes-Dia" />
+								<p:message for="dateCiru" />
+
+								<p:outputLabel value="Hora:" />
+								<p:inputMask id="horaCir"
+									value="#{cirugiaController.horaInicio}" mask="99:99"
+									a:placeholder="Hora:Minuto" />
+								<p:message for="horaCir" />
+
+								<p:outputLabel value="Medico Especialista: " id="lblcbMedico" />
+								<h:selectOneMenu id="cbMedico"
+									value="#{cirugiaController.cedulaMedico}">
+									<f:selectItem itemLabel="Seleccione medico" itemValue=""
+										noSelectionOption="true" />
+									<f:selectItems value="#{cirugiaController.medicos}" var="e"
+										itemValue="#{e.cedula}" itemLabel="#{e.nombre}  #{e.apellido}" />
+								</h:selectOneMenu>
+
+							</p:panelGrid>
+						</p:row>
+						<p:row></p:row>
+						<p:row></p:row>
+						<p:row></p:row>
+
+						<p:commandButton process="@this paneldatos5"
+							action="#{cirugiaController.crearOrden}" update="paneldatos5"
+							value="Ordenar Cirugia" />
+						<br />
+						<br />
+						<p:commandButton id="btnlimpiarCiru" value="Limpiar Campos"
+							process="@this" update="paneldatos5"
+							action="#{cirugiaController.limpiarOrden}" />
+					</p:panelGrid>
+
 
 				</p:tab>
 				<p:tab title="Examen">
 
+					<p:panelGrid id="paneldatosExa" columns="6" cellpadding="20"
+						styleClass="ui-noborder">
+
+						<p:outputLabel for="tfobservacionesOrdenExa"
+							id="lblobservacionesOrdenExa" value="Observaciones" />
+						<p:inputTextarea rows="10" cols="50" id="tfobservacionesOrdenExa"
+							value="#{examenController.observacionesOrdenPro}" />
+						<p:message for="tfobservacionesOrdenExa" />
+						<p:row>
+							<p:panelGrid id="paneldatos3" columns="3" cellpadding="8"
+								styleClass="ui-noborder">
+								<p:outputLabel value="Fecha: " />
+								<p:inputMask id="dateExa" value="#{examenController.fecha}"
+									mask="9999-99-99" a:placeholder="Año-Mes-Dia" />
+								<p:message for="dateExa" />
+
+								<p:outputLabel value="Hora:" />
+								<p:inputMask id="horaExa" value="#{examenController.horaInicio}"
+									mask="99:99" a:placeholder="Hora:Minuto" />
+								<p:message for="horaExa" />
+							</p:panelGrid>
+						</p:row>
+
+						<p:row></p:row>
+						<p:row></p:row>
+						<p:row></p:row>
+					</p:panelGrid>
+
+					<p:dataTable id="tablaExamenes" paginator="true" rows="5"
+						paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+						rowsPerPageTemplate="5,10,15" value="#{examenController.examenes}"
+						var="exa" border="1" emptyMessage="Sin Coincidencias"
+						widgetVar="vtWidget" selection="#{examenController.examen}"
+						rowKey="#{exa.codigo}">
+						<f:facet name="header">
+           				Examenes
+        			</f:facet>
+						<p:column selectionMode="single"
+							style="width:36px;text-align:center" />
+						<p:column headerText="Nombre" sortBy="#{exa.nombre}"
+							filterBy="#{exa.nombre}" filterMatchMode="contains">
+							<h:outputLabel value="#{exa.nombre}" />
+						</p:column>
+
+						<p:column headerText="Tiempo Estimado">
+							<h:outputLabel value="#{exa.tiempoEstimado}" />
+						</p:column>
+
+						<p:column headerText="Tipo Examen">
+							<h:outputLabel value="#{exa.tipoExamen.nombre}" />
+						</p:column>
+
+						<p:column headerText="Descripción">
+							<h:outputLabel value="#{exa.observaciones}" />
+						</p:column>
+
+					</p:dataTable>
+
+					<br />
+					<br />
+
+					<p:panelGrid id="paneldatos4" columns="2" cellpadding="8"
+						styleClass="ui-noborder">
+
+						<p:commandButton process="@this tablaExamenes paneldatosExa"
+							action="#{examenController.crearOrden}" update="paneldatosExa"
+							value="Ordenar Examen" />
+
+						<p:commandButton id="btnlimpiarExa" value="Limpiar Campos"
+							process="@this" update="paneldatosExa"
+							action="#{examenController.limpiarOrden}" />
+					</p:panelGrid>
+
 				</p:tab>
 			</p:accordionPanel>
+			<br />
 		</h:form>
 	</ui:define>
 </ui:composition>
