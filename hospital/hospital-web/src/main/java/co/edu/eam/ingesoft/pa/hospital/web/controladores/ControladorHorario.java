@@ -46,7 +46,6 @@ public class ControladorHorario implements Serializable {
 	private List<Especializacion> especializaciones;
 	private int numero;
 	private int numero2;
-	private boolean primeracita = false;
 	private Paciente paciente;
 
 	@EJB
@@ -83,6 +82,10 @@ public class ControladorHorario implements Serializable {
 
 	}
 
+	public void limpiar() {
+	
+	}
+
 	public void asignarGeneral() {
 		try {
 			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
@@ -91,9 +94,32 @@ public class ControladorHorario implements Serializable {
 			Medico med = medicoejb.buscarMedico(cedulaMedico);
 			Horario horario = horarioejb.buscarHorario(codigoHorario);
 			itemHorario item = new itemHorario(med, horario, fecha, false);
-			citaejb.asignarHorarioMedico(item,paciente1,numero);
+			citaejb.asignarHorarioMedico(item, paciente1, numero);
 
-			Messages.addFlashGlobalInfo("Cita asignada el dia " + fecha + " a la hora " + horario.getHoraInicio().getTime());
+			Messages.addFlashGlobalInfo(
+					"Cita asignada el dia " + fecha + " a la hora " + horario.getHoraInicio().getTime());
+			limpiar();
+		} catch (ExcepcionNegocio e) {
+			Messages.addGlobalError(e.getMessage());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			Messages.addGlobalError(e.getMessage());
+		}
+	}
+
+	public void asignarEspecialista() {
+		try {
+			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
+			fecha = formatoDelTexto.parse(fechaString);
+			Paciente paciente1 = pacienteejb.buscarPaciente("200000");
+			Medico med = medicoejb.buscarMedico(cedulaMedico2);
+			Horario horario = horarioejb.buscarHorario(codigoHorario2);
+			itemHorario item = new itemHorario(med, horario, fecha, false);
+			citaejb.asignarHorarioMedico(item, paciente1, numero2);
+
+			Messages.addFlashGlobalInfo("Cita asignada el dia " + fecha + " a la hora "
+					+ horario.getHoraInicio().getHours() + ":" + horario.getHoraInicio().getMinutes());
+			limpiar();
 		} catch (ExcepcionNegocio e) {
 			Messages.addGlobalError(e.getMessage());
 		} catch (ParseException e) {
@@ -197,21 +223,6 @@ public class ControladorHorario implements Serializable {
 	}
 
 	/**
-	 * @return the primeracita
-	 */
-	public boolean isPrimeracita() {
-		return primeracita;
-	}
-
-	/**
-	 * @param primeracita
-	 *            the primeracita to set
-	 */
-	public void setPrimeracita(boolean primeracita) {
-		this.primeracita = primeracita;
-	}
-
-	/**
 	 * @return the numero
 	 */
 	public int getNumero() {
@@ -309,7 +320,8 @@ public class ControladorHorario implements Serializable {
 	}
 
 	/**
-	 * @param numero2 the numero2 to set
+	 * @param numero2
+	 *            the numero2 to set
 	 */
 	public void setNumero2(int numero2) {
 		this.numero2 = numero2;

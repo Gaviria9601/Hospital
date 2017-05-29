@@ -4,6 +4,7 @@
 package co.edu.eam.ingesoft.pa.negocio.beans;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -15,6 +16,7 @@ import javax.persistence.PersistenceContext;
 
 import org.hibernate.criterion.EmptyExpression;
 
+import co.edu.eam.ingesoft.hospital.entidades.Cama;
 import co.edu.eam.ingesoft.hospital.entidades.Cita;
 import co.edu.eam.ingesoft.hospital.entidades.Especializacion;
 import co.edu.eam.ingesoft.hospital.entidades.Horario;
@@ -59,6 +61,16 @@ public class CitaEJB {
 		}
 
 	}
+	
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+	public List<Cita> listarCitasMedicox(String ceduMedico) {
+			List<Cita> lista = em.createNativeQuery(
+					"SELECT * FROM CITA c join ITEM_HORARIO h on h.HORARIO_CODIGO_TURNO = c.HORARIO_CODIGO_TURNO "
+					+ "WHERE to_number(to_char(h.FECHA, 'DDMMYY')) = to_number(to_char(sysdate, 'DDMMYY')) and c.MEDICO_CEDULA =?1",
+					Cita.class).setParameter(1, ceduMedico).getResultList();
+				return lista;
+
+	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void modificarCita(Cita cita) {
@@ -85,7 +97,6 @@ public class CitaEJB {
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void asignarHorarioMedico(itemHorario item, Paciente paciente1, int codigoCita) {
-		System.out.println(codigoCita+"????????????????????????????????????");
 		itemHorario itemdef = buscarItem(item.getMedicoUsuarioCedula().getCedula(),
 				item.getHorarioCodigoTurno().getCodigoTurno(), item.getFecha());
 		if (itemdef == null) {
