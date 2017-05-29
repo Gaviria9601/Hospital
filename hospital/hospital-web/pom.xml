@@ -10,6 +10,20 @@
 	<packaging>war</packaging>
 
 	<dependencies>
+
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-fonts -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-fonts</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.1.1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>co.edu.eam.ingesoft.proyecto</groupId>
 			<artifactId>hospital-negocio</artifactId>

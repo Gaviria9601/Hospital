@@ -268,7 +268,6 @@ public class ExamenController implements Serializable {
 	 * 
 	 */
 	public void crearOrden(){
-		DatosManager.setCodigoCita(6);
 		try{
 		OrdenExamen orExa = new OrdenExamen();
 		orExa.setObservaciones(observacionesOrdenPro);

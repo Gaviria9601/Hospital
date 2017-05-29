@@ -28,8 +28,6 @@ public class SessionController implements Serializable {
 	@EJB
 	private SeguridadEJB segEJB;
 
-	
-	
 	/**
 	 * Logea un usuario al sistema
 	 */
@@ -45,8 +43,11 @@ public class SessionController implements Serializable {
 						usuario = userTemp;
 						setTipoUsuario(usuario.getTipoUsuario());
 						Faces.setSessionAttribute("user", usuario);
-						return "/paginas/seguro/inicio.xhtml?faces-redirect=true";
-
+						if (tipoUsuario.equals(TipoUsuarioEnum.Medico)) {
+							return "/paginas/seguro/agenda-medico.xhtml?faces-redirect=true";
+						} else {
+							return "/paginas/seguro/inicio.xhtml?faces-redirect=true";
+						}
 					} else {
 						Messages.addFlashGlobalError("Usuario o  Pass Incorrecto");
 					}

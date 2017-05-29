@@ -68,6 +68,7 @@ public class AtenderCita implements Serializable {
 
 	@PostConstruct
 	public void inicializar() {
+		diagnosticos = new ArrayList<DiagnosticoCita>();
 		patologias = patologiaEJB.listarPatologias();
 	}
 
@@ -105,7 +106,6 @@ public class AtenderCita implements Serializable {
 
 
 	public void agregar(Patologia pat) {
-		diagnosticos = new ArrayList<DiagnosticoCita>();
 		Cita cita = citaejb.buscarCita(DatosManager.getCodigoCita());
 		DiagnosticoCita diag = new DiagnosticoCita(cita, pat);
 		diagnosticos.add(diag);

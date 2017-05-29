@@ -19,7 +19,7 @@ import co.edu.eam.ingesoft.hospital.entidades.Usuario;
 import co.edu.eam.ingesoft.pa.hospital.web.controladores.SessionController;
 
 
-//@WebFilter(urlPatterns="/paginas/seguro/*")	
+@WebFilter(urlPatterns="/paginas/seguro/*")	
 public class FiltroSession implements Filter {
 
 	@Inject

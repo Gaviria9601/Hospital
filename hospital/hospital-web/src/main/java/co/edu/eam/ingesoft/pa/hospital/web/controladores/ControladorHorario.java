@@ -19,6 +19,7 @@ import co.edu.eam.ingesoft.hospital.entidades.Especializacion;
 import co.edu.eam.ingesoft.hospital.entidades.Horario;
 import co.edu.eam.ingesoft.hospital.entidades.Medico;
 import co.edu.eam.ingesoft.hospital.entidades.Paciente;
+import co.edu.eam.ingesoft.hospital.entidades.Usuario;
 import co.edu.eam.ingesoft.hospital.entidades.itemHorario;
 import co.edu.eam.ingesoft.pa.negocio.beans.CitaEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.HorarioEJB;
@@ -62,9 +63,12 @@ public class ControladorHorario implements Serializable {
 
 	@Inject
 	private SessionController sesion;
+	
+	Usuario usu;
 
 	@PostConstruct
 	public void inicializar() {
+		usu = sesion.getUsuario();
 		especializaciones = medicoejb.listarEspecializaciones();
 		medicos = medicoejb.listarMedicos();
 
@@ -90,7 +94,7 @@ public class ControladorHorario implements Serializable {
 		try {
 			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 			fecha = formatoDelTexto.parse(fechaString);
-			Paciente paciente1 = pacienteejb.buscarPaciente("200000");
+			Paciente paciente1 = pacienteejb.buscarPaciente(usu.getCedula());
 			Medico med = medicoejb.buscarMedico(cedulaMedico);
 			Horario horario = horarioejb.buscarHorario(codigoHorario);
 			itemHorario item = new itemHorario(med, horario, fecha, false);
@@ -111,7 +115,7 @@ public class ControladorHorario implements Serializable {
 		try {
 			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 			fecha = formatoDelTexto.parse(fechaString);
-			Paciente paciente1 = pacienteejb.buscarPaciente("200000");
+			Paciente paciente1 = pacienteejb.buscarPaciente(usu.getCedula());
 			Medico med = medicoejb.buscarMedico(cedulaMedico2);
 			Horario horario = horarioejb.buscarHorario(codigoHorario2);
 			itemHorario item = new itemHorario(med, horario, fecha, false);

@@ -136,6 +136,9 @@
 												href="#{request.contextPath}/paginas/seguro/medicamento.xhtml">
 													Buscar medicamento</a></li>
 										</ul></li>
+									<li class="has-child"><a
+										href="#{request.contextPath}/paginas/seguro/OrdenMedicamento.xhtml">Orden
+											Medicamento</a></li>
 								</h:panelGroup>
 
 
@@ -175,9 +178,11 @@
 
 									<li class="has-child"><a href="#">Gestión Instalación</a>
 										<ul class="submenu">
-											<li class="submenu-item"><a href="#">Crear Quirofano
-											</a></li>
-											<li class="submenu-item"><a href="#">Buscar
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/crear-Quirofano.xhtml">Crear
+													Quirofano </a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/quirofano.xhtml">Buscar
 													Quirofano </a></li>
 											<li class="submenu-item"><a
 												href="#{request.contextPath}/paginas/seguro/gestion-habitacion.xhtml">Crear
@@ -212,9 +217,12 @@
 											<li class="submenu-item"><a
 												href="#{request.contextPath}/paginas/seguro/cirugia.xhtml">Cirugia</a></li>
 										</ul></li>
+									<li class="has-child"><a
+										href="#{request.contextPath}/paginas/seguro/agenda-medico.xhtml">Agenda
+											Medico</a></li>
 								</h:panelGroup>
 								<h:panelGroup rendered="#{sessionControl.sesionPaciente}">
-									<li><a href="#">Reserva Cita</a></li>
+									<li><a href="#{request.contextPath}/paginas/seguro/gestion-horario.xhtml">Reserva Cita</a></li>
 								</h:panelGroup>
 
 								<h:panelGroup rendered="#{sessionControl.sesion}">

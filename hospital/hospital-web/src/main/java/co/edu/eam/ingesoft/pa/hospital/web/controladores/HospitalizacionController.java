@@ -142,7 +142,6 @@ public class HospitalizacionController implements Serializable {
 	 * Crea una hospitalización
 	 */
 	public void crear() {
-		DatosManager.setCodigoCita(6);
 		try {
 			Hospitalizacion hospi = new Hospitalizacion();
 			hospi.setNombre(nombre);

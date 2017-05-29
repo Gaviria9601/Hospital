@@ -381,7 +381,6 @@ public class CirugiaController implements Serializable {
 	 * 
 	 */
 	public void crearOrden() {
-		DatosManager.setCodigoCita(6);
 		try {
 			OrdenCirugia orden = new OrdenCirugia();
 			orden.setObservaciones(observacionesOrdenPro);
@@ -391,7 +390,6 @@ public class CirugiaController implements Serializable {
 			orden.setHoraInicio(horaIni);
 			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 			orden.setFecha((formatoDelTexto.parse(fecha)));
-			orden.setQuirofano(quirofanoEJB.buscar(5));
 			orden.setCirugia(cirugia);
 			Cita cita = citaEJB.buscarCita(DatosManager.getCodigoCita());
 			orden.setCitaCodigo(cita);
