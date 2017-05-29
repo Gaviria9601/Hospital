@@ -7,7 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
+import co.edu.eam.ingesoft.hospital.entidades.Examen;
 import co.edu.eam.ingesoft.hospital.entidades.OrdenMedicamento;
 
 @LocalBean
@@ -26,5 +26,7 @@ public class OrdenMedicamentoEJB {
 					    " where p.cedula = ?1 ",OrdenMedicamento.class).setParameter(1, cedula).getResultList();
 	}
 	
-	
+	public void entregar(OrdenMedicamento om){
+		em.merge(om);
+	}
 }

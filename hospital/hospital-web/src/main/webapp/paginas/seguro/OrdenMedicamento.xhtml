@@ -32,11 +32,11 @@
              id="paneldatos" paginator="true" rows="5">
 					
                     <p:column headerText="Codigo medicamento">
-					<h:outputLabel value="#{tb.medicamentos_Codigo}" />
+					<h:outputLabel value="#{tb.medicamentosCodigo.nombre}" />
 					</p:column>
 
 					<p:column headerText="Codigo de la cita">
-						<h:outputLabel value="#{tb.cita_Codigo}" />
+						<h:outputLabel value="#{tb.citaCodigo.codigo}" />
 					</p:column>
 
 					<p:column headerText="Cantidad">
@@ -48,15 +48,18 @@
 					</p:column>
 					
 					<p:column headerText="Estado">
-						<h:outputLabel value="#{tb.estado}" />
+						<h:outputLabel value="Sin Entregar"
+							rendered="#{tb.estado == true}" />
+						<h:outputLabel value="Entregado"
+							rendered="#{tb.estado == false}" />
 					</p:column>
 					
-
-					<p:column headerText="Acciones">
-						<p:commandButton action="#"
-							 />
-                    </p:column>
-
+                    <p:column headerText="Acciones">
+					<p:commandButton id="btnmodif" value="Entregar Medicamento"
+								process="@this,paneldatos"
+								update="paneldatos"
+								action="#{ordenMedicamentoControlador.entregarMedi(tb)}" />
+                     </p:column>
 				</p:dataTable>
           </h:form>
 	</ui:define>

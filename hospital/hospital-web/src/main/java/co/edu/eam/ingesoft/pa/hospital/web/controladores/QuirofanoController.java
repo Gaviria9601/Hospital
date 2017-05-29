@@ -125,8 +125,6 @@ public class QuirofanoController implements Serializable  {
 		this.codigoQuiro = codigoQuiro;
 	}
 
-
-	
 	
 	public String getNumeroAparato() {
 		return numeroAparato;

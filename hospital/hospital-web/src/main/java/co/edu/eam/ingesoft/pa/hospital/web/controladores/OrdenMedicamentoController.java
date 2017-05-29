@@ -8,10 +8,13 @@ import javax.ejb.EJB;
 import javax.inject.Named;
 
 import org.omnifaces.cdi.ViewScoped;
+import org.omnifaces.util.Messages;
 
+import co.edu.eam.ingesoft.hospital.entidades.Medicamento;
 import co.edu.eam.ingesoft.hospital.entidades.OrdenMedicamento;
 import co.edu.eam.ingesoft.hospital.entidades.Paciente;
 import co.edu.eam.ingesoft.pa.negocio.beans.OrdenMedicamentoEJB;
+import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
 
 @Named("ordenMedicamentoControlador")
 @ViewScoped
@@ -30,6 +33,8 @@ public class OrdenMedicamentoController implements Serializable{
 	private String pacientes;
 	
 	private boolean busco = false;
+	
+	private OrdenMedicamento ormedi;
 	
 	private List<OrdenMedicamento> lista;
 	
@@ -117,8 +122,23 @@ public class OrdenMedicamentoController implements Serializable{
 	}
 	
 	public void listarOrden (){
-		lista = ormeEJB.listarOrden(pacientes);
-		busco = true;
+		
+		if(estado == false){
+			lista = ormeEJB.listarOrden(pacientes);
+		}else
+			Messages.addFlashGlobalInfo("EL PACIENTE NO TIENE MEDICAMENTOS PARA ENTREGAR");
+			
+	}
+	
+	public void entregarMedi(OrdenMedicamento med){
+		try{
+		med.setEstado(false);
+		ormeEJB.entregar(med);
+		Messages.addFlashGlobalInfo("MEDICAMENTO ENTREGADO");
+			
+		}catch (ExcepcionNegocio e) {
+			Messages.addGlobalError(e.getMessage());
+		}
 		
 	}
 	
