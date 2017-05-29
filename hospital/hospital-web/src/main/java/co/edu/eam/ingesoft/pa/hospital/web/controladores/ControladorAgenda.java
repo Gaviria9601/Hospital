@@ -24,15 +24,20 @@ import co.edu.eam.ingesoft.pa.negocio.beans.MedicoEJB;
 @Named("controladorAgenda")
 @ViewScoped
 public class ControladorAgenda implements Serializable {
-	
+
 	@EJB
 	CitaEJB citaejb;
-	
+
 	@PostConstruct
 	public void inicializar() {
 		citas = citaejb.listarCitasMedicox("1970");
 	}
-	
+
+	public String atenderCita(Cita cita) {
+		DatosManager.setCodigoCita(cita.getCodigo());
+		return "/paginas/seguro/atender-cita.xhtml?faces-redirect=true";
+	}
+
 	private List<Cita> citas;
 
 	/**
@@ -43,13 +48,11 @@ public class ControladorAgenda implements Serializable {
 	}
 
 	/**
-	 * @param citas the citas to set
+	 * @param citas
+	 *            the citas to set
 	 */
 	public void setCitas(List<Cita> citas) {
 		this.citas = citas;
 	}
-	
-	
-	
 
 }

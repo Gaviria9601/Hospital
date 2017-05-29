@@ -8,45 +8,51 @@ import javax.persistence.Embeddable;
 public class DiagnosticoCitaPK implements Serializable {
 	
 	
-	private Integer citaCodigo;
+	private int citaCodigo;
 
-	private Integer patologiaCodigo;
+	private int patologiaCodigo;
 	
 	public DiagnosticoCitaPK(){
 		
 	}
 
-	public DiagnosticoCitaPK(Integer citaCodigo, Integer patologiaCodigo) {
+	public DiagnosticoCitaPK(int citaCodigo, int patologiaCodigo) {
 		super();
 		this.citaCodigo = citaCodigo;
 		this.patologiaCodigo = patologiaCodigo;
 	}
 
-	public Integer getCitaCodigo() {
+	public int getCitaCodigo() {
 		return citaCodigo;
 	}
 
-	public void setCitaCodigo(Integer citaCodigo) {
+	public void setCitaCodigo(int citaCodigo) {
 		this.citaCodigo = citaCodigo;
 	}
 
-	public Integer getPatologiaCodigo() {
+	public int getPatologiaCodigo() {
 		return patologiaCodigo;
 	}
 
-	public void setPatologiaCodigo(Integer patologiaCodigo) {
+	public void setPatologiaCodigo(int patologiaCodigo) {
 		this.patologiaCodigo = patologiaCodigo;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((citaCodigo == null) ? 0 : citaCodigo.hashCode());
-		result = prime * result + ((patologiaCodigo == null) ? 0 : patologiaCodigo.hashCode());
+		result = prime * result + citaCodigo;
+		result = prime * result + patologiaCodigo;
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -56,19 +62,14 @@ public class DiagnosticoCitaPK implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		DiagnosticoCitaPK other = (DiagnosticoCitaPK) obj;
-		if (citaCodigo == null) {
-			if (other.citaCodigo != null)
-				return false;
-		} else if (!citaCodigo.equals(other.citaCodigo))
+		if (citaCodigo != other.citaCodigo)
 			return false;
-		if (patologiaCodigo == null) {
-			if (other.patologiaCodigo != null)
-				return false;
-		} else if (!patologiaCodigo.equals(other.patologiaCodigo))
+		if (patologiaCodigo != other.patologiaCodigo)
 			return false;
 		return true;
 	}
-	
+
+
 	
 	
 }

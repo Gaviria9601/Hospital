@@ -66,7 +66,7 @@ public class CitaEJB {
 	public List<Cita> listarCitasMedicox(String ceduMedico) {
 			List<Cita> lista = em.createNativeQuery(
 					"SELECT * FROM CITA c join ITEM_HORARIO h on h.HORARIO_CODIGO_TURNO = c.HORARIO_CODIGO_TURNO "
-					+ "WHERE to_number(to_char(h.FECHA, 'DDMMYY')) = to_number(to_char(sysdate, 'DDMMYY')) and c.MEDICO_CEDULA =?1",
+					+ "WHERE to_number(to_char(h.FECHA, 'DDMMYY')) = to_number(to_char(sysdate, 'DDMMYY')) and c.MEDICO_CEDULA =?1 and h.ESTADO = 0",
 					Cita.class).setParameter(1, ceduMedico).getResultList();
 				return lista;
 

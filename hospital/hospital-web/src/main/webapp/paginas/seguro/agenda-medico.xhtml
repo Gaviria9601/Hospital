@@ -21,6 +21,10 @@
 					<p:column headerText="Fecha">
 						<h:outputLabel value="#{c.horario.fecha}" />
 					</p:column>
+					
+					<p:column headerText="Hora de inicio">
+						<h:outputLabel value="#{c.horario.horarioCodigoTurno.horaInicio}" />
+					</p:column>
 
 					<p:column headerText="Cita antecesora">
 						<h:outputLabel value="#{c.citaCodigo.codigo}" />
@@ -31,12 +35,12 @@
 					</p:column>
 					
 					<p:column headerText="Nombre paciente">
-						<h:outputLabel value="#{c.pacienteUsuarioCedula.nombre}" />
+						<h:outputLabel value="#{c.pacienteUsuarioCedula.nombre} #{c.pacienteUsuarioCedula.apellido}" />
 					</p:column>
 					
 
 					<p:column headerText="Acciones">
-						<p:commandButton value="ATENDER" action="#"
+						<p:commandButton value="ATENDER" action="#{controladorAgenda.atenderCita(c)}"
 							 />
                     </p:column>
 

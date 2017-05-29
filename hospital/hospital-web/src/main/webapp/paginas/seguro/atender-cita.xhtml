@@ -1,0 +1,138 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+		<h:form prependId="false">
+
+			<h2 class="title-style-1">
+				Atender cita medica #{DatosManager.getCodigoCita()}<span class="title-under"></span>
+			</h2>
+
+			<p:panel header="Patologias" id="panelpatologia"
+				style="margin-bottom:20px" toggleable="true" toggleSpeed="500">
+
+				<p:dataTable id="tablaPatologias" paginator="true" rows="5"
+					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+					rowsPerPageTemplate="5,10,15" value="#{AtenderCita.patologias}"
+					var="pato" border="1" emptyMessage="Sin Coincidencias"
+					widgetVar="vtWidget">
+
+
+					<p:column headerText="Nombre" sortBy="#{pato.nombre}"
+						filterBy="#{pato.nombre}" filterMatchMode="contains">
+						<h:outputLabel value="#{pato.nombre}" />
+					</p:column>
+
+					<p:column headerText="Descripción" filterBy="#{pato.descripcion}"
+						filterMatchMode="contains">
+						<h:outputLabel value="#{pato.descripcion}" />
+					</p:column>
+
+
+
+					<p:column headerText="Acciones">
+
+						<a href="#" data-toggle="modal" data-target="#verInformacion">
+							<p:commandButton update="lista1,lista2,lista3"
+								action="#{AtenderCita.listarTodo(pato)}"
+								process="@this,panelpatologia" value="Ver información" />
+						</a>
+						<br></br>
+						<p:commandButton action="#{AtenderCita.agregar(pato)}" process="@this,panelpatologia,tablaPatologias"
+							value="Agregar" />
+					</p:column>
+
+				</p:dataTable>
+
+				<div class="modal fade" id="verInformacion" tabindex="-1"
+					role="dialog" aria-labelledby="donateModalLabel" aria-hidden="true">
+
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true"></span>
+								</button>
+								<h4 class="modal-title" id="donateModalLabel">Información
+									de la patologia</h4>
+							</div>
+							<div class="modal-body">
+								<h3 class="title-style-1 text-center">
+									Causas<span class="title-under"></span>
+								</h3>
+
+								<div class="row">
+									<div class="form-group col-md-12">
+										<p:dataList value="#{AtenderCita.causasAgre}" var="car"
+											id="lista1" type="ordered">
+											<f:facet name="header"></f:facet>#{car.descripcion}</p:dataList>
+									</div>
+
+								</div>
+
+								<h3 class="title-style-1 text-center">
+									Sintomas<span class="title-under"></span>
+								</h3>
+
+								<div class="row">
+									<div class="form-group col-md-12">
+										<p:dataList value="#{AtenderCita.sintomasAgre}" var="car"
+											id="lista2" type="ordered">
+											<f:facet name="header"></f:facet>#{car.descripcion}</p:dataList>
+									</div>
+
+								</div>
+
+								<h3 class="title-style-1 text-center">
+									Tratamientos<span class="title-under"></span>
+								</h3>
+
+								<div class="row">
+									<div class="form-group col-md-12">
+										<p:dataList value="#{AtenderCita.tratamientosAgre}" var="car"
+											id="lista3" type="ordered">
+											<f:facet name="header"></f:facet>#{car.descripcion}</p:dataList>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</p:panel>
+
+			<p:outputLabel for="tfcdesc" id="lblcdesc" value="Descripción:" />
+			<p:inputTextarea id="tfcdesc" value="#{AtenderCita.descripcion}" />
+			<p:message for="tfcdesc" />
+
+			<p:panel header="Acciones" id="panelacciones"
+				style="margin-bottom:20px" toggleable="true" toggleSpeed="500">
+
+
+				<p:commandButton update="" action="#{AtenderCita.ordenarProcedimiento()}"
+					process="@this,panelpatologia" value="Generar orden procedimientos" />
+
+
+				<p:commandButton update="" action="#"
+					process="@this,panelpatologia"
+					value="Generar orden de medicamentos" />
+
+				<p:commandButton update="" action="#{AtenderCita.finalizarCita}"
+					process="@this,panelpatologia,tfcdesc" value="Finalizar cita" />
+
+
+
+			</p:panel>
+
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
