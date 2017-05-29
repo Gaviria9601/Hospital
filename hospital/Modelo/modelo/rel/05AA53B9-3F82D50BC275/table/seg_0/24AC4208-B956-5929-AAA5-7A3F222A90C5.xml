@@ -37,7 +37,7 @@
 <colAssociation fkAssociation="8EEA65FA-7EBC-5AB2-CD00-032665723A25" referredColumn="5AC09A85-FC8F-A98D-9C35-34CA44A5CBCF"/>
 </associations>
 </Column>
-<Column name="hora" id="BCEE91E5-A83E-1257-4563-2449F4CCDF78">
+<Column name="Hora_Inicio" id="BCEE91E5-A83E-1257-4563-2449F4CCDF78">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-04-22 21:07:13 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
@@ -56,6 +56,17 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Hora_Final" id="29EE285E-E0AB-FA75-A2AD-18420ADB7A69">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-29 15:30:05 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT015</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>

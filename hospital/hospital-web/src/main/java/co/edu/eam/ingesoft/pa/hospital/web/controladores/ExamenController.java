@@ -218,7 +218,7 @@ public class ExamenController implements Serializable {
 			examenes = examenEJB.listarExamenes();
 			resetearFitrosTabla("tablaExamenes");
 		} catch (Exception e) {
-			// TODO: handle exception
+			Messages.addFlashGlobalError("ERROR AL ELIMINAR EL EXAMEN,SE ENCUENTRA EN UNA ORDEN");
 		}
 	}
 	
@@ -274,7 +274,7 @@ public class ExamenController implements Serializable {
 		orExa.setObservaciones(observacionesOrdenPro);
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date horaIni = dateFormat.parse(fecha + " " + horaInicio);	
-		orExa.setHora(horaIni);
+		orExa.setHoraInicio(horaIni);
 		SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 		orExa.setFecha(formatoDelTexto.parse(fecha));
 		orExa.setEstado(true);

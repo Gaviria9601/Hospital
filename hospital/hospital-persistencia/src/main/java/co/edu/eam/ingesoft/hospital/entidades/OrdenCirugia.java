@@ -7,20 +7,27 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name=OrdenCirugia.LISTAR_CIRUGIAS_MEDICO,query="select orden from OrdenCirugia orden where orden.medico.cedula=?1")
+})
 @Table(name = "OrdenCirugia")
 public class OrdenCirugia extends OrdenProcedimiento implements Serializable {
 
+	public static final String LISTAR_CIRUGIAS_MEDICO = "ListarCirugiasMedico";
+	
 	@ManyToOne
 	@JoinColumn(name = "Cirugia_codigo")
 	private Cirugia cirugia;
 	
 	@ManyToOne
-	@JoinColumn(name = "Medico")
+	@JoinColumn(name = "Medico_Cedula")
 	private Medico medico;
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -32,21 +39,41 @@ public class OrdenCirugia extends OrdenProcedimiento implements Serializable {
 	private Date horaFinal;
 	
 	@ManyToOne
-	@JoinColumn(name="Quirofanoo_Instalacion_Codigo")
+	@JoinColumn(name="codigoInstalacion")
 	private Quirofano quirofano;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name="fecha")
+	private Date fecha;
 	
 	public OrdenCirugia() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public OrdenCirugia(Cirugia cirugia, Medico medico, Date horaInicio, Date horaFinal, Quirofano quirofano) {
+
+	public OrdenCirugia(Cirugia cirugia, Medico medico, Date horaInicio, Date horaFinal, Quirofano quirofano,
+			Date fecha) {
 		super();
 		this.cirugia = cirugia;
 		this.medico = medico;
 		this.horaInicio = horaInicio;
 		this.horaFinal = horaFinal;
 		this.quirofano = quirofano;
+		this.fecha = fecha;
 	}
+
+	
+
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
 
 	public Cirugia getCirugia() {
 		return cirugia;

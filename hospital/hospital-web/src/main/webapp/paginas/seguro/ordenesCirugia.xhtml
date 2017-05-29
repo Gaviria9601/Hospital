@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/templates/template.xhtml">
+
+	<ui:define name="cuerpo">
+
+		<h2 class="title-style-1">
+			Ordenes Cirugia<span class="title-under"></span>
+		</h2>
+		<h:form prependId="false">
+
+			<p:dataTable id="tablaOrdCirugias" paginator="true" rows="10"
+				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+				rowsPerPageTemplate="10,15,20"
+				value="#{cirugiaController.ordenesCirugia}" var="ordCir" border="1"
+				emptyMessage="Sin Coincidencias">
+				<f:facet name="header">
+           				Ordenes Cirugia
+        				</f:facet>
+				<p:column headerText="Cirugia">
+					<h:outputLabel value="#{ordCir.cirugia.nombre}" />
+				</p:column>
+
+				<p:column headerText="Tipo Cirugia">
+					<h:outputLabel value="#{ordCir.cirugia.tipoCirugia.nombre}" />
+				</p:column>
+
+				<p:column headerText="Descripción">
+					<h:outputLabel value="#{ordCir.cirugia.observaciones}" />
+				</p:column>
+
+				<p:column headerText="Fecha">
+					<h:outputLabel value="#{ordCir.fecha}"/>
+				</p:column>
+
+				<p:column headerText="Hora Inicio">
+					<h:outputLabel value="#{ordCir.horaInicio}" />
+				</p:column>
+
+			</p:dataTable>
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+

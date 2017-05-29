@@ -1,11 +1,14 @@
 package co.edu.eam.ingesoft.pa.hospital.web.controladores;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.hibernate.validator.constraints.Length;
@@ -14,24 +17,30 @@ import org.omnifaces.util.Messages;
 import org.primefaces.context.RequestContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.Cirugia;
+import co.edu.eam.ingesoft.hospital.entidades.Cita;
 import co.edu.eam.ingesoft.hospital.entidades.Especializacion;
 import co.edu.eam.ingesoft.hospital.entidades.Medico;
+import co.edu.eam.ingesoft.hospital.entidades.OrdenCirugia;
 import co.edu.eam.ingesoft.hospital.entidades.TipoCirugia;
+import co.edu.eam.ingesoft.hospital.entidades.Usuario;
 import co.edu.eam.ingesoft.hospital.enumeraciones.CitaAvanzadaEnum;
 import co.edu.eam.ingesoft.pa.negocio.beans.CirugiaEJB;
+import co.edu.eam.ingesoft.pa.negocio.beans.CitaEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.MedicoEJB;
+import co.edu.eam.ingesoft.pa.negocio.beans.OrdenCirugiaEJB;
+import co.edu.eam.ingesoft.pa.negocio.beans.QuirofanoEJB;
 
 @Named("cirugiaController")
 @ViewScoped
 public class CirugiaController implements Serializable {
-	
+
 	private Cirugia cirugia;
 
 	@Length(min = 4, max = 50, message = "Longitud entre 4 y 50")
 	private String nombre;
 
 	private String tiempoestimado;
-	
+
 	private String tiempo;
 
 	@Length(min = 5, max = 500, message = "Longitud entre 5 y 500")
@@ -51,106 +60,98 @@ public class CirugiaController implements Serializable {
 	private List<TipoCirugia> tipoCirugias;
 
 	private List<Cirugia> cirugias;
-	
+
 	private ArrayList<Cirugia> filtroCirugias = new ArrayList<Cirugia>();
 
 	private boolean busco = false;
-	
+
 	private String observacionesOrdenPro;
-	
+
 	private String fecha;
-	
+
 	private String cedulaMedico;
-	
+
 	private List<Medico> medicos;
-	
+
 	private String horaInicio;
 	
-	
+	private List<OrdenCirugia> ordenesCirugia;
+
+	public List<OrdenCirugia> getOrdenesCirugia() {
+		return ordenesCirugia;
+	}
+
+	public void setOrdenesCirugia(List<OrdenCirugia> ordenesCirugia) {
+		this.ordenesCirugia = ordenesCirugia;
+	}
+
 	public String getTiempo() {
 		return tiempo;
 	}
-
 
 	public void setTiempo(String tiempo) {
 		this.tiempo = tiempo;
 	}
 
-
 	public String getHoraInicio() {
 		return horaInicio;
 	}
-
 
 	public void setHoraInicio(String horaInicio) {
 		this.horaInicio = horaInicio;
 	}
 
-
 	public Cirugia getCirugia() {
 		return cirugia;
 	}
-
 
 	public void setCirugia(Cirugia cirugia) {
 		this.cirugia = cirugia;
 	}
 
-
 	public String getCedulaMedico() {
 		return cedulaMedico;
 	}
-
 
 	public void setCedulaMedico(String cedulaMedico) {
 		this.cedulaMedico = cedulaMedico;
 	}
 
-
 	public List<Medico> getMedicos() {
 		return medicos;
 	}
-
 
 	public void setMedicos(List<Medico> medicos) {
 		this.medicos = medicos;
 	}
 
-
 	public String getFecha() {
 		return fecha;
 	}
-
 
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 
-
 	public String getObservacionesOrdenPro() {
 		return observacionesOrdenPro;
 	}
-
 
 	public void setObservacionesOrdenPro(String observacionesOrdenPro) {
 		this.observacionesOrdenPro = observacionesOrdenPro;
 	}
 
-
 	public ArrayList<Cirugia> getFiltroCirugias() {
 		return filtroCirugias;
 	}
-
 
 	public void setFiltroCirugias(ArrayList<Cirugia> filtroCirugias) {
 		this.filtroCirugias = filtroCirugias;
 	}
 
-
 	public List<Cirugia> getCirugias() {
 		return cirugias;
 	}
-	
 
 	public void setCirugias(List<Cirugia> cirugias) {
 		this.cirugias = cirugias;
@@ -234,11 +235,25 @@ public class CirugiaController implements Serializable {
 	@EJB
 	private MedicoEJB medicoEJB;
 
+	@EJB
+	private QuirofanoEJB quirofanoEJB;
+
+	@EJB
+	private CitaEJB citaEJB;
+
+	@EJB
+	private OrdenCirugiaEJB ordenCirugiaEJB;
+	
+	@Inject
+	private SessionController sesion;
+
 	@PostConstruct
 	public void inicializar() {
+		Usuario usu = sesion.getUsuario();
 		especializaciones = medicoEJB.listarEspecializaciones();
 		tipoCirugias = cirugiaEJB.listarTiposCirugias();
 		cirugias = cirugiaEJB.listarCirugias();
+		ordenesCirugia = ordenCirugiaEJB.listarOrdenes(usu.getCedula());
 	}
 
 	/**
@@ -270,7 +285,7 @@ public class CirugiaController implements Serializable {
 		}
 
 	}
-	
+
 	/**
 	 * 
 	 * @param id
@@ -278,8 +293,7 @@ public class CirugiaController implements Serializable {
 	public void resetearFitrosTabla(String id) {
 		RequestContext requestContext = RequestContext.getCurrentInstance();
 		requestContext.execute("PF('vtWidget').clearFilters()");
-    }
-
+	}
 
 	/**
 	 * Limpia los campos del registro de la cirugia
@@ -305,7 +319,7 @@ public class CirugiaController implements Serializable {
 			cirugias = cirugiaEJB.listarCirugias();
 			resetearFitrosTabla("tablaCirugias");
 		} catch (Exception e) {
-			// TODO: handle exception
+			Messages.addFlashGlobalError("ERROR AL ELIMINAR LA CIRUGIA, SE ENCUENTRA EN UNA ORDEN");
 		}
 	}
 
@@ -347,7 +361,7 @@ public class CirugiaController implements Serializable {
 	public boolean isBusco() {
 		return busco;
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -363,12 +377,50 @@ public class CirugiaController implements Serializable {
 
 	}
 
-	public void crearOrden(){
-		
+	/**
+	 * 
+	 */
+	public void crearOrden() {
+		DatosManager.setCodigoCita(6);
+		try {
+			OrdenCirugia orden = new OrdenCirugia();
+			orden.setObservaciones(observacionesOrdenPro);
+			orden.setEstado(true);
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			Date horaIni = dateFormat.parse(fecha + " " + horaInicio);
+			orden.setHoraInicio(horaIni);
+			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
+			orden.setFecha((formatoDelTexto.parse(fecha)));
+			orden.setQuirofano(quirofanoEJB.buscar(5));
+			orden.setCirugia(cirugia);
+			Cita cita = citaEJB.buscarCita(DatosManager.getCodigoCita());
+			orden.setCitaCodigo(cita);
+			orden.setMedico(medicoEJB.buscarMedico(cedulaMedico));
+			ordenCirugiaEJB.crearOrden(orden);
+			Messages.addFlashGlobalInfo("ORDEN DE CIRUGIA CREADA CORRECTAMENTE");
+			observacionesOrdenPro = "";
+			fecha = "";
+			horaInicio = "";
+			cirugia = null;
+			cedulaMedico = "";
+		} catch (Exception e) {
+			Messages.addFlashGlobalError("ERRROR AL CREAR LA ORDEN DE CIRUGIA");
+		}
+
+	}
+
+	/**
+	 * 
+	 */
+	public void limpiarOrden() {
+		observacionesOrdenPro = "";
+		fecha = "";
+		horaInicio = "";
+		cirugia = null;
+		cedulaMedico = "";
 	}
 	
-	public void limpiarOrden(){
-		
-	}
 	
+	
+
 }

@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.Cirugia;
 import co.edu.eam.ingesoft.hospital.entidades.Especializacion;
+import co.edu.eam.ingesoft.hospital.entidades.OrdenCirugia;
 import co.edu.eam.ingesoft.hospital.entidades.TipoCirugia;
 
 @Stateless
@@ -89,5 +90,8 @@ public class CirugiaEJB {
 				"select esp.* from cirugia ciru join especializacion esp on ciru.especializacion_codigo = esp.CODIGO where ciru.CODIGO = ?1",
 				Especializacion.class).setParameter(1, codigo).getSingleResult();
 	}
+	
+	
+	
 
 }

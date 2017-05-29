@@ -20,24 +20,29 @@ public class OrdenExamen extends OrdenProcedimiento implements Serializable {
 	private Examen examen;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "hora")
-	private Date hora;
+	@Column(name = "hora_Final")
+	private Date horaFinal;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name= "fecha")
 	private Date fecha;
 	
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "hora_Inicio")
+	private Date horaInicio;
+	
 	public OrdenExamen() {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 
-	public OrdenExamen(Examen examen, Date hora, Date fecha) {
+	public OrdenExamen(Examen examen, Date horaFinal, Date fecha, Date horaInicio) {
 		super();
 		this.examen = examen;
-		this.hora = hora;
+		this.horaFinal = horaFinal;
 		this.fecha = fecha;
+		this.horaInicio = horaInicio;
 	}
 
 
@@ -50,14 +55,25 @@ public class OrdenExamen extends OrdenProcedimiento implements Serializable {
 		this.examen = examen;
 	}
 
-	public Date getHora() {
-		return hora;
+
+	public Date getHoraFinal() {
+		return horaFinal;
 	}
 
-	public void setHora(Date hora) {
-		this.hora = hora;
+
+	public void setHoraFinal(Date horaFinal) {
+		this.horaFinal = horaFinal;
 	}
 
+
+	public Date getHoraInicio() {
+		return horaInicio;
+	}
+
+
+	public void setHoraInicio(Date horaInicio) {
+		this.horaInicio = horaInicio;
+	}
 
 
 	public Date getFecha() {

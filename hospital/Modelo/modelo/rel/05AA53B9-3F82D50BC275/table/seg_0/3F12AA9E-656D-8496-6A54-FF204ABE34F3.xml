@@ -32,6 +32,17 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="Hora_Final" id="36851486-8523-043A-22C6-1A898D79DF5A">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-29 14:25:50 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="Hospitalizacion_Codigo" id="6322D517-88D2-FF53-0637-0ABBC838BCC9">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-04-22 20:45:52 UTC</createdTime>
@@ -60,9 +71,19 @@
 <colAssociation fkAssociation="3FDAC559-9B17-4EC3-2634-5329B695310D" referredColumn="43934D3E-7C7E-472D-F573-A243511AA30C"/>
 </associations>
 </Column>
-<Column name="fecha" id="6676F4C7-F7C0-2397-0FB3-90DE7F3CB67F">
+<Column name="fechaInicio" id="6676F4C7-F7C0-2397-0FB3-90DE7F3CB67F">
 <createdBy>USUARIO WINDOWS</createdBy>
 <createdTime>2017-05-25 22:09:02 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaFinal" id="90FF5FB1-DE8B-0D3F-3411-83CC9111C3A8">
+<createdBy>USUARIO WINDOWS</createdBy>
+<createdTime>2017-05-29 14:25:30 UTC</createdTime>
 <ownerDesignName>modelo</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
