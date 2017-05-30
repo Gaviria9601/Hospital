@@ -21,26 +21,90 @@ import co.edu.eam.ingesoft.pa.negocio.excepciones.ExcepcionNegocio;
 
 @Named("ordenMedicamentoControlador")
 @ViewScoped
-public class OrdenMedicamentoController implements Serializable{
+public class OrdenMedicamentoController implements Serializable {
 
-	private  String medicamentoCodigo ;
-	
+	private String medicamentoCodigo;
+
 	private String citaCodigo;
-	
+
 	private String cantidad;
-	
+
 	private String formula;
-	
+
 	private boolean estado;
-	
+
 	private String pacientes;
-	
+
 	private boolean busco = false;
-	
+
 	private OrdenMedicamento ormedi;
-	
+
 	private List<OrdenMedicamento> lista;
-	
+
+	private List<Medicamento> listaMedicamento;
+
+	@EJB
+	private OrdenMedicamentoEJB ormeEJB;
+
+	@EJB
+	private CitaEJB citaEJB;
+
+	@EJB
+	private MedicamentosEJB mediEJB;
+
+	@PostConstruct
+	public void inicializar() {
+		listaMedicamento = mediEJB.listarMedicamentos();
+	}
+
+	public void listarOrden() {
+
+		if (estado == false) {
+			lista = ormeEJB.listarOrden(pacientes);
+		} else
+			Messages.addFlashGlobalInfo("EL PACIENTE NO TIENE MEDICAMENTOS PARA ENTREGAR");
+
+	}
+
+	public void entregarMedi(OrdenMedicamento med) {
+		try {
+			med.setEstado(false);
+			ormeEJB.entregar(med);
+			Messages.addFlashGlobalInfo("MEDICAMENTO ENTREGADO");
+
+		} catch (ExcepcionNegocio e) {
+			Messages.addGlobalError(e.getMessage());
+		}
+
+	}
+
+	public String crearOrden(Medicamento om) {
+		try {
+			ormeEJB.crearOrdenMedicamento(DatosManager.getCodigoCita(), om.getCodigo(),
+					Integer.parseInt(cantidad), formula);
+			Messages.addFlashGlobalInfo("ORDEN DE MEDICAMENTO REALIZADO");
+
+		} catch (ExcepcionNegocio e) {
+			Messages.addGlobalError(e.getMessage());
+		}
+		return "/paginas/seguro/agenda-medico.xhtml?faces-redirect=true";
+	}
+
+	/**
+	 * @return the listaMedicamento
+	 */
+	public List<Medicamento> getListaMedicamento() {
+		return listaMedicamento;
+	}
+
+	/**
+	 * @param listaMedicamento
+	 *            the listaMedicamento to set
+	 */
+	public void setListaMedicamento(List<Medicamento> listaMedicamento) {
+		this.listaMedicamento = listaMedicamento;
+	}
+
 	public List<OrdenMedicamento> getLista() {
 		return lista;
 	}
@@ -137,59 +201,4 @@ public class OrdenMedicamentoController implements Serializable{
 		this.ormeEJB = ormeEJB;
 	}
 
-
-
-	@EJB
-	private OrdenMedicamentoEJB ormeEJB;
-	
-	@EJB
-	private CitaEJB citaEJB;
-	
-	@EJB
-	private MedicamentosEJB mediEJB;
-	
-	@PostConstruct
-	public void inicializar() {
-		
-		
-	}
-	
-	public void listarOrden (){
-		
-		if(estado == false){
-			lista = ormeEJB.listarOrden(pacientes);
-		}else
-			Messages.addFlashGlobalInfo("EL PACIENTE NO TIENE MEDICAMENTOS PARA ENTREGAR");
-			
-	}
-	
-	public void entregarMedi(OrdenMedicamento med){
-		try{
-		med.setEstado(false);
-		ormeEJB.entregar(med);
-		Messages.addFlashGlobalInfo("MEDICAMENTO ENTREGADO");
-			
-		}catch (ExcepcionNegocio e) {
-			Messages.addGlobalError(e.getMessage());
-		}
-		
-	}
-	
-	public void crearOrden(Medicamento om){
-		try{
-			Cita c = citaEJB.buscarCita(Integer.parseInt(citaCodigo));
-			OrdenMedicamento o = new OrdenMedicamento(Integer.parseInt(cantidad), formula, c,
-					om, true);
-			System.out.println(cantidad);
-			System.out.println(formula);
-			System.out.println(c);
-			System.out.println(estado);
-			ormeEJB.crearOrden(o);
-			Messages.addFlashGlobalInfo("ORDEN DE MEDICAMENTO REALIZADO");
-				
-		} catch (ExcepcionNegocio e) {
-		       Messages.addGlobalError(e.getMessage());
-			   }
-		}
-	
 }

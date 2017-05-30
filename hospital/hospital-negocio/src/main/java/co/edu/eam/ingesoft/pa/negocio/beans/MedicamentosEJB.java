@@ -70,8 +70,11 @@ public class MedicamentosEJB {
 		return far;
 	}
 	
+	@TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
 	public List<Medicamento> listarMedicamentos(){
-		return (List<Medicamento>)em.createNamedQuery(Medicamento.LISTAR_MEDI).getResultList();
+		List<Medicamento> lista;
+	       lista = em.createNamedQuery(Medicamento.LISTAR_MEDI).getResultList();
+	       return lista;	
 	}
 	
 }

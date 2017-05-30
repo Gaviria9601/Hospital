@@ -80,7 +80,7 @@ public class AtenderCita implements Serializable {
 	
 	public String ordenarMedicamentos(){
 		finalizarCita();
-		return "/paginas/seguro/ordenMedica.xhtml?faces-redirect=true";
+		return "/paginas/seguro/ordeMedica.xhtml?faces-redirect=true";
 	}
 	
 	public String ordenarProcedimiento(){

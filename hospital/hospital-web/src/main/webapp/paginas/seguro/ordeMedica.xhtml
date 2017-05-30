@@ -11,45 +11,46 @@
 				Realizar Orden de Medicamento<span class="title-under"></span>
 			</h2>
 
-			   <p:panel header="Medicamentos" id="panelexamen"
+			<p:panel header="Medicamentos" id="panelexamen"
 				style="margin-bottom:20px" toggleable="true" toggleSpeed="500">
 
 				<p:dataTable id="tablaExamenes" paginator="true" rows="5"
 					paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} 
 					{PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-					rowsPerPageTemplate="5,10,15" value="#{ordenMedicamentoControlador.listaMedicamento}"
-					var="om" border="1"
-					filteredValue="#{ordenMedicamentoControlador.filtroMedi}"
-					emptyMessage="Sin Coincidencias">
+					rowsPerPageTemplate="5,10,15"
+					value="#{ordenMedicamentoControlador.listaMedicamento}" var="om"
+					border="1" emptyMessage="Sin Coincidencias">
 
-					<p:column headerText="Nombre"
-					sortBy="#{om.codigo}" filterBy="#{om.codigo}"
-						filterMatchMode="contains">
-						<h:outputLabel value="#{om.codigo}" />
+					<p:column headerText="Nombre" sortBy="#{om.nombre}"
+						filterBy="#{om.nombre}" filterMatchMode="contains">
+						<h:outputLabel value="#{om.nombre}" />
 					</p:column>
-		
-		            <p:column headerText="Cantidad">
-					<p:outputLabel for="tfcantidad"  />
-					<p:inputText id="tfcantidad" value="#{ordenMedicamentoControlador.cantidad}" />
-					<p:message for="tfcantidad" />
+
+					<p:column headerText="Cantidad">
+						<p:outputLabel for="tfcantidad" />
+						<p:inputText id="tfcantidad"
+							value="#{ordenMedicamentoControlador.cantidad}" />
+						<p:message for="tfcantidad" />
 					</p:column>
-					
+
 					<p:column headerText="Formula">
-					<p:outputLabel for="tfformula"  />
-					<p:inputTextarea id="tfformula" value="#{ordenMedicamentoControlador.formula}" />
-					<p:message for="tfformula" />
+						<p:outputLabel for="tfformula" />
+						<p:inputTextarea id="tfformula"
+							value="#{ordenMedicamentoControlador.formula}" />
+						<p:message for="tfformula" />
 					</p:column>
 
 
 					<p:column headerText="Acciones">
-						<p:commandButton action="#{ordenMedicamentoControlador.crearOrden(om)}"
-							process="@this,tablaExamenes, panelexamen"
-							 value="Ordenar" update="tablaExamenes, panelexamen" />
-                     </p:column>
+						<p:commandButton
+							action="#{ordenMedicamentoControlador.crearOrden(om)}"
+							process="@this,tablaExamenes,panelexamen" value="Ordenar medicamento"
+							update="tablaExamenes,panelexamen" />
+					</p:column>
 				</p:dataTable>
 
 			</p:panel>
-			
+
 		</h:form>
 	</ui:define>
 
