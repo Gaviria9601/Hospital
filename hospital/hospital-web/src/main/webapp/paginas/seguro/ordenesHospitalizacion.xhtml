@@ -9,9 +9,56 @@
 	<ui:define name="cuerpo">
 
 		<h2 class="title-style-1">
-			Ordenes Hospitalización<span class="title-under"></span>
+			Ordenes Pendientes Hospitalización<span class="title-under"></span>
 		</h2>
 		<h:form prependId="false">
+
+			<p:dataTable id="tablaOrdHospitalizaciones" paginator="true" rows="10"
+				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+				rowsPerPageTemplate="10,15,20"
+				value="#{hospitalizacionController.ordenesHospitalizacion}" var="ordHos" border="1"
+				emptyMessage="No Tiene hospitalizaciones en el momento">
+				<f:facet name="header">
+           				Ordenes Hospitalización
+        				</f:facet>
+				<p:column headerText="Cedula Paciente"
+					filterBy="#{ordHos.citaCodigo.pacienteUsuarioCedula.cedula}"
+					filterMatchMode="contains">
+					<h:outputLabel
+						value="#{ordHos.citaCodigo.pacienteUsuarioCedula.cedula}" />
+				</p:column>
+				<p:column headerText="Hospitalización">
+					<h:outputLabel value="#{ordHos.hospitalizacion.nombre}" />
+				</p:column>
+
+				<p:column headerText="Tipo Hospitalización">
+					<h:outputLabel value="#{ordHos.hospitalizacion.tipoHospitalizacion.nombre}" />
+				</p:column>
+
+				<p:column headerText="Descripción">
+					<h:outputLabel value="#{ordHos.hospitalizacion.observaciones}" />
+				</p:column>
+
+				<p:column headerText="Fecha">
+					<h:outputLabel value="#{ordHos.fecha}" />
+				</p:column>
+
+				<p:column headerText="Hora Inicio">
+					<h:outputLabel value="#{ordHos.horaInicio}" />
+				</p:column>
+
+				<p:column headerText="Accion">
+					<p:commandButton icon="ui-icon-script"
+						action="#{hospitalizacionController.finalizarOrdenHospitalizacion(ordHos)}"
+						process="@this" value="Finalizar Hospitalización"
+						update="tablaOrdHospitalizaciones" />
+				</p:column>
+
+			</p:dataTable>
+
+			<br />
+
+
 		</h:form>
 	</ui:define>
 </ui:composition>

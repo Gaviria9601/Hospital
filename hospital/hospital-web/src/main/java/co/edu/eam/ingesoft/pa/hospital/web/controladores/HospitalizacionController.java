@@ -3,6 +3,7 @@ package co.edu.eam.ingesoft.pa.hospital.web.controladores;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -34,22 +35,30 @@ public class HospitalizacionController implements Serializable {
 	private String nombre;
 
 	private String tiempoestimado;
-	
+
 	private String tiempo;
 
 	private TipoHospitalizacion tipoHospitalizacion;
-	
+
 	private String horaInicio;
-	
+
 	private String fecha;
-	
+
 	@Length(min = 5, max = 1000, message = "Longitud entre 5 y 1000")
 	private String observacionesOrdenPro;
-	
+
 	private List<TipoHospitalizacion> tipoHospitalizaciones;
 
-	
-	
+	private List<OrdenHospitalizacion> ordenesHospitalizacion;
+
+	public List<OrdenHospitalizacion> getOrdenesHospitalizacion() {
+		return ordenesHospitalizacion;
+	}
+
+	public void setOrdenesHospitalizacion(List<OrdenHospitalizacion> ordenesHospitalizacion) {
+		this.ordenesHospitalizacion = ordenesHospitalizacion;
+	}
+
 	public String getTiempo() {
 		return tiempo;
 	}
@@ -74,7 +83,6 @@ public class HospitalizacionController implements Serializable {
 		this.observacionesOrdenPro = observacionesOrdenPro;
 	}
 
-	
 	public String getHoraInicio() {
 		return horaInicio;
 	}
@@ -107,8 +115,6 @@ public class HospitalizacionController implements Serializable {
 		this.tiempoestimado = tiempoestimado;
 	}
 
-	
-
 	public TipoHospitalizacion getTipoHospitalizacion() {
 		return tipoHospitalizacion;
 	}
@@ -120,23 +126,20 @@ public class HospitalizacionController implements Serializable {
 	@EJB
 	private CitaEJB citaEJB;
 
-
 	@EJB
 	private HospitalizacionEJB hospitalizacionEJB;
-	
+
 	@EJB
 	private CamaEJB camaEJB;
-	
+
 	@EJB
 	private OrdenHospitalizacionEJB ordenHoEJB;
-	
-	
-	@PostConstruct
-	public void inicializar(){
-		tipoHospitalizaciones = hospitalizacionEJB.listarTipoHospitalizacion();
-	}
-	
 
+	@PostConstruct
+	public void inicializar() {
+		tipoHospitalizaciones = hospitalizacionEJB.listarTipoHospitalizacion();
+		ordenesHospitalizacion = ordenHoEJB.listarOrdenes();
+	}
 
 	/**
 	 * Crea una hospitalización
@@ -146,13 +149,13 @@ public class HospitalizacionController implements Serializable {
 			Hospitalizacion hospi = new Hospitalizacion();
 			hospi.setNombre(nombre);
 			hospi.setObservaciones(observacionesOrdenPro);
-			hospi.setTiempoEstimado(tiempoestimado + " " + 	tiempo);
+			hospi.setTiempoEstimado(tiempoestimado + " " + tiempo);
 			hospi.setTipo(CitaAvanzadaEnum.Hospitalización);
 			hospi.setTipoHospitalizacion(tipoHospitalizacion);
 			hospitalizacionEJB.crearHospitalizacion(hospi);
 			OrdenHospitalizacion ordHos = new OrdenHospitalizacion();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-			Date horaIni = dateFormat.parse(fecha + " " + horaInicio);	
+			Date horaIni = dateFormat.parse(fecha + " " + horaInicio);
 			ordHos.setHoraInicio(horaIni);
 			ordHos.setHospitalizacion(hospi);
 			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
@@ -174,7 +177,17 @@ public class HospitalizacionController implements Serializable {
 		}
 
 	}
-	
+
+	public void finalizarOrdenHospitalizacion(OrdenHospitalizacion ord) {
+		ord.setEstado(false);
+		ord.setHoraFinal(generarFechaActual());
+		ord.setFechaFinal(generarFechaActual());
+		ord.getCama().setDisponibilidad(true);
+		ordenHoEJB.actualizarOrden(ord);
+		ordenesHospitalizacion = ordenHoEJB.listarOrdenes();
+		Messages.addFlashGlobalInfo("ORDEN DE HOSPITALIZACIÓN FINALIZADA CORRECTAMENTE,LA CAMA N° "
+				+ ord.getCama().getNumero() + " ESTA DISPONIBLE NUEVAMENTE");
+	}
 
 	/**
 	 * Limpia los campos de registro
@@ -186,6 +199,17 @@ public class HospitalizacionController implements Serializable {
 		fecha = "";
 		horaInicio = "";
 		tiempo = "";
+	}
+
+	/**
+	 * Genera la fecha actual del sistema
+	 * 
+	 * @return
+	 */
+	public Date generarFechaActual() {
+		Calendar fechaHora = Calendar.getInstance();
+		Date fecha = fechaHora.getTime();
+		return fecha;
 	}
 
 }

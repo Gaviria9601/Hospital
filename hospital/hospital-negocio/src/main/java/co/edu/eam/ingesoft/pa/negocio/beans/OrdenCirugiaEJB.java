@@ -35,5 +35,13 @@ public class OrdenCirugiaEJB {
 				.setParameter(1, cedulaCodigo).getResultList();
 		return lista;
 	}
+	
+	/**
+	 * 
+	 * @param ord
+	 */
+	public void actualizarOrden(OrdenCirugia ord){
+		em.merge(ord);
+	}
 
 }

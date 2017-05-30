@@ -3,6 +3,7 @@ package co.edu.eam.ingesoft.pa.hospital.web.controladores;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -246,10 +247,12 @@ public class CirugiaController implements Serializable {
 	
 	@Inject
 	private SessionController sesion;
+	
+	Usuario usu;
 
 	@PostConstruct
 	public void inicializar() {
-		Usuario usu = sesion.getUsuario();
+		usu = sesion.getUsuario();
 		especializaciones = medicoEJB.listarEspecializaciones();
 		tipoCirugias = cirugiaEJB.listarTiposCirugias();
 		cirugias = cirugiaEJB.listarCirugias();
@@ -418,6 +421,30 @@ public class CirugiaController implements Serializable {
 		cedulaMedico = "";
 	}
 	
+	/**
+	 * 
+	 * @param ord
+	 */
+	public void finalizarOrdenCirugia(OrdenCirugia ord){
+		ord.setEstado(false);
+		ord.setHoraFinal(generarFechaActual());
+		ord.getQuirofano().setDisponibilidad(true);
+		ordenCirugiaEJB.actualizarOrden(ord);
+		ordenesCirugia = ordenCirugiaEJB.listarOrdenes(usu.getCedula());
+		Messages.addFlashGlobalInfo("ORDEN DE CIRUGIA FINALIZADA CORRECTAMENTE, EL QUIROFANO N° " +
+		 ord.getQuirofano().getCodigo() + " ESTA DISPONIBLE NUEVAMENTE");
+
+	}
+	
+	/**
+	 * Genera la fecha actual del sistema
+	 * @return
+	 */
+	public Date generarFechaActual() {
+		Calendar fechaHora = Calendar.getInstance();
+		Date fecha = fechaHora.getTime();
+		return fecha;
+	}
 	
 	
 

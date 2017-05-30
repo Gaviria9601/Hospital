@@ -2,6 +2,7 @@ package co.edu.eam.ingesoft.pa.hospital.web.controladores;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -11,8 +12,12 @@ import javax.servlet.http.HttpSession;
 import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 
+import co.edu.eam.ingesoft.hospital.entidades.Especializacion;
+import co.edu.eam.ingesoft.hospital.entidades.Medico;
 import co.edu.eam.ingesoft.hospital.entidades.Usuario;
+import co.edu.eam.ingesoft.hospital.entidades.itemMedico;
 import co.edu.eam.ingesoft.hospital.enumeraciones.TipoUsuarioEnum;
+import co.edu.eam.ingesoft.pa.negocio.beans.MedicoEJB;
 import co.edu.eam.ingesoft.pa.negocio.beans.SeguridadEJB;
 
 @Named("sessionControl")
@@ -27,6 +32,9 @@ public class SessionController implements Serializable {
 
 	@EJB
 	private SeguridadEJB segEJB;
+
+	@EJB
+	private MedicoEJB medEJB;
 
 	/**
 	 * Logea un usuario al sistema
@@ -88,6 +96,14 @@ public class SessionController implements Serializable {
 
 	public boolean isSesionMedico() {
 		return tipoUsuario.equals(TipoUsuarioEnum.Medico) && usuario != null;
+	}
+
+	public boolean isSesionMedicoEsp() {
+		List<itemMedico> item=null;
+		if(tipoUsuario.equals(TipoUsuarioEnum.Medico)){
+		item = medEJB.buscarespMedico(usuario.getCedula());
+		}
+		return tipoUsuario.equals(TipoUsuarioEnum.Medico) && !item.isEmpty() && usuario != null;
 	}
 
 	public boolean isSesionPaciente() {

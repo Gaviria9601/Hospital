@@ -75,4 +75,5 @@ public class ExamenEJB {
 		return (List<TipoExamen>) em.createNamedQuery(TipoExamen.LISTAR_TIPO_EXAMEN).getResultList();
 	}
 	
+	
 }

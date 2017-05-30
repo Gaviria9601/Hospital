@@ -35,8 +35,13 @@ public class OrdenMedicamentoEJB {
 					    " where p.cedula = ?1 ",OrdenMedicamento.class).setParameter(1, cedula).getResultList();
 	}
 	
+	/**
+	 * 
+	 * @param om
+	 */
 	public void entregar(OrdenMedicamento om){
-		em.merge(om);
+		OrdenMedicamentoPK ord = new OrdenMedicamentoPK(om.getCitaCodigo().getCodigo(),om.getMedicamentosCodigo().getCodigo());
+		em.merge(em.find(OrdenMedicamento.class,ord));
 	}
 	
 
@@ -53,7 +58,7 @@ public class OrdenMedicamentoEJB {
 		OrdenMedicamento itemdef = buscarOrdenMedicamento(codigocita, medicamentoCodigo);
 		Cita cita = em.find(Cita.class, codigocita);
 		Medicamento med = em.find(Medicamento.class, medicamentoCodigo);
-		OrdenMedicamento orden = new OrdenMedicamento(cantidad, formula, cita, med, true);
+		OrdenMedicamento orden = new OrdenMedicamento(cantidad, formula, cita, med, false);
 		if (itemdef == null) {
 			em.persist(orden);
 		} else {

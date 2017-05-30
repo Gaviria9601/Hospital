@@ -7,13 +7,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name = OrdenHospitalizacion.LISTAR_ORDEN_HOSPITALIZACION,query="select orden from OrdenHospitalizacion orden where orden.estado = true")
+})
 @Table(name = "OrdenHospitalizacion")
 public class OrdenHospitalizacion extends OrdenProcedimiento implements Serializable {
+	
+	public static final String LISTAR_ORDEN_HOSPITALIZACION = "ListarOrdenHospitalizacion";
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="Hora_Inicio")

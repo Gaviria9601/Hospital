@@ -9,9 +9,71 @@
 	<ui:define name="cuerpo">
 
 		<h2 class="title-style-1">
-			Ordenes Examen<span class="title-under"></span>
+			Ordenes Pendientes Examen<span class="title-under"></span>
 		</h2>
 		<h:form prependId="false">
+
+			<p:dataTable id="tablaOrdExamenes" paginator="true" rows="10"
+				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+				rowsPerPageTemplate="10,15,20"
+				value="#{examenController.ordenesExamen}" var="ordExa" border="1"
+				emptyMessage="No hay examenes en el momento">
+				<f:facet name="header">
+           				Ordenes Examenes
+        				</f:facet>
+				<p:column headerText="Gestionar Resultado Examen" style="width:100px">
+					<p:rowToggler />
+				</p:column>
+				<p:column headerText="Cedula Paciente"
+					filterBy="#{ordExa.citaCodigo.pacienteUsuarioCedula.cedula}"
+					filterMatchMode="contains">
+					<h:outputLabel
+						value="#{ordExa.citaCodigo.pacienteUsuarioCedula.cedula}" />
+				</p:column>
+				<p:column headerText="Examen">
+					<h:outputLabel value="#{ordExa.examen.nombre}" />
+				</p:column>
+
+				<p:column headerText="Tipo Examen">
+					<h:outputLabel value="#{ordExa.examen.tipoExamen.nombre}" />
+				</p:column>
+
+				<p:column headerText="Descripción">
+					<h:outputLabel value="#{ordExa.examen.observaciones}" />
+				</p:column>
+
+				<p:column headerText="Fecha">
+					<h:outputLabel value="#{ordExa.fecha}" />
+				</p:column>
+
+				<p:column headerText="Hora Inicio">
+					<h:outputLabel value="#{ordExa.horaInicio}" />
+				</p:column>
+
+				<p:column headerText="Accion">
+					<p:commandButton icon="ui-icon-script"
+						action="#{examenController.finalizarOrdenExamen(ordExa)}"
+						process="@this" value="Finalizar Examen" update="tablaOrdExamenes" />
+				</p:column>
+				<p:rowExpansion>
+						<p:panelGrid columns="6" styleClass="ui-noborder" style="width:1300px">
+							<p:outputLabel for="tfcdesc" id="lblcdesc" value="Descripción:" />
+							<p:inputTextarea id="tfcdesc"
+								value="#{examenController.observacionesResultado}" rows="4"
+								cols="25" />
+							<p:message for="tfcdesc" />
+
+							<p:outputLabel value="Fecha: " />
+							<p:inputText id="date" value="#{examenController.fechaResultado}"
+								a:placeholder="Año-Mes-Dia" />
+							<p:message for="date" />
+						</p:panelGrid>
+				</p:rowExpansion>
+			</p:dataTable>
+
+			<br />
+
+
 
 		</h:form>
 	</ui:define>

@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name=OrdenCirugia.LISTAR_CIRUGIAS_MEDICO,query="select orden from OrdenCirugia orden where orden.medico.cedula=?1")
+	@NamedQuery(name=OrdenCirugia.LISTAR_CIRUGIAS_MEDICO,query="select orden from OrdenCirugia orden where orden.medico.cedula=?1 and orden.estado = true")
 })
 @Table(name = "OrdenCirugia")
 public class OrdenCirugia extends OrdenProcedimiento implements Serializable {

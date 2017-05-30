@@ -221,14 +221,19 @@
 										href="#{request.contextPath}/paginas/seguro/agenda-medico.xhtml">Agenda
 											Medico</a></li>
 									<li class="has-child"><a href="#">Ordenes
-											Procedimientos</a>
+											Pendientes</a>
 										<ul class="submenu">
+											<h:panelGroup rendered="#{sessionControl.sesionMedicoEsp}">
+												<li class="submenu-item"><a
+													href="#{request.contextPath}/paginas/seguro/ordenesCirugia.xhtml">Ordenes
+														Cirugia</a></li>
+											</h:panelGroup>
 											<li class="submenu-item"><a
-												href="#{request.contextPath}/paginas/seguro/ordenesCirugia.xhtml">Ordenes Cirugia</a></li>
+												href="#{request.contextPath}/paginas/seguro/ordenesExamen.xhtml">Ordenes
+													Examen</a></li>
 											<li class="submenu-item"><a
-												href="#{request.contextPath}/paginas/seguro/ordenesExamen.xhtml">Ordenes Examen</a></li>
-											<li class="submenu-item"><a
-												href="#{request.contextPath}/paginas/seguro/ordenesHospitalizacion.xhtml">Ordenes Hospitalización</a></li>
+												href="#{request.contextPath}/paginas/seguro/ordenesHospitalizacion.xhtml">Ordenes
+													Hospitalización</a></li>
 										</ul></li>
 								</h:panelGroup>
 								<h:panelGroup rendered="#{sessionControl.sesionPaciente}">

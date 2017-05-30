@@ -3,6 +3,7 @@ package co.edu.eam.ingesoft.pa.hospital.web.controladores;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +18,9 @@ import org.primefaces.context.RequestContext;
 
 import co.edu.eam.ingesoft.hospital.entidades.Cita;
 import co.edu.eam.ingesoft.hospital.entidades.Examen;
+import co.edu.eam.ingesoft.hospital.entidades.OrdenCirugia;
 import co.edu.eam.ingesoft.hospital.entidades.OrdenExamen;
+import co.edu.eam.ingesoft.hospital.entidades.ResultadoExamen;
 import co.edu.eam.ingesoft.hospital.entidades.TipoExamen;
 import co.edu.eam.ingesoft.hospital.enumeraciones.CitaAvanzadaEnum;
 import co.edu.eam.ingesoft.pa.negocio.beans.CitaEJB;
@@ -56,6 +59,36 @@ public class ExamenController implements Serializable {
 	
 	private String horaInicio;
 	
+	private List<OrdenExamen> ordenesExamen;
+	
+	private String observacionesResultado;
+	
+	private Date fechaResultado;
+	
+	
+	public Date getFechaResultado() {
+		return fechaResultado;
+	}
+
+	public void setFechaResultado(Date fechaResultado) {
+		this.fechaResultado = fechaResultado;
+	}
+
+	public String getObservacionesResultado() {
+		return observacionesResultado;
+	}
+
+	public void setObservacionesResultado(String observacionesResultado) {
+		this.observacionesResultado = observacionesResultado;
+	}
+
+	public List<OrdenExamen> getOrdenesExamen() {
+		return ordenesExamen;
+	}
+
+	public void setOrdenesExamen(List<OrdenExamen> ordenesExamen) {
+		this.ordenesExamen = ordenesExamen;
+	}
 
 	public String getTiempo() {
 		return tiempo;
@@ -169,6 +202,8 @@ public class ExamenController implements Serializable {
 	public void inicializar() {
 		examenes = examenEJB.listarExamenes();
 		tipoExamenes = examenEJB.listarTipoExamenes();
+		ordenesExamen = ordenExamenEJB.listarOrdenes();
+		
 	}
 
 	/**
@@ -300,6 +335,36 @@ public class ExamenController implements Serializable {
 		horaInicio = "";
 		examen = null;
 	}
+	
+	/**
+	 * 
+	 * @param ord
+	 */
+	public void finalizarOrdenExamen(OrdenExamen ord){
+		ResultadoExamen res = new ResultadoExamen();
+		res.setObservaciones(observacionesResultado);
+		res.setFecha(fechaResultado);
+		res.setOrdenCitaAvanzada(ord);
+		ordenExamenEJB.agregarResultadoExamen(res);
+		ord.setEstado(false);
+		ord.setHoraFinal(generarFechaActual());
+		ordenExamenEJB.actualizarOrden(ord);
+		ordenesExamen = ordenExamenEJB.listarOrdenes();
+		Messages.addFlashGlobalInfo("ORDEN DE EXAMEN FINALIZADA CORRECTAMENTE,EL RESULTADO ESTA PROCESADO"
+				+ " CORRECTAMENTE");
+
+	}
+	
+	/**
+	 * Genera la fecha actual del sistema
+	 * @return
+	 */
+	public Date generarFechaActual() {
+		Calendar fechaHora = Calendar.getInstance();
+		Date fecha = fechaHora.getTime();
+		return fecha;
+	}
+	
 
 	
 	

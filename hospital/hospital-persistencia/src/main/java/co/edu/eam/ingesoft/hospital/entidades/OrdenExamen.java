@@ -7,14 +7,21 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@NamedQueries({
+	@NamedQuery(name=OrdenExamen.LISTAR_ORDEN_EXAMEN,query="select orden from OrdenExamen orden where orden.estado = true")
+})
 @Table(name = "OrdenExamen")
 public class OrdenExamen extends OrdenProcedimiento implements Serializable {
 
+	public static final String LISTAR_ORDEN_EXAMEN = "ListarOrdenExamen";
+	
 	@ManyToOne
 	@JoinColumn(name = "Examen_codigo")
 	private Examen examen;

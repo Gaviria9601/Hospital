@@ -9,7 +9,7 @@
 	<ui:define name="cuerpo">
 
 		<h2 class="title-style-1">
-			Ordenes Cirugia<span class="title-under"></span>
+			Ordenes Pendientes Cirugia<span class="title-under"></span>
 		</h2>
 		<h:form prependId="false">
 
@@ -21,8 +21,11 @@
 				<f:facet name="header">
            				Ordenes Cirugia
         				</f:facet>
-				<p:column headerText="Cedula Paciente">
-					<h:outputLabel value="#{ordCir.cirugia.nombre}" />
+				<p:column headerText="Cedula Paciente"
+					filterBy="#{ordCir.citaCodigo.pacienteUsuarioCedula.cedula}"
+					filterMatchMode="contains">
+					<h:outputLabel
+						value="#{ordCir.citaCodigo.pacienteUsuarioCedula.cedula}" />
 				</p:column>
 				<p:column headerText="Cirugia">
 					<h:outputLabel value="#{ordCir.cirugia.nombre}" />
@@ -45,14 +48,13 @@
 				</p:column>
 
 				<p:column headerText="Accion">
-					<p:commandButton action="#{patologiaController.eliminar(pato)}"
+					<p:commandButton icon="ui-icon-script"
+						action="#{cirugiaController.finalizarOrdenCirugia(ordCir)}"
 						process="@this" value="Finalizar Cirugia"
-						update="tablaOrdCirugias" />
+						update="tablaOrdCirugias"/>
 				</p:column>
 
 			</p:dataTable>
-
-
 
 			<br />
 

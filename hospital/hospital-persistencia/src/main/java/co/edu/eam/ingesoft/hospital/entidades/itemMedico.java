@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
@@ -21,8 +23,13 @@ import org.hibernate.annotations.Cascade;
  */
 @Entity
 @Table(name="Item_medico")
+@NamedQueries({
+	@NamedQuery(name = itemMedico.LISTAR_MEDICO_ESP,query="select itm from itemMedico itm where itm.medicoUsuarioCedula.cedula=?1")
+})
 @IdClass(ItemMedicoPk.class)
 public class itemMedico implements Serializable{
+	
+	public static final String LISTAR_MEDICO_ESP = "ListarMedicoEsp";
 	
 	@Id
 	@ManyToOne 
