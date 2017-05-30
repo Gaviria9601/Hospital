@@ -29,4 +29,8 @@ public class OrdenMedicamentoEJB {
 	public void entregar(OrdenMedicamento om){
 		em.merge(om);
 	}
+	
+	public void crearOrden(OrdenMedicamento om){
+		em.persist(om);
+	}
 }
