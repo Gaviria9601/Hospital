@@ -21,6 +21,9 @@
 				<f:facet name="header">
            				Ordenes Cirugia
         				</f:facet>
+				<p:column headerText="Cedula Paciente">
+					<h:outputLabel value="#{ordCir.cirugia.nombre}" />
+				</p:column>
 				<p:column headerText="Cirugia">
 					<h:outputLabel value="#{ordCir.cirugia.nombre}" />
 				</p:column>
@@ -34,14 +37,24 @@
 				</p:column>
 
 				<p:column headerText="Fecha">
-					<h:outputLabel value="#{ordCir.fecha}"/>
+					<h:outputLabel value="#{ordCir.fecha}" />
 				</p:column>
 
 				<p:column headerText="Hora Inicio">
 					<h:outputLabel value="#{ordCir.horaInicio}" />
 				</p:column>
 
+				<p:column headerText="Accion">
+					<p:commandButton action="#{patologiaController.eliminar(pato)}"
+						process="@this" value="Finalizar Cirugia"
+						update="tablaOrdCirugias" />
+				</p:column>
+
 			</p:dataTable>
+
+
+
+			<br />
 
 		</h:form>
 

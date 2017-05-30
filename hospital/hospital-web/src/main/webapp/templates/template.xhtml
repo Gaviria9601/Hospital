@@ -220,9 +220,21 @@
 									<li class="has-child"><a
 										href="#{request.contextPath}/paginas/seguro/agenda-medico.xhtml">Agenda
 											Medico</a></li>
+									<li class="has-child"><a href="#">Ordenes
+											Procedimientos</a>
+										<ul class="submenu">
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/ordenesCirugia.xhtml">Ordenes Cirugia</a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/ordenesExamen.xhtml">Ordenes Examen</a></li>
+											<li class="submenu-item"><a
+												href="#{request.contextPath}/paginas/seguro/ordenesHospitalizacion.xhtml">Ordenes Hospitalización</a></li>
+										</ul></li>
 								</h:panelGroup>
 								<h:panelGroup rendered="#{sessionControl.sesionPaciente}">
-									<li><a href="#{request.contextPath}/paginas/seguro/gestion-horario.xhtml">Reserva Cita</a></li>
+									<li><a
+										href="#{request.contextPath}/paginas/seguro/gestion-horario.xhtml">Reserva
+											Cita</a></li>
 								</h:panelGroup>
 
 								<h:panelGroup rendered="#{sessionControl.sesion}">

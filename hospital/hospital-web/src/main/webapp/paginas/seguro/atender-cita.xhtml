@@ -8,7 +8,8 @@
 		<h:form prependId="false">
 
 			<h2 class="title-style-1">
-				Atender cita medica #{DatosManager.getCodigoCita()}<span class="title-under"></span>
+				Atender cita medica #{DatosManager.getCodigoCita()}<span
+					class="title-under"></span>
 			</h2>
 
 			<p:panel header="Patologias" id="panelpatologia"
@@ -41,8 +42,8 @@
 								process="@this,panelpatologia" value="Ver información" />
 						</a>
 						<br></br>
-						<p:commandButton action="#{AtenderCita.agregar(pato)}" process="@this,panelpatologia,tablaPatologias"
-							value="Agregar" />
+						<p:commandButton action="#{AtenderCita.agregar(pato)}"
+							process="@this,panelpatologia,tablaPatologias" value="Agregar" />
 					</p:column>
 
 				</p:dataTable>
@@ -107,19 +108,26 @@
 
 			</p:panel>
 
-			<p:outputLabel for="tfcdesc" id="lblcdesc" value="Descripción:" />
-			<p:inputTextarea id="tfcdesc" value="#{AtenderCita.descripcion}" />
-			<p:message for="tfcdesc" />
+			<p:panelGrid columns="2" cellpadding="20" styleClass="ui-noborder">
+
+				<p:outputLabel for="tfcdesc" id="lblcdesc" value="Descripción:" />
+				<p:inputTextarea id="tfcdesc" value="#{AtenderCita.descripcion}"
+					rows="4" cols="80" />
+				<p:message for="tfcdesc" />
+
+			</p:panelGrid>
 
 			<p:panel header="Acciones" id="panelacciones"
 				style="margin-bottom:20px" toggleable="true" toggleSpeed="500">
 
 
-				<p:commandButton update="" action="#{AtenderCita.ordenarProcedimiento()}"
+				<p:commandButton update=""
+					action="#{AtenderCita.ordenarProcedimiento()}"
 					process="@this,panelpatologia" value="Generar orden procedimientos" />
 
 
-				<p:commandButton update="" action="#{AtenderCita.ordenarMedicamentos()}"
+				<p:commandButton update=""
+					action="#{AtenderCita.ordenarMedicamentos()}"
 					process="@this,panelpatologia"
 					value="Generar orden de medicamentos" />
 

@@ -22,8 +22,8 @@
 				    </p:panelGrid>
 
 				<p:commandButton id="btnBuscar" value="Buscar ordenes"
-					process="@this,panelbus, bus"
-					update="paneldatos"
+					process="@this panelbus bus"
+					update="paneldatos bus"
 					action="#{ordenMedicamentoControlador.listarOrden}" 
 					ajax="true" />
                 </p:panel>
@@ -56,7 +56,7 @@
 					
                     <p:column headerText="Acciones">
 					<p:commandButton id="btnmodif" value="Entregar Medicamento"
-								process="@this,paneldatos"
+								process="@this paneldatos"
 								update="paneldatos"
 								action="#{ordenMedicamentoControlador.entregarMedi(tb)}" />
                      </p:column>

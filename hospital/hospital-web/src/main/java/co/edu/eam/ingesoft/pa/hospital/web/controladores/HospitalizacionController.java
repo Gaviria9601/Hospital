@@ -155,7 +155,6 @@ public class HospitalizacionController implements Serializable {
 			Date horaIni = dateFormat.parse(fecha + " " + horaInicio);	
 			ordHos.setHoraInicio(horaIni);
 			ordHos.setHospitalizacion(hospi);
-			ordHos.setCama(camaEJB.buscarCamaNormal(2));
 			SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
 			ordHos.setFecha(formatoDelTexto.parse(fecha));
 			ordHos.setObservaciones(observacionesOrdenPro);
